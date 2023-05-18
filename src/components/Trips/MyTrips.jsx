@@ -14,7 +14,7 @@
 //     "end_date" DATE
 //     );
 
-import EachTrip from "./EachTrip/EachTrip";
+import EachTrip from "../Trips/EachTrip";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
@@ -50,13 +50,13 @@ function MyTrips () {
         <h2>Welcome, {user.username}!</h2>
       
         </li>
-        {userTrip?.map((trip, i) => (
+        {/* {userTrip?.map((trip, i) => (
             <EachTrip
             key={i}
             trip ={trip}
             handleEditTrip={handleEditTrip}
              />
-        ))}
+        ))} */}
 
 
 

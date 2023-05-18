@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 function EachTrip() {
 
 
-const dispatch = useDispatch();
+// const dispatch = useDispatch();
 
 
 
