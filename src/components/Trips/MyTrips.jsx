@@ -50,13 +50,13 @@ function MyTrips () {
         <h2>Welcome, {user.username}!</h2>
       
         </li>
-        {/* {userTrip?.map((trip, i) => (
+        {userTrip?.map((trip, i) => (
             <EachTrip
             key={i}
             trip ={trip}
             handleEditTrip={handleEditTrip}
              />
-        ))} */}
+        ))}
 
 
 

@@ -14,7 +14,7 @@ function Categories () {
 
     return (
         <>
-        
+        <form>
         <li><Link>Guests Info</Link></li>
         <br />
         <li><Link>Flight Info</Link></li>
@@ -26,7 +26,7 @@ function Categories () {
         <li><Link>What to bring</Link></li>
         <br />
         
-        
+        </form>
         
         
         

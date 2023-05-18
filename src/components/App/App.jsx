@@ -18,7 +18,7 @@ import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import './App.css';
-import '../Trips/MyTrips.jsx'
+import MyTrips from '../Trips/MyTrips.jsx';
 function App() {
   const dispatch = useDispatch();
 
@@ -106,7 +106,28 @@ function App() {
               <LandingPage />
             }
           </Route>
-          
+
+
+
+
+          <ProtectedRoute
+            // logged in shows InfoPage else shows LoginPage
+            exact
+            path="/my_trips"
+          >
+            <MyTrips />
+          </ProtectedRoute> 
+
+
+
+
+
+
+
+
+
+
+
 
           {/* If none of the other routes matched, we will show a 404. */}
           <Route>
