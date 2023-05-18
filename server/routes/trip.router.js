@@ -65,3 +65,7 @@ router.get("/user", (req, res) => {
         res.sendStatus(500);
       });
   });
+
+
+
+  module.exports = router;
