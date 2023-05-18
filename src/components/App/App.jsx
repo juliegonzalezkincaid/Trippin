@@ -10,16 +10,13 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import Nav from '../Nav/Nav';
 import Footer from '../Footer/Footer';
-
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
-
 import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
 import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
-
 import './App.css';
 
 function App() {
@@ -109,6 +106,7 @@ function App() {
               <LandingPage />
             }
           </Route>
+          
 
           {/* If none of the other routes matched, we will show a 404. */}
           <Route>

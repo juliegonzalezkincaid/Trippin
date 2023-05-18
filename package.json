@@ -2,7 +2,7 @@
   "name": "prime-solo-project",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:5000",
+  "proxy": "http://localhost:5054",
   "engines": {
     "node": "18.x"
   },
@@ -40,7 +40,6 @@
     "production": [
       ">0.2%",
       "not dead",
-      "not ie <= 11",
       "not op_mini all"
     ],
     "development": [
