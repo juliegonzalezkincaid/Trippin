@@ -1,10 +1,18 @@
 import { Link } from 'react-router-dom';
-
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
+import { useEffect } from "react";
+import { useParams } from 'react-router-dom';
 
 
 
 function Categories () {
-
+    const dispatch = useDispatch();
+    const { id } = useParams();
+    const { selectedRecipe } = useSelector((store) => store.recipe);
+    const { user } = useSelector((store) => store);
+  
 
 
 

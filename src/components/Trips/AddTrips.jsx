@@ -12,34 +12,46 @@ import { useDispatch, useSelector } from 'react-redux';
 
 function AddTrips() {
     const history = useHistory();
-	const dispatch = useDispatch();
-    
+    const dispatch = useDispatch();
+    const { user } = useSelector((store) => store);
+   
 
     const [description, setDescription] = useState('');
-    const [startDate, setStartDate] = useState ('');
-    const [endDate, setEndDate]= useState ('');
+    const [startDate, setStartDate] = useState('');
+    const [endDate, setEndDate] = useState('');
 
-    const addToMyTrips = () => {
-        description.length === 0 ||
-        startDate.length === 0 ||
-        endDate.length === 0 ||
-        dispatch ({
-            type: 'AddTripSaga',
-            payload: {description, startDate, endDate},
-        }) &&history.push('/');
-    };
+    
 
     // stores input values into the held states 
-    const changeDescription= (event) =>{
+    const changeDescription = (event) => {
         setDescription(event.target.value);
     };
-    const changeStartDate= (event) =>{
+    const changeStartDate = (event) => {
         setStartDate(event.target.value);
     };
-    const changeEndDate= (event) =>{
+    const changeEndDate = (event) => {
         setEndDate(event.target.value);
     };
+    const handleSave = (event) => {
+        event.preventDefault();
+        
+        const tripData = {
+            userId: user.id,
+            description,
+            startDate,
+            endDate,
+          };
+      
+          dispatch({
+            type: "ADD_TRIP",
+            payload: tripData,
+          });
+      
+          history.push(`/user`);
+        };
+     
 
+        
 
 
 
@@ -68,19 +80,35 @@ function AddTrips() {
                     type="date"
                     onChange={changeEndDate}
                 />
-<button
-    onClick={addToMyTrips}>
-    Save
-</button>
-
-
+                <button onClick={handleSave}>Save</button>
 
             </form>
-
-
 
         </div>
     )
 }
 
 export default AddTrips;
+
+// const addToMyTrips = () => {
+    //     description.length === 0 ||
+    //         startDate.length === 0 ||
+    //         endDate.length === 0 ||
+    //         dispatch({
+    //             type: 'AddTripSaga',
+    //             payload: { description, startDate, endDate },
+    //         }) && history.push('/');
+    // };
+
+   // if (id) {
+        //     tripData.tripID = id;
+        //     dispatch({
+        //         type: "UPDATE_TRIP",
+        //         payload: tripData
+        //     });
+        // } else {
+        //     dispatch({
+        //         type: "ADD_TRIP",
+        //         payload: tripData
+        //     });
+        // }

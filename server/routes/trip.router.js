@@ -84,7 +84,7 @@ router.get("/user", (req, res) => {
       .query(queryText, [userID])
       .then((result) => {
         const trip = result.rows;
-        res.send(trips);
+        res.send(trip);
       })
       .catch((error) => {
         console.log("Error getting saved trips:", error);
