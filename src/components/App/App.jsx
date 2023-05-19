@@ -19,6 +19,7 @@ import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import './App.css';
 import MyTrips from '../Trips/MyTrips.jsx';
+import AddTrips from '../Trips/AddTrips.jsx';
 function App() {
   const dispatch = useDispatch();
 
@@ -117,6 +118,15 @@ function App() {
           >
             <MyTrips />
           </ProtectedRoute> 
+
+          <ProtectedRoute
+            // logged in shows InfoPage else shows LoginPage
+            exact
+            path="/add_trips"
+          >
+            <AddTrips />
+          </ProtectedRoute> 
+
 
 
 

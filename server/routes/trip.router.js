@@ -66,6 +66,67 @@ router.get("/user", (req, res) => {
       });
   });
 
+  router.get("/userSavedTrip/:id", (req, res) => {
+    const userID = req.params.id; // Retrieve the user ID from the request parameter
+  
+    const queryText = `
+      SELECT 
+        t.*, 
+        s."saveID" AS "saved"
+      FROM 
+        "trip" t
+        JOIN "save" s ON t."tripID" = s."tripID"
+      WHERE 
+        s."id" = $1;
+    `;
+  
+    pool
+      .query(queryText, [userID])
+      .then((result) => {
+        const trip = result.rows;
+        res.send(trips);
+      })
+      .catch((error) => {
+        console.log("Error getting saved trips:", error);
+        res.sendStatus(500);
+      });
+  });
+  
+  
+  router.get("/", (req, res) => {
+    const userID = req.user?.id;
+    const selectSaved = userID ? ', s."saveID" AS "saved"' : '';
+    
+    const queryText = `
+      SELECT 
+        t.*, 
+        u."id" AS "userID"
+        ${selectSaved}
+       
+      FROM 
+        "trip" t 
+        JOIN "user" u ON t."id" = u."id"
+        ${userID ? 'LEFT JOIN "save" s ON t."tripID" = s."recipeID" AND s."id" = $1' : ''}
+        
+      ORDER BY t."tripID" DESC;
+    `;
+  
+    const queryParams = userID ? [userID] : [];
+  
+    pool
+      .query(queryText, queryParams)
+      .then((result) => {
+        const trips = result.rows.map((trip) => ({
+          ...trip,
+        }));
+        res.send(trips);
+      })
+      .catch((error) => {
+        console.log("Error getting trips in triprouter:", error);
+        res.sendStatus(500);
+      });
+  });
+
 
 
   module.exports = router;
