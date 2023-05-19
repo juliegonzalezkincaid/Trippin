@@ -15,12 +15,9 @@ function AddTrips() {
     const dispatch = useDispatch();
     const { user } = useSelector((store) => store);
    
-
     const [description, setDescription] = useState('');
     const [startDate, setStartDate] = useState('');
     const [endDate, setEndDate] = useState('');
-
-    
 
     // stores input values into the held states 
     const changeDescription = (event) => {
@@ -49,31 +46,22 @@ function AddTrips() {
       
           history.push(`/user`);
         };
-     
-
-        
-
-
-
+   
     return (
         <div>
-
             <form>
                 Description:
                 <input
                     label="Description"
                     type="text"
                     onChange={changeDescription}
-
                 />
-
                 Start Date:
                 <input
                     label="Start Date"
                     type="date"
                     onChange={changeStartDate}
                 />
-
                 End Date:
                 <input
                     label="End Date"

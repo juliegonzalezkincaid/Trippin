@@ -20,6 +20,7 @@ import RegisterPage from '../RegisterPage/RegisterPage';
 import './App.css';
 import MyTrips from '../Trips/MyTrips.jsx';
 import AddTrips from '../Trips/AddTrips.jsx';
+import EachTrip from '../Trips/EachTrip.jsx';
 function App() {
   const dispatch = useDispatch();
 
@@ -126,6 +127,14 @@ function App() {
           >
             <AddTrips />
           </ProtectedRoute> 
+
+          <ProtectedRoute
+            // logged in shows InfoPage else shows LoginPage
+            exact
+            path="/each_trip"
+          >
+            <EachTrip />
+          </ProtectedRoute>
 
 
 

@@ -24,11 +24,10 @@ function MyTrips () {
     const dispatch = useDispatch();
     const history = useHistory();
     const { userTrip, savedTrips } = useSelector((store) => store.trip)
-    // const {userTrip} = useSelector((store) => store.trip);
     const user = useSelector((store) => store.user);
     
     useEffect(() => {
-     dispatch({ type: "FETCH_TRIPS" });
+    //  dispatch({ type: "FETCH_TRIPS" });
      dispatch({ type: "GET_SAVED_TRIPS", payload: user.id }); 
   }, [dispatch, user.id]);
 
@@ -39,8 +38,9 @@ function MyTrips () {
     dispatch({ type: "GET_TRIP_BY_ID", payload: data });
     history.push(`/edit/${tripID}`);
   };
+
   if (!userTrip || userTrip.length === 0) {
-  // if (userTrip?.length === 0) {
+  
     return (
       <div>
         <h2>Welcome, {user.username}!</h2>

@@ -8,11 +8,10 @@ const initialState = {
   function tripReducer (state = initialState,action) {
     switch (action.type){
         case "ADD_TRIP":
-            return {
-                ...state,
-                userTrip: [...state.userTrip, action.payload],
-                
-            };
+          return {
+            ...state,
+            userTrip: [...state.userTrip, action.payload],
+          };
       
             case "GET_SAVED_TRIPS_SUCCESS":
       return {

@@ -27,12 +27,9 @@ function EachTrip({ trip, handleEditTrip }) {
     const handleShowCategories = () => {
         history.push(`/categories/${trip.tripID}`);
     };
-
-
-
+    
     return (
 <>
-
 
 <li onClick={handleShowCategories}>Back to Categories</li>
 

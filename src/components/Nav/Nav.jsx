@@ -47,6 +47,10 @@ function Nav() {
         <Link className="navLink" to="/add_trips">
           Add Trips
         </Link>
+
+        <Link className="navLink" to="/each_trip">
+          Each Trip
+        </Link>
       </div>
     </div>
   );

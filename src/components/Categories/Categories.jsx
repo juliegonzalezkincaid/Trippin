@@ -31,7 +31,7 @@ function Categories () {
         <br />
         <li><Link>What to bring</Link></li>
         <br />
-        <li><Link>What to bring</Link></li>
+        <li><Link>Q&A, Notes</Link></li>
         <br />
         
         </form>
