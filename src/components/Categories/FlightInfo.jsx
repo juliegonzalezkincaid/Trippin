@@ -1,131 +1,132 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
-import { useEffect } from "react";
-import { useParams } from 'react-router-dom';
+import { useParams } from "react-router-dom";
 import { Button, TextField } from "@mui/material";
 
-function FlightInfo () {
-    const dispatch = useDispatch();
-    const { id } = useParams();
-   
-    const { user } = useSelector((store) => store);
+function FlightInfo() {
+  const dispatch = useDispatch();
+  const { id } = useParams();
+  const { user } = useSelector((store) => store);
 
+  const [formValues, setFormValues] = useState({
+    name: "",
+    date: "",
+    fromCity: "",
+    toCity: "",
+    airline: "",
+    flightNum: "",
+    departTime: "",
+    arrivalTime: "",
+  });
 
-    const [formValues, setFormValues] = useState({
-        name: "",
-        date: "",
-        fromCity: "",
-        toCity: "",
-        airline: "",
-        flightNum: "",
-        departTime: "",
-        arrivalTime: "",
-      });
-    
-      const handleChange = (event) => {
-        const { name, value } = event.target;
-        setFormValues((prevFormValues) => ({
-          ...prevFormValues,
-          [name]: value,
-        }));
-      };
-    
-      const handleSubmit = (event) => {
-        event.preventDefault();
-        // Dispatch form values to the appropriate action or store them as needed
-        // Example: dispatch({ type: "ADD_FLIGHT", payload: formValues });
-      };
-       
-    
-    
-      return (
-        
-       <>
-        <h2>Flight Information</h2>
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormValues((prevFormValues) => ({
+      ...prevFormValues,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // Dispatch form values to the appropriate action or store them as needed
+    // Example: dispatch({ type: "ADD_FLIGHT", payload: formValues });
+  };
+
+  return (
+    <>
+      <h2>Flight Information</h2>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="name">Name:</label>
-        <input
+        <TextField
           id="name"
+          label="Name"
           type="text"
           name="name"
           value={formValues.name}
           onChange={handleChange}
+          fullWidth
         />
 
-        <label htmlFor="date">Date:</label>
-        <input
+        <TextField
           id="date"
+          label="Date"
           type="date"
           name="date"
           value={formValues.date}
           onChange={handleChange}
+          fullWidth
         />
-        <label htmlFor="fromCity">From City:</label>
-        <input
+
+        <TextField
           id="fromCity"
+          label="From City"
           type="text"
           name="fromCity"
           value={formValues.fromCity}
           onChange={handleChange}
+          fullWidth
         />
 
-        <label htmlFor="toCity">To City:</label>
-        <input
+        <TextField
           id="toCity"
+          label="To City"
           type="text"
           name="toCity"
           value={formValues.toCity}
           onChange={handleChange}
+          fullWidth
         />
 
-        <label htmlFor="airline">Airline:</label>
-        <input
+        <TextField
           id="airline"
+          label="Airline"
           type="text"
           name="airline"
           value={formValues.airline}
           onChange={handleChange}
+          fullWidth
         />
-        
-        <label htmlFor="flightNum">Flight Number:</label>
-        <input
+
+        <TextField
           id="flightNum"
+          label="Flight Number"
           type="text"
           name="flightNum"
           value={formValues.flightNum}
           onChange={handleChange}
+          fullWidth
         />
 
-        <label htmlFor="departTime">Departure Time:</label>
-        <input
+        <TextField
           id="departTime"
+          label="Departure Time"
           type="text"
           name="departTime"
           value={formValues.departTime}
           onChange={handleChange}
+          fullWidth
         />
 
-        <label htmlFor="arrivalTime">Arrival Time:</label>
-        <input
+        <TextField
           id="arrivalTime"
+          label="Arrival Time"
           type="text"
           name="arrivalTime"
           value={formValues.arrivalTime}
           onChange={handleChange}
+          fullWidth
         />
 
-        <button type="submit">Submit</button>
+        <Button type="submit" variant="contained" color="primary">
+          Submit
+        </Button>
       </form>
-       
-       
-       
-       
-       </>
-      )
-    }
-    
-    export default FlightInfo;
+    </>
+  );
+}
+
+export default FlightInfo;
+
 
 
 

@@ -21,6 +21,9 @@ import './App.css';
 import MyTrips from '../Trips/MyTrips.jsx';
 import AddTrips from '../Trips/AddTrips.jsx';
 import EachTrip from '../Trips/EachTrip.jsx';
+import Categories from '../Categories/Categories.jsx';
+
+
 function App() {
   const dispatch = useDispatch();
 
@@ -136,6 +139,15 @@ function App() {
             <EachTrip />
           </ProtectedRoute>
 
+          <ProtectedRoute
+            exact
+            path="/categories">
+         
+            
+              
+              <Categories/>
+            
+          </ProtectedRoute>
 
 
 
