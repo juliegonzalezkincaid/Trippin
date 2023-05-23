@@ -29,6 +29,13 @@ function EachTrip({ trip, handleEditTrip }) {
     //     history.push(`/categories/${trip.tripID}`);
     // };
     
+   
+
+
+
+
+
+
     return (
 <>
 

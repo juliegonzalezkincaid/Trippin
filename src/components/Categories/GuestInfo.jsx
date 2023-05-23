@@ -29,10 +29,10 @@ function GuestInfo () {
     
       const handleSubmit = (event) => {
         event.preventDefault();
-        // Dispatch form values to the appropriate action or store them as needed
-        // Example: dispatch({ type: "ADD_GUEST_INFO", payload: formValues });
+        dispatch ({type: 'ADD_GUEST_INFO', payload: formValues });
+      
       };
-
+   
 
     return(
         <>

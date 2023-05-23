@@ -1,14 +1,20 @@
-const categoryReducer = (state = [], action) => {
-    switch (action.type) {
-        case 'SET_CATEGORIES':
-            return action.payload;
+// const initialState = {
+//     setCategories: [],
+    
+//   };
 
-            case 'SET_FLIGHT_INFO':
-               return action.payload ;
+
+// const categoryReducer = (state = initialState, action) => {
+//     switch (action.type) {
+//         case 'SET_CATEGORIES':
+//             return action.payload;
+
+//             // case 'SET_FLIGHT_INFO':
+//             //    return action.payload ;
           
-        default:
-            return state;
-    }
-}
+//         default:
+//             return state;
+//     }
+// }
 
-export default categoryReducer;
+// export default categoryReducer;

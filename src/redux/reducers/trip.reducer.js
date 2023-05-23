@@ -2,6 +2,7 @@ const initialState = {
   userTrip: [],
   savedTrips: [],
   setFlightInfo: [],
+  guestInfo: [],
 };
 
 function tripReducer(state = initialState, action) {
@@ -22,7 +23,7 @@ function tripReducer(state = initialState, action) {
       return {
         ...state,
         userTrip: state.userTrip.map((trip) =>
-          trip.id === action.payload.tripID ? action.payload : trip
+          trip.id === action.payload.id ? action.payload : trip
         ),
       };
 
@@ -36,6 +37,12 @@ function tripReducer(state = initialState, action) {
       return {
         ...state,
         setFlightInfo: [...state.setFlightInfo, action.payload],
+      };
+
+      case 'SET_GUEST_INFO':
+      return {
+        ...state,
+        guestInfo: action.payload,
       };
 
     default:

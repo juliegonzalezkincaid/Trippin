@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 import errors from './errors.reducer';
 import user from './user.reducer';
 import tripReducer from './trip.reducer';
-import categoryReducer from './category.reducer';
+// import categoryReducer from './category.reducer';
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
 // This is imported in index.js as rootSaga
@@ -12,8 +12,8 @@ import categoryReducer from './category.reducer';
 const rootReducer = combineReducers({
   errors, // contains registrationMessage and loginMessage
   user, // will have an id and username if someone is logged in
-  tripReducer,
-  categoryReducer,
+  trip: tripReducer,
+  // category: categoryReducer,
 });
 
 export default rootReducer;

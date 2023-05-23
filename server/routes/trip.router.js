@@ -2,15 +2,14 @@ const express = require("express");
 const pool = require("../modules/pool");
 const router = express.Router();
 
-/**
- * GET - get user's trips from database (user id)
- */
+
+//  */GET /: Retrieves the user's trips from the database based on the user ID. It returns an array of trips ordered by their IDs in descending order.
 router.get("/", (req, res) => {
   const userID = req.user?.id;
   const queryText = `
   SELECT * FROM "trip" AS t
   WHERE t."user_id" = $1
-  ORDER BY t."tripID" DESC;
+  ORDER BY t."id" DESC;
 `;
   
   const queryParams = [userID]; 
@@ -28,9 +27,9 @@ router.get("/", (req, res) => {
       res.sendStatus(500);
     });
 });
+//* GET /trip/:id: Retrieves a specific trip along with its associated save ID. It performs a join operation between the "trip" and "save" tables to get the trip information. The save ID is returned as "saved" in the response.
  router.get("/trip/:id", (req, res) => {
     const userID = req.params.id; // Retrieve the user ID from the request parameter
-  
     const queryText = `
       SELECT 
         t.*, 
@@ -54,6 +53,7 @@ router.get("/", (req, res) => {
       });
   });
 
+  // *GET /user/:userId/entries: Retrieves all entries associated with a specific user ID. It fetches the entries from the "entry" table based on the user ID provided.
   router.get("/user/:userId/entries", (req, res) => {
     const userId = req.params.userId;
     const queryText = `
@@ -74,10 +74,9 @@ router.get("/", (req, res) => {
       });
   });
   
-
+  //* POST /: Creates a new trip in the database along with its associated category. It begins a transaction and inserts a new category into the "category" table. Then, it inserts multiple trips into the "trip" table using the provided trip data in the request body. If all queries succeed, the transaction is committed; otherwise, it is rolled back.
 router.post('/', async (req, res) => {
   const db = await pool.connect();
-  // POST route code here
   try {
       // Tells Postgres to begin running the queries
       console.log('BEGIN transaction');
@@ -126,7 +125,7 @@ router.post('/', async (req, res) => {
 });
 
 
-
+// PUT /edit: Updates a trip in the database. It expects the updated trip data in the request body and performs an update query on the "trip" table using the provided information.
 router.put('/edit', (req, res) => {
   console.log('In PUT request');
   const updatedTrip = req.body;
@@ -136,8 +135,7 @@ router.put('/edit', (req, res) => {
   `UPDATE "trip" 
    SET "description" = $1, "start_date" = $2, "end_date" = $3
    WHERE "id" = $4;`;
-//     "start_date" DATE,
-//     "end_date" DATE
+
   pool.query(updateQuery,
     [
     updatedTrip.description,
@@ -155,7 +153,7 @@ router.put('/edit', (req, res) => {
     });
 });
 
-
+// DELETE /:id: Deletes a trip from the database based on the trip ID provided in the URL parameter.
   router.delete('/:id', (req, res) => {
     const deleteId = req.params.id;
     let queryText = `DELETE FROM "trip" WHERE "id"=$1;`;
@@ -171,8 +169,16 @@ router.put('/edit', (req, res) => {
         res.sendStatus(500);
     });
 });
-
-
+// GET /: Retrieves all categories from the "category" table and returns them in ascending order based on their IDs.
+router.get('/', (req, res) => {
+  const queryText = `SELECT * FROM "category" ORDER BY "id" ASC;`;
+  pool.query(queryText).then(result => {
+      res.send(result.rows);
+  }).catch((error) => {
+      console.log(`Error in GET all categories: ${error}`);
+      res.sendStatus(500);
+  })
+});
 
 
 

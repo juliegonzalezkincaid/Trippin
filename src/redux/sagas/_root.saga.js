@@ -17,7 +17,7 @@ export default function* rootSaga() {
     registrationSaga(),
     userSaga(),
     tripSaga(),
-    categorySaga(),
+    // categorySaga(),
   ]);
 }
 

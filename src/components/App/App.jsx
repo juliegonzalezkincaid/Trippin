@@ -22,6 +22,9 @@ import MyTrips from '../Trips/MyTrips.jsx';
 import AddTrips from '../Trips/AddTrips.jsx';
 import EachTrip from '../Trips/EachTrip.jsx';
 import Categories from '../Categories/Categories.jsx';
+import FlightInfo from '../Categories/FlightInfo.jsx';
+import GuestInfo from '../Categories/GuestInfo.jsx';
+
 
 
 function App() {
@@ -121,7 +124,7 @@ function App() {
             path="/my_trips"
           >
             <MyTrips />
-          </ProtectedRoute> 
+          </ProtectedRoute>
 
           <ProtectedRoute
             // logged in shows InfoPage else shows LoginPage
@@ -129,7 +132,7 @@ function App() {
             path="/add_trips"
           >
             <AddTrips />
-          </ProtectedRoute> 
+          </ProtectedRoute>
 
           <ProtectedRoute
             // logged in shows InfoPage else shows LoginPage
@@ -139,15 +142,31 @@ function App() {
             <EachTrip />
           </ProtectedRoute>
 
-          <ProtectedRoute
+          <Route
             exact
             path="/categories">
-         
-            
-              
-              <Categories/>
-            
-          </ProtectedRoute>
+
+
+
+            <Categories />
+
+          </Route>
+
+          <Route
+            exact
+            path="/flight_info" // Define the path for the flight info page
+          >
+            <FlightInfo /> 
+          </Route>
+
+
+          <Route
+            exact
+            path="/guest_info" // Define the path for the flight info page
+          >
+            <GuestInfo /> 
+          </Route>
+
 
           <ProtectedRoute
             // logged in shows InfoPage else shows LoginPage

@@ -1,6 +1,8 @@
 import { call, put, takeLatest, takeEvery, select } from "redux-saga/effects";
 import axios from "axios";
 
+
+
 function* getTripUser() {
   try {
     const response = yield call(axios.get, "/api/trip/user");
@@ -47,11 +49,21 @@ function* addTrip(action) {
 
 function* getFlightInfo() {
   try {
-    const response = yield call(axios.get, "/api/trip");
-    yield put({ type: "GET_FLIGHT_INFO", payload: response.data });
+    const response = yield call(axios.get, "/api/flight_info");
+    yield put({ type: "GET_FLIGHT_INFO_SUCCESS", payload: response.data });
   } catch (error) {
     console.log("Error getting saved flights in getFlightInfo saga:", error);
     yield put({ type: "GET_FLIGHT_INFO_ERROR" });
+  }
+}
+
+function* addGuestInfoSaga(action) {
+  try {
+    const { guestInfo } = action.payload;
+    // Dispatch an action to store the guest information in the trip reducer
+    yield put({ type: 'SET_GUEST_INFO', payload: guestInfo });
+  } catch (error) {
+    console.log('Error adding guest information:', error);
   }
 }
 
@@ -63,6 +75,7 @@ function* tripSaga() {
   yield takeLatest("GET_SAVED_TRIPS", getSavedTrips);
   yield takeLatest("ADD_TRIP", addTrip);
   yield takeLatest("GET_FLIGHT_INFO", getFlightInfo);
+  yield takeLatest("ADD_GUEST_INFO", addGuestInfoSaga);
 }
 
 export default tripSaga;

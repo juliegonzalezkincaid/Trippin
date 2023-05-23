@@ -24,7 +24,7 @@ function Categories() {
       <ul>
         <li>
           <Avatar sx={{ bgcolor: 'primary.main' }}>
-            <Link to="/guest-info">
+            <Link to="/guest_info">
               <PeopleIcon sx={{ fontSize: 32 }} />
             </Link>
           </Avatar>
@@ -32,7 +32,7 @@ function Categories() {
         <br />
         <li>
           <Avatar sx={{ bgcolor: 'secondary.main' }}>
-            <Link to="/flight-info">
+            <Link to="/flight_info">
               <FlightIcon sx={{ fontSize: 32 }} />
             </Link>
           </Avatar>
@@ -48,7 +48,7 @@ function Categories() {
         <br />
         <li>
           <Avatar sx={{ bgcolor: 'warning.main' }}>
-            <Link to="/what-to-bring">
+            <Link to="/suit_case">
               <LuggageIcon sx={{ fontSize: 32 }} />
             </Link>
           </Avatar>
@@ -56,7 +56,7 @@ function Categories() {
         <br />
         <li>
           <Avatar sx={{ bgcolor: 'info.main' }}>
-            <Link to="/q-and-a-notes">
+            <Link to="/misc">
               <PsychologyAltIcon sx={{ fontSize: 32 }} />
             </Link>
           </Avatar>
@@ -65,11 +65,11 @@ function Categories() {
       </ul>
 
       <Switch>
-        <Route path="/guest-info" component={GuestInfo} />
-        <Route path="/flight-info" component={FlightInfo} />
+        <Route path="/guest_info" component={GuestInfo} />
+        <Route path="/flight_info" component={FlightInfo} />
         <Route path="/lodging" component={Lodging} />
-        <Route path="/what-to-bring" component={Suitcase} />
-        <Route path="/q-and-a-notes" component={Misc} />
+        <Route path="/suit_case" component={Suitcase} />
+        <Route path="/misc" component={Misc} />
       </Switch>
     </>
   );
