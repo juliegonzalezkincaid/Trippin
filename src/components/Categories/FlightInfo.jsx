@@ -29,7 +29,7 @@ function FlightInfo() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch ({type: 'SET_FLIGHT_INFO'});
+    dispatch ({type: 'SET_FLIGHT_INFO', payload: formValues });
     // Dispatch form values to the appropriate action or store them as needed
     // Example: dispatch({ type: "ADD_FLIGHT", payload: formValues });
   }

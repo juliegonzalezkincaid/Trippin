@@ -1,19 +1,24 @@
-import React from 'react';
+import React, { useEffect }  from 'react';
+import { useDispatch } from 'react-redux';
 import { Link, Route, Switch } from 'react-router-dom';
 import { Avatar } from '@mui/material';
 import FlightIcon from '@mui/icons-material/Flight';
 import PeopleIcon from '@mui/icons-material/People';
 import HotelIcon from '@mui/icons-material/Hotel';
-import NotesIcon from '@mui/icons-material/Notes';
-import LuggageIcon from '@mui/icons-material/LocalShipping';
-
+import LuggageIcon from '@mui/icons-material/Luggage';
 import FlightInfo from '../Categories/FlightInfo';
 import GuestInfo from '../Categories/GuestInfo';
 import Lodging from '../Categories/Lodging';
 import Misc from '../Categories/Misc';
 import Suitcase from '../Categories/SuitCase';
+import PsychologyAltIcon from '@mui/icons-material/PsychologyAlt';
 
 function Categories() {
+    const dispatch = useDispatch();
+    useEffect(() => {
+        // Dispatch the 'FETCH_CATEGORIES' action when the component mounts
+        dispatch({ type: 'FETCH_CATEGORIES' });
+      }, []);
   return (
     <>
       <ul>
@@ -52,7 +57,7 @@ function Categories() {
         <li>
           <Avatar sx={{ bgcolor: 'info.main' }}>
             <Link to="/q-and-a-notes">
-              <NotesIcon sx={{ fontSize: 32 }} />
+              <PsychologyAltIcon sx={{ fontSize: 32 }} />
             </Link>
           </Avatar>
         </li>
