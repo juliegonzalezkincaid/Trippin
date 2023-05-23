@@ -1,6 +1,7 @@
 
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from 'react-router-dom';
+import Categories from "../Categories/Categories";
 // import EditIcon from "@mui/icons-material/Edit";
 
 // import DeleteIcon from '@mui/icons-material/Delete';
@@ -24,14 +25,16 @@ function EachTrip({ trip, handleEditTrip }) {
     };
 
     // pushes to the categories page
-    const handleShowCategories = () => {
-        history.push(`/categories/${trip.tripID}`);
-    };
+    // const handleShowCategories = () => {
+    //     history.push(`/categories/${trip.tripID}`);
+    // };
     
     return (
 <>
 
-<li onClick={handleShowCategories}>Back to Categories</li>
+{/* <li onClick={handleShowCategories}>Back to Categories</li> */}
+
+<Categories>Back To Categories</Categories>
 
 <li onClick={() => handleDeleteTrip(trip?.tripID)}>Delete Trip
 {/* <DeleteIcon sx={{ fontSize: 18 }} /> */}

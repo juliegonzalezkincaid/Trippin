@@ -1,47 +1,125 @@
 const initialState = {
-     userTrip:[],
-     savedTrips:[],
-  };
+  userTrip: [],
+  savedTrips: [],
+  setFlightInfo: [],
+};
 
-// const initialState = null;
+function tripReducer(state = initialState, action) {
+  switch (action.type) {
+    case "ADD_TRIP":
+      return {
+        ...state,
+        userTrip: [...state.userTrip, action.payload],
+      };
 
-  function tripReducer (state = initialState,action) {
-    switch (action.type){
-        case "ADD_TRIP":
-          return {
-            ...state,
-            userTrip: [...state.userTrip, action.payload],
-          };
-      
-            case "GET_SAVED_TRIPS_SUCCESS":
+    case "GET_SAVED_TRIPS_SUCCESS":
       return {
         ...state,
         savedTrips: action.payload,
       };
 
-      case "UPDATE_TRIP":
+    case "UPDATE_TRIP":
       return {
         ...state,
         userTrip: state.userTrip.map((trip) =>
           trip.id === action.payload.tripID ? action.payload : trip
         ),
       };
-            default:
-        return state;
-    }
 
+    case "SAVE_TRIP":
+      return {
+        ...state,
+        userTrip: [...state.userTrip, action.payload],
+      };
 
+    case "SET_FLIGHT_INFO":
+      return {
+        ...state,
+        setFlightInfo: [...state.setFlightInfo, action.payload],
+      };
 
-
-
-
-
+    default:
+      return state;
   }
+}
 
-  export default tripReducer;
+export default tripReducer;
 
-  //       case "SAVE_TRIP":
-      // return {
-      //   ...state,
-      //   savedTrips: [...state.savedTrips, action.payload],
-      // };
+
+
+
+// 
+
+//      userTrip:[],
+//      savedTrips:[],
+//      setFlightInfo: [],
+    
+//   };
+
+
+   
+//      function tripReducer (state = initialState,action) {
+//        switch (action.type){
+//         case "ADD_TRIP":
+//         return {
+//         ...state,
+//         userTrip: [...state.userTrip, action.payload],
+//         };
+         
+//         case "GET_SAVED_TRIPS_SUCCESS":
+//         return {
+//           ...state,
+//           savedTrips: action.payload,
+//         };
+   
+
+//         case "UPDATE_TRIP":
+//         return {
+//         ...state,
+//         userTrip: state.userTrip.map((trip) =>
+//         trip.id === action.payload.tripID ? action.payload : trip
+//         ),
+//         };
+        
+
+//         case "SAVE_TRIP":
+//         return {
+//         ...state,
+//         userTrip: [...state.userTrip, action.payload],
+//         };
+//       const initialState = null;
+
+//        case "SET_FLIGHT_INFO":
+//        return {
+//        ...state,
+//        setFlightInfo: [...state.setFlightInfo, action.payload],
+//           };
+  
+  
+//     default:
+//     return state;
+//     }
+//   }
+
+//   export default tripReducer;
+
+  
+
+  // function tripReducer (state = initialState,action) {
+  //   switch (action.type){
+  //       case "ADD_TRIP":
+  //         return {
+  //           ...state,
+  //           userTrip: [...state.userTrip, action.payload],
+  //         };
+      
+      //       case "GET_SAVED_TRIPS_SUCCESS":
+      // return action.payload;
+
+    //   const initialState = {
+    //     userTrip:[],
+    //     savedTrips:[],
+    //  };
+   
+   // const initialState = null;
+

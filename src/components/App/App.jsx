@@ -149,6 +149,14 @@ function App() {
             
           </ProtectedRoute>
 
+          <ProtectedRoute
+            // logged in shows InfoPage else shows LoginPage
+            exact
+            path="/my_trips"
+          >
+            <MyTrips />
+          </ProtectedRoute>
+
 
 
 
