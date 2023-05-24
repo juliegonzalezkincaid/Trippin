@@ -24,7 +24,7 @@ import EachTrip from '../Trips/EachTrip.jsx';
 import Categories from '../Categories/Categories.jsx';
 import FlightInfo from '../Categories/FlightInfo.jsx';
 import GuestInfo from '../Categories/GuestInfo.jsx';
-
+import Lodging from '../Categories/Lodging.jsx';
 
 
 function App() {
@@ -165,6 +165,13 @@ function App() {
             path="/guest_info" // Define the path for the flight info page
           >
             <GuestInfo /> 
+          </Route>
+
+          <Route
+            exact
+            path="/lodging" // Define the path for the flight info page
+          >
+            <Lodging/> 
           </Route>
 
 

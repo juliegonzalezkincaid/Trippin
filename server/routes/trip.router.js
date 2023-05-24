@@ -17,32 +17,27 @@ router.get("/", (req, res) => {
   pool
     .query(queryText, queryParams)
     .then((result) => {
-      const trips = result.rows.map((trip) => ({
-        ...trip,
-      }));
-      res.send(trips);
+     res.send (result.rows);
     })
     .catch((error) => {
-      console.log("Error getting trips in triprouter:", error);
+      console.log("Erro getting trips in triprouter:", error);
       res.sendStatus(500);
     });
 });
 //* GET /trip/:id: Retrieves a specific trip along with its associated save ID. It performs a join operation between the "trip" and "save" tables to get the trip information. The save ID is returned as "saved" in the response.
  router.get("/trip/:id", (req, res) => {
-    const userID = req.params.id; // Retrieve the user ID from the request parameter
+    const tripID = req.params.id; // Retrieve the user ID from the request parameter
     const queryText = `
       SELECT 
         t.*, 
-        s."saveID" AS "saved"
       FROM 
         "trip" t
-        JOIN "save" s ON t."id" = s."tripID"
-      WHERE 
-        s."id" = $1;
+   WHERE 
+        t."id" = $1;
     `;
   
     pool
-      .query(queryText, [userID])
+      .query(queryText, [tripID])
       .then((result) => {
         const trip = result.rows;
         res.send(trip);
@@ -74,53 +69,29 @@ router.get("/", (req, res) => {
       });
   });
   
-  //* POST /: Creates a new trip in the database along with its associated category. It begins a transaction and inserts a new category into the "category" table. Then, it inserts multiple trips into the "trip" table using the provided trip data in the request body. If all queries succeed, the transaction is committed; otherwise, it is rolled back.
-router.post('/', async (req, res) => {
-  const db = await pool.connect();
+  //* POST /: Creates a new trip in the database.
+router.post('/', async (req, res) => { 
+  // Data from the client (form)
+  const trip = req.body;
   try {
-      // Tells Postgres to begin running the queries
-      console.log('BEGIN transaction');
-      await db.query('BEGIN');
-
-      const insertCategoryQuery = 
-      `INSERT INTO "category" ("type") 
-      VALUES ($1) 
-      RETURNING "id";`;
-      
-      console.log('Executing query:', insertCategoryQuery);
-      const result = await db.query(insertCategoryQuery, [req.body.type]);
-      // TODO: We should make sure that rows.length is > 0
-      const categoryId = result.rows[0].id;
-      console.log('New category ID:', categoryId);
-
-      // const trip = [];
       const insertTripQuery = 
       `INSERT INTO "trip" 
       ("user_id", "description", "start_date", "end_date") 
       VALUES ($1, $2, $3, $4);`;
       
-      for(let trip of req.body.trips) {
-          await db.query(insertTripQuery,[
-            trip.user_id,
-            trip.description,
-            trip.start_date,
-            trip.end_date,
-          ]);
+      await pool.query(insertTripQuery,[
+        req.user.id, // the logged in user
+        trip.description,
+        trip.startDate,
+        trip.endDate,
+      ]);
+  
+      console.log('Inserted trip:', trip);
       
-          console.log('Inserted trip:', trip);
-      }
-      
-
-      // Commits all of the queries
-      console.log('COMMIT transaction');
-      await db.query('COMMIT');
       res.sendStatus(200);
   } catch (error) {
-      console.log(`ROLLBACK ${error}`);
-      await db.query('ROLLBACK');
+      console.log(error);
       res.sendStatus(500);
-  } finally {
-      db.release();
   }
 });
 
@@ -169,16 +140,7 @@ router.put('/edit', (req, res) => {
         res.sendStatus(500);
     });
 });
-// GET /: Retrieves all categories from the "category" table and returns them in ascending order based on their IDs.
-router.get('/', (req, res) => {
-  const queryText = `SELECT * FROM "category" ORDER BY "id" ASC;`;
-  pool.query(queryText).then(result => {
-      res.send(result.rows);
-  }).catch((error) => {
-      console.log(`Error in GET all categories: ${error}`);
-      res.sendStatus(500);
-  })
-});
+
 
 
 

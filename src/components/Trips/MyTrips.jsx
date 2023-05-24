@@ -1,18 +1,4 @@
 
-// CREATE TABLE "entry" (
-//     "id" INTEGER PRIMARY KEY,
-//     "user_id" INTEGER ,
-//     "category_id" INTEGER, 
-//     "entry_text" VARCHAR,
-//     "created_at" TIMESTAMP
-//     )
-// CREATE TABLE "trip" (
-//     "id" INTEGER PRIMARY KEY,
-//     "user_id" INTEGER,
-//     "description" VARCHAR,
-//     "start_date" DATE,
-//     "end_date" DATE
-//     );
 
 import EachTrip from "../Trips/EachTrip";
 import React, { useEffect } from "react";
@@ -27,17 +13,25 @@ function MyTrips () {
     const user = useSelector((store) => store.user);
     
     useEffect(() => {
-    //  dispatch({ type: "FETCH_TRIPS" });
+     dispatch({ type: "FETCH_TRIPS" });
      dispatch({ type: "GET_SAVED_TRIPS", payload: user.id }); 
-  }, []);
+  }, [dispatch, user.id]);
+
+
 
   // Fetch saved trips for current user
  
-    const handleEditTrip = (tripID) => {
-    const data = { tripID, id: user.id };
-    dispatch({ type: "GET_TRIP_BY_ID", payload: data });
-    history.push(`/edit/${tripID}`);
+  //   const handleEditTrip = (tripID) => {
+  //   const data = { tripID, id: user.id };
+  //   dispatch({ type: "GET_TRIP_BY_ID", payload: data });
+  //   history.push(`/edit/${tripID}`);
+  // };
+  const handleEditTrip = (trip) => {
+    dispatch({ type: "EDIT_TRIP", payload: trip });
+    history.push(`/edit/${trip.tripID}`);
   };
+  
+
 
   if (!userTrip || userTrip.length === 0) {
   
@@ -54,15 +48,26 @@ function MyTrips () {
         <h2>Welcome, {user.username}!</h2>
         <p>My Trips:</p>
         {userTrip.map((trip) => (
-          <EachTrip key={trip.id} trip={trip} handleEditTrip={handleEditTrip} />
+          <EachTrip 
+          key={trip.id} 
+          trip={trip} 
+          handleEditTrip={handleEditTrip}
+          savedTrips={savedTrips}
+          />
         ))}
   
         <h2>Saved Trips:</h2>
-        {savedTrips.length === 0 ? (
-          <p>No saved trips to show...yet!</p>
-        ) : (
+         {savedTrips.length === 0 ? (
+        <p>No saved trips to show...yet!</p>
+          ) : (
           savedTrips.map((trip) => (
-            <EachTrip key={trip.id} trip={trip} handleEditTrip={handleEditTrip} />
+      
+      <EachTrip 
+            key={trip.id} 
+            trip={trip} 
+            handleEditTrip={handleEditTrip} 
+            savedTrips={savedTrips}
+            />
           ))
         )}
       </div>
@@ -71,19 +76,6 @@ function MyTrips () {
 
 export default MyTrips;
 
-
-//     return (
-//         <div>
-        
-//         <h2>Welcome, {user.username}!</h2>
-
-//         <li>My Trips!!!</li>
-//       </div>
-//     );
-//   }
-//   return (
-//     <div>
-      
 //       {userTrip?.map((trip, i) => (
 //         <EachTrip key={i} trip={trip} handleEditTrip={handleEditTrip} />
 //       ))}

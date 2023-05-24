@@ -3,15 +3,57 @@ const initialState = {
   savedTrips: [],
   setFlightInfo: [],
   guestInfo: [],
+  lodging: [],
+  misc: [],
+  trips:[],
 };
 
 function tripReducer(state = initialState, action) {
   switch (action.type) {
+    // case "ADD_TRIP":
+    //   return {
+    //     ...state,
+    //     userTrip: [...state.userTrip, action.payload],
+    //   };
     case "ADD_TRIP":
-      return {
-        ...state,
-        userTrip: [...state.userTrip, action.payload],
-      };
+  return {
+    ...state,
+    userTrip: [
+      ...state.userTrip,
+      {
+        ...action.payload,
+        description: action.payload.description,
+        startDate: action.payload.startDate,
+        endDate: action.payload.endDate,
+      },
+    ],
+  };
+
+
+  case "DELETE_TRIP":
+    // return {
+    //   ...state,
+    //   userTrip: state.userTrip.filter((trip) => trip.id !== action.payload),
+    // };
+     // Filter out the trip with the specified tripID
+     const updatedUserTrips = state.userTrip.filter(
+      (trip) => trip.tripID !== action.payload
+    );
+    // Return the updated state with the filtered trips
+    return {
+      ...state,
+      userTrip: updatedUserTrips,
+    };
+
+
+  case "EDIT_TRIP":
+    return {
+      ...state,
+      userTrip: state.userTrip.map((trip) =>
+        trip.id === action.payload.id ? action.payload : trip
+      ),
+    };
+
 
     case "GET_SAVED_TRIPS_SUCCESS":
       return {
@@ -27,11 +69,25 @@ function tripReducer(state = initialState, action) {
         ),
       };
 
+    // case "SAVE_TRIP":
+    //   return {
+    //     ...state,
+    //     userTrip: [...state.userTrip, action.payload],
+    //   };
     case "SAVE_TRIP":
       return {
         ...state,
-        userTrip: [...state.userTrip, action.payload],
+        userTrip: [
+          ...state.userTrip,
+          {
+            ...action.payload,
+            description: action.payload.description,
+            startDate: action.payload.startDate,
+            endDate: action.payload.endDate,
+          },
+        ],
       };
+
 
     case "SET_FLIGHT_INFO":
       return {
@@ -44,6 +100,19 @@ function tripReducer(state = initialState, action) {
         ...state,
         guestInfo: action.payload,
       };
+      case 'SET_LODGING':
+        return {
+          ...state,
+          lodging:action.payload,
+        };
+
+        case 'SET_MISC':
+          return {
+            ...state,
+            misc:action.payload,
+          };
+      
+
 
     default:
       return state;

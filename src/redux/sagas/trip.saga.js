@@ -2,17 +2,6 @@ import { call, put, takeLatest, takeEvery, select } from "redux-saga/effects";
 import axios from "axios";
 
 
-
-function* getTripUser() {
-  try {
-    const response = yield call(axios.get, "/api/trip/user");
-    yield put({ type: "GET_TRIP_USER", payload: response.data });
-  } catch (error) {
-    console.log("Error in tripsaga:", error);
-    yield put({ type: "GET_TRIP_USER_ERROR" });
-  }
-}
-
 function* saveTrip(action) {
   try {
     const userId = yield select((state) => state.user.id);
@@ -39,43 +28,40 @@ function* getSavedTrips(action) {
 function* addTrip(action) {
   try {
     yield call(axios.post, "/api/trip", action.payload);
-    yield put({ type: "ADD_TRIP" });
-    yield put({ type: "GET_TRIP_USER" });
+    yield put({ type: "GET_SAVED_TRIPS" });
   } catch (error) {
     console.log("Error adding trip:", error);
     yield put({ type: "ADD_TRIP_ERROR" });
   }
 }
-
-function* getFlightInfo() {
+function* deleteTrip(action) {
   try {
-    const response = yield call(axios.get, "/api/flight_info");
-    yield put({ type: "GET_FLIGHT_INFO_SUCCESS", payload: response.data });
+    yield call(axios.delete, `/api/trip/${action.payload}`);
+    yield put({ type: "DELETE_TRIP_SUCCESS", payload: action.payload });
   } catch (error) {
-    console.log("Error getting saved flights in getFlightInfo saga:", error);
-    yield put({ type: "GET_FLIGHT_INFO_ERROR" });
+    console.log("Error deleting trip in deleteTrip saga:", error);
+    yield put({ type: "DELETE_TRIP_ERROR" });
   }
 }
 
-function* addGuestInfoSaga(action) {
+function* editTrip(action) {
   try {
-    const { guestInfo } = action.payload;
-    // Dispatch an action to store the guest information in the trip reducer
-    yield put({ type: 'SET_GUEST_INFO', payload: guestInfo });
+    const { id, ...data } = action.payload;
+    yield call(axios.put, `/api/trip/${id}`, data);
+    yield put({ type: "EDIT_TRIP_SUCCESS", payload: action.payload });
   } catch (error) {
-    console.log('Error adding guest information:', error);
+    console.log("Error editing trip in editTrip saga:", error);
+    yield put({ type: "EDIT_TRIP_ERROR" });
   }
 }
+
 
 function* tripSaga() {
-  yield takeEvery("GET_TRIP_USER", function* () {
-    yield call(getTripUser);
-  });
   yield takeLatest("SAVE_TRIP", saveTrip);
   yield takeLatest("GET_SAVED_TRIPS", getSavedTrips);
   yield takeLatest("ADD_TRIP", addTrip);
-  yield takeLatest("GET_FLIGHT_INFO", getFlightInfo);
-  yield takeLatest("ADD_GUEST_INFO", addGuestInfoSaga);
+  yield takeLatest("DELETE_TRIP", deleteTrip);
+  yield takeLatest("EDIT_TRIP", editTrip);
 }
 
 export default tripSaga;
