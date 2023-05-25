@@ -6,6 +6,7 @@ const initialState = {
   lodging: [],
   misc: [],
   trips:[],
+  suitCase:[],
 };
 
 function tripReducer(state = initialState, action) {
@@ -111,6 +112,12 @@ function tripReducer(state = initialState, action) {
             ...state,
             misc:action.payload,
           };
+
+          case 'SET_SUITCASE':
+            return {
+              ...state,
+              suitCase:action.payload,
+            };
       
 
 

@@ -4,9 +4,10 @@ import EachTrip from "../Trips/EachTrip";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-
-
-function MyTrips () {
+import { Button } from "@mui/material";
+import { Link, Route } from 'react-router-dom';
+import EditTrip from "../Trips/EditTrip";
+function MyTrips ({trips}) {
     const dispatch = useDispatch();
     const history = useHistory();
     const { userTrip, savedTrips } = useSelector((store) => store.trip)
@@ -19,19 +20,13 @@ function MyTrips () {
 
 
 
-  // Fetch saved trips for current user
  
-  //   const handleEditTrip = (tripID) => {
-  //   const data = { tripID, id: user.id };
-  //   dispatch({ type: "GET_TRIP_BY_ID", payload: data });
-  //   history.push(`/edit/${tripID}`);
-  // };
   const handleEditTrip = (trip) => {
     dispatch({ type: "EDIT_TRIP", payload: trip });
     history.push(`/edit/${trip.tripID}`);
   };
   
-
+ 
 
   if (!userTrip || userTrip.length === 0) {
   
@@ -54,15 +49,17 @@ function MyTrips () {
           handleEditTrip={handleEditTrip}
           savedTrips={savedTrips}
           />
+         
         ))}
-  
+   <Button component={Link} to="/add_trips">
+          Add a Trip
+        </Button>
         <h2>Saved Trips:</h2>
          {savedTrips.length === 0 ? (
         <p>No saved trips to show...yet!</p>
           ) : (
           savedTrips.map((trip) => (
-      
-      <EachTrip 
+            <EachTrip 
             key={trip.id} 
             trip={trip} 
             handleEditTrip={handleEditTrip} 
@@ -70,6 +67,8 @@ function MyTrips () {
             />
           ))
         )}
+     <Route path="/edit_trip/:tripId" component={EditTrip} />
+
       </div>
     );
   }
@@ -87,3 +86,10 @@ export default MyTrips;
 //     </div>
 //   );
 // }
+ // Fetch saved trips for current user
+ 
+  //   const handleEditTrip = (tripID) => {
+  //   const data = { tripID, id: user.id };
+  //   dispatch({ type: "GET_TRIP_BY_ID", payload: data });
+  //   history.push(`/edit/${tripID}`);
+  // };

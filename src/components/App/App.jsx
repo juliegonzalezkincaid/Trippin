@@ -25,6 +25,10 @@ import Categories from '../Categories/Categories.jsx';
 import FlightInfo from '../Categories/FlightInfo.jsx';
 import GuestInfo from '../Categories/GuestInfo.jsx';
 import Lodging from '../Categories/Lodging.jsx';
+import SuitCase from '../Categories/SuitCase.jsx';
+import Misc from '../Categories/Misc.jsx';
+import EditTrip from "../Trips/EditTrip.jsx";
+
 
 
 function App() {
@@ -174,6 +178,24 @@ function App() {
             <Lodging/> 
           </Route>
 
+
+          <Route
+            exact
+            path="/suit_case" // Define the path for the flight info page
+          >
+            <SuitCase/> 
+          </Route>
+
+
+          <Route
+            exact
+            path="/misc" // Define the path for the flight info page
+          >
+            <Misc/> 
+          </Route>
+
+
+          <Route exact path="/trips/:tripId/edit" component={EditTrip} />
 
           <ProtectedRoute
             // logged in shows InfoPage else shows LoginPage
