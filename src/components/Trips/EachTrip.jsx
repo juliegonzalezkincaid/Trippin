@@ -52,7 +52,7 @@ function EachTrip({ trip, handleEditTrip, savedTrips }) {
         <TableCell>{trip && trip.startDate}</TableCell>
         <TableCell>{trip && trip.endDate}</TableCell>
                 <Button
-                    onClick={() => handleDeleteTrip(trip.tripID)}
+                    onClick={() => handleDeleteTrip(trip.id)}
                     className={`${
                         isHoveredDelete ? "delete-hovered" : ""
                     } delete-container`}
@@ -62,11 +62,10 @@ function EachTrip({ trip, handleEditTrip, savedTrips }) {
                     <DeleteIcon />
                     Delete Trip
                 </Button>
-                <Button
+                    <Button
         component={Link}
         to={`/trips/${trip.id}/edit`}
-        className={`${
-          isHoveredEdit ? "edit-hovered" : ""
+        className={`${isHoveredEdit ? "edit-hovered" : ""
         } edit-container`}
         onMouseEnter={() => setIsHoveredEdit(true)}
         onMouseLeave={() => setIsHoveredEdit(false)}

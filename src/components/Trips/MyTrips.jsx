@@ -27,8 +27,8 @@ function MyTrips ({trips}) {
   };
   
  
-
-  if (!userTrip || userTrip.length === 0) {
+  if (!userTrip) {
+  // if (!userTrip || userTrip.length === 0) {
   
     return (
       <div>
