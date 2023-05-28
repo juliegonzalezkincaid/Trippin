@@ -11,7 +11,7 @@ function Nav() {
   return (
     <div className="nav">
       <Link to="/home">
-        <h2 className="nav-title">Trippin</h2>
+        <h1 className="nav-title">Trippin</h1>
       </Link>
       <div>
         {/* If no user is logged in, show these links */}
@@ -49,9 +49,9 @@ function Nav() {
           Add Trips
         </Link>
 
-        <Link className="navLink" to="/each_trip">
+        {/* <Link className="navLink" to="/each_trip">
           Each Trip
-        </Link>
+        </Link> */}
 
 
         <Link className="navLink" to="/categories">

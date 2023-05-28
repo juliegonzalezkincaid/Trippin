@@ -17,9 +17,15 @@
   }
 
   .avatar {
-    width: 80px; /* Increase the width for avatars */
-    height: 80px; /* Increase the height for avatars */
+    width: 90px; /* Increase the width for avatars */
+    height: 90px; /* Increase the height for avatars */
     border-radius: 50%; /* Make them form a circle */
   }
 
-  
+  .lodging-container {
+    background-image: url(/public/sky4.jpeg);
+    background-size:100% 800%; 
+    font-style: italic;
+    font-stretch: wider;
+    font-family: Helvetica;
+  }
