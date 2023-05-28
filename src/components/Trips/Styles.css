@@ -1,0 +1,30 @@
+.my-trips-container {
+    background-image: url(/public/sky.jpg);
+    background-size:100% 100%; 
+    
+    
+    /* Add other background properties as needed */
+  }
+
+  .my-trips-container h2 {
+    border: 3px solid black;
+    font-size: 40px;
+    font-weight: bold;
+    font-family: 'Helvetica', Arial, sans-serif;
+    
+  }
+  
+  .my-trips-container p {
+    font-size: 40px;
+    font-weight: bold;
+    font-family: 'Helvetica', Arial, sans-serif;
+    color: #52F8CA;
+
+  }
+  
+  .my-trips-container .no-trips-message {
+    font-size: 16px;
+    font-weight: bold;
+    font-family: 'Helvetica', Arial, sans-serif;
+
+  }

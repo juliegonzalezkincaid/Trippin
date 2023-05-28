@@ -12,6 +12,7 @@ import Lodging from '../Categories/Lodging';
 import Misc from '../Categories/Misc';
 import Suitcase from '../Categories/SuitCase';
 import PsychologyAltIcon from '@mui/icons-material/PsychologyAlt';
+import './Categories.css';
 
 function Categories() {
     const dispatch = useDispatch();
@@ -19,45 +20,67 @@ function Categories() {
         // Dispatch the 'FETCH_CATEGORIES' action when the component mounts
         dispatch({ type: 'FETCH_CATEGORIES' });
       }, []);
-  return (
-    <>
-      <ul>
+  
+  
+      return (
+    <div className='cat'>
+      <ul >
         <li>
-          <Avatar sx={{ bgcolor: 'primary.main' }}>
+          <Avatar 
+          className= 'icon-avatar'
+          sx={{ bgcolor: 'primary.main' }}>
             <Link to="/guest_info">
-              <PeopleIcon sx={{ fontSize: 32 }} />
+              <PeopleIcon 
+              className= 'icon-avatar'
+              sx={{ fontSize: 32 }} />
             </Link>
           </Avatar>
         </li>
         <br />
         <li>
-          <Avatar sx={{ bgcolor: 'secondary.main' }}>
+          <Avatar 
+          className= 'icon-avatar'
+          sx={{ bgcolor: 'secondary.main' }}>
             <Link to="/flight_info">
-              <FlightIcon sx={{ fontSize: 32 }} />
+              <FlightIcon
+              className= 'icon-avatar'
+              sx={{ fontSize: 32 }} />
             </Link>
           </Avatar>
         </li>
         <br />
         <li>
-          <Avatar sx={{ bgcolor: 'error.main' }}>
+          <Avatar
+          className= 'icon-avatar'
+           sx={{ bgcolor: 'error.main' }}>
             <Link to="/lodging">
-              <HotelIcon sx={{ fontSize: 32 }} />
+              <HotelIcon 
+              className= 'icon-avatar'
+              sx={{ fontSize: 32 }} />
             </Link>
           </Avatar>
         </li>
         <br />
         <li>
-          <Avatar sx={{ bgcolor: 'warning.main' }}>
+          <Avatar 
+          className= 'icon-avatar'
+          sx={{ bgcolor: 'warning.main' }}>
             <Link to="/suit_case">
-              <LuggageIcon sx={{ fontSize: 32 }} />
+              <LuggageIcon 
+              className= 'icon-avatar'
+              sx={{ fontSize: 32 }} />
             </Link>
           </Avatar>
         </li>
         <br />
         <li>
-          <Avatar sx={{ bgcolor: 'info.main' }}>
+          <Avatar 
+          className= 'icon-avatar'
+          sx={{ bgcolor: 'info.main' }}>
             <Link to="/misc">
-              <PsychologyAltIcon sx={{ fontSize: 32 }} />
+              <PsychologyAltIcon
+              className= 'icon-avatar'
+              sx={{ fontSize: 32 }} />
             </Link>
           </Avatar>
         </li>
@@ -71,10 +94,10 @@ function Categories() {
         <Route path="/suit_case" component={Suitcase} />
         <Route path="/misc" component={Misc} />
       </Switch>
-    </>
+    </div>
   );
 }
-
+ 
 export default Categories;
 
 

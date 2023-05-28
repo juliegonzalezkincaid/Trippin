@@ -23,10 +23,10 @@ function EachTrip({ trip, handleEditTrip, savedTrips }) {
     // const [editedTrip, setEditedTrip] = useState(null);
     // 
     // allows user to edit their trip
-    console.log('Trip:', trip);
+   
 
     const handleDeleteTrip = (tripID) => {
-        dispatch({ type: "DELETE_TRIP", payload: tripID });
+        dispatch({ type: "DELETE_TRIP", payload: tripID, savedTrips });
     };
 
     // allows user to edit their trip
@@ -45,55 +45,56 @@ function EachTrip({ trip, handleEditTrip, savedTrips }) {
 
 
     return (
-    
-              <TableRow>
-        <TableCell>{trip && trip.tripName}</TableCell>
-        <TableCell>{trip && trip.description}</TableCell>
-        <TableCell>{trip && trip.startDate}</TableCell>
-        <TableCell>{trip && trip.endDate}</TableCell>
-                <Button
-                    onClick={() => handleDeleteTrip(trip.id)}
-                    className={`${
-                        isHoveredDelete ? "delete-hovered" : ""
-                    } delete-container`}
-                    onMouseEnter={() => setIsHoveredDelete(true)}
-                    onMouseLeave={() => setIsHoveredDelete(false)}
-                >
-                    <DeleteIcon />
-                    Delete Trip
-                </Button>
-                    <Button
-        component={Link}
-        to={`/trips/${trip.id}/edit`}
-        className={`${isHoveredEdit ? "edit-hovered" : ""
-        } edit-container`}
-        onMouseEnter={() => setIsHoveredEdit(true)}
-        onMouseLeave={() => setIsHoveredEdit(false)}
-      >
-        <EditIcon />
-        Edit Trip
-      </Button>
-                {/* <Button
-                    onClick={handleEditClick(trip)}
-                    className={`${isHoveredEdit ? "edit-hovered" : ""
-                    } edit-container`}
-                    onMouseEnter={() => setIsHoveredEdit(true)}
-                    onMouseLeave={() => setIsHoveredEdit(false)}
-                >
-                    <EditIcon />
-                    Edit Trip
-                </Button> */}
-<Button component={Link} to="/categories">
-  Back to Categories
-</Button>
-{/* <EditIcon />
-                    Edit Trip
-<Link to={`/trips/${trip.id}/edit`}>EditT</Link> */}
-           
-            </TableRow>
-  );
-
-};
-
-
-export default EachTrip;
+        <TableRow>
+        <TableCell>
+          <div>{trip && trip.tripName}</div>
+        </TableCell>
+        <TableCell>
+          <div>{trip && trip.description}</div>
+        </TableCell>
+        <TableCell>
+          <div>{trip && trip.startDate}</div>
+        </TableCell>
+        <TableCell>
+          <div>{trip && trip.endDate}</div>
+        </TableCell>
+        <TableCell>
+          <div>
+            <Button
+              onClick={() => handleDeleteTrip(trip.id)}
+              className={`${isHoveredDelete ? "delete-hovered" : ""} delete-container`}
+              onMouseEnter={() => setIsHoveredDelete(true)}
+              onMouseLeave={() => setIsHoveredDelete(false)}
+            >
+              <DeleteIcon />
+              Delete Trip
+            </Button>
+          </div>
+        </TableCell>
+        <TableCell>
+          <div>
+            <Button
+              onClick={handleEditClick}
+              component={Link}
+              to={`/trips/${trip.id}/edit`}
+              className={`${isHoveredEdit ? "edit-hovered" : ""} edit-container`}
+              onMouseEnter={() => setIsHoveredEdit(true)}
+              onMouseLeave={() => setIsHoveredEdit(false)}
+            >
+              <EditIcon />
+              Edit Trip
+            </Button>
+          </div>
+        </TableCell>
+        <TableCell>
+          <div>
+            <Button component={Link} to="/categories">
+              Back to Categories
+            </Button>
+          </div>
+        </TableCell>
+      </TableRow>
+    );
+  }
+  
+  export default EachTrip;

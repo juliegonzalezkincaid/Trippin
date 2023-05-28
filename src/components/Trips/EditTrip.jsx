@@ -54,6 +54,7 @@ return (
           onChange={handleDescriptionChange}
           fullWidth
           required
+          margin="normal"
         />
         <TextField
           label="Start Date"
@@ -65,6 +66,7 @@ return (
           InputLabelProps={{
             shrink: true,
           }}
+          margin="normal"
         />
         <TextField
           label="End Date"
@@ -76,6 +78,7 @@ return (
           InputLabelProps={{
             shrink: true,
           }}
+          margin="normal"
         />
         <Button type="submit" variant="contained" color="primary" fullWidth>
           Update

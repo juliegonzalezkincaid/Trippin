@@ -44,6 +44,8 @@ function* deleteTrip(action) {
   }
 }
 
+
+
 function* editTrip(action) {
   try {
     const { id, ...data } = action.payload;

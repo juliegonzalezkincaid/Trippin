@@ -10,6 +10,7 @@ const initialState = {
 };
 
 function tripReducer(state = initialState, action) {
+ console.log(state.userTrip)
   switch (action.type) {
     // case "ADD_TRIP":
     //   return {
@@ -32,29 +33,54 @@ function tripReducer(state = initialState, action) {
 
 
   case "DELETE_TRIP":
+    
+     console.log("delete trip reducer", action.payload)
+     console.log("state in delete trip",state.userTrip )
+
+     const updatedUserTrips = state.userTrip.filter(
+      (trip) => trip.tripID !== action.payload
+    );
+    return {
+      ...state,
+      userTrip: updatedUserTrips,
+    };
     // return {
     //   ...state,
     //   userTrip: state.userTrip.filter((trip) => trip.id !== action.payload),
     // };
      // Filter out the trip with the specified tripID
-     const updatedUserTrips = state.userTrip.filter(
-      (trip) => trip.tripID !== action.payload
-    );
     // Return the updated state with the filtered trips
-    return {
-      ...state,
-      userTrip: updatedUserTrips,
-    };
+    
+    // return {
+    //   ...state,
+    //   userTrip: updatedUserTrips,
+    // };
+
+    // return {
+    //   ...state,
+    //   userTrip: state.userTrip.filter((trip) => trip.id !== action.payload),
+    // };
+   
+  
 
 
+
+  // case "EDIT_TRIP":
+  //   return {
+  //     ...state,
+  //     userTrip: state.userTrip.map((trip) =>
+  //       trip.id === action.payload.id ? action.payload : trip
+  //     ),
+  //   };
   case "EDIT_TRIP":
+    const { trip, index } = action.payload;
+    const updatedUserTrip = [...state.userTrip];
+    updatedUserTrip[index] = trip;
     return {
       ...state,
-      userTrip: state.userTrip.map((trip) =>
-        trip.id === action.payload.id ? action.payload : trip
-      ),
+      userTrip: updatedUserTrip,
     };
-
+  
 
     case "GET_SAVED_TRIPS_SUCCESS":
       return {

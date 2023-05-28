@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { Button, TextField, Typography, Container, Grid } from '@mui/material';
-
+import './AddTrips.css';
 function AddTrips() {
   const history = useHistory();
   const dispatch = useDispatch();
@@ -46,13 +46,18 @@ function AddTrips() {
   };
 
   return (
+    <div className ="addtrips">
     <Container maxWidth="sm">
-      <Typography variant="h4" align="center" gutterBottom>
-        Create a New Trip
+    <div className="header">
+      <Typography 
+      variant="h3" 
+      align="center" 
+      gutterBottom>Create a New Trip
       </Typography>
+      </div>
       <form onSubmit={handleSave}>
         <Grid container spacing={2}>
-          <Grid item xs={12}>
+        <Grid item xs={12}>
             <TextField
               label="Description"
               value={description}
@@ -60,8 +65,8 @@ function AddTrips() {
               fullWidth
               required
             />
-          </Grid>
-          <Grid item xs={6}>
+        </Grid>
+        <Grid item xs={6}>
             <TextField
               label="Start Date"
               type="date"
@@ -86,13 +91,14 @@ function AddTrips() {
                 shrink: true,
               }}
             />
-          </Grid>
-        </Grid>
+          </Grid >
+        </Grid  >
         <Button type="submit" variant="contained" color="primary" fullWidth>
           Save
         </Button>
       </form>
     </Container>
+    </div>
   );
 }
 

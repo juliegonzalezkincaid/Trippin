@@ -30,7 +30,6 @@ import Misc from '../Categories/Misc.jsx';
 import EditTrip from "../Trips/EditTrip.jsx";
 
 
-
 function App() {
   const dispatch = useDispatch();
 
@@ -152,7 +151,7 @@ function App() {
 
 
 
-            <Categories />
+            <Categories  className='icon-avatar'/>
 
           </Route>
 

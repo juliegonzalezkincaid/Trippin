@@ -127,10 +127,9 @@ router.put('/edit', (req, res) => {
 // DELETE /:id: Deletes a trip from the database based on the trip ID provided in the URL parameter.
   router.delete('/:id', (req, res) => {
     const deleteId = req.params.id;
-    let queryText = `DELETE FROM "trip" WHERE "id"=$1;`;
+    const queryText = `DELETE FROM "trip" WHERE "id" = $1;`;
     
-    pool
-    .query(queryText, [deleteId])
+    pool.query(queryText, [deleteId])
     .then(() => {
       console.log("Trip deleted successfully");
       res.sendStatus(200);

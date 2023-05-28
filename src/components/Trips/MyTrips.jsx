@@ -7,24 +7,48 @@ import { useHistory } from "react-router-dom";
 import { Button } from "@mui/material";
 import { Link, Route } from 'react-router-dom';
 import EditTrip from "../Trips/EditTrip";
-function MyTrips ({trips}) {
+import  './Styles.css';
+
+function MyTrips ({}) {
     const dispatch = useDispatch();
     const history = useHistory();
-    const { userTrip, savedTrips } = useSelector((store) => store.trip)
+    const { userTrip, savedTrips } = useSelector((store) => store.trip);
     const user = useSelector((store) => store.user);
     
+
     useEffect(() => {
      dispatch({ type: "FETCH_TRIPS" });
      dispatch({ type: "GET_SAVED_TRIPS", payload: user.id }); 
   }, [dispatch, user.id]);
 
 
+  // const handleDeleteTrip = (tripID) => {
+  //   dispatch({ type: "DELETE_TRIP", payload: tripID });
+  // };
 
- 
-  const handleEditTrip = (trip) => {
-    dispatch({ type: "EDIT_TRIP", payload: trip });
-    history.push(`/edit/${trip.tripID}`);
+  const handleDeleteTrip = (tripID) => {
+    dispatch({ type: "DELETE_TRIP", payload: user, tripID });
   };
+
+  
+  const handleEditTrip = (editedTrip, index,) => {
+    dispatch({ type: "EDIT_TRIP", payload: { trip: editedTrip, index } });
+  };
+  
+  {userTrip.map((trip, index) => (
+    <EachTrip
+      key={trip.id}
+      trip={trip}
+      handleEditTrip={(editedTrip) => handleEditTrip(editedTrip, index)}
+      savedTrips={savedTrips}
+    />
+  ))}
+  
+ 
+  // const handleEditTrip = (trip) => {
+  //   dispatch({ type: "EDIT_TRIP", payload: trip });
+  //   history.push(`/edit/${trip.tripID}`);
+  // };
   
  
   if (!userTrip) {
@@ -39,7 +63,10 @@ function MyTrips ({trips}) {
     );
   }
     return (
-      <div>
+      <div 
+      className="my-trips-container"
+      >
+
         <h2>Welcome, {user.username}!</h2>
         <p>My Trips:</p>
         {userTrip.map((trip) => (
@@ -63,6 +90,8 @@ function MyTrips ({trips}) {
             key={trip.id} 
             trip={trip} 
             handleEditTrip={handleEditTrip} 
+            // savedTrips={savedTrips}
+            handleDeleteTrip={() => handleDeleteTrip(trip.id)}
             savedTrips={savedTrips}
             />
           ))
@@ -70,6 +99,7 @@ function MyTrips ({trips}) {
      <Route path="/edit_trip/:tripId" component={EditTrip} />
 
       </div>
+      
     );
   }
 
