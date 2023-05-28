@@ -1,5 +1,5 @@
 .my-trips-container {
-    background-image: url(/public/sky.jpg);
+    background-image: url(/public/bluetrees.jpeg);
     background-size:100% 100%; 
     
     
@@ -7,16 +7,16 @@
   }
 
   .my-trips-container h2 {
-    border: 3px solid black;
+    /* border: 3px solid #F60F45; */
     font-size: 40px;
     font-weight: bold;
     font-family: 'Helvetica', Arial, sans-serif;
-    
+    text-align: center;
   }
   
   .my-trips-container p {
-    font-size: 40px;
-    font-weight: bold;
+    font-size: 80px;
+    font-weight:bolder;
     font-family: 'Helvetica', Arial, sans-serif;
     color: #52F8CA;
 
@@ -26,5 +26,16 @@
     font-size: 16px;
     font-weight: bold;
     font-family: 'Helvetica', Arial, sans-serif;
+
+  }
+  .addtripsbutton {
+    color:aliceblue;
+    font-weight: 200;
+  }
+
+  .edittrip {
+    background-image: url(/public/walk.jpeg);
+    background-size:100% 100%; 
+    
 
   }

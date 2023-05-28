@@ -56,7 +56,7 @@ function MyTrips ({}) {
   
     return (
       <div>
-        <h2>Welcome, {user.username}!</h2>
+        <h2>Welcome, {user.username} you are trippin!</h2>
         <p>My Trips:</p>
         <p>No trips to show...yet!</p>
       </div>
@@ -67,7 +67,7 @@ function MyTrips ({}) {
       className="my-trips-container"
       >
 
-        <h2>Welcome, {user.username}!</h2>
+        <h2>Welcome, {user.username} you are Trippin!</h2>
         <p>My Trips:</p>
         {userTrip.map((trip) => (
           <EachTrip 
@@ -78,7 +78,10 @@ function MyTrips ({}) {
           />
          
         ))}
-   <Button component={Link} to="/add_trips">
+   <Button component={Link} to="/add_trips"
+   className="addtripsbutton"
+   variant="outlined"
+   >
           Add a Trip
         </Button>
         <h2>Saved Trips:</h2>

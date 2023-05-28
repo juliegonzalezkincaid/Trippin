@@ -41,6 +41,8 @@ function Misc() {
   };
 
   return (
+    <div className="misc-container">
+      <h2>Miscellaneous</h2>
     <form onSubmit={handleSubmit}>
       <TextField
         name="question"
@@ -48,6 +50,7 @@ function Misc() {
         value={formValues.question}
         onChange={handleChange}
         required
+        fullWidth
       />
       <br />
       <TextField
@@ -57,6 +60,7 @@ function Misc() {
         onChange={handleAnswerChange}
         required
         helperText="Separate multiple responses with commas"
+        fullWidth
       />
       <br />
       <TextField
@@ -64,12 +68,14 @@ function Misc() {
         label="Notes"
         value={formValues.notes}
         onChange={handleChange}
+        fullWidth
       />
       <br />
       <Button type="submit" variant="contained" color="primary">
         Submit
       </Button>
     </form>
+    </div>
   );
 }
 

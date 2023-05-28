@@ -1,6 +1,11 @@
 .login {
-        background-image: url(/public/sky3.jpeg);
+        background-image: url(/public/yellow.jpeg);
         background-size:100% 100%; 
        
       
+}
+
+.yellow {
+        background-image: url(/public/yellow.jpeg);
+        background-size:100% 100%;  
 }

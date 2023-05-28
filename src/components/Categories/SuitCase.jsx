@@ -37,6 +37,9 @@ function Suitcase () {
 
 
     return(
+      <div
+      className="suitcase-container"
+      >
         <form onSubmit={handleSubmit}>
         <TextField
           name="bring"
@@ -44,6 +47,7 @@ function Suitcase () {
           value={formValues.bring}
           onChange={handleChange}
           required
+          className="input-field"
         />
         <br />
         <TextField
@@ -52,12 +56,14 @@ function Suitcase () {
           value={formValues.dontBring}
           onChange={handleChange}
           required
+          className="input-field"
         />
         <br />
         <Button type="submit" variant="contained" color="primary">
           Submit
         </Button>
       </form>
+      </div>
     )
 }
 

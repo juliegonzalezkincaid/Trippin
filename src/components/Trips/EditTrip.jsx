@@ -43,6 +43,8 @@ function EditTrip() {
 
 };
 return (
+
+  <div className="edittrip">
     <Container maxWidth="sm">
       <Typography variant="h4" align="center" gutterBottom>
         Edit Trip
@@ -85,6 +87,7 @@ return (
         </Button>
       </form>
     </Container>
+    </div>
   );
         }
 
