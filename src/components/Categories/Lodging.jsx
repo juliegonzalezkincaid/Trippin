@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 // import { useHistory } from "react-router-dom";
 // import { useEffect } from "react";
 import { useParams } from 'react-router-dom';
-
 import { Button, TextField, Typography } from "@mui/material";
+import './Lodge.css';
 
 function Lodging () {
     const dispatch = useDispatch();
@@ -51,7 +51,8 @@ function Lodging () {
       </Typography>
       <form onSubmit={handleSubmit}>
         <TextField
-          name="name"
+        className="input-field"
+      name="name"
           label="Name"
           value={formValues.name}
           onChange={handleChange}
@@ -60,6 +61,7 @@ function Lodging () {
           margin="normal"
         />
         <TextField
+        className="input-field"
           name="lodgeName"
           label="Lodge Name"
           value={formValues.lodgeName}
@@ -69,6 +71,7 @@ function Lodging () {
           margin="normal"
         />
         <TextField
+        className="input-field"
           name="address"
           label="Address"
           value={formValues.address}
@@ -78,6 +81,7 @@ function Lodging () {
           margin="normal"
         />
         <TextField
+        className="input-field"
           name="arrivalDate"
           label="Arrival Date"
           type="date"
@@ -91,6 +95,7 @@ function Lodging () {
           }}
         />
         <TextField
+        className="input-field"
           name="departureDate"
           label="Departure Date"
           type="date"

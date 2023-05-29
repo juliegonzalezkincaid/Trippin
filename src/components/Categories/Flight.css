@@ -1,0 +1,15 @@
+/* .flight-info-container {
+    
+    background-size:100% 100%; 
+    color: bisque;
+  }
+  body {
+    background-image: url(/public/flight.webp);
+  } */
+
+  body {
+    background-image: url(/public/flight.webp);
+    background-size: cover;
+    background-position: center;
+    color: bisque;
+  }

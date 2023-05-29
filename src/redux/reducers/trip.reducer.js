@@ -38,7 +38,7 @@ function tripReducer(state = initialState, action) {
      console.log("state in delete trip",state.userTrip )
 
      const updatedUserTrips = state.userTrip.filter(
-      (trip) => trip.tripID !== action.payload
+      (trip) => trip.tripid !== action.payload
     );
     return {
       ...state,

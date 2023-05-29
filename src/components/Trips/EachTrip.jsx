@@ -9,7 +9,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import { Button } from "@mui/material";
 import { TableCell, TableRow } from "@mui/material";
 import { Link } from 'react-router-dom';
-
+import axios from "axios";
 
 function EachTrip({ trip, handleEditTrip, savedTrips }) {
     if (!trip) {
@@ -25,9 +25,24 @@ function EachTrip({ trip, handleEditTrip, savedTrips }) {
     // allows user to edit their trip
    
 
+    // const handleDeleteTrip = (tripID) => {
+    //     dispatch({ type: "DELETE_TRIP", payload: tripID, savedTrips });
+    // };
     const handleDeleteTrip = (tripID) => {
-        dispatch({ type: "DELETE_TRIP", payload: tripID, savedTrips });
+      dispatch({ type: "DELETE_TRIP", payload: tripID });
     };
+    // const handleDeleteTrip = (tripID) => {
+    //   axios
+    //     .delete(`/api/trip/${tripID}`)
+    //     .then((response) => {
+    //       console.log("Trip deleted successfully");
+    //       // Dispatch an action to update the Redux state, if needed
+    //     })
+    //     .catch((error) => {
+    //       console.log("Error deleting trip:", error);
+    //       // Handle error, if needed
+    //     });
+    // };
 
     // allows user to edit their trip
     const handleEditClick = () => {

@@ -1,11 +1,14 @@
 
   .cat {
-    background-image: url(/public/sky3.jpeg);
+   
     background-size:100% 100%; 
     
    
 
     /* Add other background properties as needed */
+  }
+  body {
+    background-image: url(/public/sky3.jpeg);
   }
 
   .icon-avatar {
@@ -22,15 +25,15 @@
     border-radius: 50%; /* Make them form a circle */
   }
 
-  .lodging-container {
+  /* .lodging-container {
     background-image: url(/public/sky4.jpeg);
     background-size:100% 100%; 
     font-style: italic;
     font-stretch: wider;
     font-family: Helvetica;
-  }
+  } */
 
-  .suitcase-container{
+  /* .suitcase-container{
     background-image: url(/public/suitcasepass.jpeg);
     background-size:100% 400%;
     padding: 20px;
@@ -39,27 +42,23 @@
     margin-bottom: 10px;
     margin-top: 20px;
     color: white; 
-  }
-  .input-field {
+  } */
+  /* .input-field {
     width: 100%;
     margin-bottom: 10px;
     color: white;
     text-align: center;
-  }
+  } */
 
-  .flight-info-container {
-    background-image: url(/public/flight.webp);
-    background-size:100% 100%; 
-    color: bisque;
-  }
+  
 
-  .lodging-container {
+  /* .lodging-container {
 
     background-image: url(/public/lodging.jpeg);
     background-size:100% 100%;    
-  }
+  } */
 
-  .misc-container {
-    background-image: url(/public/music.jpeg);
+  /* .misc-container { */
+    /* background-image: url(/public/music.jpeg);
     background-size: 100% 400%; 
-  }
+  } */

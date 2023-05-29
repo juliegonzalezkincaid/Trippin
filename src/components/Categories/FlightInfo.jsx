@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { Button, TextField, Typography } from "@mui/material";
+import './Flight.css';
 
 function FlightInfo() {
   const dispatch = useDispatch();

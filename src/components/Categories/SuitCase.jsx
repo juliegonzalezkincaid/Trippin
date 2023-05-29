@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 // import { useEffect } from "react";
 import { useParams } from 'react-router-dom';
 import { Button, TextField } from "@mui/material";
+import './Suit.css'
 
 function Suitcase () {
     const dispatch = useDispatch();

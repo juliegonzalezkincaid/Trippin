@@ -43,7 +43,9 @@ function* deleteTrip(action) {
     yield put({ type: "DELETE_TRIP_ERROR" });
   }
 }
-
+export function* watchDeleteTrip() {
+  yield takeLatest("DELETE_TRIP", deleteTrip);
+}
 
 
 function* editTrip(action) {
