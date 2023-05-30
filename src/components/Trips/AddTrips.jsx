@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { Button, TextField, Typography, Container, Grid } from '@mui/material';
 import './AddTrips.css';
+
 function AddTrips() {
   const history = useHistory();
   const dispatch = useDispatch();
@@ -103,14 +104,6 @@ function AddTrips() {
 }
 
 export default AddTrips;
-
-// // CREATE TABLE "trip" (
-// //     "id" INTEGER PRIMARY KEY,
-// //     "user_id" INTEGER,
-// //     "description" VARCHAR,
-// //     "start_date" DATE,
-// //     "end_date" DATE
-// //     );
 // import React, { useState, useEffect } from 'react';
 // import { useHistory } from 'react-router-dom';
 // import { useDispatch, useSelector } from 'react-redux';

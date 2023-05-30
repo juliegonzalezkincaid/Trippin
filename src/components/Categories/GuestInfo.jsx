@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 // import { useEffect } from "react";
 import { useParams } from 'react-router-dom';
 import { Button, TextField } from "@mui/material";
-
+import './Guest.css';
 function GuestInfo () {
     const dispatch = useDispatch();
     const { id } = useParams();
@@ -36,13 +36,28 @@ function GuestInfo () {
 
     return(
         <>
-        <form onSubmit={handleSubmit}>
+       
+        <form
+        className='guest-form'
+        onSubmit={handleSubmit}>
+           <h1>Guests</h1>
       <TextField
         name="name"
         label="Name"
         value={formValues.name}
         onChange={handleChange}
         required
+        InputProps={{
+          style: {
+            color: 'white',
+            fontWeight: 'bold',
+          },
+        }}
+        InputLabelProps={{
+          style: {
+            color: 'white',
+          },
+        }}
       />
       <br />
       <TextField
@@ -51,6 +66,17 @@ function GuestInfo () {
         value={formValues.phone}
         onChange={handleChange}
         required
+        InputLabelProps={{
+          style: {
+            color: 'white',
+          },
+        }}
+        InputProps={{
+          style: {
+            color: 'white',
+            fontWeight: 'bold',
+          },
+        }}
       />
       <br />
       <TextField
@@ -59,6 +85,17 @@ function GuestInfo () {
         value={formValues.email}
         onChange={handleChange}
         required
+        InputProps={{
+          style: {
+            color: 'white',
+            fontWeight: 'bold',
+          },
+        }}
+        InputLabelProps={{
+          style: {
+            color: 'white',
+          },
+        }}
       />
       <br />
       <Button type="submit" variant="contained" color="primary">

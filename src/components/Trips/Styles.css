@@ -5,22 +5,29 @@
   background-repeat: no-repeat;
   text-align: center;
   background-position: center;
+  height: 100vh;
+  font-weight: bolder;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     
   }
 
   .my-trips-container h1 {
-    font-size: 40px;
-    font-weight: bold;
-    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-size: 50px;
+    font-weight: bolder;
+    font-family:Georgia;
     text-align: center;
-    color:aliceblue
+    color:black;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  
+
   }
   
   .my-trips-container p {
     font-size: 50px;
     font-weight:bolder;
     font-family: 'Georgia';
-    /* color:; */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+   
 
   }
   
@@ -28,11 +35,14 @@
     font-size:20px;
     font-weight: bolder;
     font-family: 'Georgia';
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+
    
   }
   .addtripsbutton {
     color:aliceblue;
     font-weight: 500px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
    
   }
 
@@ -42,7 +52,8 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover ;
-  
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-weight: bolder;
     }
 .solid {
   color: hsl(94, 82%, 60%);
@@ -50,24 +61,30 @@
   font-size: 70px;
   text-align: center;
   font-style: italic;
-  font-family:Georgia, 'Times New Roman', Times, serif;
+  font-family:Georgia;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  font-weight: bolder;
 }
 
 .edittrip input[type="text"],
 .edittrip input[type="date"] {
-  /* color: whitesmoke; */
+ 
   font-weight: bolder;
-  font-size: 20px;
+  font-size: 25px;
   font-family: Georgia;
-  color:bisque
+  color:black;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 .edit-container {
   color: white;
-  font-size: 50px;
+  font-size: 40px;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+  font-weight: bolder;
 }
 
 .delete-container {
   color: hsl(94, 82%, 60%);
   font-size: 18px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  font-weight: bolder;
 }

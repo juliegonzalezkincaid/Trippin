@@ -6,7 +6,9 @@
     background-position: center;
     height: 100vh;
     font-family: Georgia;
-    /* Add other background properties as needed */
+    color:beige;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    
   }
   
 
@@ -14,7 +16,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Set the container height to the full viewport height */
+    height: 100vh; 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    /* Set the container height to the full viewport height */
   }
 /*   
   .addtrips form {
@@ -29,10 +33,13 @@
   margin-bottom: 40px;
   text-align: center;
   display: flex;
-  font-family: Georgia; /* Set the desired font family */
+  font-family: Georgia; 
   align-items: center;
   font-style: italic;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 .addtrips {
   font-family: Georgia; 
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  font-weight: bolder;
 }

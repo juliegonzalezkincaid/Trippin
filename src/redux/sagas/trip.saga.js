@@ -51,7 +51,8 @@ export function* watchDeleteTrip() {
 function* editTrip(action) {
   try {
     const { id, ...data } = action.payload;
-    yield call(axios.put, `/api/trip/${id}`, data);
+    console.log('id, data')
+    yield call(axios.put, `/api/trip/edit/${id}`, data);
     yield put({ type: "EDIT_TRIP_SUCCESS", payload: action.payload });
   } catch (error) {
     console.log("Error editing trip in editTrip saga:", error);
@@ -62,7 +63,10 @@ function* editTrip(action) {
 function* updateTrip(action) {
   try {
     const { id, ...data } = action.payload;
+    console.log('Updating trip with ID:', id);
+    console.log('Updated data:', data);
     yield call(axios.put, `/api/trip/${id}`, data);
+    console.log('Trip updated successfully');
     yield put({ type: "UPDATE_TRIP_SUCCESS", payload: action.payload });
   } catch (error) {
     console.log("Error updating trip in updateTrip saga:", error);

@@ -44,7 +44,92 @@ function tripReducer(state = initialState, action) {
       ...state,
       userTrip: updatedUserTrips,
     };
-    // return {
+   
+  case "EDIT_TRIP":
+    const { trip, index } = action.payload;
+    const updatedUserTrip = [...state.userTrip];
+    updatedUserTrip[index] = {
+      ...updatedUserTrip[index],
+      description: trip.description,
+      startDate: trip.startDate,
+      endDate: trip.endDate,
+    };
+    return {
+      ...state,
+      userTrip: updatedUserTrip,
+    };
+
+  
+
+    case "GET_SAVED_TRIPS_SUCCESS":
+      return {
+        ...state,
+        savedTrips: action.payload,
+      };
+
+    case "UPDATE_TRIP":
+      return {
+        ...state,
+        userTrip: state.userTrip.map((trip) =>
+          trip.id === action.payload.id ? action.payload : trip
+        ),
+      };
+
+   
+    case "SAVE_TRIP":
+      return {
+        ...state,
+        userTrip: [
+          ...state.userTrip,
+          {
+            ...action.payload,
+            description: action.payload.description,
+            startDate: action.payload.startDate,
+            endDate: action.payload.endDate,
+          },
+        ],
+      };
+    case "SET_FLIGHT_INFO":
+      return {
+        ...state,
+        setFlightInfo: [...state.setFlightInfo, action.payload],
+      };
+
+    case 'SET_GUEST_INFO':
+      return {
+        ...state,
+        guestInfo: action.payload,
+      };
+    case 'SET_LODGING':
+        return {
+          ...state,
+          lodging:action.payload,
+        };
+
+    case 'SET_MISC':
+          return {
+            ...state,
+            misc:action.payload,
+          };
+
+          case 'SET_SUITCASE':
+            return {
+              ...state,
+              suitCase:action.payload,
+            };
+    
+ default:
+      return state;
+  }
+}
+
+export default tripReducer;
+ // case "SAVE_TRIP":
+    //   return {
+    //     ...state,
+    //     userTrip: [...state.userTrip, action.payload],
+    //   };
+ // return {
     //   ...state,
     //   userTrip: state.userTrip.filter((trip) => trip.id !== action.payload),
     // };
@@ -72,89 +157,14 @@ function tripReducer(state = initialState, action) {
   //       trip.id === action.payload.id ? action.payload : trip
   //     ),
   //   };
-  case "EDIT_TRIP":
-    const { trip, index } = action.payload;
-    const updatedUserTrip = [...state.userTrip];
-    updatedUserTrip[index] = trip;
-    return {
-      ...state,
-      userTrip: updatedUserTrip,
-    };
-  
-
-    case "GET_SAVED_TRIPS_SUCCESS":
-      return {
-        ...state,
-        savedTrips: action.payload,
-      };
-
-    case "UPDATE_TRIP":
-      return {
-        ...state,
-        userTrip: state.userTrip.map((trip) =>
-          trip.id === action.payload.id ? action.payload : trip
-        ),
-      };
-
-    // case "SAVE_TRIP":
-    //   return {
-    //     ...state,
-    //     userTrip: [...state.userTrip, action.payload],
-    //   };
-    case "SAVE_TRIP":
-      return {
-        ...state,
-        userTrip: [
-          ...state.userTrip,
-          {
-            ...action.payload,
-            description: action.payload.description,
-            startDate: action.payload.startDate,
-            endDate: action.payload.endDate,
-          },
-        ],
-      };
-
-
-    case "SET_FLIGHT_INFO":
-      return {
-        ...state,
-        setFlightInfo: [...state.setFlightInfo, action.payload],
-      };
-
-      case 'SET_GUEST_INFO':
-      return {
-        ...state,
-        guestInfo: action.payload,
-      };
-      case 'SET_LODGING':
-        return {
-          ...state,
-          lodging:action.payload,
-        };
-
-        case 'SET_MISC':
-          return {
-            ...state,
-            misc:action.payload,
-          };
-
-          case 'SET_SUITCASE':
-            return {
-              ...state,
-              suitCase:action.payload,
-            };
-      
-
-
-    default:
-      return state;
-  }
-}
-
-export default tripReducer;
-
-
+  // case "EDIT_TRIP":
+  //   const { trip, index } = action.payload;
+  //   const updatedUserTrip = [...state.userTrip];
+  //   updatedUserTrip[index] = trip;
+  //   return {
+  //     ...state,
+  //     userTrip: updatedUserTrip,
+  //   };
 
 
 // 

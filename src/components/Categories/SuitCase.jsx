@@ -42,6 +42,8 @@ function Suitcase () {
       <div
       className="suitcase-body"
       >
+        <br></br>
+        <br></br>
         <form onSubmit={handleSubmit}>
         <TextField
           name="bring"
@@ -50,6 +52,17 @@ function Suitcase () {
           onChange={handleChange}
           required
           className="input-field"
+          InputProps={{
+            style: {
+              color: 'white',
+              fontWeight: 'bolder',
+            },
+          }}
+          InputLabelProps={{
+            style: {
+              color: 'white',
+            },
+          }}
         />
         <br />
         <TextField
@@ -59,6 +72,17 @@ function Suitcase () {
           onChange={handleChange}
           required
           className="input-field"
+          InputProps={{
+            style: {
+              color: 'white',
+              fontWeight: 'bolder',
+            },
+          }}
+          InputLabelProps={{
+            style: {
+              color: 'white',
+            },
+          }}
         />
         <br />
         <Button type="submit" variant="contained" color="primary">

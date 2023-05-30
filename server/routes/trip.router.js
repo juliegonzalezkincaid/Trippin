@@ -97,19 +97,21 @@ router.post('/', async (req, res) => {
 
 
 // PUT /edit: Updates a trip in the database. It expects the updated trip data in the request body and performs an update query on the "trip" table using the provided information.
-router.put('/edit', (req, res) => {
+router.put('/edit/id', (req, res) => {
   console.log('In PUT request');
   const updatedTrip = req.body;
+  console.log('Updated trip:', updatedTrip);
+
   // Query to update Trip
 
   let updateQuery = 
   `UPDATE "trip" 
    SET 
-   "description" = $1, 
-   "start_date" = $2, 
-   "end_date" = $3
+    "description" = $1, 
+    "start_date" = $2, 
+    "end_date" = $3
    WHERE 
-   "id" = $4;`;
+    "id" = $4;`;
 
   pool.query(updateQuery,
     [
@@ -143,13 +145,6 @@ router.put('/edit', (req, res) => {
         res.sendStatus(500);
     });
 });
-
-
-
-
-
-
-
 
 
 module.exports = router;

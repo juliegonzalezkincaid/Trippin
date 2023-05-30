@@ -2,7 +2,7 @@
   
   .lodging-body {
     background-image: url(/public/lodging.jpeg);
-    /* background-size: cover; */
+    background-size: cover;
     background-position: center;
     color: bisque;
     font-family: Helvetica;

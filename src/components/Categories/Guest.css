@@ -1,0 +1,8 @@
+.guest-form {
+    background-image: url(/public/guest.jpeg);
+    background-size: cover;
+    background-position: center;
+    color:aliceblue;
+    text-align: center;
+    height: 100vh;
+  }

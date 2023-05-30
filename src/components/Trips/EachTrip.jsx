@@ -23,27 +23,13 @@ function EachTrip({ trip, handleEditTrip, savedTrips,date }) {
     // const [editedTrip, setEditedTrip] = useState(null);
     // 
     // allows user to edit their trip
-   
-
     // const handleDeleteTrip = (tripID) => {
     //     dispatch({ type: "DELETE_TRIP", payload: tripID, savedTrips });
     // };
     const handleDeleteTrip = (tripID) => {
       dispatch({ type: "DELETE_TRIP", payload: tripID });
     };
-    // const handleDeleteTrip = (tripID) => {
-    //   axios
-    //     .delete(`/api/trip/${tripID}`)
-    //     .then((response) => {
-    //       console.log("Trip deleted successfully");
-    //       // Dispatch an action to update the Redux state, if needed
-    //     })
-    //     .catch((error) => {
-    //       console.log("Error deleting trip:", error);
-    //       // Handle error, if needed
-    //     });
-    // };
-
+   
     // allows user to edit their trip
     const handleEditClick = () => {
         if (trip && trip.tripID) {
@@ -51,14 +37,7 @@ function EachTrip({ trip, handleEditTrip, savedTrips,date }) {
         }
     };
 
-    // pushes to the categories page
-    // const handleShowCategories = () => {
-    //     if (trip && trip.tripID) {
-    //         history.push(`/categories`);
-    //     }
-    // };
-
-
+   
     return (
         <TableRow>
         <TableCell>
@@ -116,3 +95,22 @@ function EachTrip({ trip, handleEditTrip, savedTrips,date }) {
   }
   
   export default EachTrip;
+   // const handleDeleteTrip = (tripID) => {
+    //   axios
+    //     .delete(`/api/trip/${tripID}`)
+    //     .then((response) => {
+    //       console.log("Trip deleted successfully");
+    //       // Dispatch an action to update the Redux state, if needed
+    //     })
+    //     .catch((error) => {
+    //       console.log("Error deleting trip:", error);
+    //       // Handle error, if needed
+    //     });
+    // };
+ // pushes to the categories page
+    // const handleShowCategories = () => {
+    //     if (trip && trip.tripID) {
+    //         history.push(`/categories`);
+    //     }
+    // };
+

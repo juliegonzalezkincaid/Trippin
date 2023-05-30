@@ -9,7 +9,7 @@ function EditTrip() {
     const history = useHistory();
     const { tripId } = useParams();
     const trip = useSelector((store) => store.trip.userTrip.find((t) => t.id === tripId));
-    const [description, setDescription] = useState(trip?.description || "");
+    const [description, setDescription] = useState('');
     const [startDate, setStartDate] = useState(trip?.startDate || "");
     const [endDate, setEndDate] = useState(trip?.endDate || "");
     useEffect(() => {
@@ -42,23 +42,28 @@ function EditTrip() {
       };
       useEffect(() => {
         // Fetch the trip data for editing
-        dispatch({ type: "GET_TRIP_BY_ID", payload: tripId });
+        dispatch({ 
+          type: "GET_TRIP_BY_ID", 
+          payload: tripId });
       }, [dispatch, tripId]);
+    // }, []);
 
       const handleUpdate = (event) => {
         event.preventDefault();
+        
         const updatedTrip = {
+          // userId: user.id,
           id: tripId,
           description,
           startDate,
           endDate,
         };
       
-        dispatch({ type: "UPDATE_TRIP", payload: updatedTrip });
-        history.push("/my_trips")
-       
-
-
+        dispatch({ 
+          type: "UPDATE_TRIP", 
+          payload: updatedTrip 
+        });
+        history.push('/user')
 };
 return (
 
@@ -110,7 +115,7 @@ return (
     </Container>
     </div>
   );
-        }
+}
 
 
 
