@@ -89,7 +89,7 @@ function MyTrips ({}) {
          ))}
     */}
    
-        {/* <h2>Saved Trips:</h2> */}
+        <h2>Saved Trips:</h2>
          {savedTrips.length === 0 ? (
         <p>No saved trips to show...yet!</p>
           ) : (

@@ -38,6 +38,7 @@ function* deleteTrip(action) {
   try {
     yield call(axios.delete, `/api/trip/${action.payload}`);
     yield put({ type: "DELETE_TRIP_SUCCESS", payload: action.payload });
+    //TODO YIELD PUT TO REFRESH TRIPS
   } catch (error) {
     console.log("Error deleting trip in deleteTrip saga:", error);
     yield put({ type: "DELETE_TRIP_ERROR" });

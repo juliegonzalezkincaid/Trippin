@@ -76,7 +76,7 @@ function EachTrip({ trip, handleEditTrip, savedTrips,date }) {
               onClick={handleEditClick}
               component={Link}
               to={`/trips/${trip.id}/edit`}
-              className={`${isHoveredEdit ? "edit-hovered" : ""} edit-container`}
+             className={`${isHoveredEdit ? "edit-hovered" : ""} edit-container`}
               onMouseEnter={() => setIsHoveredEdit(true)}
               onMouseLeave={() => setIsHoveredEdit(false)}
             >

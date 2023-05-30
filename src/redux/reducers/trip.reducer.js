@@ -67,13 +67,6 @@ function tripReducer(state = initialState, action) {
         savedTrips: action.payload,
       };
 
-    case "UPDATE_TRIP":
-      return {
-        ...state,
-        userTrip: state.userTrip.map((trip) =>
-          trip.id === action.payload.id ? action.payload : trip
-        ),
-      };
 
    
     case "SAVE_TRIP":

@@ -101,7 +101,7 @@ router.put('/edit/:id', (req, res) => {
   console.log('In PUT request');
   const updatedTrip = req.body;
   console.log('Updated trip:', updatedTrip);
-
+  console.log('params', req.params)
   // Query to update Trip
 
   let updateQuery = 
@@ -118,7 +118,8 @@ router.put('/edit/:id', (req, res) => {
     updatedTrip.description,
     updatedTrip.start_date,
     updatedTrip.end_date,
-    updatedTrip.id
+    req.params.id
+
     ])
     .then(() => { 
     console.log("Trip updated successfully");
@@ -136,8 +137,8 @@ router.put('/edit/:id', (req, res) => {
     const queryText = `DELETE FROM "trip" WHERE "id" = $1;`;
     
     pool.query(queryText, [deleteId])
-    .then(() => {
-      console.log("Trip deleted successfully");
+    .then((results) => {
+      console.log("Trip deleted successfully",results.rowCount);
       res.sendStatus(200);
     })
     .catch((error) => {
