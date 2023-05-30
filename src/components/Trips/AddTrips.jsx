@@ -43,7 +43,7 @@ function AddTrips() {
       payload: tripData,
     });
 
-    history.push('/user');
+    history.push('/my_trips');
   };
 
   return (

@@ -63,7 +63,7 @@ function EditTrip() {
           type: "UPDATE_TRIP", 
           payload: updatedTrip 
         });
-        history.push('/user')
+        history.push('/my_trips')
 };
 return (
 

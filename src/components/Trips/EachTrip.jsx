@@ -12,10 +12,10 @@ import { Link } from 'react-router-dom';
 // import axios from "axios";
 
 function EachTrip({ trip, handleEditTrip, savedTrips,date }) {
-    if (!trip) {
-        return null; // or render a loading indicator, an error message, or a default component
-      }
-    const history = useHistory();
+    // if (!trip) {
+    //     return null; // or render a loading indicator, an error message, or a default component
+    //   }
+    // const history = useHistory();
     const dispatch = useDispatch();
     const user = useSelector(state => state.user);
     const [isHoveredEdit, setIsHoveredEdit] = useState(false);
@@ -27,12 +27,14 @@ function EachTrip({ trip, handleEditTrip, savedTrips,date }) {
     //     dispatch({ type: "DELETE_TRIP", payload: tripID, savedTrips });
     // };
     const handleDeleteTrip = (tripID) => {
+
       dispatch({ type: "DELETE_TRIP", payload: tripID });
     };
    
     // allows user to edit their trip
     const handleEditClick = () => {
-        if (trip && trip.tripID) {
+    
+        if (trip && trip.tripid) {
             handleEditTrip(trip);
         }
     };

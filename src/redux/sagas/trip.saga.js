@@ -65,7 +65,8 @@ function* updateTrip(action) {
     const { id, ...data } = action.payload;
     console.log('Updating trip with ID:', id);
     console.log('Updated data:', data);
-    yield call(axios.put, `/api/trip/${id}`, data);
+    // yield call(axios.put, `/api/trip/edit${id}`, data);
+    yield call(axios.put, `/api/trip/edit/${action.payload.id}`, data);
     console.log('Trip updated successfully');
     yield put({ type: "UPDATE_TRIP_SUCCESS", payload: action.payload });
   } catch (error) {
