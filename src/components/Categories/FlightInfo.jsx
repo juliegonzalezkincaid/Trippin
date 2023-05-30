@@ -36,7 +36,7 @@ function FlightInfo() {
   }
 
   return (
-    <div className="flight-info-container">
+    <div className="flight-body">
     <Typography variant="h3" gutterBottom>
       Flight Information
     </Typography>

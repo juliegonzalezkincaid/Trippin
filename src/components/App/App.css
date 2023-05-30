@@ -5,7 +5,7 @@ body,
 }
 
 body {
-  font-family: Helvetica;
+  font-family: Georgia;
   /* margin: 0px; */
   background-image: url(/public/rainbow.webp);
   background-size:100% 100%; 
@@ -21,7 +21,7 @@ Container
 -------------------------------------------------------------------------------- */
 
 .container {
-  padding: 100px;
+  padding: 0px;
 }
 
 /* --------------------------------------------------------------------------------
@@ -98,11 +98,11 @@ Form Treatment
 -------------------------------------------------------------------------------- */
 
 .formPanel {
-  box-sizing: border-box;
-  width: 400px;
-  max-width: 100%;
-  padding: 25px;
-  margin: 0 auto 20px;
+  /* box-sizing: border-box;
+  width: 400px; */
+  max-width: 300%;
+  padding: 35px;
+  margin: 0 auto 30px;
   background-color: #efefef;
   border-radius: 3px;
   box-shadow: 0 1px 3px rgb(0, 0, 0, 0.4);
@@ -111,5 +111,17 @@ Form Treatment
 input {
   margin: 5px;
   margin-bottom: 10px;
+}
+.formPanel h2 {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: #222222;
+  font-family: 'Lobster', cursive;
+}
+.container {
+  font-family: 'Lobster', cursive;
+  font-weight: bolder;
+  font-size: larger;
 }
 

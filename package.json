@@ -38,6 +38,8 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
+    "@testing-library/react": "^14.0.0",
+    "jest": "^27.5.1",
     "nodemon": "^2.0.4"
   },
   "browserslist": {

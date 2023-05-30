@@ -71,23 +71,8 @@ VALUES
 
 INSERT INTO "user_trip_entry" ("id", "user_id", "trip_id", "entry_id", "category_id")
 VALUES (1, 1, 2, 3, 4);
--- -- CREATE DATABASE "first-look"
--- -- USER is a reserved keyword with Postgres
--- -- You must use double quotes in every query that user is in:
--- -- ex. SELECT * FROM "user";
--- -- Otherwise you will have errors!
 
--- CREATE TABLE user_trip_entry (
---   id integer PRIMARY KEY,
---   user_id integer,
---   trip_id integer,
---   entry_id integer,
---   category_id integer,
---   FOREIGN KEY (user_id) REFERENCES users (id),
---   FOREIGN KEY (trip_id) REFERENCES trips (id),
---   FOREIGN KEY (entry_id) REFERENCES entries (id),
---   FOREIGN KEY (category_id) REFERENCES categories (id)
--- );
+
 CREATE TABLE "user_trip_entry" (
   "id" integer PRIMARY KEY,
   "user_id" integer,

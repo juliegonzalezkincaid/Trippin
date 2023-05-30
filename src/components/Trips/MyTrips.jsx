@@ -7,7 +7,7 @@ import { useHistory } from "react-router-dom";
 import { Button } from "@mui/material";
 import { Link, Route } from 'react-router-dom';
 import EditTrip from "../Trips/EditTrip";
-import  './Styles.css';
+import './Styles.css';
 
 function MyTrips ({}) {
     const dispatch = useDispatch();
@@ -26,37 +26,38 @@ function MyTrips ({}) {
   //   dispatch({ type: "DELETE_TRIP", payload: tripID });
   // };
 
-  const handleDeleteTrip = (tripID) => {
+  const handleDeleteTrip = (tripID,event) => {
+    event.preventDefault();
     dispatch({ type: "DELETE_TRIP", payload: user, tripID });
   };
 
   
-  const handleEditTrip = (editedTrip, index,) => {
+  const handleEditTrip = (editedTrip, index,event) => {
+    event.preventDefault();
     dispatch({ type: "EDIT_TRIP", payload: { trip: editedTrip, index } });
+    history.push(`/edit_trip/${editedTrip.id}`);
   };
   
-  {userTrip.map((trip, index) => (
-    <EachTrip
-      key={trip.id}
-      trip={trip}
-      handleEditTrip={(editedTrip) => handleEditTrip(editedTrip, index)}
-      savedTrips={savedTrips}
-    />
-  ))}
+  // {userTrip.map((trip, index) => (
+  //   <EachTrip
+  //     key={trip.id}
+  //     trip={trip}
+  //     handleEditTrip={(editedTrip) => handleEditTrip(editedTrip, index)}
+  //     savedTrips={savedTrips}
+  //   />
+  // ))}
   
- 
-  // const handleEditTrip = (trip) => {
+ // const handleEditTrip = (trip) => {
   //   dispatch({ type: "EDIT_TRIP", payload: trip });
   //   history.push(`/edit/${trip.tripID}`);
   // };
   
- 
   if (!userTrip) {
   // if (!userTrip || userTrip.length === 0) {
   
     return (
       <div>
-        <h2>Welcome, {user.username} you are trippin!</h2>
+        <h2 className="h1">Welcome, {user.username} lets start trippin!</h2>
         <p>My Trips:</p>
         <p>No trips to show...yet!</p>
       </div>
@@ -66,25 +67,31 @@ function MyTrips ({}) {
       <div 
       className="my-trips-container"
       >
-
-        <h2>Welcome, {user.username} you are Trippin!</h2>
-        <p>My Trips:</p>
-        {userTrip.map((trip) => (
+        <h2 className="solid"> {user.username} you are Trippin!</h2>
+        <br></br>
+        <br></br>
+        <br></br>
+        <Button 
+   component={Link} to="/add_trips"
+   className="addtripsbutton"
+   variant="contained"
+   color="success"
+   >Add a Trip
+  </Button>
+  <br></br>
+        <br></br>
+        {/* <p>{user.username}'s Trips:</p> */}
+        {savedTrips.map((trip) => (
           <EachTrip 
           key={trip.id} 
           trip={trip} 
           handleEditTrip={handleEditTrip}
           savedTrips={savedTrips}
           />
-         
-        ))}
-   <Button component={Link} to="/add_trips"
-   className="addtripsbutton"
-   variant="outlined"
-   >
-          Add a Trip
-        </Button>
-        <h2>Saved Trips:</h2>
+         ))}
+   
+   
+        {/* <h2>Saved Trips:</h2> */}
          {savedTrips.length === 0 ? (
         <p>No saved trips to show...yet!</p>
           ) : (
@@ -92,14 +99,18 @@ function MyTrips ({}) {
             <EachTrip 
             key={trip.id} 
             trip={trip} 
-            handleEditTrip={handleEditTrip} 
-            // savedTrips={savedTrips}
+            handleEditTrip={handleEditTrip}
+            color='white'
             handleDeleteTrip={() => handleDeleteTrip(trip.id)}
             savedTrips={savedTrips}
+            date={trip.date} 
             />
           ))
         )}
-     <Route path="/edit_trip/:tripId" component={EditTrip} />
+     <Route 
+     path="/edit_trip/:tripId" 
+     component={EditTrip} 
+     />
 
       </div>
       

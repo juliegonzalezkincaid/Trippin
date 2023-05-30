@@ -9,9 +9,9 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import { Button } from "@mui/material";
 import { TableCell, TableRow } from "@mui/material";
 import { Link } from 'react-router-dom';
-import axios from "axios";
+// import axios from "axios";
 
-function EachTrip({ trip, handleEditTrip, savedTrips }) {
+function EachTrip({ trip, handleEditTrip, savedTrips,date }) {
     if (!trip) {
         return null; // or render a loading indicator, an error message, or a default component
       }
@@ -62,17 +62,20 @@ function EachTrip({ trip, handleEditTrip, savedTrips }) {
     return (
         <TableRow>
         <TableCell>
-          <div>{trip && trip.tripName}</div>
+          <div style={{ fontSize: '20px', color: 'white' }}>{trip && trip.tripName}</div>
         </TableCell>
         <TableCell>
-          <div>{trip && trip.description}</div>
+          <div style={{ fontSize: '20px', color: 'white' }}>{trip && trip.description}</div>
         </TableCell>
         <TableCell>
-          <div>{trip && trip.startDate}</div>
+          <div style={{ fontSize: '20px', color: 'white' }}>{trip && trip.startDate}</div>
         </TableCell>
         <TableCell>
-          <div>{trip && trip.endDate}</div>
+          <div style={{ fontSize: '20px', color: 'white' }}>{trip && trip.endDate}</div>
         </TableCell>
+        <TableCell>
+        <div>{date}</div> {/* Add this line to display the date */}
+      </TableCell>
         <TableCell>
           <div>
             <Button

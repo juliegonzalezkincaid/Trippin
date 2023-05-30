@@ -104,8 +104,12 @@ router.put('/edit', (req, res) => {
 
   let updateQuery = 
   `UPDATE "trip" 
-   SET "description" = $1, "start_date" = $2, "end_date" = $3
-   WHERE "id" = $4;`;
+   SET 
+   "description" = $1, 
+   "start_date" = $2, 
+   "end_date" = $3
+   WHERE 
+   "id" = $4;`;
 
   pool.query(updateQuery,
     [

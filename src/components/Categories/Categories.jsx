@@ -1,4 +1,4 @@
-import React, { useEffect }  from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link, Route, Switch } from 'react-router-dom';
 import { Avatar } from '@mui/material';
@@ -14,73 +14,78 @@ import Suitcase from '../Categories/SuitCase';
 import PsychologyAltIcon from '@mui/icons-material/PsychologyAlt';
 import './Categories.css';
 
+
 function Categories() {
-    const dispatch = useDispatch();
-    useEffect(() => {
-        // Dispatch the 'FETCH_CATEGORIES' action when the component mounts
-        dispatch({ type: 'FETCH_CATEGORIES' });
-      }, []);
-  
-  
-      return (
+  const dispatch = useDispatch();
+  useEffect(() => {
+    // Dispatch the 'FETCH_CATEGORIES' action when the component mounts
+    dispatch({ type: 'FETCH_CATEGORIES' });
+  }, []);
+
+
+  return (
     <div className='cat'>
-      <ul >
+      <ul className='icon-list'>
         <li>
-          <Avatar 
-          className= 'icon-avatar'
-          sx={{ bgcolor: 'primary.main' }}>
+          <br></br>
+          <br></br>
+          <br></br>
+          <Avatar
+            className='icon-avatar'
+            sx={{ bgcolor: 'primary.main', width: 56, height: 56,
+}}>
             <Link to="/guest_info">
-              <PeopleIcon 
-              className= 'icon-avatar'
-              sx={{ fontSize: 32 }} />
-            </Link>
-          </Avatar>
-        </li>
-        <br />
-        <li>
-          <Avatar 
-          className= 'icon-avatar'
-          sx={{ bgcolor: 'secondary.main' }}>
-            <Link to="/flight_info">
-              <FlightIcon
-              className= 'icon-avatar'
-              sx={{ fontSize: 32 }} />
+              <PeopleIcon
+                className='icon-avatar'
+                sx={{ fontSize: 50 }} />
             </Link>
           </Avatar>
         </li>
         <br />
         <li>
           <Avatar
-          className= 'icon-avatar'
-           sx={{ bgcolor: 'error.main' }}>
+            className='icon-avatar'
+            sx={{ bgcolor: 'secondary.main', width: 56, height: 56 }}>
+            <Link to="/flight_info">
+              <FlightIcon
+                className='icon-avatar'
+                sx={{ fontSize: 50 }} />
+            </Link>
+          </Avatar>
+        </li>
+        <br />
+        <li>
+          <Avatar
+            className='icon-avatar'
+            sx={{ bgcolor: 'error.main', width: 56, height: 56 }}>
             <Link to="/lodging">
-              <HotelIcon 
-              className= 'icon-avatar'
-              sx={{ fontSize: 32 }} />
+              <HotelIcon
+                className='icon-avatar'
+                sx={{ fontSize: 48 }} />
             </Link>
           </Avatar>
         </li>
         <br />
         <li>
-          <Avatar 
-          className= 'icon-avatar'
-          sx={{ bgcolor: 'warning.main' }}>
+          <Avatar
+            className='icon-avatar'
+            sx={{ bgcolor: 'warning.main', width: 56, height: 56 }}>
             <Link to="/suit_case">
-              <LuggageIcon 
-              className= 'icon-avatar'
-              sx={{ fontSize: 32 }} />
+              <LuggageIcon
+                className='icon-avatar'
+                sx={{ fontSize: 50 }} />
             </Link>
           </Avatar>
         </li>
         <br />
         <li>
-          <Avatar 
-          className= 'icon-avatar'
-          sx={{ bgcolor: 'info.main' }}>
+          <Avatar
+            className='icon-avatar'
+            sx={{ bgcolor: 'info.main', width: 56, height: 56 }}>
             <Link to="/misc">
               <PsychologyAltIcon
-              className= 'icon-avatar'
-              sx={{ fontSize: 32 }} />
+                className='icon-avatar'
+                sx={{ fontSize: 50 }} />
             </Link>
           </Avatar>
         </li>
@@ -97,7 +102,7 @@ function Categories() {
     </div>
   );
 }
- 
+
 export default Categories;
 
 
@@ -194,7 +199,6 @@ export default Categories;
 
 // export default Categories;
 
-  
 
 
 
@@ -202,4 +206,4 @@ export default Categories;
 
 
 
-    
+

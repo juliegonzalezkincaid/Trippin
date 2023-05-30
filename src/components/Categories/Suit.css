@@ -1,20 +1,16 @@
-.suitcase-container{
-   
-    background-size:100% 400%;
-    padding: 20px;
-    border-radius: 5px;
-    width: 100%;
-    margin-bottom: 10px;
-    margin-top: 20px;
+.suitcase-body{
+    background-image: url(/public/suitcasepass.jpeg);
+    background-size:cover;
+    height: 100vh;
     color: white; 
+    text-align: center;
+    background-position: center;
   }
-  .input-field {
+  /* .input-field {
     width: 100%;
     margin-bottom: 10px;
     color: white;
     text-align: center;
-  }
+  } */
   
-  body {
-    background-image: url(/public/suitcasepass.jpeg);
-  }
+  

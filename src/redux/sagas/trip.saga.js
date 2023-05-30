@@ -1,4 +1,4 @@
-import { call, put, takeLatest, takeEvery, select } from "redux-saga/effects";
+import {all, call, put, takeLatest, takeEvery, select } from "redux-saga/effects";
 import axios from "axios";
 
 
@@ -59,6 +59,23 @@ function* editTrip(action) {
   }
 }
 
+function* updateTrip(action) {
+  try {
+    const { id, ...data } = action.payload;
+    yield call(axios.put, `/api/trip/${id}`, data);
+    yield put({ type: "UPDATE_TRIP_SUCCESS", payload: action.payload });
+  } catch (error) {
+    console.log("Error updating trip in updateTrip saga:", error);
+    yield put({ type: "UPDATE_TRIP_ERROR", error });
+  }
+}
+
+// Watcher saga
+function* watchUpdateTrip() {
+  yield takeLatest("UPDATE_TRIP", updateTrip);
+}
+
+
 
 function* tripSaga() {
   yield takeLatest("SAVE_TRIP", saveTrip);
@@ -66,6 +83,7 @@ function* tripSaga() {
   yield takeLatest("ADD_TRIP", addTrip);
   yield takeLatest("DELETE_TRIP", deleteTrip);
   yield takeLatest("EDIT_TRIP", editTrip);
+  yield all([watchUpdateTrip()]);
 }
 
 export default tripSaga;

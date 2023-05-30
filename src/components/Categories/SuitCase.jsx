@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from 'react-router-dom';
 import { Button, TextField } from "@mui/material";
 import './Suit.css'
+// import './Categories.css'
 
 function Suitcase () {
     const dispatch = useDispatch();
@@ -39,7 +40,7 @@ function Suitcase () {
 
     return(
       <div
-      className="suitcase-container"
+      className="suitcase-body"
       >
         <form onSubmit={handleSubmit}>
         <TextField

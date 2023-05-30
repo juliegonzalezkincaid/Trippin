@@ -5,6 +5,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from 'react-router-dom';
 import { Button, TextField } from "@mui/material";
 import './Miscl.css';
+
+
 function Misc() {
   const dispatch = useDispatch();
   const { id } = useParams();
@@ -41,7 +43,7 @@ function Misc() {
   };
 
   return (
-    <div className="misc-container">
+    <div className="misc-body">
       <h2>Miscellaneous</h2>
     <form onSubmit={handleSubmit}>
       <TextField

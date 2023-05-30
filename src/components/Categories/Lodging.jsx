@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from 'react-router-dom';
 import { Button, TextField, Typography } from "@mui/material";
 import './Lodge.css';
-
+// import './Categories.css'
 function Lodging () {
     const dispatch = useDispatch();
     const { id } = useParams();
@@ -45,7 +45,7 @@ function Lodging () {
 
 
     return(
-      <div className="lodging-container">
+      <div className="lodging-body">
       <Typography variant="h3" gutterBottom>
         Lodging Information
       </Typography>

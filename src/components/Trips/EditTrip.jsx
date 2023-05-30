@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { Button, TextField, Typography, Container } from "@mui/material";
+import './Styles.css'
 
 function EditTrip() {
     const dispatch = useDispatch();
@@ -11,25 +12,41 @@ function EditTrip() {
     const [description, setDescription] = useState(trip?.description || "");
     const [startDate, setStartDate] = useState(trip?.startDate || "");
     const [endDate, setEndDate] = useState(trip?.endDate || "");
+    useEffect(() => {
+
+    }, []);
 
     useEffect(() => {
-        // Fetch the trip data for editing
-        dispatch({ type: "GET_TRIP_BY_ID", payload: tripId });
-      }, [dispatch, tripId]);
+      if (trip) {
+        setDescription(trip.description);
+        setStartDate(trip.startDate);
+        setEndDate(trip.endDate);
+      } else {
+        // Trip not found, handle the error or redirect to an error page
+      }
+    }, [trip]);
 
       const handleDescriptionChange = (event) => {
+        event.preventDefault();
         setDescription(event.target.value);
       };
       
       const handleStartDateChange = (event) => {
+        event.preventDefault();
         setStartDate(event.target.value);
       };
       
       const handleEndDateChange = (event) => {
+        event.preventDefault();
         setEndDate(event.target.value);
       };
+      useEffect(() => {
+        // Fetch the trip data for editing
+        dispatch({ type: "GET_TRIP_BY_ID", payload: tripId });
+      }, [dispatch, tripId]);
 
-      const handleUpdate = () => {
+      const handleUpdate = (event) => {
+        event.preventDefault();
         const updatedTrip = {
           id: tripId,
           description,
@@ -38,7 +55,8 @@ function EditTrip() {
         };
       
         dispatch({ type: "UPDATE_TRIP", payload: updatedTrip });
-        history.push("/my-trips")
+        history.push("/my_trips")
+       
 
 
 };
@@ -46,7 +64,7 @@ return (
 
   <div className="edittrip">
     <Container maxWidth="sm">
-      <Typography variant="h4" align="center" gutterBottom>
+      <Typography variant="h3" align="center" gutterBottom>
         Edit Trip
       </Typography>
       <form onSubmit={handleUpdate}>
@@ -82,7 +100,10 @@ return (
           }}
           margin="normal"
         />
-        <Button type="submit" variant="contained" color="primary" fullWidth>
+        <Button 
+        type="submit" 
+        variant="contained" 
+        color="primary" fullWidth>
           Update
         </Button>
       </form>
