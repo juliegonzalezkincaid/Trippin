@@ -26,6 +26,9 @@ function LoginForm() {
 
   return (
     <form className="yellow" onSubmit={login}>
+     <br></br>
+     <br></br>
+     <br></br>
       <h2>Login</h2>
       {errors.loginMessage && (
         <h3 className="alert" role="alert">

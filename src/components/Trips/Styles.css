@@ -12,7 +12,7 @@
   }
 
   .my-trips-container h1 {
-    font-size: 50px;
+    font-size: 90px;
     font-weight: bolder;
     font-family:Georgia;
     text-align: center;
@@ -26,7 +26,7 @@
     font-size: 50px;
     font-weight:bolder;
     font-family: 'Georgia';
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
    
 
   }
@@ -52,7 +52,7 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover ;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
     font-weight: bolder;
     }
 .solid {
@@ -85,6 +85,13 @@
 .delete-container {
   color: hsl(94, 82%, 60%);
   font-size: 18px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
   font-weight: bolder;
 }
+.backbtn {
+  text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
+  font-weight: bolder;
+  align-items: center;
+}
+
+.container {}

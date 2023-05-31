@@ -12,20 +12,13 @@ import { Link } from 'react-router-dom';
 // import axios from "axios";
 
 function EachTrip({ trip, handleEditTrip, savedTrips,date }) {
-    // if (!trip) {
-    //     return null; // or render a loading indicator, an error message, or a default component
-    //   }
-    // const history = useHistory();
+  
+  const categories = useSelector((state) => state.categories);
+
     const dispatch = useDispatch();
     const user = useSelector(state => state.user);
     const [isHoveredEdit, setIsHoveredEdit] = useState(false);
     const [isHoveredDelete, setIsHoveredDelete] = useState(false);
-    // const [editedTrip, setEditedTrip] = useState(null);
-    // 
-    // allows user to edit their trip
-    // const handleDeleteTrip = (tripID) => {
-    //     dispatch({ type: "DELETE_TRIP", payload: tripID, savedTrips });
-    // };
     const handleDeleteTrip = (tripID) => {
 
       dispatch({ type: "DELETE_TRIP", payload: tripID });
@@ -38,6 +31,37 @@ function EachTrip({ trip, handleEditTrip, savedTrips,date }) {
             handleEditTrip(trip);
         }
     };
+// Function to get the inputs for a specific category and trip
+// const getInputsForCategory = (categoryType) => {
+//   // Find the category in the Redux state based on its type
+//   const category = categories.find((cat) => cat.type === categoryType);
+//   if (!category) return null;
+//   // Filter the trip's entries based on the category ID
+//   const categoryEntries = trip.entries.filter(
+//     (entry) => entry.category_id === category.id
+//   );
+//   return categoryEntries.map((entry) => (
+//     <input
+//       key={entry.id}
+//       type="text"
+//       value={entry.entry_text}
+//       readOnly
+//     />
+//   ));
+// };
+
+// return (
+//   <div>
+//     <h3>{trip.description}</h3>
+//     {categories.map((category) => (
+//       <div key={category.id}>
+//         <h4>{category.type}</h4>
+//         {getInputsForCategory(category.type)}
+//       </div>
+//     ))}
+//   </div>
+// );
+// }
 
    
     return (
@@ -87,7 +111,9 @@ function EachTrip({ trip, handleEditTrip, savedTrips,date }) {
         </TableCell>
         <TableCell>
           <div>
-            <Button component={Link} to="/categories">
+            <Button 
+            className="backbtn"
+            component={Link} to="/categories">
               Back to Categories
             </Button>
           </div>
@@ -116,3 +142,13 @@ function EachTrip({ trip, handleEditTrip, savedTrips,date }) {
     //     }
     // };
 
+ // if (!trip) {
+    //     return null; // or render a loading indicator, an error message, or a default component
+    //   }
+    // const history = useHistory();
+    // const [editedTrip, setEditedTrip] = useState(null);
+    // 
+    // allows user to edit their trip
+    // const handleDeleteTrip = (tripID) => {
+    //     dispatch({ type: "DELETE_TRIP", payload: tripID, savedTrips });
+    // };

@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { Button, TextField, Typography } from "@mui/material";
+import { useHistory } from 'react-router-dom';
 import './Flight.css';
 
 function FlightInfo() {
+  const history = useHistory();
   const dispatch = useDispatch();
   const { id } = useParams();
   const { user } = useSelector((store) => store);

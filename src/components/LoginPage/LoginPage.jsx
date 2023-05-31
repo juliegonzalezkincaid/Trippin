@@ -19,8 +19,8 @@ function LoginPage() {
           variant="contained"
           color="success"
           className="btn btn_asLink"
-          size="small"
-          onClick={() => {
+          size="large"
+          onClick={()=> {
             history.push('/registration');
           }}
         >

@@ -14,7 +14,7 @@ function MyTrips ({}) {
     const history = useHistory();
     const { userTrip, savedTrips } = useSelector((store) => store.trip);
     const user = useSelector((store) => store.user);
-    
+    const categories = useSelector((state) => state.categories);
 
     useEffect(() => {
      dispatch({ type: "FETCH_TRIPS" });
@@ -62,7 +62,7 @@ function MyTrips ({}) {
         component={Link} to="/add_trips"
         className="addtripsbutton"
         variant="contained"
-        color="success"
+        // color=""
         >Add a Trip
       </Button>
 
@@ -89,7 +89,7 @@ function MyTrips ({}) {
          ))}
     */}
    
-        <h2>Saved Trips:</h2>
+        <h2 className="saved">Saved Trips:</h2>
          {savedTrips.length === 0 ? (
         <p>No saved trips to show...yet!</p>
           ) : (

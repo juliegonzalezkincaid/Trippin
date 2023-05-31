@@ -6,7 +6,7 @@ body,
 
 body {
   font-family: Georgia;
-  /* margin: 0px; */
+  margin: 0px;
   background-image: url(/public/rainbow.webp);
   background-size:100% 100%; 
 }
@@ -20,9 +20,9 @@ img {
 Container
 -------------------------------------------------------------------------------- */
 
-.container {
+/* .container {
   padding: 20px;
-}
+} */
 
 /* --------------------------------------------------------------------------------
 Button
@@ -32,7 +32,7 @@ Button
   display: inline-block;
   padding: 10px 20px;
   border-color: #014041;
-  border-width: 2px 1px 5px;
+  border-width: 1px 1px 3px;
   border-radius: 4px;
   background-color:#8FED47;
   color: #f8f8f8;
@@ -98,14 +98,14 @@ Form Treatment
 -------------------------------------------------------------------------------- */
 
 .formPanel {
-  /* box-sizing: border-box;
-  width: 400px; */
-  max-width: 100%;
+  box-sizing: border-box;
   width: 400px;
+  max-width: 100%;
+  /* width: 400px; */
   padding: 25px;
-  margin: 0 auto 10px;
+  margin: 0 ;
   background-color: #efefef;
-  border-radius: 3px;
+  border-radius: 1px;
   box-shadow: 0 1px 2px rgb(0, 0, 0, 0.4);
 }
 

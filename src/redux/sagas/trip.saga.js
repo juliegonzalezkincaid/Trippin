@@ -1,7 +1,26 @@
 import {all, call, put, takeLatest, takeEvery, select } from "redux-saga/effects";
 import axios from "axios";
 
+function* fetchCategoriesAndEntries(action) {
+  try {
+    // Fetch categories
+    const categoriesResponse = yield call(axios.get, '/api/categories');
+    const categories = categoriesResponse.data;
 
+    // Fetch entries associated with trips
+    const entriesResponse = yield call(axios.get, '/api/entries');
+    const entries = entriesResponse.data;
+
+    yield put({ type: 'SET_CATEGORIES', payload: categories });
+    yield put({ type: 'SET_ENTRIES', payload: entries });
+  } catch (error) {
+    console.log('Error fetching categories and entries:', error);
+  }
+}
+
+function* watchFetchCategoriesAndEntries() {
+  yield takeEvery('FETCH_CATEGORIES_ENTRIES', fetchCategoriesAndEntries);
+}
 function* saveTrip(action) {
   try {
     const userId = yield select((state) => state.user.id);
@@ -91,6 +110,7 @@ function* tripSaga() {
   yield takeLatest("DELETE_TRIP", deleteTrip);
   yield takeLatest("EDIT_TRIP", editTrip);
   yield all([watchUpdateTrip()]);
+  yield all ([watchFetchCategoriesAndEntries(),])
 }
 
 export default tripSaga;

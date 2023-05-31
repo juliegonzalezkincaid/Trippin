@@ -7,16 +7,25 @@ const initialState = {
   misc: [],
   trips:[],
   suitCase:[],
+  categories: [],
+  entries: [],
 };
 
 function tripReducer(state = initialState, action) {
  console.log(state.userTrip)
   switch (action.type) {
-    // case "ADD_TRIP":
-    //   return {
-    //     ...state,
-    //     userTrip: [...state.userTrip, action.payload],
-    //   };
+   
+    case 'SET_CATEGORIES':
+      return {
+        ...state,
+        categories: action.payload,
+      };
+    case 'SET_ENTRIES':
+      return {
+        ...state,
+        entries: action.payload,
+      };
+
     case "ADD_TRIP":
   return {
     ...state,

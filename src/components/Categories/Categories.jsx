@@ -13,9 +13,12 @@ import Misc from '../Categories/Misc';
 import Suitcase from '../Categories/SuitCase';
 import PsychologyAltIcon from '@mui/icons-material/PsychologyAlt';
 import './Categories.css';
-
+import { useSelector } from 'react-redux';
 
 function Categories() {
+  const categories = useSelector((state) => state.categories);
+  const entries = useSelector((state) => state.entries);
+
   const dispatch = useDispatch();
   useEffect(() => {
     // Dispatch the 'FETCH_CATEGORIES' action when the component mounts
