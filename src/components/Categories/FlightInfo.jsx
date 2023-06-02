@@ -151,6 +151,13 @@ function FlightInfo() {
 }
 export default FlightInfo;
 
+ // const handleSubmit = (event) => {
+  //   event.preventDefault();
+  //   dispatch({ type: 'ADD_ENTRY', payload: { category: 'flight', entry: formValues } });
+  //   // Clear the form values
+  //   setFormValues({ name: '', date: '', fromCity: '', toCity: '', airline: '', flightNum: '', departTime: '', arrivalTime: '' });
+  // };
+
 
 
 

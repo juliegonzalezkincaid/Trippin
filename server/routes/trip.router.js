@@ -17,6 +17,7 @@ router.get("/", (req, res) => {
   pool
     .query(queryText, queryParams)
     .then((result) => {
+    
      res.send (result.rows);
     })
     .catch((error) => {
@@ -24,12 +25,15 @@ router.get("/", (req, res) => {
       res.sendStatus(500);
     });
 });
+
+
+
 //* GET /trip/:id: Retrieves a specific trip along with its associated save ID. It performs a join operation between the "trip" and "save" tables to get the trip information. The save ID is returned as "saved" in the response.
  router.get("/trip/:id", (req, res) => {
     const tripID = req.params.id; // Retrieve the user ID from the request parameter
     const queryText = `
       SELECT 
-        t.*, 
+        t.*,
       FROM 
         "trip" t
    WHERE 
@@ -39,6 +43,7 @@ router.get("/", (req, res) => {
     pool
       .query(queryText, [tripID])
       .then((result) => {
+        console.log('Fetched trips:', result.rows);
         const trip = result.rows;
         res.send(trip);
       })
@@ -48,6 +53,7 @@ router.get("/", (req, res) => {
       });
   });
 
+ 
   // *GET /user/:userId/entries: Retrieves all entries associated with a specific user ID. It fetches the entries from the "entry" table based on the user ID provided.
   router.get("/user/:userId/entries", (req, res) => {
     const userId = req.params.userId;
@@ -60,6 +66,7 @@ router.get("/", (req, res) => {
     pool
       .query(queryText, [userId])
       .then((result) => {
+        console.log('Fetched user trip entries:', result.rows);
         const entries = result.rows;
         res.send(entries);
       })
@@ -69,6 +76,9 @@ router.get("/", (req, res) => {
       });
   });
   
+
+
+
   //* POST /: Creates a new trip in the database.
 router.post('/', async (req, res) => { 
   // Data from the client (form)
@@ -91,12 +101,13 @@ router.post('/', async (req, res) => {
       res.sendStatus(200);
   } catch (error) {
       console.log(error);
+      console.log('Error inserting trip:', error);
       res.sendStatus(500);
   }
 });
 
 
-// PUT /edit: Updates a trip in the database. It expects the updated trip data in the request body and performs an update query on the "trip" table using the provided information.
+//*PUT /edit: Updates a trip in the database. It expects the updated trip data in the request body and performs an update query on the "trip" table using the provided information.
 router.put('/edit/:id', (req, res) => {
   console.log('In PUT request');
   const updatedTrip = req.body;
@@ -151,6 +162,29 @@ router.put('/edit/:id', (req, res) => {
 module.exports = router;
 
 
+ //* new GET /api/trip/:id: Retrieves a specific trip along with its associated save ID.
+// router.get("/:id", (req, res) => {
+//   const tripID = req.params.id;
+//   const queryText = `
+//     SELECT t.*, s."save_id" AS saved
+//     FROM "trip" t
+//     LEFT JOIN "save" s ON t."id" = s."trip_id" AND s."user_id" = $1
+//     WHERE t."id" = $2;
+//   `;
+
+//   const queryParams = [req.user?.id, tripID];
+
+//   pool
+//     .query(queryText, queryParams)
+//     .then((result) => {
+//       const trip = result.rows[0];
+//       res.send(trip);
+//     })
+//     .catch((error) => {
+//       console.log("Error getting saved trip:", error);
+//       res.sendStatus(500);
+//     });
+// });
 
 
 // router.put("/:id", (req, res) => {
@@ -219,3 +253,27 @@ module.exports = router;
 //         res.sendStatus(500);
 //       });
 //   });
+//*new GET /api/trip/user/:userId/entries: Retrieves all entries associated with a specific user ID.
+
+// router.get("/user/:userId/entries", (req, res) => {
+//   const userId = req.params.userId;
+//   const queryText = `
+//     SELECT e.*
+//     FROM "entry" e
+//     JOIN "trip" t ON e."trip_id" = t."id"
+//     WHERE t."user_id" = $1;
+//   `;
+
+//   const queryParams = [userId];
+
+//   pool
+//     .query(queryText, queryParams)
+//     .then((result) => {
+//       const entries = result.rows;
+//       res.send(entries);
+//     })
+//     .catch((error) => {
+//       console.log("Error getting user trip entries:", error);
+//       res.sendStatus(500);
+//     });
+// });

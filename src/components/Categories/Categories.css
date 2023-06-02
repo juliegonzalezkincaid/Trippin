@@ -1,14 +1,14 @@
 
-  .cat {
+  .catback {
     background-image: url(/public/yellow.jpeg);
     background-position: center;
     color: bisque;
     font-family: Georgia;
-    /* height: 100vh; */
-    background-size: cover;
     height: 100vh;
+    background-size: cover;
+  
     display: flex;
-    /* justify-content: center; */
+    justify-content: center;
     
   
   }

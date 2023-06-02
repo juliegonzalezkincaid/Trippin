@@ -9,25 +9,31 @@ const initialState = {
   suitCase:[],
   categories: [],
   entries: [],
+  guestInfo: [],
 };
 
 function tripReducer(state = initialState, action) {
- console.log(state.userTrip)
+ console.log(state.userTrip) 
+ // log the current state of userTrip
+ 
   switch (action.type) {
    
     case 'SET_CATEGORIES':
+      console.log('SET_CATEGORIES action:', action.payload);
       return {
         ...state,
         categories: action.payload,
       };
     case 'SET_ENTRIES':
-      return {
+      console.log('SET_ENTRIES action:', action.payload);
+     return {
         ...state,
         entries: action.payload,
       };
 
     case "ADD_TRIP":
-  return {
+      console.log('ADD_TRIP action:', action.payload);
+    return {
     ...state,
     userTrip: [
       ...state.userTrip,
@@ -79,6 +85,7 @@ function tripReducer(state = initialState, action) {
 
    
     case "SAVE_TRIP":
+      console.log('SAVE_TRIP action:', action.payload);
       return {
         ...state,
         userTrip: [
@@ -92,29 +99,46 @@ function tripReducer(state = initialState, action) {
         ],
       };
     case "SET_FLIGHT_INFO":
+      console.log('SET_FLIGHT_INFO action:', action.payload);
+
       return {
         ...state,
         setFlightInfo: [...state.setFlightInfo, action.payload],
       };
-
+      case 'ADD_GUEST_INFO':
+        return {
+          ...state,
+          guestInfo: [...state.guestInfo, action.payload],
+        };
+        // case 'CLEAR_GUEST_INFO':
+        //   return {
+        //     ...state,
+        //     guestInfo: null, // Clear the guestInfo state
+          // };
     case 'SET_GUEST_INFO':
+      console.log('SET_GUEST_INFO action:', action.payload);
       return {
         ...state,
         guestInfo: action.payload,
       };
     case 'SET_LODGING':
+      console.log('SET_LODGING action:', action.payload);
         return {
           ...state,
           lodging:action.payload,
         };
 
     case 'SET_MISC':
+      console.log('SET_MISC action:', action.payload);
+
           return {
             ...state,
             misc:action.payload,
           };
 
           case 'SET_SUITCASE':
+            console.log('SET_SUITCASE action:', action.payload);
+
             return {
               ...state,
               suitCase:action.payload,
@@ -126,6 +150,7 @@ function tripReducer(state = initialState, action) {
 }
 
 export default tripReducer;
+
  // case "SAVE_TRIP":
     //   return {
     //     ...state,
