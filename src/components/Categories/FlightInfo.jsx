@@ -10,7 +10,10 @@ function FlightInfo() {
   const dispatch = useDispatch();
   const { id } = useParams();
   const { user } = useSelector((store) => store);
-
+  const { selected } = useSelector((store) => store.trip);
+  const { setFlightInfo } = useSelector((store) => store.trip); 
+  
+  
   const [formValues, setFormValues] = useState({
     name: "",
     date: "",
@@ -30,20 +33,50 @@ function FlightInfo() {
     }));
   };
 
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
+  //   dispatch ({type: 'SET_FLIGHT_INFO', payload: {...formValues, index:setFlightInfo.length} });
+  //   setFormValues({
+  //     name: "",
+  //     date: "",
+  //     fromCity: "",
+  //     toCity: "",
+  //     airline: "",
+  //     flightNum: "",
+  //     departTime: "",
+  //     arrivalTime: "",
+  //   });
+  // }
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch ({type: 'SET_FLIGHT_INFO', payload: formValues });
-    // Dispatch form values to the appropriate action or store them as needed
-    // Example: dispatch({ type: "ADD_FLIGHT", payload: formValues });
+    const flightInfo = {
+      ...formValues,
+      index: setFlightInfo.length,
+    };
+    dispatch({ type: 'SET_FLIGHT_INFO', payload: flightInfo });
+    setFormValues({
+      name: "",
+      date: "",
+      fromCity: "",
+      toCity: "",
+      airline: "",
+      flightNum: "",
+      departTime: "",
+      arrivalTime: "",
+    });
   }
+  
+
 
   return (
     <div className="flight-body">
     <Typography variant="h3" gutterBottom>
       Flight Information
     </Typography>
-    <form onSubmit={handleSubmit}>
-      <TextField
+    <form 
+      onSubmit={handleSubmit}
+      className="flight-form">
+    <TextField
         id="name"
         label="Name"
         type="text"
@@ -51,8 +84,18 @@ function FlightInfo() {
         value={formValues.name}
         onChange={handleChange}
         required
-        fullWidth
+        className="input-field"
         margin="normal"
+        InputProps={{
+          style: {
+            color: 'white',
+          },
+        }}
+        InputLabelProps={{
+          style: {
+            color: 'white',
+          },
+        }}
       />
 
       <TextField
@@ -63,10 +106,19 @@ function FlightInfo() {
         value={formValues.date}
         onChange={handleChange}
         required
-        fullWidth
+        className="input-field"
         margin="normal"
         InputLabelProps={{
           shrink: true,
+          style: {
+            color: 'white',
+            fontWeight: 'bold',
+          },
+        }}
+        InputProps={{
+          style: {
+            color: 'white',
+          },
         }}
       />
 
@@ -78,8 +130,20 @@ function FlightInfo() {
         value={formValues.fromCity}
         onChange={handleChange}
         required
-        fullWidth
+        className="input-field"
         margin="normal"
+        InputLabelProps={{
+          shrink: true,
+          style: {
+            color: 'white',
+            fontWeight: 'bold',
+          },
+        }}
+        InputProps={{
+          style: {
+            color: 'white',
+          },
+        }}
       />
 
       <TextField
@@ -90,8 +154,20 @@ function FlightInfo() {
         value={formValues.toCity}
         onChange={handleChange}
         required
-        fullWidth
+        className="input-field"
         margin="normal"
+        InputLabelProps={{
+          shrink: true,
+          style: {
+            color: 'white',
+            fontWeight: 'bold',
+          },
+        }}
+        InputProps={{
+          style: {
+            color: 'white',
+          },
+        }}
       />
 
       <TextField
@@ -102,8 +178,20 @@ function FlightInfo() {
         value={formValues.airline}
         onChange={handleChange}
         required
-        fullWidth
+        className="input-field"
         margin="normal"
+        InputLabelProps={{
+          shrink: true,
+          style: {
+            color: 'white',
+            fontWeight: 'bold',
+          },
+        }}
+        InputProps={{
+          style: {
+            color: 'white',
+          },
+        }}
       />
 
       <TextField
@@ -114,8 +202,20 @@ function FlightInfo() {
         value={formValues.flightNum}
         onChange={handleChange}
         required
-        fullWidth
+        className="input-field"
         margin="normal"
+        InputLabelProps={{
+          shrink: true,
+          style: {
+            color: 'white',
+            fontWeight: 'bold',
+          },
+        }}
+        InputProps={{
+          style: {
+            color: 'white',
+          },
+        }}
       />
 
       <TextField
@@ -126,8 +226,20 @@ function FlightInfo() {
         value={formValues.departTime}
         onChange={handleChange}
         required
-        fullWidth
+        className="input-field"
         margin="normal"
+        InputLabelProps={{
+          shrink: true,
+          style: {
+            color: 'white',
+            fontWeight: 'bold',
+          },
+        }}
+        InputProps={{
+          style: {
+            color: 'white',
+          },
+        }}
       />
 
       <TextField
@@ -138,13 +250,63 @@ function FlightInfo() {
         value={formValues.arrivalTime}
         onChange={handleChange}
         required
-        fullWidth
+        className="input-field"
         margin="normal"
+        InputLabelProps={{
+          shrink: true,
+          style: {
+            color: 'white',
+            fontWeight: 'bold',
+          },
+        }}
+        InputProps={{
+          style: {
+            color: 'white',
+          },
+        }}
       />
 
-      <Button type="submit" variant="contained" color="primary">
+      <Button 
+      type="submit" 
+      variant="contained" 
+      style={{ 
+        backgroundColor: 'hsl(94, 82%, 60%)', 
+        color: 'white', 
+        textShadow: '10px 10px 15px rgba(0.5, 0.5, 0.5, 3)',
+        boxShadow: '4px 4px 6px rgba(0, 0, 0, 0.5)'
+        }}>
         Submit
       </Button>
+      {setFlightInfo.length > 0 && (
+      <ul>
+        <h3>Submitted Guest Information:</h3>
+        {setFlightInfo.map((flight, index) => (
+          <li 
+          className="submitinfo"
+          key={index}>
+
+            <p>Name: {flight.name}</p>
+            <p>Date: {flight.date}</p>
+            <p>From City: {flight.fromCity}</p>
+            <p>To City: {flight.fromCity}</p>
+            <p>Airline: {flight.fromCity}</p>
+            <p>Flight Number: {flight.fromCity}</p>
+            <p>Departure Time: {flight.fromCity}</p>
+            <p>Arrival Time: {flight.fromCity}</p>
+
+         <Button
+            variant="contained"
+            color="secondary"
+            onClick={() => dispatch({ type: 'DELETE_GUEST_INFO', payload: index })}
+            >
+            Delete
+        </Button>
+        <hr /> {/* Add a separator between submissions */}
+          </li>
+        ))}
+      </ul>
+    )}
+
     </form>
   </div>
 );

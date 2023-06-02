@@ -28,32 +28,20 @@ function GuestInfo () {
     
       const handleSubmit = (event) => {
         event.preventDefault();
-        dispatch ({type: 'ADD_GUEST_INFO', payload: formValues });
-      
-      // };
-      // const handleSubmit = (event) => {
-      //   event.preventDefault();
-      //   dispatch({
-      //     type: 'ADD_GUEST_INFO',
-      //     payload: {
-      //       tripId: id, // Assuming you have the trip ID available in the component
-      //       guestInfo: formValues,
-      //     },
-      //   });
-        // Clear the form after submitting
+        dispatch ({type: 'ADD_GUEST_INFO', payload: {...formValues,index:guestInfo.length} });
         setFormValues({
           name: '',
           phone: '',
           email: '',
         });
       };
-      
+   
    
 
-    return(
+return(
         <>
        
-        <form
+    <form
         className='guest-form'
         onSubmit={handleSubmit}>
            <h1>Guests</h1>
@@ -114,25 +102,36 @@ function GuestInfo () {
         }}
       />
       <br />
-      <Button type="submit" variant="contained" color="primary">
+      <Button type="submit" variant="contained" 
+      style={{ 
+        backgroundColor: 'hsl(94, 82%, 60%)', 
+        color: 'white', 
+        textShadow: '10px 10px 15px rgba(0.5, 0.5, 0.5, 3)',
+        boxShadow: '4px 4px 6px rgba(0, 0, 0, 0.5)'
+        }}>
+    
         Submit
       </Button>
       
-        {/* <div>
-        <h2>Submitted Guest Information:</h2>
-        <p>Name: {guestInfo.name}</p>
-        <p>Phone: {guestInfo.phone}</p>
-        <p>Email: {guestInfo.email}</p>
-      </div> */}
+        
    {guestInfo.length > 0 && (
       <ul>
         <h2>Submitted Guest Information:</h2>
         {guestInfo.map((guest, index) => (
-          <li key={index}>
+          <li 
+          className="submitinfo"
+          key={index}>
             <p>Name: {guest.name}</p>
             <p>Phone: {guest.phone}</p>
             <p>Email: {guest.email}</p>
-            <hr /> {/* Add a separator between submissions */}
+         <Button
+            variant="contained"
+            color="secondary"
+            onClick={() => dispatch({ type: 'DELETE_GUEST_INFO', payload: index })}
+            >
+            Delete
+        </Button>
+                <hr /> {/* Add a separator between submissions */}
           </li>
         ))}
       </ul>
@@ -145,7 +144,31 @@ function GuestInfo () {
 
 export default GuestInfo;
 
-
+     // const handleDelete = (index) => {
+        //   dispatch({ type: "DELETE_GUEST_INFO", payload: index });
+        // };
+        // const handleEdit = (index) => {
+        //   const editedGuest = {
+        //     ...guestInfo[index],
+        //     // Add any properties you want to edit here
+        //   };
+          // You can dispatch an action to update the guest info using the editedGuest object
+          // dispatch({ type: "EDIT_GUEST_INFO", payload: { index, guest: editedGuest } });
+        // };
+      
+      // };
+      // const handleSubmit = (event) => {
+      //   event.preventDefault();
+      //   dispatch({
+      //     type: 'ADD_GUEST_INFO',
+      //     payload: {
+      //       tripId: id, // Assuming you have the trip ID available in the component
+      //       guestInfo: formValues,
+      //     },
+      //   });
+        // Clear the form after submitting
+       
+      
 {/* <div>
         <h2>Guest Entries:</h2>
         {entries.guest.map((entry) => (
@@ -155,5 +178,11 @@ export default GuestInfo;
             <p>Email: {entry.email}</p>
           </div>
         ))}
+      </div> */}
+      {/* <div>
+        <h2>Submitted Guest Information:</h2>
+        <p>Name: {guestInfo.name}</p>
+        <p>Phone: {guestInfo.phone}</p>
+        <p>Email: {guestInfo.email}</p>
       </div> */}
 

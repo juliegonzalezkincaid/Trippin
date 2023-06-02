@@ -7,4 +7,51 @@
     background-position: center;
     color: bisque;
     text-align: center;
+    min-height: calc(100vh - 64px); 
+    text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
+    font-weight: bolder;
+    font-family: Georgia;
+    font-size: 40px;
   }
+
+  .flight-form{
+    font-size: 20px;
+    font-weight: bolder;
+    font-family:Georgia;
+    text-align: center;
+    color:black;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  
+
+  }
+
+  .submitinfo p {
+  /* Adjust the width of each column as needed */
+    text-align: left;
+    margin: 10px 0;
+    text-shadow: 6px 6px 6px rgba(0, 0, 0, 0.5);
+    font-size: px; /* Adjust the font size to your preference */
+    font-weight:bolder; /* Remove the bolder font weight */
+    font-family: Georgia; /* Use a professional font like Arial or a similar sans-serif font */
+    color: black; /* Set the color to a more legible color */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
+   .submitinfo-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  .input-field {
+    width: 50%;
+    margin: 10px auto;
+  }
+
+.submitinfo  {
+  
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Adjust the number of columns as needed */
+  grid-gap: 10px;
+  margin-bottom: 10px;
+}

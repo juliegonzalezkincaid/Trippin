@@ -9,7 +9,7 @@ const initialState = {
   suitCase:[],
   categories: [],
   entries: [],
-  guestInfo: [],
+ 
 };
 
 function tripReducer(state = initialState, action) {
@@ -45,7 +45,12 @@ function tripReducer(state = initialState, action) {
       },
     ],
   };
-
+  case "DELETE_GUEST_INFO":
+    const updatedGuestInfo = state.guestInfo.filter((_, index) => index !== action.payload);
+    return {
+      ...state,
+      guestInfo: updatedGuestInfo,
+    };
 
   case "DELETE_TRIP":
     

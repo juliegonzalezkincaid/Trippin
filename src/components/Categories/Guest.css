@@ -4,7 +4,8 @@
     background-position: center;
     color:aliceblue;
     text-align: center;
-    height: 200vh;
+    /* height: 200vh; */
+    min-height: calc(100vh - 64px); 
     text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
     font-weight: bolder;
     font-family: Georgia;
@@ -24,11 +25,19 @@
   .guest-form input[type="email"],
   .guest-form input[type=""]
    {
+    border: 4px solid whitesmoke;
     font-weight: bolder;
     font-size: 25px;
     font-family: Georgia;
-    color:black;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    color:bisque;
+    text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
   }
 
+
+  .submitinfo {
+   text-align: left; 
+   margin: 10px 0;
+   text-shadow: 6px 6px 6px rgba(0, 0, 0, 0.5);
+  
+  }
   
