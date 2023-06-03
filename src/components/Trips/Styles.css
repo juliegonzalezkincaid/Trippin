@@ -57,7 +57,7 @@
     }
 .solid {
   color: hsl(94, 82%, 60%);
-  margin: 0;
+  margin: -1;
   font-size: 70px;
   text-align: center;
   font-style: italic;

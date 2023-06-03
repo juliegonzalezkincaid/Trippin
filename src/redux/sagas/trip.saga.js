@@ -59,6 +59,7 @@ function* deleteTrip(action) {
     yield put({ type: "DELETE_TRIP_SUCCESS", payload: action.payload });
     yield put({ type: "GET_SAVED_TRIPS" });
     //TODO YIELD PUT TO REFRESH TRIPS
+    yield call(getSavedTrips); // Use call effect to wait for the getSavedTrips saga to complete
   } catch (error) {
     console.log("Error deleting trip in deleteTrip saga:", error);
     yield put({ type: "DELETE_TRIP_ERROR" });
@@ -109,7 +110,7 @@ function* tripSaga() {
   yield takeLatest("ADD_TRIP", addTrip);
   yield takeLatest("DELETE_TRIP", deleteTrip);
   yield takeLatest("EDIT_TRIP", editTrip);
-  yield all([watchUpdateTrip()]);
+  // yield all([watchUpdateTrip()]);
   yield all ([watchFetchCategoriesAndEntries(),])
 }
 

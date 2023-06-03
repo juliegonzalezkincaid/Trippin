@@ -3,18 +3,19 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 0 0 30px;
+  /* margin: 0 0 30px; */
   background-color:#48D8D9;
   overflow: hidden;
 }
 
 .nav a {
   text-decoration: none;
+  margin: -1;
 }
 
 .nav-title {
   color: hsl(94, 82%, 60%);
-  margin: 0;
+  margin: -1;
   font-size: 40px;
   text-align: center;
   font-style: italic;

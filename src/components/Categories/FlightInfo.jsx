@@ -33,20 +33,7 @@ function FlightInfo() {
     }));
   };
 
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   dispatch ({type: 'SET_FLIGHT_INFO', payload: {...formValues, index:setFlightInfo.length} });
-  //   setFormValues({
-  //     name: "",
-  //     date: "",
-  //     fromCity: "",
-  //     toCity: "",
-  //     airline: "",
-  //     flightNum: "",
-  //     departTime: "",
-  //     arrivalTime: "",
-  //   });
-  // }
+  
   const handleSubmit = (event) => {
     event.preventDefault();
     const flightInfo = {
@@ -70,7 +57,11 @@ function FlightInfo() {
 
   return (
     <div className="flight-body">
-    <Typography variant="h3" gutterBottom>
+    <Typography 
+    variant="h3" 
+    gutterBottom
+    className="h3">
+      
       Flight Information
     </Typography>
     <form 
@@ -265,7 +256,7 @@ function FlightInfo() {
           },
         }}
       />
-
+<br></br>
       <Button 
       type="submit" 
       variant="contained" 
@@ -288,12 +279,12 @@ function FlightInfo() {
             <p>Name: {flight.name}</p>
             <p>Date: {flight.date}</p>
             <p>From City: {flight.fromCity}</p>
-            <p>To City: {flight.fromCity}</p>
-            <p>Airline: {flight.fromCity}</p>
-            <p>Flight Number: {flight.fromCity}</p>
-            <p>Departure Time: {flight.fromCity}</p>
-            <p>Arrival Time: {flight.fromCity}</p>
-
+            <p>To City: {flight.toCity}</p>
+            <p>Airline: {flight.airline}</p>
+            <p>Flight Number: {flight.flightNum}</p>
+            <p>Departure Time: {flight.departTime}</p>
+            <p>Arrival Time: {flight.arrivalTime}</p>
+<br></br>
          <Button
             variant="contained"
             color="secondary"
@@ -301,12 +292,15 @@ function FlightInfo() {
             >
             Delete
         </Button>
+        <br></br>
         <hr /> {/* Add a separator between submissions */}
           </li>
+
         ))}
       </ul>
     )}
-
+     <br></br>
+ <br></br>
     </form>
   </div>
 );

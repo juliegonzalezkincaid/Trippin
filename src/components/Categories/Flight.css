@@ -21,16 +21,19 @@
     text-align: center;
     color:black;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  
-
   }
+
+  .h3 {
+    font-family: Georgia;
+  }
+
 
   .submitinfo p {
   /* Adjust the width of each column as needed */
     text-align: left;
     margin: 10px 0;
-    text-shadow: 6px 6px 6px rgba(0, 0, 0, 0.5);
-    font-size: px; /* Adjust the font size to your preference */
+    text-shadow: 8px 8px 9px rgba(3, 3, 3, 3.5);
+    font-size: 20px; /* Adjust the font size to your preference */
     font-weight:bolder; /* Remove the bolder font weight */
     font-family: Georgia; /* Use a professional font like Arial or a similar sans-serif font */
     color: black; /* Set the color to a more legible color */
@@ -44,7 +47,7 @@
     margin-bottom: 10px;
   }
   .input-field {
-    width: 50%;
+    width: 40%;
     margin: 10px auto;
   }
 

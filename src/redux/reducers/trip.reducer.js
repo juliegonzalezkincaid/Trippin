@@ -6,7 +6,7 @@ const initialState = {
   lodging: [],
   misc: [],
   trips:[],
-  suitCase:[],
+  suitcase:[],
   categories: [],
   entries: [],
  
@@ -130,8 +130,17 @@ function tripReducer(state = initialState, action) {
       console.log('SET_LODGING action:', action.payload);
         return {
           ...state,
-          lodging:action.payload,
+          lodging: [...state.lodging, action.payload],
         };
+
+        case 'DELETE_LODGING_INFO':
+      const updatedLodging = state.lodging.filter(
+        (_, index) => index !== action.payload
+      );
+      return {
+        ...state,
+        lodging: updatedLodging,
+      };
 
     case 'SET_MISC':
       console.log('SET_MISC action:', action.payload);
@@ -146,8 +155,16 @@ function tripReducer(state = initialState, action) {
 
             return {
               ...state,
-              suitCase:action.payload,
+              suitcase:[...state.suitcase, ...action.payload],
             };
+            case 'DELETE_SUITCASE_INFO':
+      const updatedSuitcase = state.suitcase.filter(
+        (_, index) => index !== action.payload
+      );
+      return {
+        ...state,
+        suitcase: updatedSuitcase,
+      };
     
  default:
       return state;

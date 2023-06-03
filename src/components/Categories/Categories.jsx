@@ -30,13 +30,10 @@ function Categories() {
     <div className='cat'>
       <ul className='icon-list'>
         <li>
-          <br></br>
-          <br></br>
-          <br></br>
+         
           <Avatar
             className='icon-avatar'
-            sx={{ bgcolor: 'primary.main', width: 56, height: 56,
-}}>
+            sx={{ bgcolor: 'primary.main', width: 56, height: 56,}}>
             <Link to="/guest_info">
               <PeopleIcon
                 className='icon-avatar'
@@ -44,7 +41,7 @@ function Categories() {
             </Link>
           </Avatar>
         </li>
-        <br />
+        
         <li>
           <Avatar
             className='icon-avatar'
