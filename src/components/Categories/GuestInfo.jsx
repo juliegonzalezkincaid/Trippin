@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from 'react-router-dom';
 import { Button, TextField } from "@mui/material";
 import './Guest.css';
+
+
 function GuestInfo () {
     const dispatch = useDispatch();
     const { id } = useParams();

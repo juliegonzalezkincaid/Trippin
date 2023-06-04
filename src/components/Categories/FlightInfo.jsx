@@ -60,7 +60,9 @@ function FlightInfo() {
     <Typography 
     variant="h3" 
     gutterBottom
-    className="h3">
+    className="h3"
+    style={{ fontFamily: "Georgia" }}
+    >
       
       Flight Information
     </Typography>
@@ -80,11 +82,13 @@ function FlightInfo() {
         InputProps={{
           style: {
             color: 'white',
+            fontFamily: "Georgia" 
           },
         }}
         InputLabelProps={{
           style: {
             color: 'white',
+            fontFamily: "Georgia" 
           },
         }}
       />
@@ -104,11 +108,13 @@ function FlightInfo() {
           style: {
             color: 'white',
             fontWeight: 'bold',
+            fontFamily: "Georgia" 
           },
         }}
         InputProps={{
           style: {
             color: 'white',
+            fontFamily: "Georgia" 
           },
         }}
       />
@@ -128,11 +134,13 @@ function FlightInfo() {
           style: {
             color: 'white',
             fontWeight: 'bold',
+            fontFamily: "Georgia" 
           },
         }}
         InputProps={{
           style: {
             color: 'white',
+            fontFamily: "Georgia" 
           },
         }}
       />
@@ -152,11 +160,13 @@ function FlightInfo() {
           style: {
             color: 'white',
             fontWeight: 'bold',
+            fontFamily: "Georgia" 
           },
         }}
         InputProps={{
           style: {
             color: 'white',
+            fontFamily: "Georgia" 
           },
         }}
       />
@@ -176,11 +186,13 @@ function FlightInfo() {
           style: {
             color: 'white',
             fontWeight: 'bold',
+            fontFamily: "Georgia" 
           },
         }}
         InputProps={{
           style: {
             color: 'white',
+            fontFamily: "Georgia" 
           },
         }}
       />
@@ -200,11 +212,13 @@ function FlightInfo() {
           style: {
             color: 'white',
             fontWeight: 'bold',
+            fontFamily: "Georgia" 
           },
         }}
         InputProps={{
           style: {
             color: 'white',
+            fontFamily: "Georgia" 
           },
         }}
       />
@@ -229,6 +243,8 @@ function FlightInfo() {
         InputProps={{
           style: {
             color: 'white',
+            fontFamily: "Georgia" 
+            
           },
         }}
       />
@@ -248,11 +264,13 @@ function FlightInfo() {
           style: {
             color: 'white',
             fontWeight: 'bold',
+            fontFamily: "Georgia" 
           },
         }}
         InputProps={{
           style: {
             color: 'white',
+            fontFamily: "Georgia" 
           },
         }}
       />
@@ -264,7 +282,9 @@ function FlightInfo() {
         backgroundColor: 'hsl(94, 82%, 60%)', 
         color: 'white', 
         textShadow: '10px 10px 15px rgba(0.5, 0.5, 0.5, 3)',
-        boxShadow: '4px 4px 6px rgba(0, 0, 0, 0.5)'
+        boxShadow: '4px 4px 6px rgba(0, 0, 0, 0.5)',
+        fontFamily: "Georgia" ,
+        
         }}>
         Submit
       </Button>
@@ -288,7 +308,8 @@ function FlightInfo() {
          <Button
             variant="contained"
             color="secondary"
-            onClick={() => dispatch({ type: 'DELETE_GUEST_INFO', payload: index })}
+            onClick={() => dispatch({ type: 'DELETE_FLIGHT_INFO', payload: index })}
+            style={{ fontFamily: "Georgia" }}
             >
             Delete
         </Button>

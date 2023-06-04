@@ -117,7 +117,8 @@ function Lodging() {
         <TextField
           className="input-field"
           name="arrivalDate"
-          // label="Arrival Date"
+          label="Arrival Date"
+
           type="date"
           value={formValues.arrivalDate}
           onChange={handleChange}
@@ -138,7 +139,7 @@ function Lodging() {
         <TextField
           className="input-field"
           name="departureDate"
-          // label="Departure Date"
+          label="Departure Date"
           type="date"
           value={formValues.departureDate}
           onChange={handleChange}
@@ -162,7 +163,7 @@ function Lodging() {
           style={{
             backgroundColor: 'hsl(94, 82%, 60%)',
             color: 'white',
-            textShadow: '10px 10px 15px rgba(3, 3, 3, 5)',
+            textShadow: '1px 10px 20px rgba(5, 5, 5, 5)',
             boxShadow: '10px 10px 10px rgba(3, 3, 3, 1)'
           }}>
           Submit

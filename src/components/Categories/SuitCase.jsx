@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from 'react-router-dom';
-import { Button, TextField, Typography, Chip, Box } from "@mui/material";
+import { Button, TextField, Typography, Box } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 
 import './Suit.css'
@@ -30,15 +30,17 @@ function Suitcase () {
       };
     const handleSubmit = (event) => {
   event.preventDefault();
-  const suitcaseInfo = {
-    bring: formValues.bring,
-    dontBring: formValues.dontBring,
-  };
-  dispatch({ type: 'SET_SUITCASE', payload: [suitcaseInfo] }); // Wrap suitcaseInfo in an array
+  if (formValues.bring || formValues.dontBring) {
+    const suitcaseInfo = {
+      bring: formValues.bring,
+      dontBring: formValues.dontBring,
+    };
+  dispatch({ type: 'SET_SUITCASE', payload: [suitcaseInfo] }); 
   setFormValues({
     bring: "",
     dontBring: "",
   });
+}
 };
 
 const handleDelete = (index) => {
@@ -53,66 +55,101 @@ const handleDelete = (index) => {
          <Typography 
       variant="h2" 
       gutterBottom
-      className="header-title">
+      className="header-title"
+      style={{ fontFamily: "Georgia" }}>
         What To Bring 
       </Typography>
         <br></br>
         <br></br>
-        <form 
-    
+        
+    <form 
         onSubmit={handleSubmit}>
         <TextField
           name="bring"
-          label="Items to Bring"
+          label="Items to Bring:"
           value={formValues.bring}
           onChange={handleChange}
-          required
           className="bring-list"
           InputProps={{
             style: {
               color: 'white',
               fontWeight: 'bolder',
+
+              fontFamily: "Georgia",
             },
           }}
           InputLabelProps={{
             style: {
               color: 'white',
+              fontFamily: 'Georgia',
+              textShadow: '1px 20px 20px rgba(9, 9, 9, 9)',
             },
           }}
         />
+         <Button type="submit" variant="contained" 
+         color="primary"
+         style={{
+          backgroundColor: 'hsl(94, 82%, 60%)',
+          color: 'white',
+          textShadow: '1px 10px 20px rgba(5, 5, 5, 5)',
+          boxShadow: '10px 10px 10px rgba(3, 3, 3, 1)'
+        }}
+         >
+          Submit
+        </Button>
+        <br />
         <br />
         <TextField
           name="dontBring"
-          label="Items Not to Bring"
+          label="Items Not to Bring:"
           value={formValues.dontBring}
           onChange={handleChange}
-          required
           className="dont-bring-list"
           InputProps={{
             style: {
               color: 'black',
               fontWeight: 'bolder',
+              fontFamily: "Georgia",
             },
           }}
           InputLabelProps={{
             style: {
               color: 'white',
+              fontFamily: "Georgia",
+              textShadow: '1px 10px 20px rgba(5, 5, 5, 5)',
             },
           }}
         />
-        <br />
-        <Button type="submit" variant="contained" color="primary">
+       
+        <Button 
+        type="submit" 
+        variant="contained" 
+        color="primary"
+        style={{
+          backgroundColor: 'hsl(94, 82%, 60%)',
+          color: 'white',
+          textShadow: '1px 10px 20px rgba(5, 5, 5, 5)',
+          boxShadow: '10px 10px 10px rgba(3, 3, 3, 1)'
+        }}
+        >
           Submit
         </Button>
+        <br />
         {suitcase.length > 0 && (
+          
           <div className="list-container">
             <div className="list-column">
-              <Typography variant="h5">What to Bring:</Typography>
+              <Typography 
+              variant="h3"
+              style={{ fontFamily: "Georgia" }}
+              >What to Bring:</Typography>
               <ul className="bring-list">
                 {suitcase.map((item, index) => (
                   <li key={index}>
                     <Box display="flex" alignItems="center">
-                      <Typography>{item.bring}</Typography>
+                      <Typography 
+                      style={{ fontFamily: "Georgia" }}>{item.bring}</Typography>
+                      
                       <Button
                         variant="outlined"
                         color="secondary"
@@ -126,12 +163,15 @@ const handleDelete = (index) => {
               </ul>
             </div>
             <div className="list-column">
-              <Typography variant="h5">What Not to Bring:</Typography>
+              <Typography 
+              variant="h3"
+              style={{ fontFamily: "Georgia" }}
+              >What Not to Bring:</Typography>
               <ul className="dont-bring-list">
                 {suitcase.map((item, index) => (
                   <li key={index}>
                     <Box display="flex" alignItems="center">
-                      <Typography>{item.dontBring}</Typography>
+                      <Typography style={{ fontFamily: "Georgia" }}>{item.dontBring}</Typography>
                       <Button
                         variant="outlined"
                         color="secondary"
@@ -147,7 +187,7 @@ const handleDelete = (index) => {
           </div>
         )}
        
-        <hr />
+    
         
     <br></br>
     <br></br>

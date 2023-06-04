@@ -110,6 +110,15 @@ function tripReducer(state = initialState, action) {
         ...state,
         setFlightInfo: [...state.setFlightInfo, action.payload],
       };
+      case 'DELETE_FLIGHT_INFO':
+      const updatedFlight = state.setFlightInfo.filter(
+        (_, index) => index !== action.payload
+      );
+      return {
+        ...state,
+        lodging: updatedFlight,
+      }; 
+      
       case 'ADD_GUEST_INFO':
         return {
           ...state,
@@ -126,6 +135,8 @@ function tripReducer(state = initialState, action) {
         ...state,
         guestInfo: action.payload,
       };
+     
+
     case 'SET_LODGING':
       console.log('SET_LODGING action:', action.payload);
         return {
@@ -147,8 +158,18 @@ function tripReducer(state = initialState, action) {
 
           return {
             ...state,
-            misc:action.payload,
+            misc:[...state.misc, action.payload],
           };
+
+          
+          case 'DELETE_MISC_INFO':
+            const updatedMisc = state.suitcase.filter(
+              (_, index) => index !== action.payload
+            );
+            return {
+              ...state,
+              misc: updatedMisc,
+            };
 
           case 'SET_SUITCASE':
             console.log('SET_SUITCASE action:', action.payload);
