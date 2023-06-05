@@ -6,14 +6,22 @@ import "./Miscl.css";
 function Misc() {
   const dispatch = useDispatch();
   const misc = useSelector((state) => state.trip.misc);
-  const [submittedNotes, setSubmittedNotes] = useState([]);
+
   React.useEffect(() => {
+    console.log('formValues after misc update', formValues);
+    [misc]
     console.log("updated misc: ", misc);
   }, [misc]);
+  
   const [formValues, setFormValues] = useState({
     question: "",
     notes: "",
   });
+
+  React.useEffect(() => {
+    console.log("Updated formValues: ", formValues);
+  }, [formValues]);
+  
   const [isQuestionSubmitted, setIsQuestionSubmitted] = useState(false);
 
   const handleChange = (event) => {
@@ -22,60 +30,48 @@ function Misc() {
       ...prevFormValues,
       [name]: value,
     }));
+    console.log('formValues after handleChange', formValues);
+    console.log('misc state after handleChange', misc);
   };
 
-
-  const handleSubmit = (event, index) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("handleSubmit Form Values: ", formValues);
-    const { question, answer } = formValues;
-
-    if (isQuestionSubmitted) {
-      // Handle answer submission
-      const updatedMisc = [...misc];
-      updatedMisc[index] = {
-        ...updatedMisc[index],
-        answer: answer,
-      };
-      dispatch({ type: "SET_MISC", payload: updatedMisc });
-    } else {
-      // Handle question submission
-      dispatch({ type: "SET_MISC", payload: [...misc, formValues] });
-      console.log("handleSubmit misc after dispatch: ", misc);
-    }
-
-    // Reset form values
-    setFormValues({
-      question: "",
-      // answer: "",
-      
+  
+    const { question } = formValues;
+    dispatch({
+      type: 'SET_MISC',
+      payload: {
+        question: formValues.question,
+        answer: ''  // Default value if no answer is provided yet.
+      }
     });
-
-    // Reset question submission flag
+  
+  
     setIsQuestionSubmitted(false);
     console.log("handleSubmit misc after dispatch: ", misc);
+    console.log('formValues after handleSubmit', formValues);
+    console.log('misc state after handleSubmit', misc);
   };
-
-    const handleAnswerChange = (event, index) => {
-    const { value } = event.target;
-    setFormValues((prevFormValues) => ({
-      ...prevFormValues,
-      answer: value,
-    }));
-    setIsQuestionSubmitted(true);
+  
+  const [answers, setAnswers] = useState(Array(misc.length).fill(''));
+  
+  const handleAnswerChange = (event, index) => {
+    const newAnswers = [...answers];
+    newAnswers[index] = event.target.value;
+    setAnswers(newAnswers);
   };
 
   const handleDelete = (index) => {
     console.log("handleDelete before dispatch: ", misc);
     dispatch({ type: "DELETE_MISC_INFO", payload: index });
     console.log("handleDelete after dispatch: ", misc);
+    console.log('formValues after handleDelete', formValues);
+    console.log('misc state after handleDelete', misc);
   };
-
-
 
   return (
     <div className="misc-body">
-      <h2>Questions and Notes</h2>
+      <h2>Q & A</h2>
       <form onSubmit={handleSubmit}>
         <TextField
           name="question"
@@ -117,82 +113,79 @@ function Misc() {
         <br />
         <br />
 
-     
-
         {misc.length > 0 && (
-          <div className="submitted-section">
-            <Typography variant="h6" style={{ fontFamily: "Georgia" }}>
-              Submitted Guest Information
+  <div className="submitted-section">
+    <Typography 
+      variant="h3" 
+      style={{ fontFamily: "Georgia" }}>
+      Submitted Guest Information
+    </Typography>
+    {misc.map((item, index) => (
+      <div key={item.id} className="submitted-item" style={{ fontFamily: "Georgia" }}>
+        <div>
+          <Typography 
+            varient="h3"
+            style={{ fontFamily: "Georgia", fontSize: 33, textShadow: "4px 5px 25px rgba(9, 9, 5)",}}>
+            Question: {item.question}
+          </Typography>
+          {item.answer && (
+            <Typography style={{ fontFamily: "Georgia" }}>
+              Answer: {item.answer}
             </Typography>
-
-            {misc.map((itemArray, index) => (
-              <div key={index} className="submitted-item" style={{ fontFamily: "Georgia" }}>
-                {itemArray.map((item, itemIndex) => (
-                  <div key={itemIndex}>
-                    <Typography style={{ fontFamily: "Georgia" }}>
-                      Question: {item.question}
-                    </Typography>
-                    {item.answer && (
-                      <Typography style={{ fontFamily: "Georgia" }}>
-                        Answer: {item.answer}
-                      </Typography>
-                    )}
-
-                    <div className="answer-input">
-                      {!item.answer && (
-                        <TextField
-                          type="text"
-                          name={`answer-${index}`}
-                          value={formValues[`answer-${index}`] || ""}
-                          onChange={(event) => handleAnswerChange(event, index)}
-                          style={{ fontFamily: "Georgia" }}
-                        />
-                      )}
-
-                      {!item.answer && (
-                        <Button
-                          type="button"
-                          variant="contained"
-                          color="primary"
-                          onClick={(event) => handleSubmit(event, index)}
-                          style={{
-                            textShadow: "1px 10px 20px rgba(8, 5, 5, 5)",
-                            boxShadow: "1px 10px 10px rgba(3, 3, 3, 1)",
-                            fontFamily: "Georgia",
-                            padding: "10px 20px",
-                          }}
-                        >
-                          Submit Answer
-                        </Button>
-                      )}
-
-                      <Button
-                        type="button"
-                        variant="contained"
-                        color="secondary"
-                        onClick={() => handleDelete(index)}
-                        style={{
-                          textShadow: "1px 10px 20px rgba(8, 5, 5, 5)",
-                          boxShadow: "1px 10px 10px rgba(3, 3, 3, 1)",
-                          fontFamily: "Georgia",
-                          padding: "10px 20px",
-                        }}
-                      >
-                        Delete
-                      </Button>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            ))}
-
-          
-          </div>
-        )}
-      </form>
-    </div>
-  );
+          )}
+        </div>
+        <div className="answer-input">
+          {!item.answer && (
+            <TextField
+              varient= "h3"
+              type="text"
+              name={`answer-${index}`}
+              value={formValues[`answer-${index}`] || ""}
+              onChange={(event) => handleAnswerChange(event, index)}
+              style={{ fontFamily: "Georgia" }}
+            />
+          )}
+          {!item.answer && (
+            <Button
+              type="button"
+              variant="contained"
+              color="primary"
+              onClick={(event) => handleSubmit(event, index)}
+              style={{
+                textShadow: "1px 10px 20px rgba(8, 5, 5, 5)",
+                boxShadow: "1px 10px 10px rgba(3, 3, 3, 1)",
+                fontFamily: "Georgia",
+                padding: "10px 20px",
+              }}
+            >
+              Submit Answer
+            </Button>
+          )}
+          <Button
+            type="button"
+            variant="contained"
+            color="secondary"
+            onClick={() => handleDelete(index)}
+            style={{
+              textShadow: "1px 10px 20px rgba(8, 5, 5, 5)",
+              boxShadow: "1px 10px 10px rgba(3, 3, 3, 1)",
+              fontFamily: "Georgia",
+              padding: "10px 20px",
+            }}
+          >
+            Delete
+          </Button>
+        </div>
+      </div>
+    ))}
+  </div>
+)}
+</form>
+</div>
+);
 }
+
+    
 
 export default Misc;
 
@@ -243,13 +236,13 @@ export default Misc;
             //     ...prevFormValues,
             //     [name]: value,
             //   }));
+            // // };
+            // const handleNotesSubmit = () => {
+            //   console.log("handleNotesSubmit Form Values: ", formValues);
+            //   setSubmittedNotes((prevSubmittedNotes) => [...prevSubmittedNotes, formValues.notes]);
+            //   setFormValues((prevFormValues) => ({
+            //     ...prevFormValues,
+            //     notes: "",
+            //   }));
+            //   console.log("handleNotesSubmit misc after dispatch: ", misc);
             // };
-            const handleNotesSubmit = () => {
-              console.log("handleNotesSubmit Form Values: ", formValues);
-              setSubmittedNotes((prevSubmittedNotes) => [...prevSubmittedNotes, formValues.notes]);
-              setFormValues((prevFormValues) => ({
-                ...prevFormValues,
-                notes: "",
-              }));
-              console.log("handleNotesSubmit misc after dispatch: ", misc);
-            };

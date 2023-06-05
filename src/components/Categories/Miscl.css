@@ -11,6 +11,28 @@
     text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
     font-weight: bolder;
     font-family: Georgia;
-    font-size: 20px;
-    margin: -2;
+    font-size: 40px;
+    margin: -1;
+}
+
+.submitted-section {
+    text-align: center; 
+    margin: 10px 0;
+    text-shadow: 6px 6px 6px rgba(0, 0, 0, 0.5);
+font-size: 40;
+}
+.answer-input {
+   
+    font-weight: bolder;
+    font-size: 40px;
+    font-family: Georgia;
+    color:bisque;
+    text-shadow: 4px 5px 5px rgba(3, 3, 3, 3.5);
+}
+
+.submitted-item {
+    font-size: 60px;
+    color: whitesmoke;
+    text-shadow: 11px 4px 4px rgba(9, 9, 3, 3.5);
+    font-weight: bolder;
 }
