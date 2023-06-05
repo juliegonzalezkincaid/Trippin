@@ -10,13 +10,12 @@
     text-shadow: 10px 10px 10px rgba(09, 9, 9, 9.5);
     font-weight: bolder;
     font-family: Georgia;
-    min-height: calc(100vh - 64px); 
-    text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
+    text-shadow: px 4px 4px rgba(0, 0, 0, 0.5);
     font-weight: bolder;
     font-family: Georgia;
-    font-size: 40px;
+    font-size: px;
+    text-align: center;
     margin: -1;
-    /* font-size: 60px; */
 
   }
 
@@ -26,30 +25,89 @@
     font-family: Georgia;
 
   }
-  /* /* .lodging-container {
-     background-size:100% 100%;
-    font-style: italic;
-    font-stretch: wider;
-    
-  } */
+  .form-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 3px;
+  }
 
   .input-field {
-    width: 60%;
-    /* margin-bottom: 10px; */
+    width: 50%;
     color: white;
     text-align: center;
     border: 2px solid whitesmoke;
     font-weight: bolder;
-    font-size: 40px;
+    font-size: 20px;
     font-family: Georgia;
-    color:rgb(215, 146, 61);
-    text-shadow: 42px 42px 42px rgba(30, 30, 30, 31.5);
+    color: rgb(235, 168, 86);
+    text-shadow: 4px 4px 4px rgba(30, 30, 30, 31.5);
     
   } 
+/* .address {
+  width: 50%;
+
+  font-weight: bolder;
+  font-size: 20px;
+  font-family: Georgia;
+  color: rgb(235, 168, 86);
+  text-shadow: 42px 42px 42px rgba(30, 30, 30, 31.5);
+} */
+
+  .input-container
+  {
+    font-size: 90px;
+    font-weight: bolder;
+    font-family:Georgia;
+    text-align: center;
+    color:black;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
+
+  .date-input {
+    width: 50%;
+  }
   .header-title {
     font-family: Georgia;
-    font-size: 20px;
+    font-size: 60px;
     font-weight: bold;
     margin: 0;
     
   }
+
+  .submitinfo {
+    font-family: Georgia;
+    color:bisque;
+    font-size: larger;
+    margin-bottom: 20px;
+  }
+  .submitinfo p {
+    margin-bottom: 5px;
+    color:beige;
+    text-shadow: 1px 4px 4px rgba(7, 7, 7, 7.5);
+    font-family: "Georgia";
+  }
+  
+  .submitinfo hr {
+    margin-top: 20px;
+  }
+  .date-container {
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .date-field {
+    width: 100%;
+  }
+  .beige-text {
+    color:beige;
+  }
+  .label-text {
+    color:'hsl(94, 82%, 60%)';
+  }
+  
+ 

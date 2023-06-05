@@ -118,17 +118,13 @@ function tripReducer(state = initialState, action) {
         ...state,
         lodging: updatedFlight,
       }; 
-      
+
       case 'ADD_GUEST_INFO':
         return {
           ...state,
           guestInfo: [...state.guestInfo, action.payload],
         };
-        // case 'CLEAR_GUEST_INFO':
-        //   return {
-        //     ...state,
-        //     guestInfo: null, // Clear the guestInfo state
-          // };
+      
     case 'SET_GUEST_INFO':
       console.log('SET_GUEST_INFO action:', action.payload);
       return {
@@ -153,23 +149,48 @@ function tripReducer(state = initialState, action) {
         lodging: updatedLodging,
       };
 
-    case 'SET_MISC':
-      console.log('SET_MISC action:', action.payload);
+  //   case 'SET_MISC':
+  //     console.log('SET_MISC action:', action.payload);
 
-          return {
-            ...state,
-            misc:[...state.misc, action.payload],
-          };
+  //         return {
+  //           ...state,
+  //           misc:[...state.misc, action.payload],
+  //         };
 
+  //         case 'DELETE_MISC_INFO':
+  // const updatedMisc = state.misc.filter((_, index) => index !== action.payload);
+  // return {
+  //   ...state,
+  //   misc: updatedMisc,
+  // };
+  case 'SET_MISC':
+    console.log('SET_MISC action before:', state.misc);
+  
+    const newStateSetMisc = {
+      ...state,
+      misc: [...state.misc, action.payload],
+    };
+  
+    console.log('SET_MISC action after:', newStateSetMisc.misc);
+  
+    return newStateSetMisc;
+  
+  case 'DELETE_MISC_INFO':
+    console.log('DELETE_MISC_INFO action before:', state.misc);
+  
+    const updatedMisc = state.misc.filter((_, index) => index !== action.payload);
+    const newStateDeleteMisc = {
+      ...state,
+      misc: updatedMisc,
+    };
+  
+    console.log('DELETE_MISC_INFO action after:', newStateDeleteMisc.misc);
+  
+    return newStateDeleteMisc;
+  
+        
           
-          case 'DELETE_MISC_INFO':
-            const updatedMisc = state.suitcase.filter(
-              (_, index) => index !== action.payload
-            );
-            return {
-              ...state,
-              misc: updatedMisc,
-            };
+          
 
           case 'SET_SUITCASE':
             console.log('SET_SUITCASE action:', action.payload);

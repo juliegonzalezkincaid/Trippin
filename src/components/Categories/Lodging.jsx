@@ -49,14 +49,15 @@ function Lodging() {
 
   return (
     <div className="lodging-body">
-      <Typography 
-      variant="h2" 
-      gutterBottom
-      className="header-title">
+      <Typography
+        variant="h2"
+        gutterBottom
+        className="header-title"
+        style={{ fontFamily: "Georgia" }}
+      >
         Lodging Information
       </Typography>
-      <form
-        onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="form-container">
         <TextField
           className="input-field"
           name="name"
@@ -68,11 +69,16 @@ function Lodging() {
           InputProps={{
             style: {
               color: 'white',
+              fontFamily: "Georgia"
             },
           }}
           InputLabelProps={{
             style: {
               color: 'white',
+              fontFamily: "Georgia",
+              fontWeight: 'bolder',
+              fontSize: '25px',
+              textShadow: '7px 1px 2px rgba(0, 0, 0, 0.8)'
             },
           }}
         />
@@ -92,9 +98,15 @@ function Lodging() {
           InputLabelProps={{
             style: {
               color: 'white',
+              fontWeight: 'bolder',
+              fontFamily: "Georgia",
+              fontSize: '25px',
+              textShadow: '7px 1px 2px rgba(0, 0, 0, 0.8)'
             },
           }}
         />
+
+
         <TextField
           className="input-field"
           name="address"
@@ -106,101 +118,159 @@ function Lodging() {
           InputProps={{
             style: {
               color: 'white',
+              fontFamily: "Georgia"
             },
           }}
           InputLabelProps={{
             style: {
               color: 'white',
+              fontFamily: "Georgia",
+              fontWeight: 'bolder',
+              fontSize: '25px',
+              textShadow: '7px 1px 2px rgba(0, 0, 0, 0.8)'
             },
           }}
         />
-        <TextField
-          className="input-field"
-          name="arrivalDate"
-          label="Arrival Date"
 
-          type="date"
-          value={formValues.arrivalDate}
-          onChange={handleChange}
-          required
-          margin="normal"
-          InputProps={{
-            style: {
-              color: 'white',
-            },
-          }}
-          InputLabelProps={{
-            style: {
-              color: 'white',
-              
-            },
-          }}
-        />
-        <TextField
-          className="input-field"
-          name="departureDate"
-          label="Departure Date"
-          type="date"
-          value={formValues.departureDate}
-          onChange={handleChange}
-          require
-          margin="normal"
-          InputProps={{
-            style: {
-              color: 'white',
-            },
-          }}
-          InputLabelProps={{
-            style: {
-              color: 'white',
-              
-            },
-          }}
-        />
+
+        <br></br>
+        <br></br>
+
+        <div className="date-container">
+          <div className="date-field">
+            {/* <h4>Arrival</h4>  */}
+            <TextField
+              className="input-field date-input"
+              name="arrivalDate"
+              label="   Arrival Date"
+              // placeholder="Arrival Date"
+              type="date"
+              value={formValues.arrivalDate}
+              onChange={handleChange}
+              required
+              margin="normal"
+              InputProps={{
+                shrink: true,
+                style: {
+                  color: 'white',
+                  fontFamily: "Georgia",
+
+                },
+              }}
+              InputLabelProps={{
+                shrink: true,
+                style: {
+                  color: 'white',
+                  fontFamily: "Georgia",
+                  fontWeight: 'bolder',
+                  fontSize: '25px',
+                  textShadow: '7px 1px 2px rgba(0, 0, 0, 0.8)'
+                },
+              }}
+
+            />
+          </div>
+          <div className="date-field"></div>
+          {/* <h4>Departure</h4> */}
+          <TextField
+            className="input-field date-input"
+            name="departureDate"
+            label="   Departure Date"
+            type="date"
+            value={formValues.departureDate}
+            onChange={handleChange}
+            required
+            margin="normal"
+            InputProps={{
+              shrink: true,
+              style: {
+                color: 'white',
+                fontFamily: "Georgia",
+              },
+            }}
+            InputLabelProps={{
+              shrink: true,
+              style: {
+                color: 'white',
+                fontFamily: "Georgia",
+                fontWeight: 'bolder',
+                fontSize: '25px',
+                textShadow: '7px 1px 2px rgba(0, 0, 0, 0.8)'
+
+              },
+            }}
+
+          />
+
+        </div>
+        <br></br>
+        <br></br>
         <br></br>
         <Button
-          type="submit" variant="contained"
+          type="submit"
+          variant="contained"
           style={{
             backgroundColor: 'hsl(94, 82%, 60%)',
             color: 'white',
             textShadow: '1px 10px 20px rgba(5, 5, 5, 5)',
-            boxShadow: '10px 10px 10px rgba(3, 3, 3, 1)'
-          }}>
+            boxShadow: '10px 10px 10px rgba(3, 3, 3, 1)',
+            fontFamily: "Georgia"
+          }}
+        >
           Submit
         </Button>
+        <br></br>
 
         {lodging.length > 0 && (
-      <ul>
-        <h1>Submitted Guest Information:</h1>
-        {lodging.map((lodge, index) => (
-          <li 
-          className="submitinfo"
-          key={index}>
-            <p>Name: {lodge.name}</p>
-            <p>Lodge Name: {lodge.lodgeName}</p>
-            <p>Address: {lodge.address}</p>
-            <p>Arrival Date: {lodge.arrivalDate}</p>
-            <p>Departure Date: {lodge.departureDate}</p>
-         <Button
-            variant="contained"
-            color="secondary"
-            onClick={() => dispatch({ type: 'DELETE_LODGING_INFO', payload: index })}
-            >
-            Delete
-        </Button>
-                <hr />
-          </li>
-        ))}
-      </ul>
-    )}
-    <br></br>
-    <br></br>
+          <div>
+            <h1>Submitted Guest Information:</h1>
+            <ul>
+              {lodging.map((lodge, index) => (
+                <li className="submitinfo" key={index}>
+                  <p className="label-text">
+                    Name:</p>
+                  <p className="beige-text">{lodge.name}</p>
+                  <p className="label-text"> Lodge Name:</p>
+                  <p className="beige-text">{lodge.lodgeName}</p>
+                  <p className="label-text">
+                    Address:</p>
+                  <p className="beige-text">{lodge.address}</p>
+                  <p className="label-text">
+                    Arrival Date:</p>
+                  <p className="beige-text">{lodge.arrivalDate}</p>
+                  <p className="label-text">Departure Date:</p>
+                  <p className="beige-text">{lodge.departureDate}</p>
+
+                  <Button
+                    variant="contained"
+                    color="secondary"
+                    onClick={() => dispatch({ type: 'DELETE_LODGING_INFO', 
+                    payload: index })}
+                    style={{
+
+                      textShadow: '1px 10px 20px rgba(8, 5, 5, 5)',
+                      boxShadow: '1px 10px 10px rgba(3, 3, 3, 1)',
+                      fontFamily: "Georgia",
+                      padding: '10px 20px',
+                    }}
+
+                  >
+                    Delete
+                  </Button>
+                  <hr />
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+        <br />
+        <br />
       </form>
     </div>
   );
 }
 
-
-
-
 export default Lodging;
+
+
+
