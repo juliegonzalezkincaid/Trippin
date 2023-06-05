@@ -188,7 +188,13 @@ function tripReducer(state = initialState, action) {
   
     return newStateDeleteMisc;
   
-        
+    case "UPDATE_MISC_ITEM": {
+      const { index, newAnswer } = action.payload;
+      return {
+        ...state,
+        misc: state.misc.map((item, i) => i === index ? { ...item, answer: newAnswer } : item)
+      };
+    }
           
           
 

@@ -20,6 +20,7 @@
     margin: 10px 0;
     text-shadow: 6px 6px 6px rgba(0, 0, 0, 0.5);
 font-size: 40;
+text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
 }
 .answer-input {
    
@@ -28,6 +29,7 @@ font-size: 40;
     font-family: Georgia;
     color:bisque;
     text-shadow: 4px 5px 5px rgba(3, 3, 3, 3.5);
+    text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
 }
 
 .submitted-item {
@@ -35,4 +37,5 @@ font-size: 40;
     color: whitesmoke;
     text-shadow: 11px 4px 4px rgba(9, 9, 3, 3.5);
     font-weight: bolder;
+    text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
 }

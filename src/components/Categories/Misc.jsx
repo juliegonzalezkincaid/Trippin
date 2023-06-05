@@ -60,6 +60,21 @@ function Misc() {
     newAnswers[index] = event.target.value;
     setAnswers(newAnswers);
   };
+  const handleSubmitAnswer = (event, index) => {
+    event.preventDefault();
+  
+    const updatedMisc = [...misc];
+    updatedMisc[index] = {
+      ...updatedMisc[index],
+      answer: answers[index],
+    };
+    dispatch({ type: "UPDATE_MISC_ITEM", payload: { index, newAnswer: answers[index] } });
+
+  
+    const newAnswers = [...answers];
+    newAnswers[index] = '';
+    setAnswers(newAnswers);
+  };
 
   const handleDelete = (index) => {
     console.log("handleDelete before dispatch: ", misc);
@@ -121,63 +136,64 @@ function Misc() {
       Submitted Guest Information
     </Typography>
     {misc.map((item, index) => (
-      <div key={item.id} className="submitted-item" style={{ fontFamily: "Georgia" }}>
-        <div>
-          <Typography 
-            varient="h3"
-            style={{ fontFamily: "Georgia", fontSize: 33, textShadow: "4px 5px 25px rgba(9, 9, 5)",}}>
-            Question: {item.question}
-          </Typography>
-          {item.answer && (
-            <Typography style={{ fontFamily: "Georgia" }}>
-              Answer: {item.answer}
-            </Typography>
-          )}
-        </div>
-        <div className="answer-input">
-          {!item.answer && (
-            <TextField
-              varient= "h3"
-              type="text"
-              name={`answer-${index}`}
-              value={formValues[`answer-${index}`] || ""}
-              onChange={(event) => handleAnswerChange(event, index)}
-              style={{ fontFamily: "Georgia" }}
-            />
-          )}
-          {!item.answer && (
-            <Button
-              type="button"
-              variant="contained"
-              color="primary"
-              onClick={(event) => handleSubmit(event, index)}
-              style={{
-                textShadow: "1px 10px 20px rgba(8, 5, 5, 5)",
-                boxShadow: "1px 10px 10px rgba(3, 3, 3, 1)",
-                fontFamily: "Georgia",
-                padding: "10px 20px",
-              }}
-            >
-              Submit Answer
-            </Button>
-          )}
-          <Button
-            type="button"
-            variant="contained"
-            color="secondary"
-            onClick={() => handleDelete(index)}
-            style={{
-              textShadow: "1px 10px 20px rgba(8, 5, 5, 5)",
-              boxShadow: "1px 10px 10px rgba(3, 3, 3, 1)",
-              fontFamily: "Georgia",
-              padding: "10px 20px",
-            }}
-          >
-            Delete
-          </Button>
-        </div>
-      </div>
-    ))}
+  <div key={item.id} className="submitted-item" style={{ fontFamily: "Georgia" }}>
+    <div>
+      <Typography 
+        varient="h3"
+        style={{ fontFamily: "Georgia", fontSize: 33, textShadow: "4px 5px 25px rgba(9, 9, 5)",}}>
+        Question: {item.question}
+      </Typography>
+      {item.answer && (
+        <Typography style={{ fontFamily: "Georgia" }}>
+          Answer: {item.answer}
+        </Typography>
+      )}
+    </div>
+    <div className="answer-input">
+      {!item.answer && (
+        <TextField
+          varient= "h3"
+          type="text"
+          name={`answer-${index}`}
+          value={answers[index] || ""}
+          onChange={(event) => handleAnswerChange(event, index)}
+          style={{ fontFamily: "Georgia" }}
+        />
+      )}
+      {!item.answer && (
+        <Button
+          type="button"
+          variant="contained"
+          color="primary"
+          onClick={(event) => handleSubmitAnswer(event, index)}
+          style={{
+            textShadow: "1px 10px 20px rgba(8, 5, 5, 5)",
+            boxShadow: "1px 10px 10px rgba(3, 3, 3, 1)",
+            fontFamily: "Georgia",
+            padding: "10px 20px",
+          }}
+        >
+          Submit Answer
+        </Button>
+      )}
+      <Button
+        type="button"
+        variant="contained"
+        color="secondary"
+        onClick={() => handleDelete(index)}
+        style={{
+          textShadow: "1px 10px 20px rgba(8, 5, 5, 5)",
+          boxShadow: "1px 10px 10px rgba(3, 3, 3, 1)",
+          fontFamily: "Georgia",
+          padding: "10px 20px",
+        }}
+      >
+        Delete
+      </Button>
+    </div>
+  </div>
+))}
+
   </div>
 )}
 </form>
