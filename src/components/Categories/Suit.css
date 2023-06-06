@@ -9,11 +9,10 @@
     font-weight: bolder;
     font-family: Georgia;
     min-height: calc(100vh - 64px); 
-    text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
-    font-weight: bolder;
-    font-family: Georgia;
+    text-shadow: 10px 10px 10px rgba(09, 9, 9, 9.5);
     font-size: 40px;
-    margin: -1;
+    margin:0px ;
+    padding-top: 93px;
 
   }
   .header-title, h2 {
@@ -27,20 +26,31 @@
     justify-content: space-between;
     font-family: Georgia;
     text-shadow: 5px 10px 10px rgba(11, 11, 11, 11.5);
+    font-size: x-large;
+    font-weight: bolder;
+
+  }
+  .list-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 45%;
   }
   
   .bring-list,
   .dont-bring-list {
-    flex: 1;
-    padding: 0;
+   padding: 0;
     margin: 0;
     list-style-type: none;
     font-family: Georgia;
     text-shadow: 20px 10px 10px rgba(11, 11, 11, 11.5);
+    font-weight: bolder;
+   
   }
   
   .bring-list {
-    border-right: 1px solid #ccc;
+    width: 50%;
+   font-weight: bold;
     text-align: center;
     color:black;
     font-family: Georgia;
@@ -49,13 +59,30 @@
   
   .bring-list li,
   .dont-bring-list li {
-    margin-bottom: 10px;
-    text-align:justify;
+    color: black;
+    font-weight: bold;
+    font-size: 30px;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6);
+    text-align: center;
+  
+    /* margin-bottom: 10px;
+    text-align:justify; */
     font-family: Georgia;
-    text-shadow: 20px 10px 10px rgba(09, 9, 9, 9.5);
+    /* text-shadow: 20px 10px 10px rgba(09, 9, 9, 9.5); */
   }
   
+.dont-bring-list{
+  width: 50%;
+  font-weight: bolder;
+  font-size: x-large;
+  font-size: 30px;
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6);
+  text-align: center;
+}
+
+
   .dont-bring-list li:last-child {
+    
     margin-bottom: 0;
     text-align: center;
     color:black;
@@ -63,7 +90,7 @@
     font-size: larger;
     font-family: Georgia;
     font-size: larger;
-    font-weight: bolder;
+    font-weight: 50px;
     text-shadow: 20px 10px 10px rgba(09, 9, 9, 9.5);
   }
   

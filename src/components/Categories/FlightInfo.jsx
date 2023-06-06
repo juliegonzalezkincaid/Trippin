@@ -290,21 +290,21 @@ function FlightInfo() {
       </Button>
       {setFlightInfo.length > 0 && (
       <ul>
-        <h3>Submitted Guest Information:</h3>
+        <h3 color= "bisque">Submitted Guest Information:</h3>
         {setFlightInfo.map((flight, index) => (
           <li 
           className="submitinfo"
           key={index}>
 
-            <p>Name: {flight.name}</p>
-            <p>Date: {flight.date}</p>
-            <p>From City: {flight.fromCity}</p>
-            <p>To City: {flight.toCity}</p>
-            <p>Airline: {flight.airline}</p>
-            <p>Flight Number: {flight.flightNum}</p>
-            <p>Departure Time: {flight.departTime}</p>
-            <p>Arrival Time: {flight.arrivalTime}</p>
-<br></br>
+<p><span className="label">Name:</span> <span className="value">{flight.name}</span></p>
+  <p><span className="label">Date:</span> <span className="value">{flight.date}</span></p>
+  <p><span className="label">From City:</span> <span className="value">{flight.fromCity}</span></p>
+  <p><span className="label">To City:</span> <span className="value">{flight.toCity}</span></p>
+  <p><span className="label">Airline:</span> <span className="value">{flight.airline}</span></p>
+  <p><span className="label">Flight Number:</span> <span className="value">{flight.flightNum}</span></p>
+  <p><span className="label">Departure Time:</span> <span className="value">{flight.departTime}</span></p>
+  <p><span className="label">Arrival Time:</span> <span className="value">{flight.arrivalTime}</span></p>
+  <br></br>
          <Button
             variant="contained"
             color="secondary"

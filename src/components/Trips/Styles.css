@@ -4,13 +4,18 @@
   background-position: center;
   background-repeat: no-repeat;
   text-align: center;
-  background-position: center;
-  height: 100vh;
   font-weight: bolder;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    
+  text-shadow: 7px 1px 4px rgba(4, 0, 0, 0.5);
+  font-family: "Georgia";
+  
+  min-height: 100vh; 
   }
-
+  .saved{
+    padding-top: 90px;
+  }
+.welcome{
+  padding-top: 90px;
+}
   .my-trips-container h1 {
     font-size: 90px;
     font-weight: bolder;
@@ -18,16 +23,23 @@
     text-align: center;
     color:black;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  
+    font-family: "Georgia" 
+    
+    
 
   }
+  header.solid {
+    margin-top: 50px;  /* Adjust as needed */
+  }
+  
   
   .my-trips-container p {
     font-size: 50px;
     font-weight:bolder;
     font-family: 'Georgia';
     text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
-   
+    font-family: "Georgia"; 
+    text-align: center;
 
   }
   
@@ -36,20 +48,22 @@
     font-weight: bolder;
     font-family: 'Georgia';
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-
+    font-family: "Georgia";
+    text-align: center;
    
   }
   .addtripsbutton {
     color:aliceblue;
     font-weight: 500px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-   
+    font-family: "Georgia" 
   }
 
   .edittrip {
     background-image: url(/public/walk.jpeg);
     height: 100vh;
-    background-position: center;
+    padding-top: 180px;
+    background-position: bottom;
     background-repeat: no-repeat;
     background-size: cover ;
     text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
@@ -57,13 +71,14 @@
     }
 .solid {
   color: hsl(94, 82%, 60%);
-  margin: -1;
-  font-size: 70px;
+  margin: 0px;
+  font-size: 30px;
   text-align: center;
   font-style: italic;
   font-family:Georgia;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   font-weight: bolder;
+  padding-top: 140px;
 }
 
 .edittrip input[type="text"],
@@ -80,6 +95,7 @@
   font-size: 40px;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
   font-weight: bolder;
+  font-family: "Georgia" 
 }
 
 .delete-container {
@@ -87,20 +103,22 @@
   font-size: 18px;
   text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
   font-weight: bolder;
+  font-family: "Georgia" 
 }
 .backbtn {
   text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
   font-weight: bolder;
   align-items: center;
+  font-family: "Georgia" 
 }
 
-.container {
-  background-image: url(/public/oceandoor.webp);
+.home-container {
+  background-image: url(/public/newrain.jpeg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   text-align:center;
-  margin-top: -1;
+  margin-top: 0px;
   background-position: center;
   height: 100vh;
   font-weight: bolder;
@@ -108,27 +126,28 @@
   color: hsl(94, 82%, 60%);
   min-height: calc(100vh - 64px); 
   text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
+  font-family: "Georgia";
+  padding-top: 190px;
 }
 .logout-container {
   position: fixed;
   bottom: 60px;
   right: 20px;
+  font-family: "Georgia" 
 }
 
 .logout-button {
   font-size: 12px;
+  font-family: "Georgia" 
 }
-/* .icon-container {
+.icon-container {
   display: flex;
   justify-content: center;
-} */
+}
 
 .icon-wrapper {
   position: absolute;
-  /* display: flex;
-  flex-direction: column;
-  align-items: center;
-  cursor: pointer; */
+ 
 }
 
 .icon-title {
@@ -144,6 +163,8 @@
   visibility: hidden;
   opacity: 0;
   transition: visibility 0s, opacity 0.3s;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+padding-top: 120px;
 }
 
 .icon-wrapper:hover .icon-title {
@@ -152,7 +173,7 @@
 }
 
 .icon-wrapper.animate {
-  animation: floatDown 5s linear forwards;
+  animation: floatDown 1s linear forwards;
 }
 
 

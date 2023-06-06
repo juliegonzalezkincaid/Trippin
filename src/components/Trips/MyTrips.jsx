@@ -34,17 +34,14 @@ function MyTrips ({}) {
   };
 
   
- // const handleEditTrip = (trip) => {
-  //   dispatch({ type: "EDIT_TRIP", payload: trip });
-  //   history.push(`/edit/${trip.tripID}`);
-  // };
-  
+
   if (!userTrip) {
-  // if (!userTrip || userTrip.length === 0) {
+ 
   
     return (
       <div>
-        <h2 className="h1">Welcome, {user.username} lets start trippin!</h2>
+        <h2 className="welcome"
+        >Welcome, {user.username} lets start trippin!</h2>
         <p>My Trips:</p>
         <p>No trips to show...yet!</p>
       </div>
@@ -55,13 +52,20 @@ function MyTrips ({}) {
       className="my-trips-container"
       >
         <h2 className="solid"> {user.username} you are Trippin!</h2>
+        
+        <br></br>
+        <br></br>
         <br></br>
         <br></br>
         <br></br>
       <Button 
+     
         component={Link} to="/add_trips"
         className="addtripsbutton"
         variant="contained"
+        style={{ fontFamily: "Georgia", 
+        textShadow: '4px 1px 2px rgba(0, 0, 0, 0.8)', 
+        fontSize: '23px', fontWeight: 'bold',  }}
         // color=""
         >Add a Trip
       </Button>
@@ -76,20 +80,18 @@ function MyTrips ({}) {
       trip={trip}
       handleEditTrip={(editedTrip) => handleEditTrip(editedTrip, index)}
       savedTrips={savedTrips}
+      style={{ fontFamily: "Georgia", 
+      textShadow: '4px 1px 2px rgba(0, 0, 0, 0.8)', 
+      fontSize: '30px', 
+      fontWeight: 'bolder', 
+    }}
     />
   ))}
-        {/* <p>{user.username}'s Trips:</p> */}
-        {/* {savedTrips.map((trip) => (
-          <EachTrip 
-          key={trip.id} 
-          trip={trip} 
-          handleEditTrip={handleEditTrip}
-          savedTrips={savedTrips}
-          />
-         ))}
-    */}
    
-        <h2 className="saved">Saved Trips:</h2>
+   
+        <h2 className="saved"
+         style={{ fontFamily: "Georgia", textShadow: '1px 1px 2px rgba(0, 0, 0, 0.8)', fontSize: '40px', fontWeight: 'bold',  }}
+        >Saved Trips:</h2>
          {savedTrips.length === 0 ? (
         <p>No saved trips to show...yet!</p>
           ) : (
@@ -102,12 +104,18 @@ function MyTrips ({}) {
             handleDeleteTrip={() => handleDeleteTrip(trip.id)}
             savedTrips={savedTrips}
             date={trip.date} 
+            style={{ fontFamily: "Georgia",
+          fontWeight:"bolder" ,
+          textShadow: '4px 1px 2px rgba(0, 0, 0, 0.8)',
+          fontSize:'30px',
+        }}
             />
           ))
         )}
      <Route 
      path="/edit_trip/:tripId" 
      component={EditTrip} 
+     style={{ fontFamily: "Georgia" }}
      />
 
       </div>
@@ -117,25 +125,3 @@ function MyTrips ({}) {
 
 export default MyTrips;
 
-//       {userTrip?.map((trip, i) => (
-//         <EachTrip key={i} trip={trip} handleEditTrip={handleEditTrip} />
-//       ))}
-//       <h2>Saved Trips:</h2>
-//  {/* <h5 view={"saved"}></h5> */}
-//       {savedTrips.length === 0 ? (
-//         <p>Nothing to show...yet! Trips you plan will come here.</p>
-//       ) : null}
-//     </div>
-//   );
-// }
- // Fetch saved trips for current user
- 
-  //   const handleEditTrip = (tripID) => {
-  //   const data = { tripID, id: user.id };
-  //   dispatch({ type: "GET_TRIP_BY_ID", payload: data });
-  //   history.push(`/edit/${tripID}`);
-  // };
-
-    // const handleDeleteTrip = (tripID) => {
-  //   dispatch({ type: "DELETE_TRIP", payload: tripID });
-  // };

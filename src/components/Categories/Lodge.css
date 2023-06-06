@@ -6,16 +6,13 @@
     background-position: center;
     color: rgb(235, 168, 86);
     font-family: Georgia;
-    min-height: calc(100vh - 64px); 
+    min-height: 100vh; 
     text-shadow: 10px 10px 10px rgba(09, 9, 9, 9.5);
     font-weight: bolder;
-    font-family: Georgia;
-    text-shadow: px 4px 4px rgba(0, 0, 0, 0.5);
-    font-weight: bolder;
-    font-family: Georgia;
-    font-size: px;
+   padding-top: 140px;
+   font-size: px;
     text-align: center;
-    margin: -1;
+    margin: 0px;
 
   }
 
@@ -27,33 +24,33 @@
   }
   .form-container {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 3px;
+    flex-direction: column; /* Add this line */
+
+    gap: 20px;
+    font-size: 20px;
+    font-weight: bolder;
+    font-family:Georgia;
+    text-align: center;
+    color:black;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   }
 
   .input-field {
-    width: 50%;
+    width: 70%;
     color: white;
     text-align: center;
     border: 2px solid whitesmoke;
     font-weight: bolder;
     font-size: 20px;
+    margin-bottom: 10px; 
     font-family: Georgia;
     color: rgb(235, 168, 86);
     text-shadow: 4px 4px 4px rgba(30, 30, 30, 31.5);
     
   } 
-/* .address {
-  width: 50%;
 
-  font-weight: bolder;
-  font-size: 20px;
-  font-family: Georgia;
-  color: rgb(235, 168, 86);
-  text-shadow: 42px 42px 42px rgba(30, 30, 30, 31.5);
-} */
 
   .input-container
   {
@@ -79,13 +76,13 @@
 
   .submitinfo {
     font-family: Georgia;
-    color:bisque;
+    color:rgb(204, 161, 108);
     font-size: larger;
     margin-bottom: 20px;
   }
   .submitinfo p {
     margin-bottom: 5px;
-    color:beige;
+    color:rgb(222, 222, 96);
     text-shadow: 1px 4px 4px rgba(7, 7, 7, 7.5);
     font-family: "Georgia";
   }
@@ -99,6 +96,9 @@
     flex-wrap: wrap;
     justify-content: center;
   }
+  .date-input {
+    width: 85%;
+  }
   
   .date-field {
     width: 100%;
@@ -106,8 +106,24 @@
   .beige-text {
     color:beige;
   }
-  .label-text {
+  /* .label-text {
     color:'hsl(94, 82%, 60%)';
+  } */
+  .label-text {
+    color: rgb(33, 20, 4); /* or whatever darker color you prefer */
+    display: inline;
+    text-shadow: 1px 10px 10px rgba(09, 9, 9, 9.5);
   }
   
+  .beige-text {
+    color: rgb(91, 161, 30); /* adjust the color as you prefer */
+    display: inline;
+    font-size: larger;
+    text-shadow: 1px 1px 1px rgba(09, 9, 9, 9.5);
+    font-weight: bolder;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+  }
+  .h1 {
+    color:rgb(235, 168, 86);
+  }
  

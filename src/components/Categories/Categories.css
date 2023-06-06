@@ -1,57 +1,84 @@
-
-  .cat {
-    background-image: url(/public/yellow.jpeg);
-    background-position: center;
-    color: bisque;
-    font-family: Georgia;
-    text-align: center;
-    background-size: cover;
-    display: flex;
-    justify-content: center;
-    min-height: calc(100vh - 64px); 
-    text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
-    font-weight: bolder;
-    font-family: Georgia;
-    font-size: 40px;
-    align-items: flex-start; /* Align items to the top */
-  }
-  .icon-avatar {
-    font-size: 50px; /* Increase the font size for icons */
-    width: 90px; /* Increase the width for avatars */
-    height: 90px; /* Increase the height for avatars */
-    border-radius: 50%; /* Make them form a circle */
-    place-items: center;
-    margin: left 50px; 
-    box-shadow: 0 2px 4px rgba(1, 1, 1, 1.2);
-  }
-
-  .avatar {
-    width: 100px;
-    height: 100px; 
-    border-radius: 50%; 
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  }
-
- .icon-list {
-  list-style-type: none; /* Remove bullet point circles */
+.cat {
+  background-image: url(/public/yellow.jpeg);
+  background-position: center;
+  color: bisque;
+  font-family: Georgia;
+  text-align: center;
+  background-size: cover;
   display: flex;
-  justify-content: center; /* Horizontally center the avatars */
-  align-items: center; /* Vertically center the avatars */
-  position: relative; /* Set the container position to relative */
-  height: 200px; /* Adjust the height of the container */
+  justify-content: center;
+  min-height: calc(100vh - 64px);
+  text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
+  font-weight: bolder;
+  font-family: Georgia;
+  font-size: 40px;
+  align-items: flex-start;
+}
+
+.icon-avatar {
+  font-size: 50px;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  place-items: center;
+  margin: left 50px;
+  box-shadow: 0 2px 4px rgba(1, 1, 1, 1.2);
+}
+
+.icon-list {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 200px;
 }
 
 .icon-list li {
-  margin-right: 50px; /* Adjust the margin value to control the spacing */
+  margin-right: 50px;
 }
-  
-.category-title {
-  font-size: 40px;
-  font-weight: bold;
-  font-family: cursive;
-  /* position: absolute; */
-  top: 50%;
+
+.icon-title {
+  font-size: 60px; /* Increased font size */
+  font-weight: bolder;
+  font-family: Georgia;
+  position: absolute;
+  top: calc(100% + 40px); /* Position the title below the avatar */
   left: 50%;
-  transform: translate(-50%, -50%);
-  pointer-events: none; /* Ensure that the title doesn't interfere with mouse events */
+  transform: translateX(-50%);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
+  text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8); /* Increased text shadow */
+  color: rgb(216, 70, 17);
 }
+
+.icon-container.hovered .icon-title {
+  opacity: 1;
+  visibility: visible;
+}
+
+.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+
+/* 
+.cat {
+  background-image: url(/public/yellow.jpeg);
+  background-position: center;
+  color: bisque;
+  font-family: Georgia;
+  text-align: center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  min-height: calc(100vh - 64px); 
+  text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
+  font-weight: bolder;
+  font-family: Georgia;
+  font-size: 40px;
+  align-items: flex-start; /* Align items to the top
+
+ */ 

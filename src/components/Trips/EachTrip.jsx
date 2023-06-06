@@ -24,77 +24,84 @@ function EachTrip({ trip, handleEditTrip, savedTrips,date }) {
       dispatch({ type: "DELETE_TRIP", payload: tripID });
     };
    
-    // allows user to edit their trip
     const handleEditClick = () => {
-    
-        if (trip && trip.tripid) {
-            handleEditTrip(trip);
-        }
+      if (trip && trip.tripid) {
+          handleEditTrip(trip);
+      }
     };
-// Function to get the inputs for a specific category and trip
-// const getInputsForCategory = (categoryType) => {
-//   // Find the category in the Redux state based on its type
-//   const category = categories.find((cat) => cat.type === categoryType);
-//   if (!category) return null;
-//   // Filter the trip's entries based on the category ID
-//   const categoryEntries = trip.entries.filter(
-//     (entry) => entry.category_id === category.id
-//   );
-//   return categoryEntries.map((entry) => (
-//     <input
-//       key={entry.id}
-//       type="text"
-//       value={entry.entry_text}
-//       readOnly
-//     />
-//   ));
-// };
-
-// return (
-//   <div>
-//     <h3>{trip.description}</h3>
-//     {categories.map((category) => (
-//       <div key={category.id}>
-//         <h4>{category.type}</h4>
-//         {getInputsForCategory(category.type)}
-//       </div>
-//     ))}
-//   </div>
-// );
-// }
+    
 
    
     return (
-        <TableRow>
-        <TableCell>
-          <div style={{ fontSize: '20px', color: 'white' }}>{trip && trip.tripName}</div>
+        <TableRow style={{ borderBottom: 'none' }} >
+        <TableCell
+         style={{ fontFamily: "Georgia", borderBottom: 'none',   }}
+        >
+          <div style={{ fontSize: '20px', color: 'white',fontFamily: "Georgia", borderBottom: 'none',  }}>{trip && trip.tripName}</div>
         </TableCell>
-        <TableCell>
-          <div style={{ fontSize: '20px', color: 'white' }}>{trip && trip.description}</div>
+        <TableCell
+         style={{
+          fontFamily: "Georgia",
+          borderBottom: 'none', // This line removes the bottom border
+        }}
+        >
+          <div style={{ fontSize: '20px', color: 'white', fontFamily: "Georgia",  borderBottom: 'none',  }}>{trip && trip.description}</div>
         </TableCell>
-        <TableCell>
-          <div style={{ fontSize: '20px', color: 'white' }}>{trip && trip.startDate}</div>
+        <TableCell
+         style={{
+          fontFamily: "Georgia",
+          borderBottom: 'none', // This line removes the bottom border
+        }}
+        >
+          <div style={{ fontSize: '20px', color: 'white', fontFamily: "Georgia", borderBottom: 'none', }}>{trip && trip.startDate}</div>
         </TableCell>
-        <TableCell>
-          <div style={{ fontSize: '20px', color: 'white' }}>{trip && trip.endDate}</div>
+        <TableCell 
+         style={{
+          fontFamily: "Georgia",
+          borderBottom: 'none', // This line removes the bottom border
+        }}
+        >
+          <div style={{ fontSize: '20px', color: 'white',fontFamily: "Georgia", borderBottom: 'none', }}>{trip && trip.endDate}</div>
         </TableCell>
-        <TableCell>
+        <TableCell style={{
+    fontFamily: "Georgia",
+    borderBottom: 'none', // This line removes the bottom border
+  }}
+        
+        >
         <div>{date}</div> {/* Add this line to display the date */}
       </TableCell>
-        <TableCell>
+        <TableCell
+         style={{
+          fontFamily: "Georgia",
+          borderBottom: 'none', // This line removes the bottom border
+        }}
+        >
           <div>
             <Button
               onClick={() => handleDeleteTrip(trip.id)}
               className={`${isHoveredDelete ? "delete-hovered" : ""} delete-container`}
               onMouseEnter={() => setIsHoveredDelete(true)}
               onMouseLeave={() => setIsHoveredDelete(false)}
+              style={{ fontFamily: "Georgia", color:"black", 
+              fontWeight: "bold", 
+              fontSize:"20px",
+              textShadow: '1px 1px 2px rgba(0, 0, 0, 0.8)'
+            }}
             >
-              <DeleteIcon />
+              <DeleteIcon
+               style={{ color:"purple" }}
+              />
               Delete Trip
             </Button>
           </div>
         </TableCell>
-        <TableCell>
+        <TableCell
+          style={{
+            fontFamily: "Georgia",
+            borderBottom: 'none', // This line removes the bottom border
+          }}
+        >
           <div>
             <Button
               onClick={handleEditClick}
@@ -103,18 +110,30 @@ function EachTrip({ trip, handleEditTrip, savedTrips,date }) {
              className={`${isHoveredEdit ? "edit-hovered" : ""} edit-container`}
               onMouseEnter={() => setIsHoveredEdit(true)}
               onMouseLeave={() => setIsHoveredEdit(false)}
-            >
-              <EditIcon />
+              style={{ fontFamily: "Georgia", color:"black", fontWeight: "bold", fontSize:"20px", 
+              textShadow: '1px 1px 2px rgba(0, 0, 0, 0.8)'
+            }}
+           >
+              <EditIcon sx={{ color: "purple" }}/>
               Edit Trip
             </Button>
           </div>
         </TableCell>
-        <TableCell>
+        <TableCell
+         style={{
+          fontFamily: "Georgia",
+          borderBottom: 'none', // This line removes the bottom border
+        }}
+        >
           <div>
             <Button 
             className="backbtn"
-            component={Link} to="/categories">
-              Back to Categories
+            component={Link} to="/categories"
+            style={{ fontFamily: "Georgia", color:"black", fontWeight: "bold", fontSize:"20px",
+            textShadow: '1px 1px 2px rgba(0, 0, 0, 0.8)'
+          }}
+            >
+              Trip Details
             </Button>
           </div>
         </TableCell>

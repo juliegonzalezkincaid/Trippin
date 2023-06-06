@@ -2,9 +2,14 @@
   /* flex box layout */
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  /* align-items: center; */
   /* margin: 0 0 30px; */
-  background-color:#48D8D9;
+  position: absolute;
+  /* Set width to 100% to cover the whole width */
+  width: 100%;
+  /* Set z-index to a high value to make sure the navbar is on top of other content */
+  /* z-index: 1000; */
+  background-color:transparent;
   overflow: hidden;
 }
 
@@ -14,34 +19,56 @@
 }
 
 .nav-title {
+  position: absolute;  /* set to absolute */
+  top: 10%;  /* position it at the center vertically */
+  left: 50%;  /* position it at the center horizontally */
+  transform: translate(-50%, -50%);  /* needed to perfectly center the element */
   color: hsl(94, 82%, 60%);
-  margin: -1;
   font-size: 40px;
   text-align: center;
   font-style: italic;
-  font-family:Georgia, 'Times New Roman', Times, serif;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  text-shadow: '7px 1px 2px rgba(0, 0, 0, 0.8)';
 }
 
 .navLink {
   display: inline-block;
-  color:white;
-  background-color:#48D8D9 ;
+  color:aliceblue;
+  display: flex;
+  justify-content: space-between;
+  /* background-color:#48D8D9 ; */
   text-align: center;
   padding: 24px 10px;
   text-decoration: none;
   font-size: 20px;
   font-style: italic;
   font-family:Georgia, 'Times New Roman', Times, serif;
-
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 
   /* these last two make the logout button in
   the nav bar look like another link */
   border: none;
   cursor: pointer;
   outline: 0;
+  margin:0 10px;
 }
 
-.navLink:hover {
+/* .navLink:hover {
   background-color: #008183;
+} */
+.logout-button {
+  position: static;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  border: none; /* Removes the border */
+  background: transparent; 
+}
+.logout-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  border: none; /* Removes the border */
+  background: transparent; /* Makes the background transparent */
+  z-index: 1000;
 }

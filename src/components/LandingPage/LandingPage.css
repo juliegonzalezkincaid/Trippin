@@ -78,3 +78,8 @@ Grid
   flex-basis: 100%;
   max-width: 100%;
 }
+.logout-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}

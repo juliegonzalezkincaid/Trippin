@@ -1,20 +1,20 @@
 html,
 body,
 #react-root {
-  height: 100%;
+  height: 100vh;
 }
 
 body {
   font-family: Georgia;
-  margin: -1px;
+  margin: 0px;
   background-image: url(/public/rainbow.webp);
-  background-size:100% 100%; 
+  background-size: cover; 
 }
 
-img {
+/* img {
   display: inline-block;
   max-width: 100%;
-}
+} */
 
 /* --------------------------------------------------------------------------------
 Container
@@ -104,7 +104,7 @@ Form Treatment
   /* width: 400px; */
   padding: 25px;
   margin: 0 ;
-  background-color: #efefef;
+  background-color:;
   border-radius: 1px;
   box-shadow: 0 1px 2px rgb(0, 0, 0, 0.4);
 }
@@ -121,8 +121,19 @@ input {
   font-family: 'Lobster', cursive;
 }
 .container {
-  font-family: 'Lobster', cursive;
+  font-family: 'Georgia';
   font-weight: bolder;
   font-size: larger;
 }
 
+.logout-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+.logout-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}

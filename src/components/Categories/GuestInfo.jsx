@@ -123,9 +123,12 @@ return(
           <li 
           className="submitinfo"
           key={index}>
-            <p>Name: {guest.name}</p>
-            <p>Phone: {guest.phone}</p>
-            <p>Email: {guest.email}</p>
+            <p className="label">Name:</p>
+    <p className="value">{guest.name}</p>
+    <p className="label">Phone:</p>
+    <p className="value">{guest.phone}</p>
+    <p className="label">Email:</p>
+    <p className="value">{guest.email}</p>
          <Button
             variant="contained"
             color="secondary"

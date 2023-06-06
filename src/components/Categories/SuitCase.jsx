@@ -82,23 +82,27 @@ function Suitcase() {
 
       <form onSubmit={handleBringSubmit}>
         <TextField
+         
           name="bring"
           label="Items to Bring:"
           value={formValues.bring}
           onChange={handleChange}
           className="bring-list"
+          required
+          margin="normal"
           InputProps={{
             style: {
               color: 'white',
-              fontWeight: 'bolder',
-              fontFamily: "Georgia",
+              fontFamily: "Georgia"
             },
           }}
           InputLabelProps={{
             style: {
               color: 'white',
-              fontFamily: 'Georgia',
-              textShadow: '1px 20px 20px rgba(9, 9, 9, 9)',
+              fontFamily: "Georgia",
+              fontWeight: 'bolder',
+              fontSize: '25px',
+              textShadow: '7px 1px 2px rgba(0, 0, 0, 0.8)'
             },
           }}
         />
@@ -109,7 +113,7 @@ function Suitcase() {
           style={{
             backgroundColor: 'hsl(94, 82%, 60%)',
             color: 'white',
-            textShadow: '1px 10px 20px rgba(5, 5, 5, 5)',
+            textShadow: '1px 1px 9px rgba(0, 0, 0, 0.6)',
             boxShadow: '10px 10px 10px rgba(3, 3, 3, 1)'
           }}
         >
@@ -127,18 +131,22 @@ function Suitcase() {
           value={formValues.dontBring}
           onChange={handleChange}
           className="dont-bring-list"
+          required
+          margin="normal"
+          
           InputProps={{
             style: {
-              color: 'black',
-              fontWeight: 'bolder',
-              fontFamily: "Georgia",
+              color: 'white',
+              fontFamily: "Georgia"
             },
           }}
           InputLabelProps={{
             style: {
               color: 'white',
               fontFamily: "Georgia",
-              textShadow: '1px 10px 20px rgba(5, 5, 5, 5)',
+              fontWeight: 'bolder',
+              fontSize: '25px',
+              textShadow: '7px 1px 2px rgba(0, 0, 0, 0.8)'
             },
           }}
         />
@@ -149,7 +157,8 @@ function Suitcase() {
           style={{
             backgroundColor: 'hsl(94, 82%, 60%)',
             color: 'white',
-            textShadow: '1px 10px 20px rgba(5, 5, 5, 5)',
+            textShadow: '1px 1px 9px rgba(0, 0, 0, 0.6)',
+            // textShadow: '1px 10px 20px rgba(5, 5, 5, 5)',
             boxShadow: '10px 10px 10px rgba(3, 3, 3, 1)'
           }}
         >
@@ -160,22 +169,18 @@ function Suitcase() {
       <br />
 
       {suitcase.length > 0 && (
+        
         <div className="list-container">
-
-
-   {bringItems.length > 0 && (
-        <div className="list-column">
-          <Typography variant="h3" style={{ fontFamily: "Georgia" }}>
-            What to Bring:
-          </Typography>
-          <ul className="bring-list">
-            {bringItems.map((item, index) => (
-
-
-
+        {bringItems.length > 0 && (
+          <div className="list-column">
+            <Typography variant="h3" style={{ fontFamily: "Georgia", textShadow: '1px 1px 9px rgba(0, 0, 0, 0.6)' }}>
+              What to Bring:
+            </Typography>
+            <ul className="bring-list">
+              {bringItems.map((item, index) => (
                 <li key={index}>
-                  <Box display="flex" alignItems="center">
-                    <Typography style={{ fontFamily: "Georgia" }}>
+                  <Box display="flex" justifyContent="center" alignItems="center">
+                    <Typography style={{ fontFamily: "Georgia", color: 'black', fontWeight: 'bold', fontSize: 'larger', textShadow: '1px 1px 9px rgba(0, 0, 0, 0.6)' }}>
                       {item.bring}
                     </Typography>
                     <Button
@@ -190,48 +195,43 @@ function Suitcase() {
               ))}
             </ul>
           </div>
-   )}
+        )}
 
-{dontBringItems.length > 0 && (
-        <div className="list-column">
-          <Typography variant="h3" style={{ fontFamily: "Georgia" }}>
-            What Not to Bring:
-          </Typography>
-          <ul className="dont-bring-list">
-            {dontBringItems.map((item, index) => (
-
-
-
-
-
-    <li key={index}>
-      <Box display="flex" alignItems="center">
-        <Typography style={{ fontFamily: "Georgia" }}>
-          {item.dontBring}
-        </Typography>
-        <Button
-          variant="outlined"
-          color="secondary"
-          onClick={() => handleDelete(index, "dontBring")}
-        >
-          <DeleteIcon />
+        {dontBringItems.length > 0 && (
+          <div className="list-column">
+            <Typography variant="h3" style={{ fontFamily: "Georgia" }}>
+              What Not to Bring:
+            </Typography>
+            <ul className="dont-bring-list">
+              {dontBringItems.map((item, index) => (
+                <li key={index}>
+                  <Box display="flex" justifyContent="center" alignItems="center">
+                    <Typography style={{ fontFamily: "Georgia", color: 'black', fontWeight: 'bold', fontSize: 'larger', textShadow: '1px 1px 9px rgba(0, 0, 0, 0.6)' }}>
+                      {item.dontBring}
+                    </Typography>
+                    <Button
+                      variant="outlined"
+                      color="secondary"
+                      onClick={() => handleDelete(index, "dontBring")}
+                    >
+                      <DeleteIcon />
                     </Button>
                   </Box>
                 </li>
               ))}
             </ul>
           </div>
-)}
-        </div>
-      )}
+        )}
+      </div>
+    )}
 
-      <br />
-      <br />
-    </div>
-  );
+    <br />
+    <br />
+  </div>
+);
 }
 
-export default Suitcase;
+export default Suitcase;  
 
 
 // import React, { useState } from "react";

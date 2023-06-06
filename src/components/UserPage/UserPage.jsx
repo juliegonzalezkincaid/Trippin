@@ -23,7 +23,7 @@ function UserPage() {
   };
 
   return (
-    <div className="container">
+    <div className="home-container">
       <h1>Welcome {user.username} Let's Start Trippin!!</h1>
 
       <div className="icon-container">
@@ -32,8 +32,8 @@ function UserPage() {
           style={{ textDecoration: 'none' }} 
           onClick={handleClick}
         >
-          <ParaglidingIcon className="icon-avatar" sx={{ fontSize: 50, color: '#49F2A9' }} />
-          <span className="icon-title">My Trips</span>
+          <ParaglidingIcon className="icon-avatar" sx={{ fontSize: 80, color: '#49F2A9' }} />
+          <span className="icon-title"></span>
         </div>
       </div>
 

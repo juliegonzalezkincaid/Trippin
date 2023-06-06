@@ -148,6 +148,7 @@ function Lodging() {
               value={formValues.arrivalDate}
               onChange={handleChange}
               required
+              
               margin="normal"
               InputProps={{
                 shrink: true,
@@ -223,25 +224,20 @@ function Lodging() {
 
         {lodging.length > 0 && (
           <div>
-            <h1>Submitted Guest Information:</h1>
+            <h1 
+             style={{
+              color:'yellow',
+              textShadow:' 4px 4px 4px rgba(0, 0, 0, 0.5',}}
+          >Submitted Guest Information:</h1>
             <ul>
               {lodging.map((lodge, index) => (
                 <li className="submitinfo" key={index}>
-                  <p className="label-text">
-                    Name:</p>
-                  <p className="beige-text">{lodge.name}</p>
-                  <p className="label-text"> Lodge Name:</p>
-                  <p className="beige-text">{lodge.lodgeName}</p>
-                  <p className="label-text">
-                    Address:</p>
-                  <p className="beige-text">{lodge.address}</p>
-                  <p className="label-text">
-                    Arrival Date:</p>
-                  <p className="beige-text">{lodge.arrivalDate}</p>
-                  <p className="label-text">Departure Date:</p>
-                  <p className="beige-text">{lodge.departureDate}</p>
-
-                  <Button
+                <p className="label-text">Name:<span className="beige-text"> {lodge.name}</span></p>
+                <p className="label-text">Lodge Name:<span className="beige-text"> {lodge.lodgeName}</span></p>
+                <p className="label-text">Address:<span className="beige-text"> {lodge.address}</span></p>
+                <p className="label-text">Arrival Date:<span className="beige-text"> {lodge.arrivalDate}</span></p>
+                <p className="label-text">Departure Date:<span className="beige-text"> {lodge.departureDate}</span></p>
+                <Button
                     variant="contained"
                     color="secondary"
                     onClick={() => dispatch({ type: 'DELETE_LODGING_INFO', 

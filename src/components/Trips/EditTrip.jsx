@@ -47,6 +47,7 @@ function EditTrip() {
           payload: tripId });
       }, [dispatch, tripId]);
     // }, []);
+  
 
       const handleUpdate = (event) => {
         event.preventDefault();
@@ -68,8 +69,15 @@ function EditTrip() {
 return (
 
   <div className="edittrip">
-    <Container maxWidth="sm">
-      <Typography variant="h3" align="center" gutterBottom>
+    <Container maxWidth="sm"
+     style={{ fontFamily: "Georgia" }}
+    >
+      <Typography 
+      variant="h3" 
+      align="center"
+       gutterBottom
+       style={{ fontFamily: "Georgia" }}
+      >
         Edit Trip
       </Typography>
       <form onSubmit={handleUpdate}>
@@ -80,6 +88,7 @@ return (
           fullWidth
           required
           margin="normal"
+          style={{ fontFamily: "Georgia", color:"green" }}
         />
         <TextField
           label="Start Date"
@@ -90,6 +99,7 @@ return (
           required
           InputLabelProps={{
             shrink: true,
+           fontFamily: "Georgia"
           }}
           margin="normal"
         />
@@ -102,13 +112,16 @@ return (
           required
           InputLabelProps={{
             shrink: true,
+            fontFamily: "Georgia"
           }}
           margin="normal"
         />
         <Button 
         type="submit" 
         variant="contained" 
-        color="primary" fullWidth>
+        color="primary" 
+        style={{ fontFamily: "Georgia" }}
+        >
           Update
         </Button>
       </form>

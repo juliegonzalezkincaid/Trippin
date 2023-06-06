@@ -65,19 +65,37 @@ function tripReducer(state = initialState, action) {
         userTrip: updatedUserTrips,
       };
 
+    // case "EDIT_TRIP":
+    //   const { trip, index } = action.payload;
+    //   const updatedUserTrip = [...state.userTrip];
+    //   updatedUserTrip[index] = {
+    //     ...updatedUserTrip[index],
+    //     description: trip.description,
+    //     startDate: trip.startDate,
+    //     endDate: trip.endDate,
+    //   };
+    //   return {
+    //     ...state,
+    //     userTrip: updatedUserTrip,
+    //   };
     case "EDIT_TRIP":
-      const { trip, index } = action.payload;
-      const updatedUserTrip = [...state.userTrip];
-      updatedUserTrip[index] = {
-        ...updatedUserTrip[index],
+  const { trip, index } = action.payload;
+  const updatedUserTrip = state.userTrip.map((t, i) => {
+    if (i === index) {
+      return {
+        ...t,
         description: trip.description,
         startDate: trip.startDate,
         endDate: trip.endDate,
       };
-      return {
-        ...state,
-        userTrip: updatedUserTrip,
-      };
+    }
+    return t;
+  });
+  return {
+    ...state,
+    userTrip: updatedUserTrip,
+  };
+
 
 
 

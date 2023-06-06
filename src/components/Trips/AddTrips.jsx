@@ -52,50 +52,104 @@ function AddTrips() {
     <div className="header">
       <Typography 
       variant="h2" 
-      style={{ fontFamily: "Georgia" }}
-      >Create a New Trip
+      style={{ 
+      fontFamily: "Georgia", 
+      fontWeight: "bolder",
+      fontSize: '70px',
+      textShadow: '7px 1px 2px rgba(0, 0, 0, 0.8)',
+   
+      marginBottom: '20px', // Increased margin bottom for spacing
+    }}
+      >Create A New Trip
       </Typography>
       </div>
       <form onSubmit={handleSave}>
         <Grid container spacing={2}>
         <Grid item xs={12}>
             <TextField
+            className="input-field input-border"
               label="Description"
               value={description}
               onChange={changeDescription}
               fullWidth
               required
               style={{ fontFamily: "Georgia" }}
+              InputProps={{
+                style: {
+                  color: 'white',
+                  fontFamily: "Georgia"
+                },
+              }}
+              InputLabelProps={{
+                style: {
+                  color: 'white',
+                  fontFamily: "Georgia",
+                  fontWeight: 'bolder',
+                  fontSize: '25px',
+                  textShadow: '7px 1px 2px rgba(0, 0, 0, 0.8)'
+                },
+              }}
             />
         </Grid>
         <Grid item xs={6}>
             <TextField
+            className="input-field date-input input-border"
               label="Start Date"
               type="date"
               value={startDate}
               onChange={changeStartDate}
-              fullWidth
               required
-              style={{ fontFamily: "Georgia" }}
+              fullWidth
+              margin="normal"
+              InputProps={{
+                shrink: true,
+                style: {
+                  color: 'white',
+                  fontFamily: "Georgia",
+
+                },
+              }}
               InputLabelProps={{
                 shrink: true,
-                fontFamily: 'Georgia',
+                style: {
+                  color: 'white',
+                  fontFamily: "Georgia",
+                  fontWeight: 'bolder',
+                  fontSize: '25px',
+                  textShadow: '7px 1px 2px rgba(0, 0, 0, 0.8)'
+                },
               }}
             />
           </Grid>
           <Grid item xs={6}>
             <TextField
-              label="End Date"
+            className="input-field date-input input border"
+              label="   End Date"
               type="date"
               value={endDate}
               onChange={changeEndDate}
-              fullWidth
               required
+              fullWidth
               style={{ fontFamily: "Georgia" }}
+              InputProps={{
+                shrink: true,
+                style: {
+                  color: 'white',
+                  fontFamily: "Georgia",
+
+                },
+              }}
               InputLabelProps={{
                 shrink: true,
-                fontFamily: "Georgia",
+                style: {
+                  color: 'white',
+                  fontFamily: "Georgia",
+                  fontWeight: 'bolder',
+                  fontSize: '25px',
+                  textShadow: '7px 1px 2px rgba(0, 0, 0, 0.8)'
+                },
               }}
+              margin="normal"
             />
           </Grid >
         </Grid  >
@@ -104,15 +158,15 @@ function AddTrips() {
         <Button 
         type="submit" 
         variant="contained" 
-        style={{
-          backgroundColor: 'hsl(94, 82%, 60%)',
-          color: 'white',
-          textShadow: '4px 1px 4px rgba(1, 1, 1, 9)',
-          boxShadow: '10px 10px 10px rgba(3, 3, 3, 1)',
-          fontFamily: "Georgia"
-        }}
+        style={{ 
+          backgroundColor: 'hsl(94, 82%, 60%)', 
+          color: 'white', 
+          textShadow: '1px 10px 20px rgba(5, 5, 5, 5)',
+            boxShadow: '10px 10px 10px rgba(3, 3, 3, 1)',
+            fontFamily: "Georgia"
+          }}>
         
-        >
+        
           Save
         </Button>
       </form>

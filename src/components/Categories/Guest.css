@@ -10,10 +10,11 @@
     font-weight: bolder;
     font-family: Georgia;
     font-size: 40px;
-    margin: -1;
+    margin: 0px;
+    padding-top: 90px;
   }
   .guest-form-container {
-    font-size: 90px;
+    font-size: 30px;
     font-weight: bolder;
     font-family:Georgia;
     text-align: center;
@@ -41,5 +42,14 @@
    text-shadow: 6px 6px 6px rgba(0, 0, 0, 0.5);
  
   }
+  .guest-form .submitinfo p {
+    color: darkgray; /* Adjust the color as needed */
+  }
   
+  .guest-form .submitinfo p.label {
+    color: rgb(247, 195, 23); /* Adjust the color as needed */
+  }
   
+  .guest-form .submitinfo p.value {
+    color: white; /* Adjust the color as needed */
+  }

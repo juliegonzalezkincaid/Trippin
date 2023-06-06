@@ -1,14 +1,14 @@
 
 .addtrips {
     background-image: url(/public/bluetrees.jpeg);
-    background-size:100% 100%; 
+    background-size:cover; 
     text-align: center;
     background-position: center;
     height: 100vh;
     font-family: Georgia;
     color: rgb(235, 168, 86);
     text-shadow: 4px 4px 4px rgba(30, 30, 30, 31.5);
-    
+    font-weight: bolder;
   }
   
 
@@ -18,16 +18,21 @@
     align-items: center;
     height: 100vh; 
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    /* Set the container height to the full viewport height */
-  }
-/*   
-  .addtrips form {
-    width: 100%; /* Set the form width to 100% of the container */
-    /* max-width: 400px; /* Set a maximum width for the form */
-  /* } */
-  /* .addtrips form > div { */
-    /* margin-bottom: 20px; */
-  /* } */ */ */
+    }
+
+  .addtrips-container {
+    font-size: 90px;
+    font-weight: bolder;
+    font-family:Georgia;
+    text-align: center;
+    color:black;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 3px;
+  }  
 
 .header {
   margin-bottom: 40px;
@@ -36,10 +41,25 @@
   font-family: Georgia; 
   align-items: center;
   font-style: italic;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  text-shadow: 20px 10px 10px rgba(09, 9, 9, 9.5);
 }
 .addtrips {
   font-family: Georgia; 
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   font-weight: bolder;
+}
+.input-field {
+  width: 50%;
+  color: white;
+  text-align: center;
+  border: 2px solid whitesmoke;
+  font-weight: bolder;
+  font-size: 20px;
+  font-family: Georgia;
+  color: rgb(235, 168, 86);
+  text-shadow: 4px 4px 4px rgba(30, 30, 30, 31.5);
+  
+} 
+.input-border box {
+  color:aliceblue
 }
