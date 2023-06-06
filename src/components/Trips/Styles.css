@@ -1,5 +1,5 @@
 .my-trips-container,body {
-  background-image: url(/public/bluetrees.jpeg);
+  background-image: url(/public/sky2.jpeg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -94,3 +94,80 @@
   align-items: center;
 }
 
+.container {
+  background-image: url(/public/oceandoor.webp);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  text-align:center;
+  margin-top: -1;
+  background-position: center;
+  height: 100vh;
+  font-weight: bolder;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  color: hsl(94, 82%, 60%);
+  min-height: calc(100vh - 64px); 
+  text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
+}
+.logout-container {
+  position: fixed;
+  bottom: 60px;
+  right: 20px;
+}
+
+.logout-button {
+  font-size: 12px;
+}
+/* .icon-container {
+  display: flex;
+  justify-content: center;
+} */
+
+.icon-wrapper {
+  position: absolute;
+  /* display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer; */
+}
+
+.icon-title {
+  /* position: absolute; */
+  bottom: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: Georgia;
+  color: hsl(94, 82%, 60%);
+  padding: 5px 10px;
+  font-size: 28px;
+  font-weight: bold;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.3s;
+}
+
+.icon-wrapper:hover .icon-title {
+  visibility: visible;
+  opacity: 1;
+}
+
+.icon-wrapper.animate {
+  animation: floatDown 5s linear forwards;
+}
+
+
+
+.icon-wrapper {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@keyframes floatDown {
+  from { top: 0; transform: translateX(-50%); }
+  to { top: 100vh; transform: translateX(-50%); }
+}

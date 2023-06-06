@@ -20,6 +20,13 @@ function LoginPage() {
           color="success"
           className="btn btn_asLink"
           size="large"
+          style={{
+            backgroundColor: 'hsl(94, 82%, 60%)',
+            color: 'white',
+            textShadow: '1px 10px 20px rgba(5, 5, 5, 5)',
+            boxShadow: '10px 10px 10px rgba(3, 3, 3, 1)',
+            fontFamily: "Georgia"
+          }}
           onClick={()=> {
             history.push('/registration');
           }}

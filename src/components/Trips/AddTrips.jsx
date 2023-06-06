@@ -51,9 +51,9 @@ function AddTrips() {
     <Container maxWidth="sm">
     <div className="header">
       <Typography 
-      variant="h3" 
-      align="center" 
-      gutterBottom>Create a New Trip
+      variant="h2" 
+      style={{ fontFamily: "Georgia" }}
+      >Create a New Trip
       </Typography>
       </div>
       <form onSubmit={handleSave}>
@@ -65,6 +65,7 @@ function AddTrips() {
               onChange={changeDescription}
               fullWidth
               required
+              style={{ fontFamily: "Georgia" }}
             />
         </Grid>
         <Grid item xs={6}>
@@ -75,8 +76,10 @@ function AddTrips() {
               onChange={changeStartDate}
               fullWidth
               required
+              style={{ fontFamily: "Georgia" }}
               InputLabelProps={{
                 shrink: true,
+                fontFamily: 'Georgia',
               }}
             />
           </Grid>
@@ -88,13 +91,28 @@ function AddTrips() {
               onChange={changeEndDate}
               fullWidth
               required
+              style={{ fontFamily: "Georgia" }}
               InputLabelProps={{
                 shrink: true,
+                fontFamily: "Georgia",
               }}
             />
           </Grid >
         </Grid  >
-        <Button type="submit" variant="contained" color="primary" fullWidth>
+        <br></br>
+        <br></br>
+        <Button 
+        type="submit" 
+        variant="contained" 
+        style={{
+          backgroundColor: 'hsl(94, 82%, 60%)',
+          color: 'white',
+          textShadow: '4px 1px 4px rgba(1, 1, 1, 9)',
+          boxShadow: '10px 10px 10px rgba(3, 3, 3, 1)',
+          fontFamily: "Georgia"
+        }}
+        
+        >
           Save
         </Button>
       </form>

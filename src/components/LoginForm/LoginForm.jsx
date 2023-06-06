@@ -34,7 +34,9 @@ function LoginForm() {
         <h3 className="alert" role="alert">
           {errors.loginMessage}
         </h3>
+
       )}
+      <button>Register</button>
       <div>
         <label htmlFor="username">
           Username:

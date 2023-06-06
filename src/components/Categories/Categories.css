@@ -45,3 +45,13 @@
   margin-right: 50px; /* Adjust the margin value to control the spacing */
 }
   
+.category-title {
+  font-size: 40px;
+  font-weight: bold;
+  font-family: cursive;
+  /* position: absolute; */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none; /* Ensure that the title doesn't interfere with mouse events */
+}
