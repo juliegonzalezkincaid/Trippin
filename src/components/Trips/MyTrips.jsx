@@ -8,6 +8,7 @@ import { Button } from "@mui/material";
 import { Link, Route } from 'react-router-dom';
 import EditTrip from "../Trips/EditTrip";
 import './Styles.css';
+import { purple } from "@mui/material/colors";
 
 function MyTrips ({}) {
     const dispatch = useDispatch();
@@ -84,6 +85,7 @@ function MyTrips ({}) {
       textShadow: '4px 1px 2px rgba(0, 0, 0, 0.8)', 
       fontSize: '30px', 
       fontWeight: 'bolder', 
+      color: 'purple',
     }}
     />
   ))}
@@ -100,7 +102,7 @@ function MyTrips ({}) {
             key={trip.id} 
             trip={trip} 
             handleEditTrip={handleEditTrip}
-            color='white'
+            color='pruple'
             handleDeleteTrip={() => handleDeleteTrip(trip.id)}
             savedTrips={savedTrips}
             date={trip.date} 

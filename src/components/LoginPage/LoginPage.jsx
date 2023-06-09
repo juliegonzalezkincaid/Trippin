@@ -10,8 +10,10 @@ function LoginPage() {
   return (
     <div
     className='yellow'>
+     <div className="content-container">
       <LoginForm
       className="yellow" />
+     
       
       <Button
           
@@ -24,6 +26,8 @@ function LoginPage() {
         >
           Register
         </Button>
+        
+    </div>
     </div>
   );
 }

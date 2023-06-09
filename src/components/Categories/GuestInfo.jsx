@@ -56,12 +56,19 @@ return(
         InputProps={{
           style: {
             color: 'white',
-            fontWeight: 'bold',
+            fontFamily: "Georgia",
+            fontWeight: 'bolder',
+            fontSize: '25px',
+            textShadow: '7px 1px 2px rgba(0, 0, 0, 0.8)'
           },
         }}
         InputLabelProps={{
           style: {
-            color: 'white',
+            color: 'bisque',
+            fontFamily: "Georgia",
+            fontWeight: 'bolder',
+            fontSize: '25px',
+            textShadow: '1px 1px 2px rgba(0, 0, 0, 2.9)'
           },
         }}
       />
@@ -74,13 +81,23 @@ return(
         required
         InputLabelProps={{
           style: {
-            color: 'white',
+            color: 'bisque',
+            fontWeight: 'bold',
+            fontFamily: "Georgia",
+            fontWeight: 'bolder',
+            fontSize: '25px',
+            textShadow: '1px 1px 2px rgba(0, 0, 0, 2.9)'
+
           },
         }}
         InputProps={{
           style: {
             color: 'white',
             fontWeight: 'bold',
+            fontFamily: "Georgia",
+            fontWeight: 'bolder',
+            fontSize: '25px',
+            textShadow: '7px 1px 2px rgba(0, 0, 0, 0.8)'
           },
         }}
       />
@@ -95,11 +112,19 @@ return(
           style: {
             color: 'white',
             fontWeight: 'bold',
+            fontFamily: "Georgia",
+            fontWeight: 'bolder',
+            fontSize: '25px',
+            textShadow: '7px 1px 2px rgba(0, 0, 0, 0.8)'
           },
         }}
         InputLabelProps={{
           style: {
-            color: 'white',
+            color: 'bisque',
+            fontFamily: "Georgia",
+            fontWeight: 'bolder',
+            fontSize: '25px',
+            textShadow: '1px 1px 2px rgba(0, 0, 0, 2.9)'
           },
         }}
       />
@@ -109,8 +134,9 @@ return(
         backgroundColor: 'hsl(94, 82%, 60%)', 
         color: 'white', 
         textShadow: '10px 10px 15px rgba(0.5, 0.5, 0.5, 3)',
-        boxShadow: '4px 4px 6px rgba(0, 0, 0, 0.5)'
-        }}>
+        boxShadow: '4px 4px 6px rgba(0, 0, 0, 0.5)',
+       fontFamily: 'Georgia',
+       }}>
     
         Submit
       </Button>
@@ -118,7 +144,9 @@ return(
         
    {guestInfo.length > 0 && (
       <ul>
-        <h2>Submitted Guest Information:</h2>
+        <h2
+        style={{ textAlign: "center" }}
+        >Submitted Guest Information:</h2>
         {guestInfo.map((guest, index) => (
           <li 
           className="submitinfo"
