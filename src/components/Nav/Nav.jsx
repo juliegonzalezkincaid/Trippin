@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import './Nav.css';
 import { useSelector } from 'react-redux';
-import AssignmentOutlinedIcon from '@mui/icons-material/AssignmentOutlined';
 import ParaglidingOutlinedIcon from '@mui/icons-material/ParaglidingOutlined';
 function Nav() {
 
@@ -49,16 +48,16 @@ function Nav() {
           Each Trip
         </Link> */}
 
-
+{/* 
         <Link className="navLink" to="/categories">
         <AssignmentOutlinedIcon className="navIcon" sx={{ fontSize: 40,}} />
-        </Link>
+        </Link> */}
            
  {/* If no user is logged in, show these links */}
  {!user.id && (
           // If there's no user, show login/registration links
           <Link className="navLink" to="/login">
-            Login / Register
+            Login
           </Link>
         )}
 

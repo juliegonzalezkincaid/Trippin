@@ -64,7 +64,24 @@ function tripReducer(state = initialState, action) {
         ...state,
         userTrip: updatedUserTrips,
       };
-
+      case "EDIT_TRIP":
+        const { trip, index } = action.payload;
+        const updatedUserTrip = state.userTrip.map((t, i) => {
+          if (i === index) {
+            return {
+              ...t,
+              description: trip.description,
+              startDate: trip.startDate,
+              endDate: trip.endDate,
+            };
+          }
+          return t;
+        });
+        return {
+          ...state,
+          userTrip: updatedUserTrip,
+        };
+      
     // case "EDIT_TRIP":
     //   const { trip, index } = action.payload;
     //   const updatedUserTrip = [...state.userTrip];
@@ -78,23 +95,23 @@ function tripReducer(state = initialState, action) {
     //     ...state,
     //     userTrip: updatedUserTrip,
     //   };
-    case "EDIT_TRIP":
-  const { trip, index } = action.payload;
-  const updatedUserTrip = state.userTrip.map((t, i) => {
-    if (i === index) {
-      return {
-        ...t,
-        description: trip.description,
-        startDate: trip.startDate,
-        endDate: trip.endDate,
-      };
-    }
-    return t;
-  });
-  return {
-    ...state,
-    userTrip: updatedUserTrip,
-  };
+  //   case "EDIT_TRIP":
+  // const { trip, index } = action.payload;
+  // const updatedUserTrip = state.userTrip.map((t, i) => {
+  //   if (i === index) {
+  //     return {
+  //       ...t,
+  //       description: trip.description,
+  //       startDate: trip.startDate,
+  //       endDate: trip.endDate,
+  //     };
+  //   }
+  //   return t;
+  // });
+  // return {
+  //   ...state,
+  //   userTrip: updatedUserTrip,
+  // };
 
 
 
@@ -121,6 +138,22 @@ function tripReducer(state = initialState, action) {
           },
         ],
       };
+
+     // Reducer for updating a trip
+case "UPDATE_TRIP_SUCCESS":
+  return {
+    ...state,
+    userTrip: state.userTrip.map((trip) =>
+      trip.id === action.payload.id
+        ? {
+            ...trip,
+            ...action.payload,
+            startDate: action.payload.startDate, // Set the start date property
+            endDate: action.payload.endDate, // Set the end date property
+          }
+        : trip
+    ),
+  }; 
     case "SET_FLIGHT_INFO":
       console.log('SET_FLIGHT_INFO action:', action.payload);
 

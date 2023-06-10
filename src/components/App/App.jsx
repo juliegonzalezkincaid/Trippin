@@ -91,7 +91,7 @@ function App() {
 
           <Route
             exact
-            path="/registration"
+            path="/home"
           >
             {user.id ?
               // If the user is already logged in, 
@@ -99,7 +99,7 @@ function App() {
               <Redirect to="/user" />
               :
               // Otherwise, show the registration page
-              <RegisterPage />
+              <LandingPage />
             }
           </Route>
 

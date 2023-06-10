@@ -75,7 +75,6 @@ return (
       <Typography 
       variant="h3" 
       align="center"
-      className="edit-title"
        gutterBottom
        style={{ fontFamily: "Georgia" }}
       >

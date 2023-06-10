@@ -21,28 +21,62 @@ function* fetchCategoriesAndEntries(action) {
 function* watchFetchCategoriesAndEntries() {
   yield takeEvery('FETCH_CATEGORIES_ENTRIES', fetchCategoriesAndEntries);
 }
+// function* saveTrip(action) {
+//   try {
+//     const userId = yield select((state) => state.user.id);
+//     const payload = { ...action.payload, userId };
+//     yield call(axios.post, "/api/trip/allSave", payload);
+//     yield put({ type: "SAVE_TRIP_SUCCESS", payload });
+//   } catch (error) {
+//     console.log("Error saving trip in saveTrip saga:", error);
+//     yield put({ type: "SAVE_TRIP_ERROR" });
+//   }
+// }
 function* saveTrip(action) {
   try {
     const userId = yield select((state) => state.user.id);
     const payload = { ...action.payload, userId };
     yield call(axios.post, "/api/trip/allSave", payload);
-    yield put({ type: "SAVE_TRIP_SUCCESS", payload });
+    yield put({ type: "SAVE_TRIP_SUCCESS", payload: { ...payload, startDate: payload.startDate, endDate: payload.endDate } });
   } catch (error) {
     console.log("Error saving trip in saveTrip saga:", error);
     yield put({ type: "SAVE_TRIP_ERROR" });
   }
 }
-
 function* getSavedTrips(action) {
   try {
     console.log('getSavedTrips saga started');
     const response = yield call(axios.get, "/api/trip");
-    yield put({ type: "GET_SAVED_TRIPS_SUCCESS", payload: response.data });
+    const savedTripsWithDates = response.data.map((trip) => ({
+      ...trip,
+      startDate: trip.startDate, // Set the start date property
+      endDate: trip.endDate, // Set the end date property
+    }));
+    yield put({ type: "GET_SAVED_TRIPS_SUCCESS", payload: savedTripsWithDates });
   } catch (error) {
     console.log("Error getting saved trips in getSavedTrips saga:", error);
     yield put({ type: "GET_SAVED_TRIPS_ERROR" });
   }
 }
+
+
+
+// function* getSavedTrips(action) {
+//   try {
+//     console.log('getSavedTrips saga started');
+//     const response = yield call(axios.get, "/api/trip");
+//     const savedTripsWithDates = response.data.map((trip) => ({
+//       ...trip,
+//       startDate: trip.startDate, // Set the start date property
+//       endDate: trip.endDate, // Set the end date property
+//     }));
+//     yield put({ type: "GET_SAVED_TRIPS_SUCCESS", payload: savedTripsWithDates });
+//   } catch (error) {
+//     console.log("Error getting saved trips in getSavedTrips saga:", error);
+//     yield put({ type: "GET_SAVED_TRIPS_ERROR" });
+//   }
+// }
+
 
 function* addTrip(action) {
   try {

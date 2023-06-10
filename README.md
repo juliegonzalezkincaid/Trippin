@@ -14,7 +14,8 @@ By providing a centralized platform for trip planning and information sharing, T
 1. Deployed Link
 2. Usage
 3. Technologies utilization
-4. Contact
+4. Acknowledgement
+5. Support 
 
 ## Deployed Link
 
@@ -32,7 +33,7 @@ The app features intuitive navigation with icons for effortless access to differ
 In summary, Trippin simplifies trip management by providing a user-friendly interface for creating and organizing trips. It allows users to store and manage guest information, collaborate effectively within travel groups, and stay updated with real-time trip details. Trippin aims to make travel planning a seamless and enjoyable experience for all users involved.
 
 
-#Technologies Utilization
+# Technologies Utilization
 - Javascript
 - HTML
 - CSS
