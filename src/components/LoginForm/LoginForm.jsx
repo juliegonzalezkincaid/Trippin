@@ -73,7 +73,7 @@ function LoginForm() {
           color="success"
           size="large"
           onClick={()=> {
-            history.push('/registration');
+            history.push('/home');
           }}
         >
           Register
