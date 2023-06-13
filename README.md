@@ -1,5 +1,6 @@
 
 # Trippin
+https://git.heroku.com/trippin-app.git
 
 # Description
 Trippin is a user-friendly travel planning application designed to make organizing trips a breeze. With Trippin, you can easily plan your trip by visiting the website and accessing its intuitive interface. Whether you're traveling alone or with a group, Trippin offers convenient features for managing your travel details.
