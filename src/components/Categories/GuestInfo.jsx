@@ -11,7 +11,11 @@ function GuestInfo () {
     const { id } = useParams();
     const { selected } = useSelector((store) => store.trip);
     const { user } = useSelector((store) => store);
-    const { guestInfo } = useSelector((store) => store.trip); 
+    const { guestInfo } = useSelector((store) => store.trip);
+
+    
+
+
 
     const [formValues, setFormValues] = useState({
         name: "",
@@ -37,7 +41,7 @@ function GuestInfo () {
           email: '',
         });
       };
-   
+     
    
 
 return(

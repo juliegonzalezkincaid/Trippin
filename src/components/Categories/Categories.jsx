@@ -14,10 +14,14 @@ import Suitcase from '../Categories/SuitCase';
 import PsychologyAltIcon from '@mui/icons-material/PsychologyAlt';
 import './Categories.css';
 import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
+
+
 
 function Categories() {
   const categories = useSelector((state) => state.categories);
   const entries = useSelector((state) => state.entries);
+  const { tripId } = useParams();
 
   const dispatch = useDispatch();
   const [hoveredIcon, setHoveredIcon] = useState(null);
@@ -39,6 +43,7 @@ function Categories() {
               className='icon-avatar'
               sx={{ bgcolor: 'primary.main', width: 56, height: 56 }}
             >
+            
               <Link to="/guest_info">
                 <PeopleIcon className='icon-avatar' sx={{ fontSize: 50 }} />
               </Link>
@@ -152,6 +157,7 @@ function Categories() {
       </ul>
 
       <Switch>
+        
         <Route path="/guest_info" component={GuestInfo} />
         <Route path="/flight_info" component={FlightInfo} />
         <Route path="/lodging" component={Lodging} />

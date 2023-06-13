@@ -1,4 +1,5 @@
 const initialState = {
+   currentTripId: null,
   userTrip: [],
   savedTrips: [],
   setFlightInfo: [],
@@ -64,38 +65,7 @@ function tripReducer(state = initialState, action) {
         ...state,
         userTrip: updatedUserTrips,
       };
-      
-      // case "EDIT_TRIP":
-      //   const { trip, index } = action.payload;
-      //   const updatedUserTrip = state.userTrip.map((t, i) => {
-      //     if (i === index) {
-      //       return {
-      //         ...t,
-      //         description: trip.description,
-      //         startDate: trip.startDate,
-      //         endDate: trip.endDate,
-      //       };
-      //     }
-      //     return t;
-      //   });
-      //   return {
-      //     ...state,
-      //     userTrip: updatedUserTrip,
-      //   };
-      
-    // case "EDIT_TRIP":
-    //   const { trip, index } = action.payload;
-    //   const updatedUserTrip = [...state.userTrip];
-    //   updatedUserTrip[index] = {
-    //     ...updatedUserTrip[index],
-    //     description: trip.description,
-    //     startDate: trip.startDate,
-    //     endDate: trip.endDate,
-    //   };
-    //   return {
-    //     ...state,
-    //     userTrip: updatedUserTrip,
-    //   };
+   
     case "EDIT_TRIP":
   const { trip, index } = action.payload;
   const updatedUserTrip = state.userTrip.map((t, i) => {
@@ -278,4 +248,35 @@ case "UPDATE_TRIP_SUCCESS":
 export default tripReducer;
 
 
-
+   
+      // case "EDIT_TRIP":
+      //   const { trip, index } = action.payload;
+      //   const updatedUserTrip = state.userTrip.map((t, i) => {
+      //     if (i === index) {
+      //       return {
+      //         ...t,
+      //         description: trip.description,
+      //         startDate: trip.startDate,
+      //         endDate: trip.endDate,
+      //       };
+      //     }
+      //     return t;
+      //   });
+      //   return {
+      //     ...state,
+      //     userTrip: updatedUserTrip,
+      //   };
+      
+    // case "EDIT_TRIP":
+    //   const { trip, index } = action.payload;
+    //   const updatedUserTrip = [...state.userTrip];
+    //   updatedUserTrip[index] = {
+    //     ...updatedUserTrip[index],
+    //     description: trip.description,
+    //     startDate: trip.startDate,
+    //     endDate: trip.endDate,
+    //   };
+    //   return {
+    //     ...state,
+    //     userTrip: updatedUserTrip,
+    //   };

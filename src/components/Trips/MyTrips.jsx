@@ -10,6 +10,7 @@ import EditTrip from "../Trips/EditTrip";
 import './Styles.css';
 
 
+
 function MyTrips ({}) {
     const dispatch = useDispatch();
     const history = useHistory();
@@ -64,7 +65,10 @@ function MyTrips ({}) {
         component={Link} to="/add_trips"
         className="addtripsbutton"
         variant="contained"
-        style={{ fontFamily: "Georgia", 
+        style={{ 
+        backgroundColor: 'hsl(94, 82%, 60%)', 
+        color: 'white', 
+        fontFamily: "Georgia", 
         textShadow: '4px 1px 2px rgba(0, 0, 0, 0.8)', 
         fontSize: '23px', fontWeight: 'bold',  }}
         // color=""
@@ -73,22 +77,7 @@ function MyTrips ({}) {
 
       <br></br>
       <br></br>
-{/*           
- {userTrip.map((trip, index) => (
-    <EachTrip
-    
-      key={trip.id}
-      trip={trip}
-      handleEditTrip={(editedTrip) => handleEditTrip(editedTrip, index)}
-      savedTrips={savedTrips}
-      style={{ fontFamily: "Georgia", 
-      textShadow: '4px 1px 2px rgba(0, 0, 0, 0.8)', 
-      fontSize: '30px', 
-      fontWeight: 'bolder', 
-      color: 'purple',
-    }}
-    />
-  ))} */}
+
    
    
         <h2 className="saved"
@@ -141,4 +130,19 @@ function MyTrips ({}) {
 
 export default MyTrips;
 
-
+{/*           
+ {userTrip.map((trip, index) => (
+    <EachTrip
+    
+      key={trip.id}
+      trip={trip}
+      handleEditTrip={(editedTrip) => handleEditTrip(editedTrip, index)}
+      savedTrips={savedTrips}
+      style={{ fontFamily: "Georgia", 
+      textShadow: '4px 1px 2px rgba(0, 0, 0, 0.8)', 
+      fontSize: '30px', 
+      fontWeight: 'bolder', 
+      color: 'purple',
+    }}
+    />
+  ))} */}
