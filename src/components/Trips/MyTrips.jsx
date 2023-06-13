@@ -8,7 +8,7 @@ import { Button } from "@mui/material";
 import { Link, Route } from 'react-router-dom';
 import EditTrip from "../Trips/EditTrip";
 import './Styles.css';
-import { purple } from "@mui/material/colors";
+
 
 function MyTrips ({}) {
     const dispatch = useDispatch();
@@ -73,7 +73,7 @@ function MyTrips ({}) {
 
       <br></br>
       <br></br>
-          
+{/*           
  {userTrip.map((trip, index) => (
     <EachTrip
     
@@ -88,7 +88,7 @@ function MyTrips ({}) {
       color: 'purple',
     }}
     />
-  ))}
+  ))} */}
    
    
         <h2 className="saved"
@@ -97,23 +97,37 @@ function MyTrips ({}) {
          {savedTrips.length === 0 ? (
         <p>No saved trips to show...yet!</p>
           ) : (
-          savedTrips.map((trip) => (
-            <EachTrip 
-            key={trip.id} 
-            trip={trip} 
-            handleEditTrip={handleEditTrip}
-            color='pruple'
-            handleDeleteTrip={() => handleDeleteTrip(trip.id)}
-            savedTrips={savedTrips}
-            date={trip.date} 
-            style={{ fontFamily: "Georgia",
-          fontWeight:"bolder" ,
-          textShadow: '4px 1px 2px rgba(0, 0, 0, 0.8)',
-          fontSize:'30px',
-        }}
-            />
-          ))
+
+            <>
+            {savedTrips.map((trip, i) => {
+              const startDate = new Date(trip.start_date);
+              const endDate = new Date(trip.end_date);
+        
+              return (
+                <EachTrip
+                  key={i}
+                  trip={{
+                    id: trip.id,
+                    tripName: trip.tripName,
+                    description: trip.description,
+                    startDate: startDate.toISOString(),
+                    endDate: endDate.toISOString(),
+                  }}
+                  handleEditTrip={handleEditTrip}
+                  handleDeleteTrip={() => handleDeleteTrip(trip.id)}
+                  savedTrips={savedTrips}
+                  style={{
+                    fontFamily: "Georgia",
+                    fontWeight: "bolder",
+                    textShadow: '4px 1px 2px rgba(0, 0, 0, 0.8)',
+                    fontSize: '30px',
+                  }}
+                />
+              );
+            })}
+          </>
         )}
+
      <Route 
      path="/edit_trip/:tripId" 
      component={EditTrip} 
@@ -126,4 +140,5 @@ function MyTrips ({}) {
   }
 
 export default MyTrips;
+
 

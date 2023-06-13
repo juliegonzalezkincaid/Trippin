@@ -8,13 +8,7 @@ const initialState = {
     misc: [],
   },
 };
-// const initialState = {
-//   flight: [],
-//   guest: [],
-//   lodging: [],
-//   suitcase: [],
-//   misc: [],
-// };
+
 
 const entryReducer = (state = initialState, action) => {
   switch (action.type) {

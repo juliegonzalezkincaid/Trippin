@@ -7,6 +7,7 @@ import './Styles.css'
 function EditTrip() {
     const dispatch = useDispatch();
     const history = useHistory();
+    const { user } = useSelector((store) => store);
     const { tripId } = useParams();
     const trip = useSelector((store) => store.trip.userTrip.find((t) => t.id === tripId));
     const [description, setDescription] = useState('');
@@ -53,7 +54,7 @@ function EditTrip() {
         event.preventDefault();
         
         const updatedTrip = {
-          // userId: user.id,
+          userId: user.id,
           id: tripId,
           description,
           startDate,

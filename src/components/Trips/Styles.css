@@ -140,6 +140,7 @@
   text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
   font-family: "Georgia";
   padding-top: 190px;
+  
 }
 .logout-container {
   position: fixed;
@@ -177,6 +178,7 @@
   transition: visibility 0s, opacity 0.3s;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 padding-top: 120px;
+align-items: center;
 }
 
 .icon-wrapper:hover .icon-title {
