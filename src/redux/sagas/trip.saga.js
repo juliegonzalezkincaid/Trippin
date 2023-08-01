@@ -1,7 +1,7 @@
 import {all, call, put, takeLatest, takeEvery, select } from "redux-saga/effects";
 import axios from "axios";
 
-function* fetchCategoriesAndEntries(action) {
+function* fetchCategoriesAndEntries(action) {//generator function (saga) that is used to fetch categories and entries from an API and then dispatch actions to the Redux store with the received data.
   try {
     // Fetch categories
     const categoriesResponse = yield call(axios.get, '/api/categories');
