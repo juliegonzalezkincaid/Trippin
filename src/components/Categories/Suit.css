@@ -1,20 +1,23 @@
 .suitcase-body{
-    background-image: url(/public/hat.jpeg);
-    background-size:cover;
-    height: 100vh;
-    color: rgb(227, 191, 26); 
-    text-align: center;
-    background-position: center;
-    font-size: 60px;
-    font-weight: bolder;
-    font-family: Georgia;
-    min-height: calc(100vh - 64px); 
-    text-shadow: 10px 10px 10px rgba(09, 9, 9, 9.5);
-    font-size: 40px;
-    margin:0px ;
-    padding-top: 93px;
+  background-image: url(/public/hat.jpeg);
+  background-size:100% 100%; 
+  background-repeat: no-repeat; /* this line to avoid repeating the image */
+  background-attachment: fixed; /* line to make the background fixed even with scrolling */
 
-  }
+  color: rgb(227, 191, 26); 
+  text-align: center;
+  background-position: center;
+  font-size: 60px;
+  font-weight: bolder;
+  font-family: Georgia;
+  min-height: calc(100vh - 64px); 
+  text-shadow: 10px 10px 10px rgba(09, 9, 9, 9.5);
+  font-size: 40px;
+  margin:0px ;
+  padding-top: 93px;
+}
+
+
   .header-title, h2 {
     text-shadow: 20px 10px 10px rgba(09, 9, 9, 9.5);
     font-weight: bolder;

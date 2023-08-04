@@ -2,8 +2,10 @@
   
   .lodging-body {
     background-image: url(/public/tent.jpeg);
-    background-size: cover;
-    background-position: center;
+    background-size:100% 100%; 
+    background-repeat: no-repeat; /* this line to avoid repeating the image */
+    background-attachment: fixed;
+    text-align: center;
     color: rgb(235, 168, 86);
     font-family: Georgia;
     min-height: 100vh; 

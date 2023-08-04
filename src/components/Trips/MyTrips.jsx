@@ -71,7 +71,7 @@ function MyTrips ({}) {
         fontFamily: "Georgia", 
         textShadow: '4px 1px 2px rgba(0, 0, 0, 0.8)', 
         fontSize: '23px', fontWeight: 'bold',  }}
-        // color=""
+       
         >Add a Trip
       </Button>
 

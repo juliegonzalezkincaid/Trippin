@@ -69,7 +69,9 @@ function Lodging() {
           InputProps={{
             style: {
               color: 'white',
-              fontFamily: "Georgia"
+              fontFamily: "Georgia",
+              border: '1px solid white',
+              textShadow: '7px 1px 2px rgba(0, 0, 0, 0.8)'
             },
           }}
           InputLabelProps={{
@@ -93,6 +95,7 @@ function Lodging() {
           InputProps={{
             style: {
               color: 'white',
+              textShadow: '7px 1px 2px rgba(0, 0, 0, 0.8)'
             },
           }}
           InputLabelProps={{
@@ -118,7 +121,8 @@ function Lodging() {
           InputProps={{
             style: {
               color: 'white',
-              fontFamily: "Georgia"
+              fontFamily: "Georgia",
+              textShadow: '7px 1px 2px rgba(0, 0, 0, 0.8)'
             },
           }}
           InputLabelProps={{
@@ -138,7 +142,6 @@ function Lodging() {
 
         <div className="date-container">
           <div className="date-field">
-            {/* <h4>Arrival</h4>  */}
             <TextField
               className="input-field date-input"
               name="arrivalDate"
