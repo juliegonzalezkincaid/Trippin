@@ -26,10 +26,25 @@ function EachTrip({ trip, handleEditTrip, date }) {
   useEffect(() => {
     dispatch({ type: "GET_SAVED_TRIPS" });
   }, []);
+ 
 
   return (
-    <TableRow style={{ borderBottom: "none" }} >
-      <TableCell style={{ fontFamily: "Georgia", borderBottom: "none", display: "flex" }}>
+    <TableRow style={{ borderBottom: "none" }}>
+      <TableCell style={{ fontFamily: "Georgia", borderBottom: "none", display: "flex", justifyContent: "space-between" }}>
+        <div 
+        style={{ 
+          fontSize: "20px", 
+          color: "black", 
+          fontFamily: "Georgia", 
+          borderBottom: "none", 
+          fontWeight: "bold", 
+          marginRight: "10px" 
+          }}>
+          {trip && new Date(trip.startDate).toLocaleDateString(undefined, { dateStyle: "short" })}
+          {" - "}
+          {trip && new Date(trip.endDate).toLocaleDateString(undefined, { dateStyle: "short" })}
+        </div>
+
         <div
           style={{
             fontSize: "20px",
@@ -41,8 +56,7 @@ function EachTrip({ trip, handleEditTrip, date }) {
         >
           {trip && trip.tripName}
         </div>
-      </TableCell>
-      <TableCell style={{ fontFamily: "Georgia", borderBottom: "none" }}>
+      
         <div
           style={{
             fontSize: "30px",
@@ -54,42 +68,8 @@ function EachTrip({ trip, handleEditTrip, date }) {
         >
           {trip && trip.description}
         </div>
-      </TableCell>
-      <TableCell style={{ fontFamily: "Georgia", borderBottom: "none" }}>
-        <div style={{ fontSize: "20px", color: "black", fontFamily: "Georgia", borderBottom: "none" }}>
-          {date}
-        </div>
-      </TableCell>
-      <TableCell style={{ fontFamily: "Georgia", borderBottom: "none", display: "flex", alignItems: "center" }}>
-        <TableCell style={{ fontFamily: "Georgia", borderBottom: "none", display: "flex", alignItems: "center" }}>
-          <div
-            style={{
-              fontSize: "20px",
-              color: "black",
-              fontFamily: "Georgia",
-              borderBottom: "none",
-              display: "flex",
-              alignItems: "center",
-            }}
-          >
-            {trip && new Date(trip.startDate).toLocaleDateString(undefined, { dateStyle: "short" })}
-          </div>
-        </TableCell>
-        <TableCell style={{ fontFamily: "Georgia", borderBottom: "none", display: "flex", alignItems: "center" }}>
-          <div
-            style={{
-              fontSize: "20px",
-              color: "black",
-              fontFamily: "Georgia",
-              borderBottom: "none",
-              display: "flex",
-              alignItems: "center",
-            }}
-          >
-            {trip && new Date(trip.endDate).toLocaleDateString(undefined, { dateStyle: "short" })}
-          </div>
-        </TableCell>
-        <div>
+      
+        <div style={{ display: "flex" }}>
           <Button
             onClick={() => handleDeleteTrip(trip.id)}
             className={`${isHoveredDelete ? "delete-hovered" : ""} delete-container`}
@@ -104,18 +84,8 @@ function EachTrip({ trip, handleEditTrip, date }) {
             }}
           >
             <DeleteIcon style={{ color: "purple" }} />
-            {/* Delete Trip */}
           </Button>
-        </div>
-      </TableCell>
-      <TableCell
-        style={{
-          fontFamily: "Georgia",
-          borderBottom: "none",
-          // This line removes the bottom border
-        }}
-      >
-        <div>
+
           <Button
             key={trip.id}
             trip={trip}
@@ -134,18 +104,8 @@ function EachTrip({ trip, handleEditTrip, date }) {
             }}
           >
             <EditIcon sx={{ color: "purple" }} />
-            {/* Edit Trip */}
           </Button>
-        </div>
-      </TableCell>
-      <TableCell
-        style={{
-          fontFamily: "Georgia",
-          borderBottom: "none",
-          // This line removes the bottom border
-        }}
-      >
-        <div>
+
           <Link
             to="/categories"
             className={`${isHoveredEdit ? "edit-hovered" : ""} edit-container`}
@@ -157,28 +117,20 @@ function EachTrip({ trip, handleEditTrip, date }) {
               fontWeight: "bold",
               fontSize: "20px",
               textShadow: "1px 1px 2px rgba(0, 0, 0, 0.8)",
-              textDecoration: "none", // Add this line to remove underline
+              textDecoration: "none",
             }}
           >
-            <AssignmentOutlinedIcon
-              sx={{
-                color: "purple",
-                fontSize: 40,
-                marginRight: "10px", // spacing between the icon and text
-              }}
-            />
-            {/* Trip Details */}
+            <AssignmentOutlinedIcon sx={{ color: "purple", fontSize: 40, marginRight: "10px" }} />
           </Link>
         </div>
       </TableCell>
+
+ 
     </TableRow>
   );
 }
 
 export default EachTrip;
-
-
-
 
 // import { useState, useEffect } from "react";
 // import { useDispatch, useSelector } from "react-redux";
@@ -260,9 +212,9 @@ export default EachTrip;
 //           fontFamily: "Georgia",
 //           borderBottom: 'none',
 //           fontWeight: 'bolder',
-          
+
 //         }}>{trip && trip.tripName}</div>
-     
+
 //       </TableCell>
 //       <TableCell
 //         style={{
@@ -277,16 +229,16 @@ export default EachTrip;
 //           borderBottom: 'none',
 //           fontWeight: 'bolder',
 //         }}>{trip && trip.description}</div>
-      
+
 //       </TableCell>
-    
-    
+
+
 
 //       <TableCell style={{ fontFamily: "Georgia", borderBottom: 'none', }}>
 //         <div style={{ fontSize: '20px', color: 'black', fontFamily: "Georgia", borderBottom: 'none', }}>
 //           {date}
 //         </div>
-        
+
 //       </TableCell>
 
 
@@ -319,7 +271,7 @@ export default EachTrip;
 //     {trip && trip.startDate}
 //       {trip && new Date(trip.startDate).toLocaleDateString()}
 //   </div>
-   
+
 // </TableCell>
 // <TableCell
 //   style={{
@@ -373,7 +325,7 @@ export default EachTrip;
 //         style={{
 //           fontFamily: "Georgia",
 //           borderBottom: 'none', 
-          
+
 //           // This line removes the bottom border
 //         }}
 //       >
@@ -405,7 +357,7 @@ export default EachTrip;
 //         }}
 //       >
 //         <div>
-      
+
 //           <Link
 //             to="/categories"
 //             className={`${isHoveredEdit ? 'edit-hovered' : ''} edit-container`}
@@ -455,7 +407,7 @@ export default EachTrip;
 //     )
 //   })
 // }
-    {/* <Button 
+{/* <Button 
             className="backbtn"
             component={Link} to="/categories"
             style={{ fontFamily: "Georgia", color:"black", fontWeight: "bold", fontSize:"20px",
@@ -464,7 +416,7 @@ export default EachTrip;
             >
               Trip Details
             </Button> */}
-              {/* <TableCell
+{/* <TableCell
         style={{
           fontFamily: "Georgia",
           borderBottom: 'none', // This line removes the bottom border
