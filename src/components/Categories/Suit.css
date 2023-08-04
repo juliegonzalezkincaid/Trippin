@@ -3,7 +3,6 @@
   background-size:100% 100%; 
   background-repeat: no-repeat; /* this line to avoid repeating the image */
   background-attachment: fixed; /* line to make the background fixed even with scrolling */
-
   color: rgb(227, 191, 26); 
   text-align: center;
   background-position: center;

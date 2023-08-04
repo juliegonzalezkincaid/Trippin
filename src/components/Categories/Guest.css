@@ -11,6 +11,8 @@
     font-size: 30px;
     margin: 0px;
     padding-top: 90px;
+    background-position: center;
+    min-height: 100vh; 
   }
   .guest-form-container {
     font-size: 30px;
@@ -50,7 +52,7 @@
     text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
   }
 
-
+  
   .submitinfo {
    text-align: left; 
    margin: 10px 0;
@@ -63,7 +65,9 @@
   }
   
   .guest-form .submitinfo p.label {
-    color: rgb(247, 195, 23); 
+    text-shadow: 2px 2px 8px rgba(0, 0, 11, 11);
+    color: rgb(244, 221, 14); 
+    
   }
   
   .guest-form .submitinfo p.value {

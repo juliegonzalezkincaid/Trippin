@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import '../Trips/Styles.css';
 import { useHistory } from 'react-router-dom';
 import ParaglidingIcon from '@mui/icons-material/Paragliding';
-
+import ParaglidingTwoToneIcon from '@mui/icons-material/ParaglidingTwoTone';
 function UserPage() {
   const user = useSelector((store) => store.user);
   const [iconClicked, setIconClicked] = useState(false);
@@ -14,7 +14,7 @@ function UserPage() {
     if (iconClicked) {
       setTimeout(() => {
         history.push("/my_trips");
-      }, 5000); // this should be the same as your animation duration
+      }, 5000); // this should be the same as animation duration
     }
   }, [iconClicked, history]);
 
@@ -32,7 +32,7 @@ function UserPage() {
           style={{ textDecoration: 'none' }} 
           onClick={handleClick}
         >
-          <ParaglidingIcon className="icon-avatar" sx={{ fontSize: 80, color: '#49F2A9' }} />
+          <ParaglidingTwoToneIcon className="icon-avatar" sx={{ fontSize: 80, color: '#49F2A9' }} />
           <span className="icon-title"></span>
         </div>
       </div>

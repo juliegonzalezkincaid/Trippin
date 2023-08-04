@@ -39,6 +39,12 @@
     margin-top: 50px;  /* Adjust as needed */
   }
   
+  .my-trips-container {
+    width: 100vw;
+  }
+  .my-trips-container table {
+    width: 100%;
+  }
   
   .my-trips-container p {
     font-size: 50px;

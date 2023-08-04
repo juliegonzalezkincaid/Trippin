@@ -75,13 +75,13 @@ function MyTrips ({}) {
         >Add a Trip
       </Button>
 
-      <br></br>
-      <br></br>
-
-   
-   
         <h2 className="saved"
-         style={{ fontFamily: "Georgia", textShadow: '1px 1px 2px rgba(0, 0, 0, 0.8)', fontSize: '40px', fontWeight: 'bold',  }}
+         style={{ 
+          fontFamily: "Georgia", textShadow: '1px 1px 2px rgba(0, 0, 0, 0.8)', 
+          fontSize: '40px', 
+          fontWeight: 'bold',  textShadow: "2px 2px 3px white"
+        }}
+        
         >Saved Trips:</h2>
          {savedTrips.length === 0 ? (
         <p>No saved trips to show...yet!</p>

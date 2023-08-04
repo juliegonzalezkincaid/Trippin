@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Button, TextField, Typography } from "@mui/material";
 import "./Miscl.css";
+import { Link } from "react-router-dom";
+import AssignmentSharpIcon from '@mui/icons-material/AssignmentSharp';
 
 function Misc() {
   const dispatch = useDispatch();
@@ -87,6 +89,40 @@ function Misc() {
 
   return (
     <div className="misc-body">
+         <Link
+        to="/categories"
+        style={{
+          position: 'absolute',
+          top: 80,
+          left: '88%',
+          transform: 'translateX(-50%)',
+        }}
+      >
+        <Button
+          style={{
+            position: 'absolute',
+            top: 70,
+            left: '10%',
+            transform: 'translateX(-50%)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            textDecoration: 'none',
+            color: 'black',
+            fontWeight: 'bold',
+            fontSize: 'large',
+            textShadow: '9px 2px 9px white',
+          }}
+        >
+          <AssignmentSharpIcon 
+          sx={{ 
+            color: "purple", 
+            fontSize: 60,
+            boxShadow: '9px 6px 8px 2px black'
+          }} />
+        </Button>
+      </Link>
+
       <h2>Q & A</h2>
       <form onSubmit={handleSubmit}>
         <TextField

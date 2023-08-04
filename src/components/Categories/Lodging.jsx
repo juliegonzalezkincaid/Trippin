@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from 'react-router-dom';
 import { Button, TextField, Typography } from "@mui/material";
 import './Lodge.css';
+import { Link } from "react-router-dom";
+import AssignmentSharpIcon from '@mui/icons-material/AssignmentSharp';
 
 function Lodging() {
   const dispatch = useDispatch();
@@ -49,6 +51,40 @@ function Lodging() {
 
   return (
     <div className="lodging-body">
+         <Link
+        to="/categories"
+        style={{
+          position: 'absolute',
+          top: 80,
+          left: '92%',
+          transform: 'translateX(-50%)',
+        }}
+      >
+        <Button
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: '10%',
+            transform: 'translateX(-50%)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            textDecoration: 'none',
+            color: 'black',
+            fontWeight: 'bold',
+            fontSize: 'large',
+            textShadow: '9px 2px 9px white',
+          }}
+        >
+          <AssignmentSharpIcon 
+          sx={{ 
+            color: "purple", 
+            fontSize: 60,
+            boxShadow: '9px 6px 8px 3px black'
+          }} />
+        </Button>
+      </Link>
+
       <Typography
         variant="h2"
         gutterBottom

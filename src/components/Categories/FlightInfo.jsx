@@ -4,6 +4,8 @@ import { useParams } from "react-router-dom";
 import { Button, TextField, Typography } from "@mui/material";
 import { useHistory } from 'react-router-dom';
 import './Flight.css';
+import { Link } from "react-router-dom";
+import AssignmentSharpIcon from '@mui/icons-material/AssignmentSharp';
 
 function FlightInfo() {
   const history = useHistory();
@@ -57,6 +59,40 @@ function FlightInfo() {
 
   return (
     <div className="flight-body">
+         <Link
+        to="/categories"
+        style={{
+          position: 'absolute',
+          top: 40,
+          left: '88%',
+          transform: 'translateX(-50%)',
+        }}
+      >
+        <Button
+          style={{
+            position: 'absolute',
+            top: 70,
+            left: '10%',
+            transform: 'translateX(-50%)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            textDecoration: 'none',
+            color: 'black',
+            fontWeight: 'bold',
+            fontSize: 'large',
+            textShadow: '9px 2px 9px white',
+          }}
+        >
+          <AssignmentSharpIcon 
+          sx={{ 
+            color: "purple", 
+            fontSize: 60,
+            boxShadow: '9px 6px 8px 2px black'
+          }} />
+        </Button>
+      </Link>
+
     <Typography 
     variant="h3" 
     gutterBottom
