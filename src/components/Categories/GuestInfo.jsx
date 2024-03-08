@@ -196,7 +196,10 @@ function GuestInfo() {
               textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)'
             }}>Submitted Guest Information:</h2>
 
-            {guestInfo.map((guest, index) => (
+            {guestInfo
+            .slice() 
+            .sort((a, b) => a.name.localeCompare(b.name))
+            .map((guest, index) => (
               <li
                 className="submitinfo"
                 key={index}>

@@ -269,7 +269,10 @@ function Lodging() {
               textShadow:' 4px 4px 4px rgba(0, 0, 0, 0.5',}}
           >Submitted Guest Information:</h1>
             <ul>
-              {lodging.map((lodge, index) => (
+              {lodging
+              .slice() // Create a copy of the array to avoid mutating the original
+              .sort((a, b) => a.name.localeCompare(b.name)) // Sort entries alphabetically by name
+              .map((lodge, index) => (
                 <li className="submitinfo" key={index}>
                 <p className="label-text">Name:<span className="beige-text"> {lodge.name}</span></p>
                 <p className="label-text">Lodge Name:<span className="beige-text"> {lodge.lodgeName}</span></p>
@@ -293,6 +296,9 @@ function Lodging() {
                     Delete
                   </Button>
                   <hr />
+
+
+                  
                 </li>
               ))}
             </ul>
