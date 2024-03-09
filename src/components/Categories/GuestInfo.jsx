@@ -49,43 +49,37 @@ function GuestInfo() {
 
   return (
     <> <div className="overlay"></div>
-      <Link
-        to="/categories"
+      <div
         style={{
-          position: 'absolute',
+          position: "absolute",
           top: 80,
-          left: '88%',
+          left: '92%',
+          zIndex: 999, // Ensure the icon is on top of other elements
           transform: 'translateX(-50%)',
         }}
       >
-        <Button
-          style={{
-            position: 'absolute',
-            top: 70,
-            left: '10%',
-            transform: 'translateX(-50%)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            textDecoration: 'none',
-            color: 'black',
-            fontWeight: 'bold',
-            fontSize: 'large',
-            textShadow: '9px 2px 9px white',
-          }}
-        >
-          <AssignmentSharpIcon 
-          sx={{ 
-            color: "purple", 
-            fontSize: 60,
-            boxShadow: '9px 6px 8px 2px black'
-          }} />
-        </Button>
-      </Link>
-
+        <Link to="/categories" style={{ textDecoration: "none" }}>
+          <Button
+            style={{
+              color: "black",
+              fontWeight: "bold",
+              fontSize: "large",
+              textShadow: "9px 2px 9px white",
+            }}
+          >
+            <AssignmentSharpIcon
+              sx={{
+                color: "purple",
+                fontSize: 60,
+                boxShadow: "9px 6px 8px 2px black",
+              }}
+            />
+          </Button>
+        </Link>
+      </div>
       <form
         className='guest-form'
-        
+
         onSubmit={handleSubmit}>
 
         <h1 style={{
@@ -197,29 +191,29 @@ function GuestInfo() {
             }}>Submitted Guest Information:</h2>
 
             {guestInfo
-            .slice() 
-            .sort((a, b) => a.name.localeCompare(b.name))
-            .map((guest, index) => (
-              <li
-                className="submitinfo"
-                key={index}>
-                <p className="label">Name:</p>
-                <p className="value">{guest.name}</p>
-                <p className="label">Phone:</p>
-                <p className="value">{guest.phone}</p>
-                <p className="label">Email:</p>
-                <p className="value">{guest.email}</p>
-                <Button
-                  variant="contained"
-                  color="secondary"
-                  onClick={() => dispatch({ type: 'DELETE_GUEST_INFO', payload: index })}
-                >
-                  Delete
-                </Button>
-               
-                <hr /> {/* Add a separator between submissions */}
-              </li>
-            ))}
+              .slice()
+              .sort((a, b) => a.name.localeCompare(b.name))
+              .map((guest, index) => (
+                <li
+                  className="submitinfo"
+                  key={index}>
+                  <p className="label">Name:</p>
+                  <p className="value">{guest.name}</p>
+                  <p className="label">Phone:</p>
+                  <p className="value">{guest.phone}</p>
+                  <p className="label">Email:</p>
+                  <p className="value">{guest.email}</p>
+                  <Button
+                    variant="contained"
+                    color="secondary"
+                    onClick={() => dispatch({ type: 'DELETE_GUEST_INFO', payload: index })}
+                  >
+                    Delete
+                  </Button>
+
+                  <hr /> {/* Add a separator between submissions */}
+                </li>
+              ))}
           </ul>
         )}
         <br></br>

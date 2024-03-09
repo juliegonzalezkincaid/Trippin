@@ -90,39 +90,34 @@ function Misc() {
   return (
     <div className="misc-body">
        <div className="overlay"></div>
-         <Link
-        to="/categories"
+       <div
         style={{
-          position: 'absolute',
+          position: "absolute",
           top: 80,
-          left: '88%',
+          left: '92%',
+          zIndex: 999, // Ensure the icon is on top of other elements
           transform: 'translateX(-50%)',
         }}
       >
-        <Button
-          style={{
-            position: 'absolute',
-            top: 70,
-            left: '10%',
-            transform: 'translateX(-50%)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            textDecoration: 'none',
-            color: 'black',
-            fontWeight: 'bold',
-            fontSize: 'large',
-            textShadow: '9px 2px 9px white',
-          }}
-        >
-          <AssignmentSharpIcon 
-          sx={{ 
-            color: "purple", 
-            fontSize: 60,
-            boxShadow: '9px 6px 8px 2px black'
-          }} />
-        </Button>
-      </Link>
+        <Link to="/categories" style={{ textDecoration: "none" }}>
+          <Button
+            style={{
+              color: "black",
+              fontWeight: "bold",
+              fontSize: "large",
+              textShadow: "9px 2px 9px white",
+            }}
+          >
+            <AssignmentSharpIcon
+              sx={{
+                color: "purple",
+                fontSize: 60,
+                boxShadow: "9px 6px 8px 2px black",
+              }}
+            />
+          </Button>
+        </Link>
+      </div>
 
       <h2>Q & A</h2>
       <form onSubmit={handleSubmit}>
