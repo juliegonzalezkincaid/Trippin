@@ -5,6 +5,7 @@ import { Button, TextField, Typography } from "@mui/material";
 import './Lodge.css';
 import { Link } from "react-router-dom";
 import AssignmentSharpIcon from '@mui/icons-material/AssignmentSharp';
+import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 
 function Lodging() {
   const dispatch = useDispatch();
@@ -12,7 +13,11 @@ function Lodging() {
   const { selected } = useSelector((store) => store.trip);
   const { user } = useSelector((store) => store);
   const { lodging } = useSelector((store) => store.trip);
+  const [sortBy, setSortBy] = useState('name'); // Default sorting option
 
+  const handleSortChange = (event) => {
+    setSortBy(event.target.value);
+  };
 
 
   const [formValues, setFormValues] = useState({
@@ -131,7 +136,8 @@ function Lodging() {
           InputProps={{
             style: {
               color: 'white',
-              textShadow: '7px 1px 2px rgba(0, 0, 0, 0.8)'
+              textShadow: '7px 1px 2px rgba(0, 0, 0, 0.8)',
+              border: '1px solid white',
             },
           }}
           InputLabelProps={{
@@ -158,7 +164,8 @@ function Lodging() {
             style: {
               color: 'white',
               fontFamily: "Georgia",
-              textShadow: '7px 1px 2px rgba(0, 0, 0, 0.8)'
+              textShadow: '7px 1px 2px rgba(0, 0, 0, 0.8)',
+              border: '1px solid white',
             },
           }}
           InputLabelProps={{
@@ -194,7 +201,9 @@ function Lodging() {
                 style: {
                   color: 'white',
                   fontFamily: "Georgia",
-
+                  border: '1px solid white', 
+                  width: '100%',
+                  
                 },
               }}
               InputLabelProps={{
@@ -226,6 +235,8 @@ function Lodging() {
               style: {
                 color: 'white',
                 fontFamily: "Georgia",
+                border: '1px solid white',
+                width: '100%',
               },
             }}
             InputLabelProps={{
@@ -260,7 +271,26 @@ function Lodging() {
           Submit
         </Button>
         <br></br>
-
+        <FormControl className="sort-dropdown" style={{ color: 'white' }}>
+              <InputLabel id="sort-by-label" style={{ color: 'white' }}>Sort By</InputLabel>
+              <Select
+                labelId="sort-by-label"
+                id="sort-by"
+                value={sortBy}
+                onChange={handleSortChange}
+                style={{
+                  color: 'white', fontFamily: 'Georgia', textShadow: '10px 10px 15px rgba(0.5, 0.5, 0.5, 3)',
+                  boxShadow: '4px 4px 6px rgba(0, 0, 0, 0.5)',
+                }}
+              >
+                <MenuItem value="name">Name</MenuItem>
+            
+                <MenuItem value="arrivalDate">Arrival Date</MenuItem>
+                
+                <MenuItem value="departureDate">Departure Date</MenuItem>
+               
+              </Select>
+            </FormControl>
         {lodging.length > 0 && (
           <div>
             <h1 

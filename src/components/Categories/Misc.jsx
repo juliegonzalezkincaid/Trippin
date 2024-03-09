@@ -89,6 +89,7 @@ function Misc() {
 
   return (
     <div className="misc-body">
+       <div className="overlay"></div>
          <Link
         to="/categories"
         style={{

@@ -66,6 +66,7 @@ function FlightInfo() {
 
   return (
     <div className="flight-body">
+      <div className="overlay"></div>
       <Link
         to="/categories"
         style={{
@@ -135,7 +136,8 @@ function FlightInfo() {
           InputLabelProps={{
             style: {
               color: 'white',
-              fontFamily: "Georgia"
+              fontFamily: "Georgia",
+              fontSize: '25px',
             },
           }}
         />
@@ -155,13 +157,15 @@ function FlightInfo() {
             style: {
               color: 'white',
               fontWeight: 'bold',
-              fontFamily: "Georgia"
+              fontFamily: "Georgia",
+              fontSize: '25px',
             },
           }}
           InputProps={{
             style: {
               color: 'white',
-              fontFamily: "Georgia"
+              fontFamily: "Georgia",
+              fontSize: '25px',
             },
           }}
         />
@@ -180,13 +184,15 @@ function FlightInfo() {
             style: {
               color: 'white',
               fontWeight: 'bold',
-              fontFamily: "Georgia"
+              fontFamily: "Georgia",
+              fontSize: '25px',
             },
           }}
           InputProps={{
             style: {
               color: 'white',
-              fontFamily: "Georgia"
+              fontFamily: "Georgia",
+              fontSize: '25px',
             },
           }}
         />
@@ -205,7 +211,9 @@ function FlightInfo() {
             style: {
               color: 'white',
               fontWeight: 'bold',
-              fontFamily: "Georgia"
+              fontFamily: "Georgia",
+              fontSize: '25px',
+
             },
           }}
           InputProps={{
@@ -231,7 +239,8 @@ function FlightInfo() {
             style: {
               color: 'white',
               fontWeight: 'bold',
-              fontFamily: "Georgia"
+              fontFamily: "Georgia",
+              fontSize: '25px',
             },
           }}
           InputProps={{
@@ -257,7 +266,8 @@ function FlightInfo() {
             style: {
               color: 'white',
               fontWeight: 'bold',
-              fontFamily: "Georgia"
+              fontFamily: "Georgia",
+              fontSize: '25px',
             },
           }}
           InputProps={{
@@ -283,7 +293,8 @@ function FlightInfo() {
             style: {
               color: 'white',
               fontWeight: 'bold',
-              fontFamily: "Georgia"
+              fontFamily: "Georgia",
+              fontSize: '25px',
             },
           }}
           InputProps={{
@@ -308,7 +319,8 @@ function FlightInfo() {
             style: {
               color: 'white',
               fontWeight: 'bold',
-              fontFamily: "Georgia"
+              fontFamily: "Georgia",
+              fontSize: '25px',
             },
           }}
           InputProps={{
@@ -334,6 +346,7 @@ function FlightInfo() {
             style: {
               color: 'white',
               fontWeight: 'bold',
+              fontSize: '25px',
             },
           }}
           InputProps={{

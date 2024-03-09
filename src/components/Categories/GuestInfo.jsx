@@ -48,7 +48,7 @@ function GuestInfo() {
 
 
   return (
-    <>
+    <> <div className="overlay"></div>
       <Link
         to="/categories"
         style={{
@@ -83,9 +83,9 @@ function GuestInfo() {
         </Button>
       </Link>
 
-
       <form
         className='guest-form'
+        
         onSubmit={handleSubmit}>
 
         <h1 style={{
@@ -216,6 +216,7 @@ function GuestInfo() {
                 >
                   Delete
                 </Button>
+               
                 <hr /> {/* Add a separator between submissions */}
               </li>
             ))}
@@ -230,46 +231,3 @@ function GuestInfo() {
 }
 
 export default GuestInfo;
-
-// const handleDelete = (index) => {
-//   dispatch({ type: "DELETE_GUEST_INFO", payload: index });
-// };
-// const handleEdit = (index) => {
-//   const editedGuest = {
-//     ...guestInfo[index],
-//     // Add any properties you want to edit here
-//   };
-// You can dispatch an action to update the guest info using the editedGuest object
-// dispatch({ type: "EDIT_GUEST_INFO", payload: { index, guest: editedGuest } });
-// };
-
-// };
-// const handleSubmit = (event) => {
-//   event.preventDefault();
-//   dispatch({
-//     type: 'ADD_GUEST_INFO',
-//     payload: {
-//       tripId: id, // Assuming you have the trip ID available in the component
-//       guestInfo: formValues,
-//     },
-//   });
-// Clear the form after submitting
-
-
-{/* <div>
-        <h2>Guest Entries:</h2>
-        {entries.guest.map((entry) => (
-          <div key={entry.id}>
-            <p>Name: {entry.name}</p>
-            <p>Phone: {entry.phone}</p>
-            <p>Email: {entry.email}</p>
-          </div>
-        ))}
-      </div> */}
-{/* <div>
-        <h2>Submitted Guest Information:</h2>
-        <p>Name: {guestInfo.name}</p>
-        <p>Phone: {guestInfo.phone}</p>
-        <p>Email: {guestInfo.email}</p>
-      </div> */}
-
