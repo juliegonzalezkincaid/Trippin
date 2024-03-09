@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import { useSelector } from 'react-redux';
 import '../Trips/Styles.css';
-import { useHistory } from 'react-router-dom';
-import ParaglidingIcon from '@mui/icons-material/Paragliding';
+import { useHistory, Link } from 'react-router-dom';
 import ParaglidingTwoToneIcon from '@mui/icons-material/ParaglidingTwoTone';
+
 function UserPage() {
   const user = useSelector((store) => store.user);
   const [iconClicked, setIconClicked] = useState(false);
@@ -25,18 +25,18 @@ function UserPage() {
   return (
     <div className="home-container">
       <h1>Welcome {user.username} Let's Start Trippin!!</h1>
-
-      <div className="icon-container">
+      
+      <Link to="/my_trips" style={{ textDecoration: 'none' }}>
         <div 
-          className={`icon-wrapper ${iconClicked ? 'animate' : ''}`} 
+          className={`icon-container ${iconClicked ? 'animate' : ''}`} 
           style={{ textDecoration: 'none' }} 
           onClick={handleClick}
         >
           <ParaglidingTwoToneIcon className="icon-avatar" sx={{ fontSize: 80, color: '#49F2A9' }} />
           <span className="icon-title"></span>
         </div>
-      </div>
-
+      </Link>
+      
       <div className="logout-container">
         <LogOutButton className="logout-button" />
       </div>
@@ -45,5 +45,3 @@ function UserPage() {
 }
 
 export default UserPage;
-
-
