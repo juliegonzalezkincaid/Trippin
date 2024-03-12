@@ -91,11 +91,16 @@ function Lodging() {
       </Link>
 
       <Typography
-        variant="h2"
-        gutterBottom
-        className="header-title"
-        style={{ fontFamily: "Georgia" }}
-      >
+  variant="h3"
+  gutterBottom
+  className="h3"
+  style={{
+    fontFamily: "Georgia",
+    color: "rgb (235, 168, 86)",
+    textShadow: "9px 4px 4px rgba(50, 30, 30, 5.5)",
+    fontWeight: "bolder",
+  }}
+>
         Lodging Information
       </Typography>
       <form onSubmit={handleSubmit} className="form-container">

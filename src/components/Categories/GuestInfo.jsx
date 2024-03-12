@@ -8,7 +8,6 @@ import AssignmentSharpIcon from '@mui/icons-material/AssignmentSharp';
 
 
 
-
 function GuestInfo() {
   const dispatch = useDispatch();
   const { id } = useParams();
@@ -39,9 +38,9 @@ function GuestInfo() {
     event.preventDefault();
     dispatch({ type: 'ADD_GUEST_INFO', payload: { ...formValues, index: guestInfo.length } });
     setFormValues({
-      name: '',
-      phone: '',
-      email: '',
+      name:'',
+      phone:'',
+      email:'',
     });
   };
 
@@ -197,12 +196,18 @@ function GuestInfo() {
                 <li
                   className="submitinfo"
                   key={index}>
+                    <div className="guest-info">
                   <p className="label">Name:</p>
                   <p className="value">{guest.name}</p>
+                  </div>
+                  <div className="guest-info">
                   <p className="label">Phone:</p>
                   <p className="value">{guest.phone}</p>
+                  </div>
+                  <div className="guest-info">
                   <p className="label">Email:</p>
                   <p className="value">{guest.email}</p>
+                  </div>
                   <Button
                     variant="contained"
                     color="secondary"

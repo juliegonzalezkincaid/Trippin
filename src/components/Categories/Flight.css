@@ -2,29 +2,29 @@
 
 
  .flight-body {
-    background-image: url(/public/flight.webp);
+    background-image: url(/public/plane.jpeg);
     background-size:100% 100%; 
     background-repeat: no-repeat;
-    color: bisque;
-    text-align: center;
-    text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
-    font-weight: bolder;
     font-family: Georgia;
+    color: rgb(235, 168, 86);
+    text-shadow: 4px 4px 4px rgba(30, 30, 30, 31.5);
+    font-weight: bolder;
+    text-align: center;
     font-size: 40px;
     padding-top:170px;
     min-height: 100vh; 
     position: relative;
   }
-
-  .overlay {
+  .flight-body::before {
+    content: ""; /* Create the pseudo-element */
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.4); /* Adjust the opacity by changing the last value */
-}
-
+    background-color: rgba(255, 255, 255, 0.197);/* Adjust the opacity to control the darkness */
+  }
+  
 
 
   .flight-form{

@@ -1,7 +1,7 @@
 
   
   .lodging-body {
-    background-image: url(/public/tent.jpeg);
+    background-image: url(/public/orangecloud.jpeg);
     background-size:100% 100%; 
     background-repeat: no-repeat; /* this line to avoid repeating the image */
     background-attachment: fixed;
@@ -23,6 +23,7 @@
     text-shadow: 20px 10px 10px rgba(09, 9, 9, 9.5);
     font-weight: bolder;
     font-family: Georgia;
+    color: rgb(235, 168, 86);
 
   }
   .form-container {
@@ -74,6 +75,7 @@
     font-size: 60px;
     font-weight: bold;
     margin: 0;
+    color: rgb(235, 168, 86);
     
   }
 

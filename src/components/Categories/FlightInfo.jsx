@@ -104,11 +104,17 @@ function FlightInfo() {
       </Link>
 
       <Typography
-        variant="h3"
-        gutterBottom
-        className="h3"
-        style={{ fontFamily: "Georgia" }}
-      >
+  variant="h3"
+  gutterBottom
+  className="h3"
+  style={{
+    fontFamily: "Georgia",
+    color: "rgb(235, 168, 86)",
+    textShadow: "4px 4px 4px rgba(30, 30, 30, 0.5)",
+    fontWeight: "bolder",
+  }}
+>
+
 
         Flight Information
       </Typography>
@@ -442,7 +448,7 @@ function FlightInfo() {
         <br></br>
         <br></br>
       </form>
-    </div>
+    </div >
   );
 }
 export default FlightInfo;

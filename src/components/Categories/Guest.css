@@ -1,5 +1,5 @@
 .guest-form {
-    background-image: url(/public/guest.jpeg);
+    background-image: url(/public/beachfriends.jpeg);
     background-size:100% 100%; 
     background-repeat: no-repeat; /* this line to avoid repeating the image */
     background-attachment: fixed;
@@ -76,14 +76,28 @@
    font-family: Georgia;
    position: relative;
    z-index: 1;
- 
   }
+
+
+  .submitinfo div {
+    margin-bottom: 10px; /* Add margin between each piece of information */
+  }
+
   .guest-form .submitinfo p {
     color: darkgray; 
     position: relative;
     z-index: 1;
   }
-  
+  .guest-info p {
+    margin: 0;
+  }
+  .guest-info .label {
+    font-weight: bold;
+    margin-right: 10px;
+  }
+  .guest-info .value {
+    color: white;
+  }
   .guest-form .submitinfo p.label {
     text-shadow: 2px 2px 8px rgba(0, 0, 11, 11);
     color: rgb(244, 221, 14); 

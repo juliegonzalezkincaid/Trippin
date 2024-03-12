@@ -1,5 +1,5 @@
 .my-trips-container,body {
-  background-image: url(/public/maps.jpeg);
+  background-image: url(/public/mytrips.jpeg);
   background-size:cover; 
   background-repeat: no-repeat; /* this line to avoid repeating the image */
   background-attachment: fixed;
