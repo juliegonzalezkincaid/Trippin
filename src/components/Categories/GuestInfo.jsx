@@ -83,7 +83,7 @@ function GuestInfo() {
 
         <h1 style={{
           color: 'white',
-          textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)'
+          textShadow: '9px 3px 4px rgba(0, 0, 0, 0.6)'
         }}>Guests</h1>
 
         <TextField

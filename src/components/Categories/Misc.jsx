@@ -132,7 +132,9 @@ function Misc() {
           InputProps={{
             style: {
               color: 'white',
-              fontFamily: "Georgia"
+              fontFamily: "Georgia",
+              border: "1px solid whitesmoke",
+
             },
           }}
           InputLabelProps={{
@@ -196,11 +198,7 @@ function Misc() {
 
         {misc.length > 0 && (
           <div className="submitted-section">
-            <Typography
-              variant="h3"
-              style={{ fontFamily: "Georgia", textShadow: '7px 1px 2px rgba(0, 0, 0, 0.8)', fontWeight: "bolder" }}>
-              Submitted Guest Information
-            </Typography>
+           
             {misc.map((item, index) => (
               <div key={item.id} className="submitted-item" style={{ fontFamily: "Georgia" }}>
                 <div>
@@ -212,8 +210,9 @@ function Misc() {
                   {item.answer && (
                     <Typography
                       style={{ fontFamily: "Georgia", 
-                      textShadow: '4px 1px 2px rgba(0, 0, 0, 0.8)', fontSize: '30px', fontWeight: 'bold', color: 'beige' }}>
-                      <span className="label">Answer:</span> <span className="content">{item.answer}</span>
+                      textShadow: '4px 1px 2px rgba(0, 0, 0, 0.8)', fontSize: '30px', fontWeight: 'bold', color: '#00BFF2'  }}>
+                      <span className="label">Answer:</span> 
+                      <span className="content">{item.answer}</span>
                     </Typography>
                   )}
                 </div>
@@ -283,62 +282,3 @@ function Misc() {
 
 
 export default Misc;
-
-
-
-{/* <div className="notes-section">
-          <TextField
-            name="notes"
-            label="Notes"
-            value={formValues.notes}
-            onChange={handleNotesChange}
-            className="notes-list"
-            style={{ fontFamily: "Georgia" }}
-          />
-          <br />
-
-          <Button
-            type="button"
-            variant="contained"
-            color="primary"
-            style={{
-              backgroundColor: "hsl(94, 82%, 60%)",
-              color: "white",
-              textShadow: "1px 10px 20px rgba(5, 5, 5, 5)",
-              boxShadow: "10px 10px 10px rgba(3, 3, 3, 1)",
-              fontFamily: "Georgia",
-            }}
-            onClick={handleNotesSubmit}
-          >
-            Submit Notes
-          </Button>
-        </div> */}
-{/* {submittedNotes.length > 0 && (
-              <div className="submitted-section">
-                <Typography variant="h6" style={{ fontFamily: "Georgia" }}>
-                  Submitted Notes:
-                </Typography>
-
-                <ul>
-                  {submittedNotes.map((note, index) => (
-                    <li key={index}>{note}</li>
-                  ))}
-                </ul>
-              </div>
-            )} */}
-            // const handleNotesChange = (event) => {
-            //   const { name, value } = event.target;
-            //   setFormValues((prevFormValues) => ({
-            //     ...prevFormValues,
-            //     [name]: value,
-            //   }));
-            // // };
-            // const handleNotesSubmit = () => {
-            //   console.log("handleNotesSubmit Form Values: ", formValues);
-            //   setSubmittedNotes((prevSubmittedNotes) => [...prevSubmittedNotes, formValues.notes]);
-            //   setFormValues((prevFormValues) => ({
-            //     ...prevFormValues,
-            //     notes: "",
-            //   }));
-            //   console.log("handleNotesSubmit misc after dispatch: ", misc);
-            // };

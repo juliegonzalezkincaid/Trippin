@@ -1,5 +1,5 @@
 .my-trips-container,body {
-  background-image: url(/public/mytrips.jpeg);
+  background-image: url(/public/guitar.jpeg);
   background-size:cover; 
   background-repeat: no-repeat; /* this line to avoid repeating the image */
   background-attachment: fixed;
@@ -74,7 +74,7 @@
 
   .edittrip {
     
-    background-image: url(/public/walk.jpeg);
+    background-image: url(/public/guitar.jpeg);
     height: 100vh;
     padding-top: 180px;
     background-position: bottom;
@@ -138,7 +138,7 @@
 }
 
 .home-container {
-  background-image: url(/public/newrain.jpeg);
+  background-image: url(/public/guitar.jpeg);
   background-size: 100% 100%;
   background-position: center;
   background-repeat: no-repeat;
@@ -213,6 +213,11 @@ align-items: center;
   cursor: pointer;
   left: 50%;
   transform: translateX(-50%);
+}
+
+.saved-trips-container {
+  background-color: rgba(255, 255, 255, 0.128); /* Semi-transparent white background */
+  padding: 20px; /* Add some padding for spacing */
 }
 
 @keyframes floatDown {

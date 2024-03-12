@@ -45,7 +45,7 @@
     width: 70%;
     color: white;
     text-align: center;
-    border: 2px solid whitesmoke;
+    border: none;
     font-weight: bolder;
     font-size: 20px;
     margin-bottom: 10px; 
@@ -99,7 +99,7 @@
     margin-top: 20px;
   }
   .date-container {
-    width: 100%;
+    width: 50%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;

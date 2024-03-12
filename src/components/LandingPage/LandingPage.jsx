@@ -28,7 +28,9 @@ function LandingPage() {
           <RegisterForm />
 
           <center>
-            <h4>Already a Member?</h4>
+            <h4
+            style={{ fontFamily: 'Georgia', color: 'white', textShadow: '3px 2px 4px rgba(0, 0, 0, 4.8)' }}
+            >Already a Member?</h4>
             <button className="btn btn_sizeSm" onClick={onLogin}>
               Login
             </button>

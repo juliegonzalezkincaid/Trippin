@@ -391,7 +391,8 @@ function FlightInfo() {
                 onChange={handleSortChange}
                 style={{
                   color: 'white', fontFamily: 'Georgia', textShadow: '10px 10px 15px rgba(0.5, 0.5, 0.5, 3)',
-                  boxShadow: '4px 4px 6px rgba(0, 0, 0, 0.5)',
+                  boxShadow: '4px 4px 6px rgba(0, 0, 0, 3.5)',
+              
                 }}
               >
                 <MenuItem value="name">Name</MenuItem>

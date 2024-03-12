@@ -130,7 +130,8 @@ function Suitcase() {
           InputProps={{
             style: {
               color: 'white',
-              fontFamily: "Georgia"
+              fontFamily: "Georgia",
+              border: "1px solid whitesmoke",
             },
           }}
           InputLabelProps={{
@@ -150,7 +151,7 @@ function Suitcase() {
           style={{
             backgroundColor: 'hsl(94, 82%, 60%)',
             color: 'white',
-            textShadow: '1px 1px 9px rgba(0, 0, 0, 0.6)',
+            textShadow: '1px 1px 9px rgba(0, 0, 0, 2.6)',
             boxShadow: '10px 10px 10px rgba(3, 3, 3, 1)'
           }}
         >
@@ -174,7 +175,8 @@ function Suitcase() {
           InputProps={{
             style: {
               color: 'white',
-              fontFamily: "Georgia"
+              fontFamily: "Georgia",
+              border: "1px solid whitesmoke",
             },
           }}
           InputLabelProps={{
@@ -194,8 +196,7 @@ function Suitcase() {
           style={{
             backgroundColor: 'hsl(94, 82%, 60%)',
             color: 'white',
-            textShadow: '1px 1px 9px rgba(0, 0, 0, 0.6)',
-            // textShadow: '1px 10px 20px rgba(5, 5, 5, 5)',
+            textShadow: '1px 1px 9px rgba(0, 0, 0, 1.6)',
             boxShadow: '10px 10px 10px rgba(3, 3, 3, 1)'
           }}
         >
@@ -220,11 +221,11 @@ function Suitcase() {
               .map((item, index) => (
                 <li key={index}>
                   <Box display="flex" justifyContent="center" alignItems="center">
-                    <Typography style={{ fontFamily: "Georgia", color: 'black', fontWeight: 'bold', fontSize: 'larger', textShadow: '1px 1px 9px rgba(0, 0, 0, 0.6)' }}>
+                    <Typography style={{ fontFamily: "Georgia", color: 'white', fontWeight: 'bold', fontSize: 'larger', textShadow: '1px 1px 9px rgba(0, 0, 0, 0.6)' }}>
                       {item.bring}
                     </Typography>
                     <Button
-                      variant="outlined"
+                     
                       color="secondary"
                       onClick={() => handleDelete(index, "bring")}
                     >
@@ -249,11 +250,10 @@ function Suitcase() {
               .map((item, index) => (
                 <li key={index}>
                   <Box display="flex" justifyContent="center" alignItems="center">
-                    <Typography style={{ fontFamily: "Georgia", color: 'black', fontWeight: 'bold', fontSize: 'larger', textShadow: '1px 1px 9px rgba(0, 0, 0, 0.6)' }}>
+                    <Typography style={{ fontFamily: "Georgia", color: 'white', fontWeight: 'bold', fontSize: 'larger', textShadow: '1px 1px 9px rgba(0, 0, 0, 0.6)' }}>
                       {item.dontBring}
                     </Typography>
                     <Button
-                      variant="outlined"
                       color="secondary"
                       onClick={() => handleDelete(index, "dontBring")}
                     >

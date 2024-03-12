@@ -53,7 +53,7 @@ function MyTrips ({}) {
       <div 
       className="my-trips-container"
       >
-        <h2 className="solid"> {user.username} you are Trippin!</h2>
+        <h2 className="solid"> {user.username} let's start Trippin!</h2>
         
         <br></br>
         <br></br>
@@ -87,7 +87,9 @@ function MyTrips ({}) {
         <p>No saved trips to show...yet!</p>
           ) : (
 
-            <>
+            <div className="saved-trips-container">
+
+
             {savedTrips.map((trip, i) => {
               const startDate = new Date(trip.start_date);
               const endDate = new Date(trip.end_date);
@@ -115,7 +117,7 @@ function MyTrips ({}) {
                 />
               );
             })}
-          </>
+          </div>
         )}
 
      <Route 
@@ -130,20 +132,3 @@ function MyTrips ({}) {
   }
 
 export default MyTrips;
-
-{/*           
- {userTrip.map((trip, index) => (
-    <EachTrip
-    
-      key={trip.id}
-      trip={trip}
-      handleEditTrip={(editedTrip) => handleEditTrip(editedTrip, index)}
-      savedTrips={savedTrips}
-      style={{ fontFamily: "Georgia", 
-      textShadow: '4px 1px 2px rgba(0, 0, 0, 0.8)', 
-      fontSize: '30px', 
-      fontWeight: 'bolder', 
-      color: 'purple',
-    }}
-    />
-  ))} */}

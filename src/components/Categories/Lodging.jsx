@@ -207,7 +207,7 @@ function Lodging() {
                   color: 'white',
                   fontFamily: "Georgia",
                   border: '1px solid white', 
-                  width: '100%',
+                  width: '70%',
                   
                 },
               }}
@@ -240,8 +240,8 @@ function Lodging() {
               style: {
                 color: 'white',
                 fontFamily: "Georgia",
-                border: '1px solid white',
-                width: '100%',
+                border: 'solid white',
+                width: '70%',
               },
             }}
             InputLabelProps={{
@@ -270,7 +270,8 @@ function Lodging() {
             color: 'white',
             textShadow: '1px 10px 20px rgba(5, 5, 5, 5)',
             boxShadow: '10px 10px 10px rgba(3, 3, 3, 1)',
-            fontFamily: "Georgia"
+            fontFamily: "Georgia",
+            
           }}
         >
           Submit
@@ -285,7 +286,8 @@ function Lodging() {
                 onChange={handleSortChange}
                 style={{
                   color: 'white', fontFamily: 'Georgia', textShadow: '10px 10px 15px rgba(0.5, 0.5, 0.5, 3)',
-                  boxShadow: '4px 4px 6px rgba(0, 0, 0, 0.5)',
+                  boxShadow: '5px 4px 6px rgba(0, 0, 0, 19.5)',
+                  
                 }}
               >
                 <MenuItem value="name">Name</MenuItem>

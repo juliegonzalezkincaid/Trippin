@@ -32,8 +32,8 @@
     font-weight: bolder;
     font-family:Georgia;
     text-align: center;
-    color:black;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    color:coral;
+    text-shadow: 5px 2px 4px rgba(0, 0, 0, 5.5);
     position: relative;
     z-index: 1;
   }

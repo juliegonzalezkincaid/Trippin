@@ -21,14 +21,15 @@ function RegisterForm() {
 
   return (
     <form className="formPanel" onSubmit={registerUser}>
-      <h2>Register User</h2>
+      <h2 style={{ fontFamily: 'Georgia', color: 'white',
+       textShadow: '2px 2px 4px rgba(0, 0, 0, 4.8)' }}>Register User</h2>
       {errors.registrationMessage && (
-        <h3 className="alert" role="alert">
+        <h3 className="alert" role="alert" style={{ fontFamily: 'Georgia', color: 'white', textShadow: '2px 2px 4px rgba(0, 0, 0, 0.8)' }}>
           {errors.registrationMessage}
         </h3>
       )}
       <div>
-        <label htmlFor="username">
+        <label htmlFor="username" style={{ fontFamily: 'Georgia', color: 'white', textShadow: '3px 2px 4px rgba(0, 0, 0, 4.8)' }}>
           Username:
           <input
             type="text"
@@ -40,7 +41,7 @@ function RegisterForm() {
         </label>
       </div>
       <div>
-        <label htmlFor="password">
+        <label htmlFor="password" style={{ fontFamily: 'Georgia', color: 'white', textShadow: '3px 2px 4px rgba(0, 0, 0, 4.8)' }}>
           Password:
           <input
             type="password"
@@ -52,7 +53,7 @@ function RegisterForm() {
         </label>
       </div>
       <div>
-        <input className="btn" type="submit" name="submit" value="Register" />
+        <input className="btn" type="submit" name="submit" value="Register" style={{ fontFamily: 'Georgia', color: 'white', textShadow: '2px 2px 4px rgba(0, 0, 0, 0.8)' }} />
       </div>
     </form>
   );

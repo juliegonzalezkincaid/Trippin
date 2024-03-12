@@ -86,6 +86,7 @@ function AddTrips() {
                   fontFamily: "Georgia",
                   fontWeight: 'bolder',
                   fontSize: '25px',
+                  border: 'white',
                   textShadow: '7px 1px 2px rgba(0, 0, 0, 0.8)'
                 },
               }}
