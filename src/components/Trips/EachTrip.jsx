@@ -5,7 +5,6 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import { Button } from "@mui/material";
 import { TableCell, TableRow } from "@mui/material";
 import { Link } from "react-router-dom";
-import AssignmentOutlinedIcon from "@mui/icons-material/AssignmentOutlined";
 import AssignmentSharpIcon from '@mui/icons-material/AssignmentSharp';
 function EachTrip({ trip, handleEditTrip, date }) {
   const categories = useSelector((state) => state.categories);
@@ -96,7 +95,7 @@ function EachTrip({ trip, handleEditTrip, date }) {
               textShadow: "1px 1px 2px rgba(0, 0, 0, 0.8)",
             }}
           >
-            <DeleteIcon style={{ color: "purple" }} />
+            <DeleteIcon style={{ color: "purple", filter: "drop-shadow(3px 4px 4px rgba(0, 0, 0, 9.5))" }} />
           </Button>
 
           <Button
@@ -114,9 +113,10 @@ function EachTrip({ trip, handleEditTrip, date }) {
               fontWeight: "bolder",
               fontSize: "20px",
               textShadow: "1px 1px 2px rgba(0, 0, 0, 0.8)",
+              
             }}
           >
-            <EditIcon sx={{ color: "purple" }} />
+            <EditIcon sx={{ color: "purple", filter: "drop-shadow(3px 4px 4px rgba(0, 0, 0, 9.5))" }} />
           </Button>
 
           <Link
@@ -133,7 +133,7 @@ function EachTrip({ trip, handleEditTrip, date }) {
             
             }}
           >
-            <AssignmentSharpIcon sx={{ color: "purple", fontSize: 40, marginRight: "10px" }} />
+            <AssignmentSharpIcon sx={{ color: "purple", fontSize: 40, marginRight: "10px", filter: "drop-shadow(7px 4px 4px rgba(0, 0, 0, .7))" }} />
           </Link>
         </div>
       </TableCell>

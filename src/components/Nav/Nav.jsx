@@ -37,23 +37,9 @@ function Nav() {
         </Link> */}
 
         <Link className="navLink" to="/my_trips">
-        <ParaglidingOutlinedIcon className="navIcon" sx={{ fontSize: 40, }} />
+        <ParaglidingOutlinedIcon className="navIcon" sx={{ fontSize: 40,filter: "drop-shadow(4px 4px 3px rgba(0, 0, 0, 2.5))" }} />
+       
         </Link>
-{/* 
-        <Link className="navLink" to="/add_trips">
-          Add Trips
-        </Link> */}
-
-        {/* <Link className="navLink" to="/each_trip">
-          Each Trip
-        </Link> */}
-
-{/* 
-        <Link className="navLink" to="/categories">
-        <AssignmentOutlinedIcon className="navIcon" sx={{ fontSize: 40,}} />
-        </Link> */}
-           
- {/* If no user is logged in, show these links */}
  {!user.id && (
           // If there's no user, show login/registration links
           <Link className="navLink" to="/login">

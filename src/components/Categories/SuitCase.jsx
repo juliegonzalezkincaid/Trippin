@@ -101,7 +101,8 @@ function Suitcase() {
           sx={{ 
             color: "purple", 
             fontSize: 60,
-            boxShadow: '9px 6px 8px 2px black'
+            boxShadow: '9px 6px 8px 2px black',
+            filter: "drop-shadow(3px 4px 4px rgba(0, 0, 0, 9.5))"
           }} />
         </Button>
       </Link>
@@ -229,7 +230,7 @@ function Suitcase() {
                       color="secondary"
                       onClick={() => handleDelete(index, "bring")}
                     >
-                      <DeleteIcon />
+                      <DeleteIcon style={{ filter: "drop-shadow(4px 4px 3px rgba(0, 0, 0, 2.5))"}}/>
                     </Button>
                   </Box>
                 </li>
@@ -257,7 +258,7 @@ function Suitcase() {
                       color="secondary"
                       onClick={() => handleDelete(index, "dontBring")}
                     >
-                      <DeleteIcon />
+                      <DeleteIcon style={{ filter: "drop-shadow(4px 4px 3px rgba(0, 0, 0, 2.5))"}} />
                     </Button>
                   </Box>
                 </li>

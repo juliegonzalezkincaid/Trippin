@@ -32,7 +32,8 @@ function UserPage() {
           style={{ textDecoration: 'none' }} 
           onClick={handleClick}
         >
-          <ParaglidingTwoToneIcon className="icon-avatar" sx={{ fontSize: 80, color: '#49F2A9' }} />
+          <ParaglidingTwoToneIcon className="icon-avatar" sx={{ fontSize: 80, color: '#49F2A9',
+          filter: "drop-shadow(4px 4px 3px rgba(0, 0, 0, 2.5))" }} />
           <span className="icon-title"></span>
         </div>
       </Link>
