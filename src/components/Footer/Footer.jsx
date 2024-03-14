@@ -7,7 +7,8 @@ import './Footer.css';
 // or even care what the redux state is, so it doesn't need 'connect()'
 
 function Footer() {
-  return <footer>&copy; Julie Gonzalez-Kincaid</footer>;
+  return <footer style={{ filter: "drop-shadow(4px 4px 3px hsl(94, 82%, 60%))"}}>&copy; Julie Gonzalez-Kincaid </footer>;
 }
+
 
 export default Footer;
