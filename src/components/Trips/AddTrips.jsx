@@ -77,7 +77,8 @@ function AddTrips() {
               InputProps={{
                 style: {
                   color: 'white',
-                  fontFamily: "Georgia"
+                  fontFamily: "Georgia",
+                  border: "solid whitesmoke",
                 },
               }}
               InputLabelProps={{
@@ -87,7 +88,7 @@ function AddTrips() {
                   fontWeight: 'bolder',
                   fontSize: '25px',
                   border: 'white',
-                  textShadow: '7px 1px 2px rgba(0, 0, 0, 0.8)'
+                  textShadow: '6px 1px 2px rgba(0, 0, 0, 0.8)'
                 },
               }}
             />
@@ -116,8 +117,8 @@ function AddTrips() {
                   color: 'white',
                   fontFamily: "Georgia",
                   fontWeight: 'bolder',
-                  fontSize: '25px',
-                  textShadow: '7px 1px 2px rgba(0, 0, 0, 0.8)'
+                  fontSize: '24px',
+                  textShadow: '8px 1px 2px rgba(0, 0, 0,9.8)'
                 },
               }}
             />
@@ -146,8 +147,8 @@ function AddTrips() {
                   color: 'white',
                   fontFamily: "Georgia",
                   fontWeight: 'bolder',
-                  fontSize: '25px',
-                  textShadow: '7px 1px 2px rgba(0, 0, 0, 0.8)'
+                  fontSize: '24px',
+                  textShadow: '8px 2px 2px rgba(0, 0, 0, 9.8)'
                 },
               }}
               margin="normal"
