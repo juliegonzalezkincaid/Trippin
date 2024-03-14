@@ -53,7 +53,7 @@ function MyTrips ({}) {
       <div 
       className="my-trips-container"
       >
-        <h2 className="solid"> {user.username} let's start Trippin!</h2>
+        <h2 className="solid"> Hey {user.username}! Let's start Trippin!</h2>
         
         <br></br>
         <br></br>
