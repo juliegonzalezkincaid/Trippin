@@ -121,7 +121,7 @@ function MyTrips ({}) {
                   style={{
                     fontFamily: "Georgia",
                     fontWeight: "bolder",
-                    textShadow: '9px 1px 9px rgba(0, 0, 0, 9.8)',
+                    textShadow: '9px 1px 1px rgba(0, 0, 0, 9.8)',
                     fontSize: '30px',
                   }}
                   
@@ -134,7 +134,8 @@ function MyTrips ({}) {
      <Route 
      path="/edit_trip/:tripId" 
      component={EditTrip} 
-     style={{ fontFamily: "Georgia" }}
+     style={{ fontFamily: "Georgia"
+     }}
      />
 
       </div>

@@ -95,7 +95,9 @@ function EachTrip({ trip, handleEditTrip, date }) {
               textShadow: "1px 1px 2px rgba(0, 0, 0, 0.8)",
             }}
           >
-            <DeleteIcon style={{ color: "purple", filter: "drop-shadow(3px 4px 4px rgba(0, 0, 0, 9.5))" }} />
+            <DeleteIcon style={{ color: "hsl(94, 92%, 50%)", // Lighter color for the icon
+    filter: "drop-shadow(3px 2px 1px rgba(0, 0, 0, 0.5))", // Increase shadow intensity
+    fontSize: "2.3rem" }} />
           </Button>
 
           <Button
@@ -116,7 +118,14 @@ function EachTrip({ trip, handleEditTrip, date }) {
               
             }}
           >
-            <EditIcon sx={{ color: "purple", filter: "drop-shadow(3px 4px 4px rgba(0, 0, 0, 9.5))" }} />
+            <EditIcon 
+  sx={{ 
+    color: "hsl(94, 92%, 50%)", // Lighter color for the icon
+    filter: "drop-shadow(2px 2px 1px rgba(0, 0, 0, 0.5))", // Increase shadow intensity
+    fontSize: "2.3rem" // Increase icon size
+  }} 
+/>
+
           </Button>
 
           <Link
@@ -133,7 +142,9 @@ function EachTrip({ trip, handleEditTrip, date }) {
             
             }}
           >
-            <AssignmentSharpIcon sx={{ color: "purple", fontSize: 40, marginRight: "10px", filter: "drop-shadow(7px 4px 4px rgba(0, 0, 0, .7))" }} />
+            <AssignmentSharpIcon sx={{ color: "hsl(94, 92%, 50%)", // Lighter color for the icon
+    filter: "drop-shadow(2px 2px 1px rgba(0, 0, 0, 0.5))", // Increase shadow intensity
+    fontSize: "2.5rem"}} />
           </Link>
         </div>
       </TableCell>

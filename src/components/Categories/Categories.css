@@ -3,7 +3,6 @@
   background-position: center;
   background-size:100% 100%; 
   background-repeat: no-repeat;
-  color: bisque;
   font-family: Georgia;
   text-align: center;
   display: flex;
@@ -51,7 +50,7 @@
   transform: translateX(-50%);
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
+  transition: opacity 0.4s ease-in-out, text-shadow 0.4s ease-in-out;
   text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8); /* Increased text shadow */
   color: rgb(218, 76, 25);
 }

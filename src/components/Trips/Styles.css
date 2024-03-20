@@ -22,7 +22,7 @@
   flex: 1 0 auto;  /* this allows the each trip container to grow and shrink as needed, but not to the point where it would cause overflow */
 
 }
-  .my-trips-container h1 {
+  /* .my-trips-container h1 {
     display: flex;
     flex-wrap: wrap;
     font-size: 90px;
@@ -30,15 +30,15 @@
     font-family:Georgia;
     text-align: center;
     color:black;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-shadow: 9px 2px 4px rgba(0, 0, 0, 0.5);
     font-family: "Georgia" 
     
     
 
-  }
-  header.solid {
+  } */
+  /* header.solid {
     margin-top: 50px;  /* Adjust as needed */
-  }
+  /* } */ */
   
   .my-trips-container {
     width: 106vw;
@@ -76,8 +76,7 @@
     background-position: bottom;
     background-repeat: no-repeat;
     background-size: cover ;
-    text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
-    font-weight: bolder;
+   
     }
 .solid {
   color: hsl(94, 82%, 60%);
@@ -95,10 +94,10 @@
 .edittrip input[type="date"] {
  
   font-weight: bolder;
-  font-size: 26px;
+  font-size: 28px;
   font-family: Georgia;
-  color:rgb(246, 184, 108);
-  text-shadow: 8px 2px 4px rgba(0, 0, 0, 4.5);
+  color:#FFC3B5;
+  text-shadow: 7px 5px 9px rgba(0, 0, 0, 9.5);
   border: 2px solid white; 
   background-color: transparent;
 
@@ -112,17 +111,16 @@
   
 }
 .edittrip label {
-  color: rgb(213, 130, 28); /* Set input labels to bisque */
+  color: rgb(247, 167, 70); /* Set input labels to bisque */
   font-family: Georgia, 'Times New Roman', Times, serif;
   text-shadow: 4px 2px 4px rgba(0, 0, 0, 2.5);
   font-weight: bolder;
   font-size: 30px;
    background-color: transparent;
+   margin-top: 3px ;
 }
 
-.edit-title {
-  margin-top: 90px;
-}
+
 
 .delete-container {
   color: hsl(94, 82%, 60%);
@@ -165,7 +163,8 @@
 
 .logout-button {
   font-size: 12px;
-  font-family: "Georgia" 
+  font-family: "Georgia" ;
+  
 }
 .icon-container {
   display: flex;

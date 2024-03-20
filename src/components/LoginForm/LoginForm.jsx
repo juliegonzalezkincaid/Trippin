@@ -48,7 +48,7 @@ function LoginForm() {
             name="username"
             required
             value={username}
-            onChange={(event) => setUsername(event.target.value)}style={{ fontFamily: 'Georgia', color: 'white', textShadow: '2px 2px 4px rgba(0, 0, 0, 0.8)', fontSize: '25px', boxShadow: '9px 2px 5px rgba(0, 0, 0, 0.8)',marginTop: '15px' }}
+            onChange={(event) => setUsername(event.target.value)}style={{ fontFamily: 'Georgia', color: 'black', textShadow: '2px 2px 4px rgba(0, 0, 0, 0.8)', fontSize: '25px', boxShadow: '9px 2px 5px rgba(0, 0, 0, 0.8)',marginTop: '15px' }}
           />
         </label>
       </div>
@@ -60,7 +60,7 @@ function LoginForm() {
             name="password"
             required
             value={password}
-            onChange={(event) => setPassword(event.target.value)}style={{ fontFamily: 'Georgia', color: 'white', textShadow: '2px 2px 4px rgba(0, 0, 0, 0.8)', fontSize: '25px', boxShadow: '9px 2px 5px rgba(0, 0, 0, 0.8)',marginTop: '20px' }}
+            onChange={(event) => setPassword(event.target.value)}style={{ fontFamily: 'Georgia', color: 'black', textShadow: '2px 2px 4px rgba(0, 0, 0, 0.8)', fontSize: '25px', boxShadow: '9px 2px 5px rgba(0, 0, 0, 0.8)',marginTop: '20px' }}
           />
         </label>
       </div>

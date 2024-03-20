@@ -76,9 +76,9 @@ return (
       <Typography 
       variant="h3" 
       align="center"
-       gutterBottom
+      
        style={{ fontFamily: "Georgia",  fontWeight: 'bolder',textShadow: '5px 1px 2px rgba(0, 0, 0, 5.8)',
-      color: 'rgb(218, 76, 25)'}}
+      color: 'rgb(243, 164, 66)', marginTop: '-40px'}}
       >
         Edit Trip
       </Typography>
@@ -126,7 +126,9 @@ return (
         type="submit" 
         variant="contained" 
         color="secondary" 
-        style={{ fontFamily: "Georgia" }}
+        style={{ fontFamily: "Georgia", textShadow: '2px 2px 4px rgba(0, 0, 0, 0.8)', fontSize: '25px', boxShadow: '9px 2px 5px rgba(0, 0, 0, 0.8)',marginTop: '20px' 
+      
+      }}
         >
           Update
         </Button>

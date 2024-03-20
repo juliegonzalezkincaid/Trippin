@@ -4,17 +4,21 @@
   background-repeat: no-repeat; /* this line to avoid repeating the image */
   background-attachment: fixed; /* line to make the background fixed even with scrolling */
   color: rgb(227, 191, 26); 
+  background-size:cover; 
+  background-repeat: no-repeat; /* this line to avoid repeating the image */
+  background-attachment: fixed;
   text-align: center;
-  background-position: center;
-  font-size: 60px;
+  color:aliceblue;
+  text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
   font-weight: bolder;
   font-family: Georgia;
-  min-height: calc(100vh - 64px); 
-  text-shadow: 10px 10px 10px rgba(09, 9, 9, 9.5);
-  font-size: 40px;
-  margin:0px ;
-  padding-top: 93px;
+  font-size: 30px;
+  margin: 0px;
+  padding-top: 130px;
+  background-position: center;
+  min-height: 100vh; 
   position: relative;
+  z-index: 1;
 }
 
 .suitcase-body::before {
@@ -121,11 +125,10 @@
   }
   
   .h3 {
-    text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
+    text-shadow: 1px 4px 4px rgba(0, 0, 0, 0.5);
     font-weight: bolder;
     font-family: Georgia; 
     position: relative;
     z-index: 1;
   }
-  
   

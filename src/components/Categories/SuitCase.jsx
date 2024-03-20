@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from 'react-router-dom';
@@ -99,7 +100,7 @@ function Suitcase() {
         >
           <AssignmentSharpIcon 
           sx={{ 
-            color: "purple", 
+            color: "hsl(94, 92%, 50%)", 
             fontSize: 60,
             boxShadow: '9px 6px 8px 2px black',
             filter: "drop-shadow(3px 4px 4px rgba(0, 0, 0, 9.5))"
@@ -133,6 +134,8 @@ function Suitcase() {
               color: 'white',
               fontFamily: "Georgia",
               border: "1px solid whitesmoke",
+              textShadow: '9px 6px 8px 2px black',
+
             },
           }}
           InputLabelProps={{
