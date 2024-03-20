@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from 'react-router-dom';
@@ -19,7 +18,6 @@ function Suitcase() {
     bring: "",
     dontBring: "",
   });
-
 
   const bringItems = suitcase.filter((item) => item.bring);
   const dontBringItems = suitcase.filter((item) => item.dontBring);
@@ -61,18 +59,13 @@ function Suitcase() {
   };
 
   const handleDelete = (index, type) => {
-    if (type === "bring") {
-      dispatch({ type: "DELETE_SUITCASE_INFO", payload: index });
-    } else if (type === "dontBring") {
-      dispatch({ type: "DELETE_SUITCASE_INFO", payload: index });
-    }
+    dispatch({ type: "DELETE_SUITCASE_INFO", payload: { index, type } });
   };
-  
 
   return (
     <div className="suitcase-body">
       <div className="overlay"></div>
-         <Link
+      <Link
         to="/categories"
         style={{
           position: 'absolute',
@@ -95,188 +88,151 @@ function Suitcase() {
             fontWeight: 'bold',
             fontSize: 'large',
             textShadow: '9px 2px 9px white',
-            
           }}
         >
-          <AssignmentSharpIcon 
-          sx={{ 
-            color: "hsl(94, 92%, 50%)", 
-            fontSize: 60,
-            boxShadow: '9px 6px 8px 2px black',
-            filter: "drop-shadow(3px 4px 4px rgba(0, 0, 0, 9.5))"
-          }} />
+          <AssignmentSharpIcon
+            sx={{
+              color: "hsl(94, 92%, 50%)",
+              fontSize: 60,
+              boxShadow: '9px 6px 8px 2px black',
+              filter: "drop-shadow(3px 4px 4px rgba(0, 0, 0, 9.5))"
+            }}
+          />
         </Button>
       </Link>
 
-      <Typography
-        variant="h2"
-        gutterBottom
-        className="header-title"
-        style={{ fontFamily: "Georgia" }}
-      >
-        What To Bring
-      </Typography>
-      <br />
-      <br />
+      <div className="list-container" >
+        <div className="list-column">
+          <Typography variant="h3" style={{ fontFamily: "Georgia", textShadow: '9px 1px 3px rgba(0, 0, 0, 0.6)',color: "rgb(227, 191, 26)",marginTop: "20px" }}>
+            What to Bring:
+          </Typography>
+          <form onSubmit={handleBringSubmit}>
+            <TextField
+              name="bring"
+              label="Item"
+              value={formValues.bring}
+              onChange={handleChange}
+              className="bring-list"
+              required
+              margin="normal"
+              InputProps={{
+                style: {
+                  color:'rgb(227, 191, 26)',
+                  fontFamily: "Georgia",
+                  border: "1px solid whitesmoke",
+                  textShadow: '9px 6px 8px 2px black',
+                },
+              }}
+              InputLabelProps={{
+                style: {
+                  color: 'rgb(227, 191, 26)',
+                  fontFamily: "Georgia",
+                  fontWeight: 'bolder',
+                  fontSize: '25px',
+                  textShadow: '7px 1px 2px rgba(0, 0, 0, 0.8)'
+                },
+              }}
+            />
+            <Button
+              type="submit"
+              variant="contained"
+              color="primary"
+              style={{
+                backgroundColor: 'hsl(94, 82%, 60%)',
+                color: 'white',
+                textShadow: '1px 1px 9px rgba(0, 0, 0, 2.6)',
+                boxShadow: '10px 10px 10px rgba(3, 3, 3, 1)'
+              }}
+            >
+              Submit
+            </Button>
+          </form>
+          <ul className="bring-list">
+            {bringItems.map((item, index) => (
+              <li key={index}>
+                <Box display="flex" justifyContent="center" alignItems="center">
+                  <Typography style={{ fontFamily: "Georgia", color: 'white', fontWeight: 'bold', fontSize: 'larger', textShadow: '1px 1px 9px rgba(0, 0, 0, 0.6)' }}>
+                    {item.bring}
+                  </Typography>
+                  <Button
+                    color="secondary"
+                    onClick={() => handleDelete(index, "bring")}
+                  >
+                    <DeleteIcon style={{ filter: "drop-shadow(4px 4px 3px rgba(0, 0, 0, 2.5))"}}/>
+                  </Button>
+                </Box>
+              </li>
+            ))}
+          </ul>
+        </div>
 
-      <form onSubmit={handleBringSubmit}>
-        <TextField
-         
-          name="bring"
-          label="Items to Bring:"
-          value={formValues.bring}
-          onChange={handleChange}
-          className="bring-list"
-          required
-          margin="normal"
-          InputProps={{
-            style: {
-              color: 'white',
-              fontFamily: "Georgia",
-              border: "1px solid whitesmoke",
-              textShadow: '9px 6px 8px 2px black',
-
-            },
-          }}
-          InputLabelProps={{
-            style: {
-              color: 'white',
-              fontFamily: "Georgia",
-              fontWeight: 'bolder',
-              fontSize: '25px',
-              textShadow: '7px 1px 2px rgba(0, 0, 0, 0.8)'
-            },
-          }}
-        />
-        <Button
-          type="submit"
-          variant="contained"
-          color="primary"
-          style={{
-            backgroundColor: 'hsl(94, 82%, 60%)',
-            color: 'white',
-            textShadow: '1px 1px 9px rgba(0, 0, 0, 2.6)',
-            boxShadow: '10px 10px 10px rgba(3, 3, 3, 1)'
-          }}
-        >
-          Submit
-        </Button>
-      </form>
-
-      <br />
-      <br />
-
-      <form onSubmit={handleDontBringSubmit}>
-        <TextField
-          name="dontBring"
-          label="Items Not to Bring:"
-          value={formValues.dontBring}
-          onChange={handleChange}
-          className="dont-bring-list"
-          required
-          margin="normal"
-          
-          InputProps={{
-            style: {
-              color: 'white',
-              fontFamily: "Georgia",
-              border: "1px solid whitesmoke",
-            },
-          }}
-          InputLabelProps={{
-            style: {
-              color: 'white',
-              fontFamily: "Georgia",
-              fontWeight: 'bolder',
-              fontSize: '25px',
-              textShadow: '7px 1px 2px rgba(0, 0, 0, 0.8)'
-            },
-          }}
-        />
-        <Button
-          type="submit"
-          variant="contained"
-          color="primary"
-          style={{
-            backgroundColor: 'hsl(94, 82%, 60%)',
-            color: 'white',
-            textShadow: '1px 1px 9px rgba(0, 0, 0, 1.6)',
-            boxShadow: '10px 10px 10px rgba(3, 3, 3, 1)'
-          }}
-        >
-          Submit
-        </Button>
-      </form>
-
-      <br />
-
-      {suitcase.length > 0 && (
-        
-        <div className="list-container">
-        {bringItems.length > 0 && (
-          <div className="list-column">
-            <Typography variant="h3" style={{ fontFamily: "Georgia", textShadow: '1px 1px 9px rgba(0, 0, 0, 0.6)' }}>
-              What to Bring:
-            </Typography>
-            <ul className="bring-list">
-              {bringItems
-              .slice() // Create a copy of the array to avoid mutating the original
-              .sort((a, b) => a.bring.localeCompare(b.bring)) 
-              .map((item, index) => (
-                <li key={index}>
-                  <Box display="flex" justifyContent="center" alignItems="center">
-                    <Typography style={{ fontFamily: "Georgia", color: 'white', fontWeight: 'bold', fontSize: 'larger', textShadow: '1px 1px 9px rgba(0, 0, 0, 0.6)' }}>
-                      {item.bring}
-                    </Typography>
-                    <Button
-                     
-                      color="secondary"
-                      onClick={() => handleDelete(index, "bring")}
-                    >
-                      <DeleteIcon style={{ filter: "drop-shadow(4px 4px 3px rgba(0, 0, 0, 2.5))"}}/>
-                    </Button>
-                  </Box>
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
-
-        {dontBringItems.length > 0 && (
-          <div className="list-column">
-            <Typography variant="h3" style={{ fontFamily: "Georgia" }}>
-              What Not to Bring:
-            </Typography>
-            <ul className="dont-bring-list">
-              {dontBringItems
-              .slice() // Create a copy of the array to avoid mutating the original
-              .sort((a, b) => a.dontBring.localeCompare(b.dontBring)) 
-              .map((item, index) => (
-                <li key={index}>
-                  <Box display="flex" justifyContent="center" alignItems="center">
-                    <Typography style={{ fontFamily: "Georgia", color: 'white', fontWeight: 'bold', fontSize: 'larger', textShadow: '1px 1px 9px rgba(0, 0, 0, 0.6)' }}>
-                      {item.dontBring}
-                    </Typography>
-                    <Button
-                      color="secondary"
-                      onClick={() => handleDelete(index, "dontBring")}
-                    >
-                      <DeleteIcon style={{ filter: "drop-shadow(4px 4px 3px rgba(0, 0, 0, 2.5))"}} />
-                    </Button>
-                  </Box>
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
+        <div className="list-column">
+          <Typography variant="h3" style={{ fontFamily: "Georgia",  color: "rgb(227, 191, 26)",marginTop: "20px", marginRight: "50px" }}>
+            What Not to Bring:
+          </Typography>
+          <form onSubmit={handleDontBringSubmit}>
+            <TextField
+              name="dontBring"
+              label="Item"
+              value={formValues.dontBring}
+              onChange={handleChange}
+              className="dont-bring-list"
+              required
+              margin="normal"
+              InputProps={{
+                style: {
+                  color: 'rgb(227, 191, 26)',
+                  fontFamily: "Georgia",
+                  border: "1px solid whitesmoke",
+                  marginTop: "10px"
+                },
+              }}
+              InputLabelProps={{
+                style: {
+                  color: 'rgb(227, 191, 26)',
+                  fontFamily: "Georgia",
+                  fontWeight: 'bolder',
+                  fontSize: '25px',
+                  textShadow: '7px 1px 2px rgba(0, 0, 0, 0.8)'
+                },
+              }}
+            />
+            <Button
+              type="submit"
+              variant="contained"
+              color="primary"
+              style={{
+                backgroundColor: 'hsl(94, 82%, 60%)',
+                color: 'white',
+                textShadow: '1px 1px 9px rgba(0, 0, 0, 1.6)',
+                boxShadow: '10px 10px 10px rgba(3, 3, 3, 1)'
+              }}
+            >
+              Submit
+            </Button>
+          </form>
+          <ul className="dont-bring-list">
+            {dontBringItems.map((item, index) => (
+              <li key={index}>
+                <Box display="flex" justifyContent="center" alignItems="center">
+                  <Typography style={{ fontFamily: "Georgia", color: 'white', fontWeight: 'bold', fontSize: 'larger', textShadow: '1px 1px 9px rgba(0, 0, 0, 0.6)' }}>
+                    {item.dontBring}
+                  </Typography>
+                  <Button
+                    color="secondary"
+                    onClick={() => handleDelete(index, "dontBring")}
+                  >
+                    <DeleteIcon style={{ filter: "drop-shadow(4px 4px 3px rgba(0, 0, 0, 2.5))"}} />
+                  </Button>
+                </Box>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
-    )}
-
-    <br />
-    <br />
-  </div>
-);
+    </div>
+  );
 }
 
-export default Suitcase;  
+export default Suitcase;
 
