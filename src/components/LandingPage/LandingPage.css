@@ -89,4 +89,10 @@ Grid
   position: fixed;
   bottom: 20px;
   right: 20px;
+} .login-container {
+  position: absolute;
+  bottom: 15;
+  left: 15%;
+  transform: translateX(-50%);
+  text-align: center;
 }
