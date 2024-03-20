@@ -97,7 +97,7 @@ function Lodging() {
   className="h3"
   style={{
     fontFamily: "Georgia",
-    color: "rgb (235, 168, 86)",
+    color: "#FF918C",
     textShadow: "9px 4px 4px rgba(50, 30, 30, 5.5)",
     fontWeight: "bolder",
   }}
@@ -278,8 +278,8 @@ function Lodging() {
           Submit
         </Button>
         <br></br>
-        <FormControl className="sort-dropdown" style={{ color: 'white' }}>
-              <InputLabel id="sort-by-label" style={{ color: 'white' }}>Sort By</InputLabel>
+        <FormControl className="sort-dropdown" style={{ color: 'white', }}>
+              <InputLabel id="sort-by-label" style={{ color: 'white', }}>Sort By</InputLabel>
               <Select
                 labelId="sort-by-label"
                 id="sort-by"
@@ -287,7 +287,7 @@ function Lodging() {
                 onChange={handleSortChange}
                 style={{
                   color: 'white', fontFamily: 'Georgia', textShadow: '10px 10px 15px rgba(0.5, 0.5, 0.5, 3)',
-                  boxShadow: '5px 4px 6px rgba(0, 0, 0, 19.5)',
+                  boxShadow: '5px 4px 6px rgba(0, 0, 0, 19.5)',border: '1px solid white', 
                   
                 }}
               >
@@ -303,7 +303,7 @@ function Lodging() {
           <div>
             <h1 
              style={{
-              color:'yellow',
+              color:"#FF118C",
               textShadow:' 4px 4px 4px rgba(0, 0, 0, 0.5',}}
           >Submitted Guest Information:</h1>
             <ul>
@@ -324,10 +324,11 @@ function Lodging() {
                     payload: index })}
                     style={{
 
-                      textShadow: '1px 10px 20px rgba(8, 5, 5, 5)',
+                    
                       boxShadow: '1px 10px 10px rgba(3, 3, 3, 1)',
                       fontFamily: "Georgia",
-                      padding: '10px 20px',
+                      padding: '10px 10px',
+                      marginRight: "200px"
                     }}
 
                   >
