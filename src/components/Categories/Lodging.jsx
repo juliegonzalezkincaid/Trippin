@@ -63,6 +63,7 @@ function Lodging() {
           top: 80,
           left: '92%',
           transform: 'translateX(-50%)',
+          
         }}
       >
         <Button

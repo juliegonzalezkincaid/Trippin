@@ -65,7 +65,7 @@ function AddTrips() {
       </div>
       <form onSubmit={handleSave}>
         <Grid container spacing={2}>
-        <Grid item xs={12}>
+        <Grid item xs={10}>
             <TextField
             className="input-field input-border"
               label="Description"
@@ -79,6 +79,9 @@ function AddTrips() {
                   color: 'white',
                   fontFamily: "Georgia",
                   border: "solid whitesmoke",
+                  fontWeight: 'bolder',
+                  fontSize: '20px',
+                  boxShadow: '10px 10px 10px rgba(3, 3, 3, 1)',
                 },
               }}
               InputLabelProps={{
@@ -88,12 +91,12 @@ function AddTrips() {
                   fontWeight: 'bolder',
                   fontSize: '25px',
                   border: 'white',
-                  textShadow: '6px 1px 2px rgba(0, 0, 0, 0.8)'
+                  textShadow: '6px 1px 2px rgba(, 0, 0, 0.8)'
                 },
               }}
             />
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={7}>
             <TextField
             className="input-field date-input input-border"
               label="Start Date"
@@ -108,6 +111,10 @@ function AddTrips() {
                 style: {
                   color: 'white',
                   fontFamily: "Georgia",
+                  border: "solid whitesmoke",
+                  fontWeight: 'bolder',
+                  fontSize: '20px',
+                  boxShadow: '10px 10px 10px rgba(3, 3, 3, 1)',
 
                 },
               }}
@@ -117,13 +124,14 @@ function AddTrips() {
                   color: 'white',
                   fontFamily: "Georgia",
                   fontWeight: 'bolder',
-                  fontSize: '24px',
-                  textShadow: '8px 1px 2px rgba(0, 0, 0,9.8)'
+                  fontSize: '30px',
+                  textShadow: '8px 1px 2px rgba(0, 0, 0,9.8)',
+                 
                 },
               }}
             />
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={7}>
             <TextField
             className="input-field date-input input border"
               label="   End Date"
@@ -138,6 +146,10 @@ function AddTrips() {
                 style: {
                   color: 'white',
                   fontFamily: "Georgia",
+                  border: 'solid whitesmoke',
+                  fontWeight: 'bolder',
+                  fontSize: '20px',
+                  boxShadow: '10px 10px 10px rgba(3, 3, 3, 1)',
 
                 },
               }}
@@ -147,7 +159,7 @@ function AddTrips() {
                   color: 'white',
                   fontFamily: "Georgia",
                   fontWeight: 'bolder',
-                  fontSize: '24px',
+                  fontSize: '30px',
                   textShadow: '8px 2px 2px rgba(0, 0, 0, 9.8)'
                 },
               }}
@@ -163,9 +175,10 @@ function AddTrips() {
         style={{ 
           backgroundColor: 'hsl(94, 82%, 60%)', 
           color: 'white', 
-          textShadow: '1px 10px 20px rgba(5, 5, 5, 5)',
+          textShadow: '10px 30px 20px rgba(6, 5, 5, 5)',
             boxShadow: '10px 10px 10px rgba(3, 3, 3, 1)',
-            fontFamily: "Georgia"
+            fontFamily: "Georgia",
+            fontSize: '30px'
           }}>
         
         

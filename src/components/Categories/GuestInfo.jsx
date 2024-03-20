@@ -64,6 +64,13 @@ function GuestInfo() {
               fontWeight: "bold",
               fontSize: "large",
               textShadow: "9px 2px 9px white",
+              backgroundColor: 'hsl(94, 82%, 60%)', 
+          color: 'white', 
+          textShadow: '10px 30px 20px rgba(6, 5, 5, 5)',
+            boxShadow: '10px 10px 10px rgba(3, 3, 3, 1)',
+            fontFamily: "Georgia",
+            fontSize: '25px',
+            marginTop:'30px',
             }}
           >
             <AssignmentSharpIcon
@@ -83,7 +90,7 @@ function GuestInfo() {
 
         <h1 style={{
           color: 'white',
-          textShadow: '9px 3px 4px rgba(0, 0, 0, 0.6)'
+          textShadow: '9px 3px 4px rgba(0, 0, 0, 0.8)'
         }}>Guests</h1>
 
         <TextField
@@ -97,7 +104,7 @@ function GuestInfo() {
               color: 'white',
               fontFamily: "Georgia",
               fontWeight: 'bolder',
-              fontSize: '25px',
+              fontSize: '26px',
               textShadow: '11px 1px 2px rgba(0, 0, 0, 0.8)'
             },
           }}
@@ -107,7 +114,7 @@ function GuestInfo() {
               fontFamily: "Georgia",
               fontWeight: 'bolder',
               fontSize: '25px',
-              textShadow: '1px 1px 2px rgba(0, 0, 0, 2.9)'
+              textShadow: '6px 1px 2px rgba(0, 0, 0, 2.9)'
             },
           }}
         />
@@ -163,20 +170,26 @@ function GuestInfo() {
               fontFamily: "Georgia",
               fontWeight: 'bolder',
               fontSize: '25px',
-              textShadow: '1px 1px 2px rgba(0, 0, 0, 2.9)'
+              textShadow: '6px 1px 2px rgba(0, 0, 0, 2.9)'
             },
           }}
         />
         <br />
-        <Button type="submit" variant="contained"
-          style={{
-            backgroundColor: 'hsl(94, 82%, 60%)',
-            color: 'white',
-            textShadow: '10px 10px 15px rgba(0.5, 0.5, 0.5, 3)',
-            boxShadow: '4px 4px 6px rgba(0, 0, 0, 0.5)',
-            fontFamily: 'Georgia',
-          }}>
-
+        
+        <Button 
+        type="submit" 
+        variant="contained" 
+        style={{ 
+          backgroundColor: 'hsl(94, 82%, 60%)', 
+          color: 'white', 
+          textShadow: '10px 30px 20px rgba(6, 5, 5, 5)',
+            boxShadow: '10px 10px 10px rgba(3, 3, 3, 1)',
+            fontFamily: "Georgia",
+            fontSize: '25px',
+            marginTop:'30px',
+           }}>
+        
+        
           Submit
         </Button>
 
@@ -185,9 +198,9 @@ function GuestInfo() {
           <ul>
             <h2 style={{
               textAlign: "center",
-              color: 'white',
-              textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)'
-            }}>Submitted Guest Information:</h2>
+              
+              textShadow: '5px 2px 4px rgba(0, 0, 0, 3.5)'
+            }} >Submitted Guest Information:</h2>
 
             {guestInfo
               .slice()
@@ -204,6 +217,7 @@ function GuestInfo() {
                   <p className="label">Phone:</p>
                   <p className="value">{guest.phone}</p>
                   </div>
+                  <br/>
                   <div className="guest-info">
                   <p className="label">Email:</p>
                   <p className="value">{guest.email}</p>

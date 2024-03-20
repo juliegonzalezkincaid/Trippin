@@ -187,9 +187,10 @@ function Misc() {
             textShadow: "1px 10px 20px rgba(5, 5, 5, 5)",
             boxShadow: "10px 10px 10px rgba(3, 3, 3, 1)",
             fontFamily: "Georgia",
+        
           }}
         >
-          Submit Question
+          Ask
         </Button>
 
         <br />
@@ -242,13 +243,15 @@ function Misc() {
                       onClick={(event) => handleSubmitAnswer(event, index)}
                       style={{
                         backgroundColor: "secondary",
-                        textShadow: '3px 1px 2px rgba(0, 0, 0, 0.8)',
+                        textShadow: '2px 1px 2px rgba(0, 0, 0, 8.8)',
                         boxShadow: "1px 10px 10px rgba(3, 3, 3, 1)",
                         fontFamily: "Georgia",
                         padding: "10px 20px",
-                        width: '120px', // Set the width
+
+                        width: '110px', // Set the width
         height: '50px',
                         marginRight: '10px',
+                        marginLeft: '10px',
                       }}
                     >
                       Submit Answer

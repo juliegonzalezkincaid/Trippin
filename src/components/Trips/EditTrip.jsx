@@ -77,7 +77,8 @@ return (
       variant="h3" 
       align="center"
        gutterBottom
-       style={{ fontFamily: "Georgia" }}
+       style={{ fontFamily: "Georgia",  fontWeight: 'bolder',textShadow: '5px 1px 2px rgba(0, 0, 0, 5.8)',
+      color: 'rgb(218, 76, 25)'}}
       >
         Edit Trip
       </Typography>
@@ -89,7 +90,10 @@ return (
           fullWidth
           required
           margin="normal"
-          style={{ fontFamily: "Georgia", color:"green" }}
+          style={{ 
+          fontFamily: "Georgia", 
+          backgroundColor: "transparent",
+        }}
         />
         <TextField
           label="Start Date"
@@ -100,7 +104,8 @@ return (
           required
           InputLabelProps={{
             shrink: true,
-           fontFamily: "Georgia"
+           fontFamily: "Georgia", 
+           backgroundColor: "transparent",
           }}
           margin="normal"
         />
@@ -120,7 +125,7 @@ return (
         <Button 
         type="submit" 
         variant="contained" 
-        color="primary" 
+        color="secondary" 
         style={{ fontFamily: "Georgia" }}
         >
           Update

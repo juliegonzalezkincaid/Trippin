@@ -1,14 +1,15 @@
 
 .addtrips {
-    background-image: url(/public/createnew.jpeg);
+    background-image: url(/public/addnew.jpeg);
     background-size:cover; 
     text-align: center;
     background-position: center;
     height: 100vh;
     font-family: Georgia;
-    color: rgb(235, 168, 86);
+    color: rgb(238, 140, 20);
     text-shadow: 4px 4px 4px rgba(30, 30, 30, 31.5);
     font-weight: bolder;
+   
   }
   
 
@@ -19,23 +20,10 @@
     height: 100vh; 
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     }
-
-  .addtrips-container {
-    font-size: 90px;
-    font-weight: bolder;
-    font-family:Georgia;
-    text-align: center;
-    color:black;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 3px;
-  }  
+ 
 
 .header {
-  margin-bottom: 40px;
+  margin-top: 45px;
   text-align: center;
   display: flex;
   font-family: Georgia; 

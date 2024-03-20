@@ -53,7 +53,7 @@ function MyTrips ({}) {
       <div 
       className="my-trips-container"
       >
-        <h2 className="solid"> Hey {user.username}! Let's start Trippin!</h2>
+        {/* <h2 className="solid"> Hey {user.username}! Let's start Trippin!</h2> */}
         
         <br></br>
         <br></br>
@@ -63,28 +63,39 @@ function MyTrips ({}) {
       <Button 
      
         component={Link} to="/add_trips"
-        className="addtripsbutton"
+        className="button"
         variant="contained"
         style={{ 
         backgroundColor: 'hsl(94, 82%, 60%)', 
         color: 'white', 
         fontFamily: "Georgia", 
-        textShadow: '4px 1px 2px rgba(0, 0, 0, 0.8)', 
-        fontSize: '23px', fontWeight: 'bold',  }}
+        textShadow: '3px 1px 2px rgba(0, 0, 0, 1.8)', 
+        fontSize: '20px', fontWeight: 'bold', 
+        boxShadow: '10px 10px 10px rgba(3, 3, 3, 1)',
+        marginTop: '60px',
+      }}
        
         >Add a Trip
       </Button>
 
         <h2 className="saved"
          style={{ 
-          fontFamily: "Georgia", textShadow: '1px 1px 2px rgba(0, 0, 0, 0.8)', 
+          fontFamily: "Georgia", 
           fontSize: '40px', 
-          fontWeight: 'bold',  textShadow: "2px 2px 3px white"
+          fontWeight: 'bold',  
+          textShadow: "3px 2px 3px white",
+          marginTop: "0px"
         }}
         
         >Saved Trips:</h2>
          {savedTrips.length === 0 ? (
-        <p>No saved trips to show...yet!</p>
+        <p className="savedTrips"  
+        style={{ 
+          fontFamily: "Georgia", 
+          fontSize: '40px', 
+          fontWeight: 'bold',  textShadow: "3px 2px 3px white" }}
+        
+        >No saved trips to show...yet!</p>
           ) : (
 
             <div className="saved-trips-container">
@@ -110,7 +121,7 @@ function MyTrips ({}) {
                   style={{
                     fontFamily: "Georgia",
                     fontWeight: "bolder",
-                    textShadow: '4px 1px 2px rgba(0, 0, 0, 0.8)',
+                    textShadow: '9px 1px 9px rgba(0, 0, 0, 9.8)',
                     fontSize: '30px',
                   }}
                   

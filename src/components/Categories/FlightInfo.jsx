@@ -73,7 +73,9 @@ function FlightInfo() {
           position: 'absolute',
           top: 40,
           left: '88%',
-          transform: 'translateX(-50%)',
+       
+     
+
         }}
       >
 
@@ -92,6 +94,7 @@ function FlightInfo() {
             fontWeight: 'bold',
             fontSize: 'large',
             textShadow: '9px 2px 9px white',
+
           }}
         >
           <AssignmentSharpIcon
@@ -99,6 +102,7 @@ function FlightInfo() {
               color: "purple",
               fontSize: 60,
               boxShadow: '9px 6px 8px 2px black'
+              
             }} />
         </Button>
       </Link>

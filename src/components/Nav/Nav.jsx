@@ -21,20 +21,12 @@ function Nav() {
         {/* If a user is logged in, show these links */}
         {user.id && (
           <>
-            {/* <Link className="navLink" to="/user">
-              Home
-            </Link> */}
-
-            {/* <Link className="navLink" to="/info">
-              Info Page
-            </Link> */}
+         
 
           </>
         )}
 
-        {/* <Link className="navLink" to="/about">
-          About
-        </Link> */}
+        
 
         <Link className="navLink" to="/my_trips">
         <ParaglidingOutlinedIcon className="navIcon" sx={{ fontSize: 40,filter: "drop-shadow(4px 4px 3px rgba(0, 0, 0, 2.5))" }} />
