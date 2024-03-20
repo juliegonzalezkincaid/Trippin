@@ -4,13 +4,13 @@
         
         background-image: url(/public/circle.jpeg);
         background-size: cover;
-        color: bisque;
+        color: rgb(62, 230, 242);
         text-align: center;
         min-height: 100vh; 
-        text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+        text-shadow: 5px 1px 8px rgba(1, 0, 0, 9.5);
         font-weight: bolder;
         font-family: Georgia;
-        font-size: 40px;
+        font-size: 50px;
         background-position: bottom;
        
 }

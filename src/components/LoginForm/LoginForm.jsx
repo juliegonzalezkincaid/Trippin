@@ -32,7 +32,7 @@ function LoginForm() {
      <br></br>
      <br></br>
      <br></br>
-      <h2>Login</h2>
+      <h2 style={{ fontFamily: 'Georgia', textShadow: '5px 2px 3px rgba(0, 0, 0, 0.8)', fontSize: '60px',marginTop: '20px',  }}>Login</h2>
       {errors.loginMessage && (
         <h3 className="alert" role="alert">
           {errors.loginMessage}
@@ -41,26 +41,26 @@ function LoginForm() {
       )}
       
       <div>
-        <label htmlFor="username">
+        <label htmlFor="username" style={{ fontFamily: 'Georgia',  textShadow: '4px 0px 4px rgba(0, 0, 0, 0.8)', fontSize: '40px',  }}>
           Username:
           <input
             type="text"
             name="username"
             required
             value={username}
-            onChange={(event) => setUsername(event.target.value)}
+            onChange={(event) => setUsername(event.target.value)}style={{ fontFamily: 'Georgia', color: 'white', textShadow: '2px 2px 4px rgba(0, 0, 0, 0.8)', fontSize: '25px', boxShadow: '9px 2px 5px rgba(0, 0, 0, 0.8)',marginTop: '15px' }}
           />
         </label>
       </div>
       <div>
-        <label htmlFor="password">
+        <label htmlFor="password" style={{ fontFamily: 'Georgia',  textShadow: '5px 2px 4px rgba(0, 0, 0, 0.8)', fontSize: '40px',  }}>
           Password:
           <input
             type="password"
             name="password"
             required
             value={password}
-            onChange={(event) => setPassword(event.target.value)}
+            onChange={(event) => setPassword(event.target.value)}style={{ fontFamily: 'Georgia', color: 'white', textShadow: '2px 2px 4px rgba(0, 0, 0, 0.8)', fontSize: '25px', boxShadow: '9px 2px 5px rgba(0, 0, 0, 0.8)',marginTop: '20px' }}
           />
         </label>
       </div>
@@ -74,7 +74,7 @@ function LoginForm() {
           size="large"
           onClick={()=> {
             history.push('/home');
-          }}
+          }}style={{ fontFamily: 'Georgia', color: 'white', textShadow: '4px 2px 4px rgba(0, 0, 0, 0.8)',boxShadow: '4px 2px 4px rgba(0, 0, 0, 0.8)', fontSize: '20px', marginTop: '20px' }}
         >
           Register
         </Button>
