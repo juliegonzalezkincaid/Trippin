@@ -323,12 +323,13 @@ function Lodging() {
                     onClick={() => dispatch({ type: 'DELETE_LODGING_INFO', 
                     payload: index })}
                     style={{
-
-                    
-                      boxShadow: '1px 10px 10px rgba(3, 3, 3, 1)',
-                      fontFamily: "Georgia",
-                      padding: '10px 10px',
-                      marginRight: "200px"
+                        color: 'white', 
+                      textShadow: '10px 30px 20px rgba(6, 5, 5, 5)',
+                        boxShadow: '10px 10px 10px rgba(3, 3, 3, 1)',
+                        fontFamily: "Georgia",
+                        fontSize: '18px',
+                      padding: '10px',
+                      marginRight: "260px"
                     }}
 
                   >

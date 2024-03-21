@@ -68,16 +68,7 @@
   z-index: 1;
   }
   
-  .bring-list {
-    width: 50%;
-    font-weight: bolder;
-    font-size: x-large;
-    font-size: 30px;
-    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6);
-    text-align: center;
-    position: relative;
-    z-index: 1;
-  }
+  
   
   .bring-list li,
   .dont-bring-list li {
@@ -92,7 +83,16 @@
     font-family: Georgia;
     
   }
-  
+  .bring-list {
+    width: 50%;
+    font-weight: bolder;
+    font-size: x-large;
+    font-size: 30px;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6);
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
 .dont-bring-list{
   width: 50%;
   font-weight: bolder;
@@ -102,6 +102,7 @@
   text-align: center;
   position: relative;
   z-index: 1;
+ 
 }
 
 
@@ -118,6 +119,7 @@
     font-weight: 50px;
     text-shadow: 20px 10px 10px rgba(09, 9, 9, 9.5);
   }
+
   
  
   

@@ -110,7 +110,7 @@ function GuestInfo() {
           }}
           InputLabelProps={{
             style: {
-              color: 'bisque',
+              color: '#FF917C',
               fontFamily: "Georgia",
               fontWeight: 'bolder',
               fontSize: '25px',
@@ -127,7 +127,7 @@ function GuestInfo() {
           required
           InputLabelProps={{
             style: {
-              color: 'bisque',
+              color: '#FF917C',
               fontWeight: 'bold',
               fontFamily: "Georgia",
               fontWeight: 'bolder',
@@ -166,11 +166,11 @@ function GuestInfo() {
           }}
           InputLabelProps={{
             style: {
-              color: 'bisque',
+              color: '#FF917C',
               fontFamily: "Georgia",
               fontWeight: 'bolder',
               fontSize: '25px',
-              textShadow: '6px 1px 2px rgba(0, 0, 0, 2.9)'
+              textShadow: '4px 1px 2px rgba(0, 0, 0, 2.9)'
             },
           }}
         />
@@ -225,7 +225,15 @@ function GuestInfo() {
                   <Button
                     variant="contained"
                     color="secondary"
-                    onClick={() => dispatch({ type: 'DELETE_GUEST_INFO', payload: index })}
+                    onClick={() => dispatch({ type: 'DELETE_GUEST_INFO', payload: index })} style={{
+                      color: 'white', 
+                    textShadow: '10px 30px 20px rgba(6, 5, 5, 5)',
+                      boxShadow: '10px 10px 10px rgba(3, 3, 3, 1)',
+                      fontFamily: "Georgia",
+                      fontSize: '18px',
+                    padding: '10px',
+                 
+                  }}
                   >
                     Delete
                   </Button>

@@ -58,10 +58,16 @@ function Suitcase() {
     }));
   };
 
-  const handleDelete = (index, type) => {
+  const handleDelete = (index, type,) => {
+   
+    console.log('Deleting item at index:', index, 'of type:', type);
+
     dispatch({ type: "DELETE_SUITCASE_INFO", payload: { index, type } });
   };
+  console.log('bringItems after deletion:', bringItems);
+console.log('dontBringItems after deletion:', dontBringItems);
 
+ console.log("Component rerendered");
   return (
     <div className="suitcase-body">
       <div className="overlay"></div>
@@ -103,10 +109,18 @@ function Suitcase() {
 
       <div className="list-container" >
         <div className="list-column">
-          <Typography variant="h3" style={{ fontFamily: "Georgia", textShadow: '9px 1px 3px rgba(0, 0, 0, 0.6)',color: "rgb(227, 191, 26)",marginTop: "20px" }}>
+          <Typography variant="h3" style={{ 
+          fontFamily: "Georgia", 
+          textShadow: '9px 1px 3px rgba(0, 0, 0, 0.6)',color: "rgb(227, 191, 26)",
+          marginTop: "20px",
+          fontWeight: "bolder",
+          }}>
             What to Bring:
           </Typography>
           <form onSubmit={handleBringSubmit}>
+            <br />
+            <br />
+            <br />
             <TextField
               name="bring"
               label="Item"
@@ -129,11 +143,13 @@ function Suitcase() {
                   fontFamily: "Georgia",
                   fontWeight: 'bolder',
                   fontSize: '25px',
-                  textShadow: '7px 1px 2px rgba(0, 0, 0, 0.8)'
+                  textShadow: '7px 1px 2px rgba(0, 0, 0, 0.8)',
+                  marginTop: '-11px', 
                 },
               }}
             />
             <Button
+            className="button-container"
               type="submit"
               variant="contained"
               color="primary"
@@ -141,7 +157,10 @@ function Suitcase() {
                 backgroundColor: 'hsl(94, 82%, 60%)',
                 color: 'white',
                 textShadow: '1px 1px 9px rgba(0, 0, 0, 2.6)',
-                boxShadow: '10px 10px 10px rgba(3, 3, 3, 1)'
+                boxShadow: '10px 10px 10px rgba(3, 3, 3, 1)',
+                marginRight: '0px', 
+                marginLeft: '10px',
+                marginTop: '6px'
               }}
             >
               Submit
@@ -167,7 +186,13 @@ function Suitcase() {
         </div>
 
         <div className="list-column">
-          <Typography variant="h3" style={{ fontFamily: "Georgia",  color: "rgb(227, 191, 26)",marginTop: "20px", marginRight: "50px" }}>
+          <Typography variant="h3" style={{ 
+            fontFamily: "Georgia",  
+            color: "rgb(227, 191, 26)",
+            marginTop: "20px", 
+            marginRight: "50px",
+            fontWeight: "bolder",
+            }}>
             What Not to Bring:
           </Typography>
           <form onSubmit={handleDontBringSubmit}>
@@ -181,10 +206,11 @@ function Suitcase() {
               margin="normal"
               InputProps={{
                 style: {
-                  color: 'rgb(227, 191, 26)',
+                  color:'rgb(227, 191, 26)',
                   fontFamily: "Georgia",
                   border: "1px solid whitesmoke",
-                  marginTop: "10px"
+                  textShadow: '9px 6px 8px 2px black',
+                marginTop: '20px'
                 },
               }}
               InputLabelProps={{
@@ -193,11 +219,13 @@ function Suitcase() {
                   fontFamily: "Georgia",
                   fontWeight: 'bolder',
                   fontSize: '25px',
-                  textShadow: '7px 1px 2px rgba(0, 0, 0, 0.8)'
+                  textShadow: '7px 1px 2px rgba(0, 0, 0, 0.8)',
+                 marginTop: '7px'
                 },
               }}
             />
             <Button
+            className="button-container"
               type="submit"
               variant="contained"
               color="primary"
@@ -205,7 +233,10 @@ function Suitcase() {
                 backgroundColor: 'hsl(94, 82%, 60%)',
                 color: 'white',
                 textShadow: '1px 1px 9px rgba(0, 0, 0, 1.6)',
-                boxShadow: '10px 10px 10px rgba(3, 3, 3, 1)'
+                boxShadow: '10px 10px 10px rgba(3, 3, 3, 1)',
+                paddingTop: '7px',
+              marginLeft: '10px',
+              marginTop: '25px'
               }}
             >
               Submit

@@ -214,12 +214,25 @@ case "UPDATE_TRIP_SUCCESS":
         suitcase: [...state.suitcase, ...action.payload],
       };
 
-    case "DELETE_SUITCASE_INFO":
-      const updatedSuitcase = state.suitcase.filter((_, index) => index !== action.payload);
-      return {
-        ...state,
-        suitcase: updatedSuitcase,
-      };
+    // case "DELETE_SUITCASE_INFO":
+    //   const updatedSuitcase = state.suitcase.filter((_, index) => index !== action.payload);
+    //   return {
+    //     ...state,
+    //     suitcase: updatedSuitcase,
+    //   };
+
+// case "DELETE_SUITCASE_INFO":
+//   console.log('DELETE_SUITCASE_INFO action before:', state.suitcase);
+
+//   const updatedSuitcase = state.suitcase.filter((_, index) => index !== action.payload);
+//   const newStateDeleteSuitcase = {
+//     ...state,
+//     suitcase: updatedSuitcase,
+//   };
+
+//   console.log('DELETE_SUITCASE_INFO action after:', newStateDeleteSuitcase.suitcase);
+
+//   return newStateDeleteSuitcase;
 
     case 'SET_BRING':
       console.log('SET_BRING action:', action.payload);
@@ -228,7 +241,20 @@ case "UPDATE_TRIP_SUCCESS":
         ...state,
         suitcase: [...state.suitcase, action.payload],
       };
-
+      case "DELETE_SUITCASE_INFO":
+        console.log('DELETE_SUITCASE_INFO action before:', state.suitcase);
+      
+        const { index: deleteIndex } = action.payload; 
+        const updatedSuitcase = state.suitcase.filter((_, currentIndex) => currentIndex !== deleteIndex); 
+        const newStateDeleteSuitcase = {
+          ...state,
+          suitcase: updatedSuitcase,
+        };
+      
+        console.log('DELETE_SUITCASE_INFO action after:', newStateDeleteSuitcase.suitcase);
+      
+        return newStateDeleteSuitcase;
+      
 
     case 'SET_DONT_BRING':
       console.log('SET_DONT_BRING action:', action.payload);
@@ -247,36 +273,3 @@ case "UPDATE_TRIP_SUCCESS":
 
 export default tripReducer;
 
-
-   
-      // case "EDIT_TRIP":
-      //   const { trip, index } = action.payload;
-      //   const updatedUserTrip = state.userTrip.map((t, i) => {
-      //     if (i === index) {
-      //       return {
-      //         ...t,
-      //         description: trip.description,
-      //         startDate: trip.startDate,
-      //         endDate: trip.endDate,
-      //       };
-      //     }
-      //     return t;
-      //   });
-      //   return {
-      //     ...state,
-      //     userTrip: updatedUserTrip,
-      //   };
-      
-    // case "EDIT_TRIP":
-    //   const { trip, index } = action.payload;
-    //   const updatedUserTrip = [...state.userTrip];
-    //   updatedUserTrip[index] = {
-    //     ...updatedUserTrip[index],
-    //     description: trip.description,
-    //     startDate: trip.startDate,
-    //     endDate: trip.endDate,
-    //   };
-    //   return {
-    //     ...state,
-    //     userTrip: updatedUserTrip,
-    //   };
