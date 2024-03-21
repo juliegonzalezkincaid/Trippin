@@ -68,18 +68,17 @@ function Lodging() {
       >
         <Button
           style={{
-            position: 'absolute',
-            top: 0,
-            left: '10%',
-            transform: 'translateX(-50%)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            textDecoration: 'none',
-            color: 'black',
-            fontWeight: 'bold',
-            fontSize: 'large',
-            textShadow: '9px 2px 9px white',
+            color: "black",
+            fontWeight: "bold",
+            fontSize: "large",
+            textShadow: "9px 2px 9px white",
+            backgroundColor: 'hsl(94, 82%, 60%)', 
+        color: 'white', 
+        textShadow: '10px 30px 20px rgba(6, 5, 5, 5)',
+          boxShadow: '10px 10px 10px rgba(3, 3, 3, 1)',
+          fontFamily: "Georgia",
+          fontSize: '25px',
+          marginTop:'30px',
           }}
         >
           <AssignmentSharpIcon 
@@ -97,7 +96,7 @@ function Lodging() {
   className="h3"
   style={{
     fontFamily: "Georgia",
-    color: "#FF918C",
+    color: "#FF929C",
     textShadow: "9px 4px 4px rgba(50, 30, 30, 5.5)",
     fontWeight: "bolder",
   }}
@@ -208,7 +207,7 @@ function Lodging() {
                   color: 'white',
                   fontFamily: "Georgia",
                   border: '1px solid white', 
-                  width: '70%',
+                  width: '100%',
                   
                 },
               }}
@@ -219,7 +218,7 @@ function Lodging() {
                   fontFamily: "Georgia",
                   fontWeight: 'bolder',
                   fontSize: '25px',
-                  textShadow: '7px 1px 2px rgba(0, 0, 0, 0.8)'
+                  textShadow: '7px 1px 2px rgba(0, 0, 0, 0.8)', width: '100%',
                 },
               }}
 
@@ -242,7 +241,7 @@ function Lodging() {
                 color: 'white',
                 fontFamily: "Georgia",
                 border: 'solid white',
-                width: '70%',
+                width: '100%',
               },
             }}
             InputLabelProps={{
@@ -252,8 +251,8 @@ function Lodging() {
                 fontFamily: "Georgia",
                 fontWeight: 'bolder',
                 fontSize: '25px',
-                textShadow: '7px 1px 2px rgba(0, 0, 0, 0.8)'
-
+                textShadow: '7px 1px 2px rgba(0, 0, 0, 0.8)', 
+                width: '100%',
               },
             }}
 
@@ -266,14 +265,15 @@ function Lodging() {
         <Button
           type="submit"
           variant="contained"
-          style={{
-            backgroundColor: 'hsl(94, 82%, 60%)',
-            color: 'white',
-            textShadow: '1px 10px 20px rgba(5, 5, 5, 5)',
-            boxShadow: '10px 10px 10px rgba(3, 3, 3, 1)',
-            fontFamily: "Georgia",
-            
-          }}
+          style={{ 
+            backgroundColor: 'hsl(94, 82%, 60%)', 
+            color: 'white', 
+            textShadow: '10px 30px 20px rgba(6, 5, 5, 5)',
+              boxShadow: '10px 10px 10px rgba(3, 3, 3, 1)',
+              fontFamily: "Georgia",
+              fontSize: '25px',
+              marginTop:'30px',
+             }}
         >
           Submit
         </Button>
@@ -303,8 +303,8 @@ function Lodging() {
           <div>
             <h1 
              style={{
-              color:"#FF118C",
-              textShadow:' 4px 4px 4px rgba(0, 0, 0, 0.5',}}
+              color:"#FF929C",
+              textShadow:' 5px 4px 4px rgba(0, 0, 0, 0.9',}}
           >Submitted Guest Information:</h1>
             <ul>
               {lodging

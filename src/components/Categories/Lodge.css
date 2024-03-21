@@ -24,7 +24,6 @@
     justify-content: center;
     align-items: center;
     flex-direction: column; /* Add this line */
-
     gap: 20px;
     font-size: 20px;
     font-weight: bolder;
@@ -35,7 +34,7 @@
   }
 
   .input-field {
-    width: 70%;
+    width: 60%;
 
     text-align: center;
     border: none;
@@ -98,24 +97,15 @@
     width: 100%;
   }
   
-  /* .label-text {
-    color:'hsl(94, 82%, 60%)';
-  } */
-  .label-text {
-    color: rgb(33, 20, 4); /* or whatever darker color you prefer */
-    display: inline;
-    text-shadow: 1px 10px 10px rgba(09, 9, 9, 9.5);
-  }
+  
   
   .beige-text {
-    color: rgb(91, 161, 30); /* adjust the color as you prefer */
+    color: rgb(109, 192, 36); /* adjust the color as you prefer */
     display: inline;
     font-size: larger;
     text-shadow: 1px 1px 1px rgba(09, 9, 9, 9.5);
     font-weight: bolder;
     font-family: Georgia, 'Times New Roman', Times, serif;
   }
-  .h1 {
-    color:rgb(235, 168, 86);
-  }
+ 
  

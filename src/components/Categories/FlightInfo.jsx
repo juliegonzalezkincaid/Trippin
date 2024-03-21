@@ -81,21 +81,22 @@ function FlightInfo() {
 
 
         <Button
-          style={{
-            position: 'absolute',
-            top: 70,
-            left: '10%',
-            transform: 'translateX(-50%)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            textDecoration: 'none',
-            color: 'black',
-            fontWeight: 'bold',
-            fontSize: 'large',
-            textShadow: '9px 2px 9px white',
+          
+            style={{
+              color: "black",
+              fontWeight: "bold",
+              fontSize: "large",
+              textShadow: "9px 2px 9px white",
+              backgroundColor: 'hsl(94, 82%, 60%)', 
+          color: 'white', 
+          textShadow: '10px 30px 20px rgba(6, 5, 5, 5)',
+            boxShadow: '10px 10px 10px rgba(3, 3, 3, 1)',
+            fontFamily: "Georgia",
+            fontSize: '25px',
+            marginTop:'50px',
+            }}
 
-          }}
+       
         >
           <AssignmentSharpIcon
             sx={{
@@ -373,14 +374,15 @@ function FlightInfo() {
         <Button
           type="submit"
           variant="contained"
-          style={{
-            backgroundColor: 'hsl(94, 82%, 60%)',
-            color: 'white',
-            textShadow: '10px 10px 15px rgba(0.5, 0.5, 0.5, 3)',
-            boxShadow: '4px 4px 6px rgba(0, 0, 0, 0.5)',
-            fontFamily: "Georgia",
-
-          }}>
+          style={{ 
+            backgroundColor: 'hsl(94, 82%, 60%)', 
+            color: 'white', 
+            textShadow: '10px 30px 20px rgba(6, 5, 5, 5)',
+              boxShadow: '10px 10px 10px rgba(3, 3, 3, 1)',
+              fontFamily: "Georgia",
+              fontSize: '25px',
+              marginTop:'30px',
+             }}>
           Submit
         </Button>
         {setFlightInfo.length > 0 && (
