@@ -40,7 +40,14 @@ function FlightInfo() {
       [name]: value,
     }));
   };
-
+  const sortedFlightInfo = [...setFlightInfo].sort((a, b) => {
+    if (sortBy === 'name') {
+      return a.name.localeCompare(b.name);
+    } else if (sortBy === 'arrivalDate') {
+      return new Date(a.arrivalDate) - new Date(b.arrivalDate);
+    }
+    // Add more cases for other sorting options if needed
+  });
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -157,8 +164,8 @@ function FlightInfo() {
           id="date"
           label="Arrival Date"
           type="date"
-          name="date"
-          value={formValues.date}
+          name="arrivalDate"
+          value={formValues.arrivalDate}
           onChange={handleChange}
           required
           className="input-field"
@@ -319,8 +326,8 @@ function FlightInfo() {
           id="date"
           label="Departure Date"
           type="date"
-          name="date"
-          value={formValues.date}
+          name="departDate"
+          value={formValues.departDate}
           onChange={handleChange}
           required
           className="input-field"
@@ -409,49 +416,44 @@ function FlightInfo() {
                
               </Select>
             </FormControl>
-            {setFlightInfo
-              .slice() // Create a copy of the array to avoid mutating the original
-              .sort((a, b) => {
-                if (sortBy === 'name') {
-                  return a.name.localeCompare(b.name);
-                } else if (sortBy === 'arrivalTime') {
-                  return a.arrivalTime.localeCompare(b.arrivalTime);
-                } else if (sortBy === 'departureTime') {
-                  return a.departTime.localeCompare(b.departTime);
-                }
-                return 0;
-              })
-              .map((flight, index) => (
-                <li
-                  className="submitinfo"
-                  key={index}>
-
-                  <p><span className="label">Name:</span> <span className="value">{flight.name}</span></p>
-                  <p><span className="label">Date:</span> <span className="value">{flight.date}</span></p>
-                  <p><span className="label">From City:</span> <span className="value">{flight.fromCity}</span></p>
-                  <p><span className="label">To City:</span> <span className="value">{flight.toCity}</span></p>
-                  <p><span className="label">Airline:</span> <span className="value">{flight.airline}</span></p>
-                  <p><span className="label">Flight Number:</span> <span className="value">{flight.flightNum}</span></p>
-                  <p><span className="label">Departure Time:</span> <span className="value">{flight.departTime}</span></p>
-                  <p><span className="label">Arrival Time:</span> <span className="value">{flight.arrivalTime}</span></p>
-                  <p><span className="label">Arrival Date:</span> <span className="value">{flight.arrivalTime}</span></p>
-                  <p><span className="label">Departure Date:</span> <span className="value">{flight.arrivalTime}</span></p>
-                  <br></br>
-                  <Button
-                    variant="contained"
-                    color="secondary"
-                    onClick={() => dispatch({ type: 'DELETE_FLIGHT_INFO', payload: index })}
-                    style={{ fontFamily: "Georgia" }}
-                  >
-                    Delete
-                  </Button>
-                  <br></br>
-                  <hr /> {/* Add a separator between submissions */}
-                </li>
-
-              ))}
+           
           </ul>
-        )}
+        )}{sortedFlightInfo.map((flight, index) => (
+          <div className="submitinfo" key={index} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '20px' }}>
+            <div >
+              <p><span className="label">Name:</span> <span className="value">{flight.name}</span></p>
+             
+              <p><span className="label">From City:</span> <span className="value">{flight.fromCity}</span></p>
+              <p><span className="label">To City:</span> <span className="value">{flight.toCity}</span></p>
+            </div>
+            <div>
+              <p><span className="label">Airline:</span> <span className="value">{flight.airline}</span></p>
+              <p><span className="label">Flight Number:</span> <span className="value">{flight.flightNum}</span></p>
+              <p><span className="label">Departure Time:</span> <span className="value">{flight.departTime}</span></p>
+              <p><span className="label">Arrival Time:</span> <span className="value">{flight.arrivalTime}</span></p>
+              <p><span className="label">Arrival Date:</span> <span className="value">{flight.arrivalDate}</span></p>
+              <p><span className="label">Departure Date:</span> <span className="value">{flight.departDate}</span></p>
+            </div>
+            <Button
+              variant="contained"
+              color="secondary"
+              onClick={() => dispatch({ type: 'DELETE_FLIGHT_INFO', payload: index })}
+              style={{ fontFamily: "Georgia",
+                color: 'white', 
+                textShadow: '10px 30px 20px rgba(6, 5, 5, 5)',
+                boxShadow: '10px 10px 10px rgba(3, 3, 3, 1)',
+                fontFamily: "Georgia",
+                fontSize: '18px',
+                padding: '10px',
+              }}
+            >
+              Delete
+            </Button>
+            <br />
+            <hr /> {/* Add a separator between submissions */}
+          </div>
+        ))}
+        
         <br></br>
         <br></br>
       </form>
