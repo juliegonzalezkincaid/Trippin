@@ -18,6 +18,8 @@ function MyTrips ({}) {
     const user = useSelector((store) => store.user);
     const categories = useSelector((state) => state.categories);
 
+   
+
     useEffect(() => {
      dispatch({ type: "FETCH_TRIPS" });
      dispatch({ type: "GET_SAVED_TRIPS", payload: user.id }); 

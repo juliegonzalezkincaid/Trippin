@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
-import { Button } from "@mui/material";
+import { Button, Tooltip } from "@mui/material";
 import { TableCell, TableRow } from "@mui/material";
 import { Link } from "react-router-dom";
 import AssignmentSharpIcon from '@mui/icons-material/AssignmentSharp';
@@ -12,6 +12,7 @@ function EachTrip({ trip, handleEditTrip, date }) {
   const user = useSelector((state) => state.user);
   const [isHoveredEdit, setIsHoveredEdit] = useState(false);
   const [isHoveredDelete, setIsHoveredDelete] = useState(false);
+  const [isHoveredAssign, setIsHoveredAssign] = useState(false);
   const handleDeleteTrip = (tripID) => {
     dispatch({ type: "DELETE_TRIP", payload: tripID });
   };
@@ -25,6 +26,7 @@ function EachTrip({ trip, handleEditTrip, date }) {
   useEffect(() => {
     dispatch({ type: "GET_SAVED_TRIPS" });
   }, []);
+ 
  
 
   return (
@@ -95,9 +97,16 @@ function EachTrip({ trip, handleEditTrip, date }) {
               textShadow: "1px 1px 2px rgba(0, 0, 0, 0.8)",
             }}
           >
-            <DeleteIcon style={{ color: "hsl(94, 92%, 50%)", // Lighter color for the icon
-    filter: "drop-shadow(3px 2px 1px rgba(0, 0, 0, 0.5))", // Increase shadow intensity
-    fontSize: "2.3rem" }} />
+            <DeleteIcon 
+            style={{ 
+              color: "hsl(94, 92%, 50%)", 
+              filter: "drop-shadow(3px 2px 1px rgba(0, 0, 0, 0.5))", 
+              fontSize: "2.3rem",
+              transition: "transform 0.3s", // Add transition for smooth effect
+              transform: isHoveredDelete ? "translateY(-2px)" : "translateY(0)" // Apply transform conditionally
+            }} 
+              
+              />
           </Button>
 
           <Button
@@ -122,30 +131,41 @@ function EachTrip({ trip, handleEditTrip, date }) {
   sx={{ 
     color: "hsl(94, 92%, 50%)", // Lighter color for the icon
     filter: "drop-shadow(2px 2px 1px rgba(0, 0, 0, 0.5))", // Increase shadow intensity
-    fontSize: "2.3rem" // Increase icon size
+    fontSize: "2.3rem", 
+    transition: "transform 0.3s", // Add transition for smooth effect
+    transform: isHoveredEdit ? "translateY(-2px)" : "translateY(0)"
   }} 
 />
 
           </Button>
 
+          <Tooltip title="Trip Details" placement="top">
           <Link
-            to="/categories"
-            className={`${isHoveredEdit ? "edit-hovered" : ""} edit-container`}
-            onMouseEnter={() => setIsHoveredEdit(true)}
-            onMouseLeave={() => setIsHoveredEdit(false)}
-            style={{
-              fontFamily: "Georgia",
-              color: "black",
-              fontWeight: "bold",
-              fontSize: "20px",
-              textDecoration: "none",
-            
-            }}
-          >
-            <AssignmentSharpIcon sx={{ color: "hsl(94, 92%, 50%)", // Lighter color for the icon
-    filter: "drop-shadow(2px 2px 1px rgba(0, 0, 0, 0.5))", // Increase shadow intensity
-    fontSize: "2.5rem"}} />
-          </Link>
+  to="/categories"
+  className={`${isHoveredAssign ? "assign-hovered" : ""} assign-container`}
+  onMouseEnter={() => setIsHoveredAssign(true)}
+  onMouseLeave={() => setIsHoveredAssign(false)}
+  style={{
+    fontFamily: "Georgia",
+    color: "black",
+    fontWeight: "bold",
+    fontSize: "20px",
+    textDecoration: "none",
+  }}
+>
+  <AssignmentSharpIcon 
+    sx={{ 
+      color: "hsl(94, 92%, 50%)",
+      filter: "drop-shadow(2px 2px 1px rgba(0, 0, 0, 0.5))",
+      fontSize: "2.5rem",
+      transition: "transform 0.3s",
+      transform: isHoveredAssign ? "translateY(-2px)" : "translateY(0)", // Use isHoveredAssign here
+      marginRight: "50px",
+    }} 
+  />
+</Link>
+</Tooltip>
+        
         </div>
       </TableCell>
 
