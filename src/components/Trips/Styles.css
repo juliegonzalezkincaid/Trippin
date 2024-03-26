@@ -22,24 +22,7 @@
   flex: 1 0 auto;  /* this allows the each trip container to grow and shrink as needed, but not to the point where it would cause overflow */
 
 }
-  /* .my-trips-container h1 {
-    display: flex;
-    flex-wrap: wrap;
-    font-size: 90px;
-    font-weight: bolder;
-    font-family:Georgia;
-    text-align: center;
-    color:black;
-    text-shadow: 9px 2px 4px rgba(0, 0, 0, 0.5);
-    font-family: "Georgia" 
-    
-    
 
-  } */
-  /* header.solid {
-    margin-top: 50px;  /* Adjust as needed */
-  /* } */ */
-  
   .my-trips-container {
     width: 106vw;
   }
@@ -215,8 +198,8 @@ align-items: center;
 }
 
 .saved-trips-container {
-  background-color: rgba(255, 255, 255, 0.128); /* Semi-transparent white background */
-  padding: 20px; /* Add some padding for spacing */
+  background-color: rgba(255, 255, 255, 0.128); 
+  padding: 20px;
 }
 
 @keyframes floatDown {

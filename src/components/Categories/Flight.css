@@ -14,13 +14,13 @@
     position: relative;
   }
   .flight-body::before {
-    content: ""; /* Create the pseudo-element */
+    content: ""; 
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.197);/* Adjust the opacity to control the darkness */
+    background-color: rgba(255, 255, 255, 0.197);
   }
   
 
@@ -49,10 +49,9 @@
     text-align: left;
     margin: 10px 0;
     text-shadow: 8px 8px 9px rgba(3, 3, 3, 3.5);
-    font-size: 20px; /* Adjust the font size to your preference */
-    font-weight:bolder; /* Remove the bolder font weight */
-    font-family: Georgia; /* Use a professional font like Arial or a similar sans-serif font */
-    color: black; /* Set the color to a more legible color */
+    font-size: 20px; 
+    font-weight:bolder; 
+    font-family: Georgia; 
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   }
 
@@ -71,14 +70,13 @@
 .submitinfo  {
   
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Adjust the number of columns as needed */
-  grid-gap: 10px;
+  grid-template-columns: repeat(3, 1fr);
   margin-bottom: 10px;
   position: relative;
   z-index: 1;
 }
 .label {
-  color: rgb(251, 255, 0); /* or any color you prefer */
+  color: rgb(251, 255, 0); 
   font-weight: bold;
   position: relative;
   z-index: 1;
@@ -106,3 +104,5 @@
   position: relative;
   z-index: 1;
 }
+
+/* Flight.css */

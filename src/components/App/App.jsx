@@ -49,7 +49,7 @@ function App() {
 
           {/* Visiting localhost:3000/about will show the about page. */}
           <Route
-            // shows AboutPage at all times (logged in or not)
+           
             exact
             path="/about"
           >
@@ -156,8 +156,7 @@ function App() {
 
           <Route
             exact
-            path="/flight_info" // Define the path for the flight info page
-          >
+            path="/flight_info"  >
             <FlightInfo /> 
           </Route>
 

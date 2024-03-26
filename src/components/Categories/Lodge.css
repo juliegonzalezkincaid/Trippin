@@ -1,9 +1,9 @@
 
-  
+ /* Login.css  */
   .lodging-body {
     background-image: url(/public/orangecloud.jpeg);
     background-size:100% 100%; 
-    background-repeat: no-repeat; /* this line to avoid repeating the image */
+    background-repeat: no-repeat;
     background-attachment: fixed;
     text-align: center;
     font-family: Georgia;
@@ -23,7 +23,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column; /* Add this line */
+    flex-direction: column; 
     gap: 20px;
     font-size: 20px;
     font-weight: bolder;
@@ -69,8 +69,7 @@
     
     font-size: larger;
     display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Adjust the number of columns as needed */
-  grid-gap: 10px;
+  grid-template-columns: repeat(3, 1fr); 
     margin-bottom: 20px;
   }
   .submitinfo p {
@@ -100,7 +99,7 @@
   
   
   .beige-text {
-    color: rgb(109, 192, 36); /* adjust the color as you prefer */
+    color: rgb(109, 192, 36);
     display: inline;
     font-size: larger;
     text-shadow: 1px 1px 1px rgba(09, 9, 9, 9.5);
