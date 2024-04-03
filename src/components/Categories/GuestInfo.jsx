@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from 'react-router-dom';
 import { Button, TextField } from "@mui/material";
@@ -11,8 +11,8 @@ import AssignmentSharpIcon from '@mui/icons-material/AssignmentSharp';
 function GuestInfo() {
   const dispatch = useDispatch();
   const { id } = useParams();
-  const { selected } = useSelector((store) => store.trip);
-  const { user } = useSelector((store) => store);
+  // const { selected } = useSelector((store) => store.trip);
+  // const { user } = useSelector((store) => store);
   const { guestInfo } = useSelector((store) => store.trip);
 
 
@@ -34,16 +34,40 @@ function GuestInfo() {
     }));
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    dispatch({ type: 'ADD_GUEST_INFO', payload: { ...formValues, index: guestInfo.length } });
-    setFormValues({
-      name:'',
-      phone:'',
-      email:'',
-    });
-  };
+// Save guest info to local storage
+const handleSubmit = (event) => {
+  event.preventDefault();
+  // Save guest info to local storage
+  localStorage.setItem('guestInfo', JSON.stringify([...guestInfo, formValues]));
+  // Dispatch action to add guest info to Redux store
+  dispatch({ type: 'ADD_GUEST_INFO', payload: { ...formValues, index: guestInfo.length } });
+  setFormValues({ name:'', phone:'', email:'' });
+};
 
+// Load guest info from local storage on component mount
+useEffect(() => {
+  const storedGuestInfo = localStorage.getItem('guestInfo');
+  if (storedGuestInfo) {
+    dispatch({ type: 'SET_GUEST_INFO', payload: JSON.parse(storedGuestInfo) });
+  }
+}, []);
+
+
+
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
+  //   dispatch({ type: 'ADD_GUEST_INFO', payload: { ...formValues, index: guestInfo.length } });
+  //   setFormValues({
+  //     name:'',
+  //     phone:'',
+  //     email:'',
+  //   });
+  // };
+
+  // useEffect(() => {
+  //   // Dispatch SET_GUEST_INFO action when the component mounts
+  //   dispatch({ type: 'SET_GUEST_INFO', payload: guestInfo });
+  // }, [dispatch, guestInfo]);
 
 
   return (

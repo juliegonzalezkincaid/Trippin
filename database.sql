@@ -110,3 +110,10 @@ CREATE SEQUENCE "user_id_seq" OWNED BY "user"."id";
 CREATE SEQUENCE "entry_id_seq" OWNED BY "entry"."id";
 
 ALTER TABLE "entry" ALTER COLUMN "id" SET DEFAULT nextval('"entry_id_seq"');
+
+CREATE TABLE "guest_info" (
+    "id" SERIAL PRIMARY KEY,
+    "name" VARCHAR(100) NOT NULL,
+    "phone" VARCHAR(20) NOT NULL,
+    "email" VARCHAR(100) NOT NULL
+);
