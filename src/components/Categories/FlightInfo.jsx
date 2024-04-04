@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { Button, TextField, Typography } from "@mui/material";
@@ -9,13 +9,22 @@ import AssignmentSharpIcon from '@mui/icons-material/AssignmentSharp';
 import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 
 function FlightInfo() {
-  const history = useHistory();
+
   const dispatch = useDispatch();
   const { id } = useParams();
-  const { user } = useSelector((store) => store);
-  const { selected } = useSelector((store) => store.trip);
   const { setFlightInfo } = useSelector((store) => store.trip);
   const [sortBy, setSortBy] = useState('name'); // Default sorting option
+
+  useEffect(() => {
+    console.log("Fetching flight information from localStorage...");
+    const storedFlightInfo = localStorage.getItem('flightInfo');
+    if (storedFlightInfo) {
+      console.log("Flight information found in localStorage:", storedFlightInfo);
+      dispatch({ type: 'SET_FLIGHT_INFO', payload: JSON.parse(storedFlightInfo) });
+  } else {
+    console.log("No flight information found in localStorage.");
+  }
+}, []);
 
   const handleSortChange = (event) => {
     setSortBy(event.target.value);
@@ -55,7 +64,9 @@ function FlightInfo() {
       ...formValues,
       index: setFlightInfo.length,
     };
-    dispatch({ type: 'SET_FLIGHT_INFO', payload: flightInfo });
+    dispatch({ type: 'ADD_FLIGHT_INFO', payload: flightInfo });
+    localStorage.setItem('flightInfo', JSON.stringify([...setFlightInfo, flightInfo]));
+
     setFormValues({
       name: "",
       arrivalDate: "",
@@ -68,7 +79,7 @@ function FlightInfo() {
       departDate: ""
     });
   }
-
+  
 
 
   return (
@@ -418,7 +429,7 @@ function FlightInfo() {
             </FormControl>
            
           </ul>
-        )}{sortedFlightInfo.map((flight, index) => (
+        )}{setFlightInfo.map((flight, index) => (
           <div className="submitinfo" key={index} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '20px' }}>
             <div >
               <p><span className="label">Name:</span> <span className="value">{flight.name}</span></p>
@@ -462,6 +473,70 @@ function FlightInfo() {
 }
 export default FlightInfo;
 
+// const dispatch = useDispatch();
+//   const { id } = useParams();
+//   const { setFlightInfo } = useSelector((store) => store.trip);
+//   const [sortBy, setSortBy] = useState('name'); // Default sorting option
+//   const [formValues, setFormValues] = useState({ // Initialize formValues state
+//     name: "",
+//     arrivalDate: "",
+//     fromCity: "",
+//     toCity: "",
+//     airline: "",
+//     flightNum: "",
+//     departTime: "",
+//     arrivalTime: "",
+//     departDate: ""
+//   });
+
+//   const handleSortChange = (event) => {
+//     setSortBy(event.target.value);
+//   };
+
+//   const handleChange = (event) => {
+//     const { name, value } = event.target;
+//     setFormValues((prevFormValues) => ({
+//       ...prevFormValues,
+//       [name]: value,
+//     }));
+//   };
+
+//   const handleSubmit = (event) => {
+//     event.preventDefault();
+//     localStorage.setItem('flightInfo', JSON.stringify([...setFlightInfo, formValues]));
+//     dispatch({ type: 'ADD_FLIGHT_INFO', payload: { ...formValues, index: setFlightInfo.length } });
+//     setFormValues({
+//       name: "",
+//       arrivalDate: "",
+//       fromCity: "",
+//       toCity: "",
+//       airline: "",
+//       flightNum: "",
+//       departTime: "",
+//       arrivalTime: "",
+//       departDate: ""
+//     });
+//   };
+
+//   useEffect(() => {
+//     const storedFlightInfo = localStorage.getItem('flightInfo');
+//     if (storedFlightInfo) {
+//       dispatch({ type: 'SET_FLIGHT_INFO', payload: JSON.parse(storedFlightInfo) });
+//     }
+//   }, []);
+
+//   const sortedFlightInfo = [...setFlightInfo].sort((a, b) => {
+//     if (sortBy === 'name') {
+//       return a.name.localeCompare(b.name);
+//     } else if (sortBy === 'arrivalDate') {
+//       return new Date(a.arrivalDate) - new Date(b.arrivalDate);
+//     } else if (sortBy === 'departureTime') {
+//       // Implement sorting by departure time
+//     } else if (sortBy === 'departureDate') {
+//       // Implement sorting by departure date
+//     }
+//     // Handle other sorting options if needed
+//   });
 
 
 

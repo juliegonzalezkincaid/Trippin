@@ -11,6 +11,7 @@ const initialState = {
   userTrip: [],
   savedTrips: [],
   setFlightInfo: [],
+  // flightInfo:[],
   guestInfo: [],
   lodging: [],
   misc: [],
@@ -134,19 +135,27 @@ function tripReducer(state = initialState, action) {
             : trip
         ),
       };
+      case 'ADD_FLIGHT_INFO':
+      console.log('ADD_FLIGHT_INFO action:', action.payload);
+      // Log the current state of flightInfo array
+      console.log('Current flightInfo state:', state.flightInfo);
+      return {
+        ...state,
+        setFlightInfo: [...state.setFlightInfo, action.payload],
+      };
 
     case "SET_FLIGHT_INFO":
       console.log('SET_FLIGHT_INFO action:', action.payload);
       return {
         ...state,
-        setFlightInfo: [...state.setFlightInfo, action.payload],
+        setFlightInfo: action.payload,
       };
 
     case 'DELETE_FLIGHT_INFO':
       const updatedFlight = state.setFlightInfo.filter((_, index) => index !== action.payload);
       return {
         ...state,
-        lodging: updatedFlight,
+        setFlightInfo: updatedFlight,
       };
 
     case 'ADD_GUEST_INFO':

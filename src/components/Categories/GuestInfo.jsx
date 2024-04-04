@@ -11,8 +11,6 @@ import AssignmentSharpIcon from '@mui/icons-material/AssignmentSharp';
 function GuestInfo() {
   const dispatch = useDispatch();
   const { id } = useParams();
-  // const { selected } = useSelector((store) => store.trip);
-  // const { user } = useSelector((store) => store);
   const { guestInfo } = useSelector((store) => store.trip);
 
 
@@ -51,23 +49,6 @@ useEffect(() => {
     dispatch({ type: 'SET_GUEST_INFO', payload: JSON.parse(storedGuestInfo) });
   }
 }, []);
-
-
-
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   dispatch({ type: 'ADD_GUEST_INFO', payload: { ...formValues, index: guestInfo.length } });
-  //   setFormValues({
-  //     name:'',
-  //     phone:'',
-  //     email:'',
-  //   });
-  // };
-
-  // useEffect(() => {
-  //   // Dispatch SET_GUEST_INFO action when the component mounts
-  //   dispatch({ type: 'SET_GUEST_INFO', payload: guestInfo });
-  // }, [dispatch, guestInfo]);
 
 
   return (
@@ -255,7 +236,7 @@ useEffect(() => {
                       boxShadow: '10px 10px 10px rgba(3, 3, 3, 1)',
                       fontFamily: "Georgia",
                       fontSize: '18px',
-                    padding: '10px',
+                    padding: '0px',
                  
                   }}
                   >
