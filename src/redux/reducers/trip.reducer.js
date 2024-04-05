@@ -135,6 +135,9 @@ function tripReducer(state = initialState, action) {
             : trip
         ),
       };
+
+      //* FLIGHT INFO 
+
       case 'ADD_FLIGHT_INFO':
       console.log('ADD_FLIGHT_INFO action:', action.payload);
       // Log the current state of flightInfo array
@@ -158,6 +161,7 @@ function tripReducer(state = initialState, action) {
         setFlightInfo: updatedFlight,
       };
 
+      //* GUEST INFO
     case 'ADD_GUEST_INFO':
       console.log('ADD_GUEST_INFO action:', action.payload);
       // Log the current state of guestInfo array
@@ -174,19 +178,37 @@ function tripReducer(state = initialState, action) {
         guestInfo: action.payload,
       };
 
-    case 'SET_LODGING':
-      console.log('SET_LODGING action:', action.payload);
-      return {
-        ...state,
-        lodging: [...state.lodging, action.payload],
-      };
 
-    case 'DELETE_LODGING_INFO':
-      const updatedLodging = state.lodging.filter((_, index) => index !== action.payload);
-      return {
-        ...state,
-        lodging: updatedLodging,
-      };
+      //*LODGING
+      case 'ADD_LODGING_INFO':
+        console.log('ADD_LODGING_INFO action:', action.payload);
+        // Log the current state of lodging array
+        console.log('Current lodging state:', state.lodging);
+        return {
+          ...state,
+          lodging: [...state.lodging, action.payload],
+        };
+      
+        case 'SET_LODGING':
+          return {
+            ...state,
+            lodging: [...state.lodging, ...action.payload],
+          };
+        
+      
+      
+      
+          case 'DELETE_LODGING_INFO':
+            const updatedLodging = state.lodging.filter((_, index) => index !== action.payload);
+            return {
+              ...state,
+              lodging: updatedLodging,
+            };
+      
+      
+
+
+      //*MISC
 
     case 'SET_MISC':
       console.log('SET_MISC action before:', state.misc);

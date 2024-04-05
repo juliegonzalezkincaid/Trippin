@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from 'react-router-dom';
 import { Button, TextField, Typography } from "@mui/material";
@@ -43,7 +43,7 @@ function Lodging() {
       ...formValues,
       index: lodging.length,
     }
-    dispatch({ type: 'SET_LODGING', payload: lodgingInfo });
+    dispatch({ type: 'ADD_LODGING_INFO', payload: lodgingInfo });
     setFormValues({
       name: "",
       lodgeName: "",
@@ -52,7 +52,27 @@ function Lodging() {
       departureDate: "",
     });
   }
+  useEffect(() => {
+    console.log("Fetching lodging info from local storage...");
+    const storedLodging = localStorage.getItem('lodging');
+    if (storedLodging) {
+      console.log("Setting lodging info from local storage to Redux state...");
+      dispatch({ type: 'SET_LODGING', payload: JSON.parse(storedLodging) });
+       // Clear local storage after loading into Redux state
+       localStorage.removeItem('lodging');
+    }
+  }, [dispatch]); // Empty dependency array to ensure the effect runs only once, when the component mounts
+  
 
+  useEffect(() => {
+    console.log("Saving lodging info to local storage...");
+    localStorage.setItem('lodging', JSON.stringify(lodging));
+      // Clean up local storage when the component unmounts
+      return () => {
+        localStorage.removeItem('lodging');
+      };
+  }, [lodging]);
+  
 
   return (
     <div className="lodging-body">
@@ -308,15 +328,16 @@ function Lodging() {
           >Submitted Guest Information:</h1>
             <ul>
               {lodging
-              .slice() // Create a copy of the array to avoid mutating the original
-              .sort((a, b) => a.name.localeCompare(b.name)) // Sort entries alphabetically by name
-              .map((lodge, index) => (
+              .slice()
+              .sort((a, b) => (a.name && b.name) ? a.name.localeCompare(b.name) : 0)
+
+              .map((guest, index) => (
                 <li className="submitinfo" key={index}>
-                <p className="label-text">Name:<span className="beige-text"> {lodge.name}</span></p>
-                <p className="label-text">Lodge Name:<span className="beige-text"> {lodge.lodgeName}</span></p>
-                <p className="label-text">Address:<span className="beige-text"> {lodge.address}</span></p>
-                <p className="label-text">Arrival Date:<span className="beige-text"> {lodge.arrivalDate}</span></p>
-                <p className="label-text">Departure Date:<span className="beige-text"> {lodge.departureDate}</span></p>
+                <p className="label-text">Name:<span className="beige-text"> {guest.name}</span></p>
+                <p className="label-text">Lodge Name:<span className="beige-text"> {guest.lodgeName}</span></p>
+                <p className="label-text">Address:<span className="beige-text"> {guest.address}</span></p>
+                <p className="label-text">Arrival Date:<span className="beige-text"> {guest.arrivalDate}</span></p>
+                <p className="label-text">Departure Date:<span className="beige-text"> {guest.departureDate}</span></p>
                 <Button
                     variant="contained"
                     color="secondary"
@@ -352,6 +373,5 @@ function Lodging() {
 }
 
 export default Lodging;
-
 
 
